@@ -1,0 +1,11 @@
+*BATCH                                                                          
+!                                                                               
+! Directory    : C:\DSSAT4\WHEAT
+! Command Line : C:\DSSAT4\DSCSM040.EXE B D4Batch.DV4                           
+! Crop         : WHEAT
+! Experiment   : UYWH0001.SNX
+! ExpNo        : 1                                                              
+! Debug        : C:\DSSAT4\DSCSM040.EXE " B D4Batch.DV4"                        
+!                                                                               
+@FILEX       TRTNO                                                              
+UYWH0001.SNX     1

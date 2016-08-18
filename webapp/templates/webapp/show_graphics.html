@@ -1,0 +1,159 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Climate-Agriculture Modeling Decision Tool </title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"> </script>
+	
+	<script>	 
+	//valida precio del grano 
+ 	/*$(function() {
+		$('#precioGranoEscenario').change(function () {   
+			if((parseInt($('#precioGranoEscenario').val()) < 0) || (parseInt($('#precioGranoEscenario').val()) > 1000)){
+					document.getElementById("precioGranoEscenarioD").className = "form-group has-error has-feedback";
+					document.getElementById("errorPrecioGrano").innerHTML = 'Incorrecto';
+					document.getElementById("precioGranoS").className = "glyphicon glyphicon-remove form-control-feedback";
+			}else{				
+				document.getElementById("precioGranoEscenarioD").className = "form-group has-success has-feedback";
+				document.getElementById("errorPrecioGrano").innerHTML = ' ';				
+				document.getElementById("precioGranoS").className = "glyphicon glyphicon-ok form-control-feedback";
+			}			
+		});
+	});
+	//valida precio del fertilizante 
+ 	$(function() {
+		$('#precioFertilizanteEscenario').change(function () {   
+			if((parseInt($('#precioFertilizanteEscenario').val()) < 1) || (parseInt($('#precioFertilizanteEscenario').val()) > 2)){
+					document.getElementById("precioFertilizanteEscenarioD").className = "form-group has-error has-feedback";
+					document.getElementById("errorprecioFertilizanteEscenario").innerHTML = 'Incorrecto';
+					document.getElementById("precioFertilizanteEscenarioS").className = "glyphicon glyphicon-remove form-control-feedback";
+			}else{				
+				document.getElementById("precioFertilizanteEscenarioD").className = "form-group has-success has-feedback";
+				document.getElementById("errorprecioFertilizanteEscenario").innerHTML = ' ';				
+				document.getElementById("precioFertilizanteEscenarioS").className = "glyphicon glyphicon-ok form-control-feedback";
+			}			
+		});
+	});
+	//valida costo del riego
+ 	$(function() {
+		$('#costeRiegoEscenario').change(function () {   
+			if((parseInt($('#costeRiegoEscenario').val()) < 1) || (parseInt($('#costeRiegoEscenario').val()) > 3)){
+					document.getElementById("costeRiegoEscenarioD").className = "form-group has-error has-feedback";
+					document.getElementById("errorCosteRiegoEscenario").innerHTML = 'Incorrecto';
+					document.getElementById("costeRiegoEscenarioS").className = "glyphicon glyphicon-remove form-control-feedback";
+			}else{				
+				document.getElementById("costeRiegoEscenarioD").className = "form-group has-success has-feedback";
+				document.getElementById("errorCosteRiegoEscenario").innerHTML = ' ';				
+				document.getElementById("costeRiegoEscenarioS").className = "glyphicon glyphicon-ok form-control-feedback";
+			}			
+		});
+	});
+	
+	//valida gastos generales
+ 	$(function() {
+		$('#gastosGeneralesEscenario').change(function () {   
+			if((parseInt($('#gastosGeneralesEscenario').val()) < 300) || (parseInt($('#gastosGeneralesEscenario').val()) > 1000)){
+					document.getElementById("gastosGeneralesEscenarioD").className = "form-group has-error has-feedback";
+					document.getElementById("errorGastosGeneralesEscenario").innerHTML = 'Incorrecto';
+					document.getElementById("gastosGeneralesEscenarioS").className = "glyphicon glyphicon-remove form-control-feedback";
+			}else{				
+				document.getElementById("gastosGeneralesEscenarioD").className = "form-group has-success has-feedback";
+				document.getElementById("errorGastosGeneralesEscenario").innerHTML = ' ';				
+				document.getElementById("gastosGeneralesEscenarioS").className = "glyphicon glyphicon-ok form-control-feedback";
+			}			
+		});
+	});*/
+	
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row page-header">
+			<div class="col-sm-3">
+				<img class="img-responsive" src="/static/img/logoSNIA.png" alt="Logo SNIA">
+			</div>
+			<div class="col-sm-6 text-center">
+				<h2> Simulador de Cultivo </h2>			
+			</div>
+			<div class="col-sm-3">					
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-sm-6">
+				<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/boxplot.png" alt="Rendimientos esperados (Boxplot)">
+			</div>
+			<div class="col-sm-6">
+				<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/curvaPExcedencia.png" alt="Rendimientos esperados (Curva de probabilidad de exedencia)">
+			</div>
+		</div>
+
+		<form action="margenBruto">
+			<input type="text" value="{{dir}}" name="dirEscenario" style="display:none">
+			
+			{% for anioE in aniosEscenarios %}
+			<div id='aniosEscenario' style="display:none">
+				<label for="aEscenario"> <b> Cantidad a&ntilde;os escenarios: </b> </label>
+				<input type="text" name="aEscenario" class="form-control" id= "inAnioEscenario" value="{{ anioE }}" style="display:none">
+			</div>
+			{% endfor %}
+			
+			<div class="row" style="background-color:#e6e6ff;">				
+				<div class="row col-sm-12">				
+					<h3>Escenarios</h3>
+				</div>
+				
+				<div class="row">				
+					<div class="col-sm-4">
+						<label for="nombreEscenario"> <b> Nombre escenario: </b> </label>						
+					</div>						
+					<div class="col-sm-2">
+						<label for="precioGranoEscenario">Precio del grano (U$S/ton):</label>												
+					</div>
+					<div class="col-sm-2">
+						<label for="precioFertilizanteEscenario">Precio del fertilizante (U$S/kg N):</label>						
+					</div>					
+					<div class="col-sm-2">
+						<label for="costeRiegoEscenario">Costo del riego (U$S/mm):</label>						
+					</div>
+					<div class="col-sm-2">
+						<label for="gastosGeneralesEscenario">Gastos generales (U$S/ha):</label>						
+					</div>									
+				</div>
+				
+				
+				
+				{% for nEscenario in nombreEscenarios %}
+				<div class="row">				
+					<div id='escenario' class="col-sm-4">						
+						<input type="text" name="nombreEscenario" class="form-control" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}">
+					</div>						
+					<div class="col-sm-2" id='precioGranoEscenarioD'>						
+						<input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="form-control">
+						<!--<span  id= "precioGranoS" aria-hidden="true"></span>
+						<p id="errorPrecioGrano" class = "control-label has-error"></p>	-->
+					</div>
+					<div class="col-sm-2" id='precioFertilizanteEscenarioD'>						
+						<input type="text" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="form-control">
+						<!--<span  id= "precioFertilizanteEscenarioS" aria-hidden="true"></span>
+						<p id="errorprecioFertilizanteEscenario" class = "control-label has-error"></p>	-->
+					</div>					
+					<div class="col-sm-2" id='costeRiegoEscenarioD'>						
+						<input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="form-control">
+						<!--<span  id= "costeRiegoEscenarioS" aria-hidden="true"></span>
+						<p id="errorCosteRiegoEscenario" class = "control-label has-error"></p>	-->
+					</div>
+					<div class="col-sm-2" id='gastosGeneralesEscenarioD'>						
+						<input type="text" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="form-control">
+						<!--<span  id= "gastosGeneralesEscenarioS" aria-hidden="true"></span>
+						<p id="errorGastosGeneralesEscenario" class = "control-label has-error"></p>	-->
+					</div>									
+				</div>
+				{% endfor %}
+				<input type='submit' name="margenBruto" value="Graficar margen bruto">
+			</div>
+		</form>
+	</div>
+</body>
+</html>

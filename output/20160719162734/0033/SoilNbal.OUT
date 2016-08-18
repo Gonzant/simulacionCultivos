@@ -1,0 +1,33 @@
+*SOIL N BALANCE - CERES SOIL N&C ROUTINES
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Jul 19, 2016; 16:27:34
+
+*RUN   1        : UYMZ                    
+ MODEL          : MZCER040 - Maize           
+ EXPERIMENT     : UYMZ0033 MZ    late to create DSS                             
+ TREATMENT  1   : UYMZ                    
+
+
+
+                                         INITIAL Year/Doy      FINAL Year/Doy
+                                                 1990/191            1991/023
+SOIL N BALANCE                                  -----------kg N/ha-----------
+
+   Soil Humus N                                  16646.04            16546.93
+   Soil Litter N                                     0.00               17.00
+   N in Surface Residue                              0.00                0.00
+   Soil NO3                                         74.81                5.73
+   Soil NH4                                         23.95                5.13
+   Soil Urea                                         0.00                0.00
+
+   Added to / Removed from Soil:
+   N in Harvest Residues from Previous Crop          0.00
+   N from Organic Applications                       0.00
+   N from senesced plant matter                     20.08
+   Fertilizer N                                      2.00
+   Leached NO3                                                           5.89
+   N Denitrified                                                         0.08
+   N Uptake From Soil                                                  185.29
+   Ammonia volatilization                                                0.84
+
+   Total N balance                               16766.89            16766.89

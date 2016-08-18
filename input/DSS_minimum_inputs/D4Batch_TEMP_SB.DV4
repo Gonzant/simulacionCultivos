@@ -1,0 +1,11 @@
+*BATCH                                                                          
+!                                                                               
+! Directory    : C:\DSSAT4\SOYBEAN
+! Command Line : C:\DSSAT4\DSCSM040.EXE B D4Batch.DV4                           
+! Crop         : SOYBEAN
+! Experiment   : UYSB0001.SNX
+! ExpNo        : 1                                                              
+! Debug        : C:\DSSAT4\DSCSM040.EXE " B D4Batch.DV4"                        
+!                                                                               
+@FILEX       TRTNO                                                              
+UYSB0001.SNX     1

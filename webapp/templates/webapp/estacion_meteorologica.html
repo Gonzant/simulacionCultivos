@@ -1,0 +1,19 @@
+
+
+{% block content %}
+	<div id='estacionMeteorologica'>
+		<div id='comboEstacionMeteorologica'>
+			<select>		
+				{% for estacion in estaciones %}
+					<option value="{{ estacion.nombre }}">{{ estacion.nombre }}</option>							
+				{% endfor %}			  
+			</select>
+		</div>
+		<div id='aniosEstacionMeteorologica'>
+			<label for="desdeAnio">Desde</label>
+			<input type="text" name="desdeAnio">
+			<label for="hastaAnio">Hasta</label>
+			<input type="text" name="hastaAnio">		
+		</div>
+	</div>
+{% endblock content %}

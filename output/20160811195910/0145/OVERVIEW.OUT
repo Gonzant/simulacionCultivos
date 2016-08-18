@@ -1,0 +1,731 @@
+*SIMULATION OVERVIEW FILE
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 11, 2016; 19:59:12
+                                                                                
+*RUN   1        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0145 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 6 UY          ECOTYPE :SB0601    
+ STARTING DATE  : AUG  8 1990                                                   
+ PLANTING DATE  : AUG 11 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1990                                                   
+ SOIL           : UYSS0P2304     TEXTURE : CL    -  P23-04    SNIA CLAY LOAM    
+ SOIL INITIAL C : DEPTH:137cm EXTR. H2O:180.9mm  NO3: 24.9kg/ha  NH4: 28.7kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        2 kg/ha IN     2 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+  5- 15 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+ 15- 30 0.274 0.408 0.480 0.133 0.341   0.84   1.32   5.61   4.17   1.50   1.62 
+ 30- 45 0.295 0.427 0.495 0.132 0.361   0.40   1.39   5.90   1.90   1.50   0.79 
+ 45- 60 0.280 0.413 0.484 0.133 0.364   0.37   1.41   6.38   1.39   1.50   0.65 
+ 60- 90 0.238 0.373 0.454 0.135 0.373   0.30   1.46   7.70   0.00   1.50   0.28 
+ 90-120 0.133 0.252 0.399 0.120 0.252   0.20   1.48   7.89   0.00   1.50   0.11 
+120-137 0.191 0.336 0.441 0.145 0.336   0.13   1.27   7.83   0.00   1.50   2.07 
+                                                                                
+TOT-137  31.1  49.2  62.1  18.1  45.5  <--cm   -  kg/ha-->   24.9   28.7 161462 
+SOIL ALBEDO    : 0.12      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0161-GM 6 UY            ECOTYPE :SB0601                 
+ CSDVAR :12.90  PPSEN  : 0.31  EMG-FLW:23.50  FLW-FSD:19.00  FSD-PHM : 34.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :21.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+
+ RUN NO.     1     UYSB                    
+
+        CROP GROWTH   BIOMASS         LEAF   CROP N     STRESS  
+   DATE  AGE STAGE      kg/ha    LAI   NUM  kg/ha  %   H2O    N 
+ ------  --- ---------- -----  -----  ----  ---  ---  ----  ----
+  8 AUG    0 Start Sim      0   0.00   0.0    0  0.0  0.00  0.00
+ 11 AUG    0 Sowing         0   0.00   0.0    0  0.0  0.00  0.00
+ 18 AUG    7 Emergence      4   0.01   0.0    0  5.1  0.00  0.00
+ 18 AUG    7 End Juven.     4   0.01   0.0    0  5.1  0.00  0.00
+
+     Freeze occurred at   22 days after planting.                                  
+       (DAY : 1990245 )                                                            
+
+ 10 SEP   30 Unifoliate     2   0.00   1.1    0  2.8  0.00  0.00
+ 11 SEP   31 Flower Ind     2   0.00   1.3    0  2.8  0.00  0.00
+ 30 OCT   80 First Flwr     2   0.00   8.4    0  2.9  0.00  0.00
+ 19 NOV  100 End Msnode     2   0.00  12.3    0  2.9  0.00  0.00
+ 21 NOV  102 First Pod      2   0.00  12.3    0  2.9  0.00  0.00
+ 15 DEC  126 First Seed     2   0.00  12.3    0  2.9  0.00  0.00
+ 29 DEC  140 End Leaf       2   0.00  12.3    0  2.9  0.00  0.00
+ 11 JAN  153 End Pod        2   0.00  12.3    0  2.9  0.00  0.00
+ 18 FEB  191 Phys. Mat      2   0.00  12.3    0  3.0  0.00  0.00
+  2 MAR  203 Harv. Mat      2   0.00  12.3    0  2.8  0.00  0.00
+  2 MAR  203 Harvest        2   0.00  12.3    0  2.8  0.00  0.00
+
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                          SIMULATED     MEASURED
+      --------                          ---------     --------
+      Anthesis day (dap)                       80          -99
+      First pod day (dap)                     102          -99
+      First seed day (dap)                    126          -99
+      Physiological maturity day (dap)        191          -99
+      Yield at harvest maturity (kg [dm]/       0          -99
+      Pod/Ear/Panicle weight at maturity        0          -99
+      Number at maturity (no/m2)                0          -99
+      Unit wt at maturity (g [dm]/unit)    0.0000          -99
+      Number at maturity (no/unit)           1.79          -99
+      Tops weight at maturity (kg [dm]/ha       2          -99
+      By-product produced (stalk) at matu       0          -99
+      Leaf area index, maximum               0.01          -99
+      Harvest index at maturity             0.000          -99
+      Threshing % at maturity                0.00          -99
+      Grain N at maturity (kg/ha)               0          -99
+      Tops N at maturity (kg/ha)                0          -99
+      Stem N at maturity (kg/ha)                0          -99
+      Grain N at maturity (%)                0.00          -99
+      Tops weight at anthesis (kg [dm]/ha       2          -99
+      Tops N at anthesis (kg/ha)                0          -99
+      Leaf number per stem at maturity      12.30          -99
+      Grain oil at maturity (%)              0.00          -99
+      Canopy height (m)                      0.54          -99
+      Harvest maturity day (dap)              203          -99
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|---------Stress----------|
+                              |--------Average-------|---Cumulative--|  (0=Min, 1=Max Stress)  |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo
+                         days    øC    øC MJ/m2     hr     mm     mm  synth Growth  synth Growth
+------------------------------------------------------------------------------------------------
+ Emergence -First Flower   73  20.4   9.8  16.2  12.07  254.9  120.0  0.000  0.000  0.000  0.000
+ First Flower-First Seed   46  25.5  14.7  21.7  13.73  320.7   93.8  0.000  0.000  0.000  0.000
+ First Seed - Phys. Mat.   65  27.8  15.0  25.7  13.75  166.2   85.3  0.000  0.000  0.000  0.000
+ Emergence  - Phys. Mat.  184  24.3  12.9  20.9  13.08  741.8  299.1  0.000  0.000  0.000  0.000
+
+                   Soybean YIELD :        0 kg/ha    [Dry weight] 
+
+************************************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 11, 2016; 19:59:12
+                                                                                
+*RUN   2        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0145 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 6 UY          ECOTYPE :SB0601    
+ STARTING DATE  : AUG  8 1990                                                   
+ PLANTING DATE  : AUG 11 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1990                                                   
+ SOIL           : UYSS0P2304     TEXTURE : CL    -  P23-04    SNIA CLAY LOAM    
+ SOIL INITIAL C : DEPTH:137cm EXTR. H2O:180.9mm  NO3: 24.9kg/ha  NH4: 28.7kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        2 kg/ha IN     2 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+  5- 15 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+ 15- 30 0.274 0.408 0.480 0.133 0.341   0.84   1.32   5.61   4.17   1.50   1.62 
+ 30- 45 0.295 0.427 0.495 0.132 0.361   0.40   1.39   5.90   1.90   1.50   0.79 
+ 45- 60 0.280 0.413 0.484 0.133 0.364   0.37   1.41   6.38   1.39   1.50   0.65 
+ 60- 90 0.238 0.373 0.454 0.135 0.373   0.30   1.46   7.70   0.00   1.50   0.28 
+ 90-120 0.133 0.252 0.399 0.120 0.252   0.20   1.48   7.89   0.00   1.50   0.11 
+120-137 0.191 0.336 0.441 0.145 0.336   0.13   1.27   7.83   0.00   1.50   2.07 
+                                                                                
+TOT-137  31.1  49.2  62.1  18.1  45.5  <--cm   -  kg/ha-->   24.9   28.7 161462 
+SOIL ALBEDO    : 0.12      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0161-GM 6 UY            ECOTYPE :SB0601                 
+ CSDVAR :12.90  PPSEN  : 0.31  EMG-FLW:23.50  FLW-FSD:19.00  FSD-PHM : 34.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :21.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+
+ RUN NO.     2     UYSB                    
+
+        CROP GROWTH   BIOMASS         LEAF   CROP N     STRESS  
+   DATE  AGE STAGE      kg/ha    LAI   NUM  kg/ha  %   H2O    N 
+ ------  --- ---------- -----  -----  ----  ---  ---  ----  ----
+  8 AUG    0 Start Sim      0   0.00   0.0    0  0.0  0.00  0.00
+ 11 AUG    0 Sowing         0   0.00   0.0    0  0.0  0.00  0.00
+ 21 AUG   10 Emergence      4   0.01   0.1    0  5.1  0.00  0.00
+ 21 AUG   10 End Juven.     4   0.01   0.1    0  5.1  0.00  0.00
+  3 SEP   23 Unifoliate     8   0.01   1.1    0  5.0  0.00  0.00
+  3 SEP   23 Flower Ind     8   0.01   1.1    0  5.0  0.00  0.00
+ 25 OCT   75 First Flwr   692   0.96   8.2   29  4.2  0.00  0.00
+ 16 NOV   97 End Msnode  2768   2.57  11.7   88  3.2  0.00  0.03
+ 19 NOV  100 First Pod   3245   2.79  11.7  102  3.1  0.00  0.00
+ 11 DEC  122 First Seed  6824   3.84  11.7  213  3.1  0.00  0.00
+ 24 DEC  135 End Leaf    8707   3.75  11.7  261  3.0  0.00  0.00
+  7 JAN  149 End Pod    10759   3.52  11.7  322  3.0  0.00  0.00
+ 14 FEB  187 Phys. Mat  13503   2.46  11.7  406  3.0  0.00  0.00
+ 26 FEB  199 Harv. Mat  10654   0.16  11.7  337  3.2  0.00  0.01
+ 26 FEB  199 Harvest    10654   0.16  11.7  337  3.2  0.00  0.00
+
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                          SIMULATED     MEASURED
+      --------                          ---------     --------
+      Anthesis day (dap)                       75          -99
+      First pod day (dap)                     100          -99
+      First seed day (dap)                    122          -99
+      Physiological maturity day (dap)        187          -99
+      Yield at harvest maturity (kg [dm]/    4374          -99
+      Pod/Ear/Panicle weight at maturity     6324          -99
+      Number at maturity (no/m2)             2276          -99
+      Unit wt at maturity (g [dm]/unit)    0.1921          -99
+      Number at maturity (no/unit)           2.20          -99
+      Tops weight at maturity (kg [dm]/ha   10654          -99
+      By-product produced (stalk) at matu    6280          -99
+      Leaf area index, maximum               3.85          -99
+      Harvest index at maturity             0.411          -99
+      Threshing % at maturity               69.16          -99
+      Grain N at maturity (kg/ha)             267          -99
+      Tops N at maturity (kg/ha)              337          -99
+      Stem N at maturity (kg/ha)               35          -99
+      Grain N at maturity (%)                6.10          -99
+      Tops weight at anthesis (kg [dm]/ha     692          -99
+      Tops N at anthesis (kg/ha)               29          -99
+      Leaf number per stem at maturity      11.72          -99
+      Grain oil at maturity (%)             20.30          -99
+      Canopy height (m)                      0.50          -99
+      Harvest maturity day (dap)              199          -99
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|---------Stress----------|
+                              |--------Average-------|---Cumulative--|  (0=Min, 1=Max Stress)  |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo
+                         days    øC    øC MJ/m2     hr     mm     mm  synth Growth  synth Growth
+------------------------------------------------------------------------------------------------
+ Emergence -First Flower   65  21.5  10.9  15.6  12.04  285.2  117.6  0.000  0.000  0.000  0.000
+ First Flower-First Seed   47  24.4  14.2  19.5  13.64  199.1  199.2  0.000  0.000  0.000  0.014
+ First Seed - Phys. Mat.   65  28.4  17.8  22.2  13.80  257.5  326.9  0.000  0.000  0.030  0.000
+ Emergence  - Phys. Mat.  177  24.8  14.3  19.1  13.11  741.8  643.6  0.000  0.000  0.000  0.004
+
+                   Soybean YIELD :     4374 kg/ha    [Dry weight] 
+
+************************************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 11, 2016; 19:59:12
+                                                                                
+*RUN   3        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0145 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 6 UY          ECOTYPE :SB0601    
+ STARTING DATE  : AUG  8 1990                                                   
+ PLANTING DATE  : AUG 11 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1990                                                   
+ SOIL           : UYSS0P2304     TEXTURE : CL    -  P23-04    SNIA CLAY LOAM    
+ SOIL INITIAL C : DEPTH:137cm EXTR. H2O:180.9mm  NO3: 24.9kg/ha  NH4: 28.7kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        2 kg/ha IN     2 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+  5- 15 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+ 15- 30 0.274 0.408 0.480 0.133 0.341   0.84   1.32   5.61   4.17   1.50   1.62 
+ 30- 45 0.295 0.427 0.495 0.132 0.361   0.40   1.39   5.90   1.90   1.50   0.79 
+ 45- 60 0.280 0.413 0.484 0.133 0.364   0.37   1.41   6.38   1.39   1.50   0.65 
+ 60- 90 0.238 0.373 0.454 0.135 0.373   0.30   1.46   7.70   0.00   1.50   0.28 
+ 90-120 0.133 0.252 0.399 0.120 0.252   0.20   1.48   7.89   0.00   1.50   0.11 
+120-137 0.191 0.336 0.441 0.145 0.336   0.13   1.27   7.83   0.00   1.50   2.07 
+                                                                                
+TOT-137  31.1  49.2  62.1  18.1  45.5  <--cm   -  kg/ha-->   24.9   28.7 161462 
+SOIL ALBEDO    : 0.12      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0161-GM 6 UY            ECOTYPE :SB0601                 
+ CSDVAR :12.90  PPSEN  : 0.31  EMG-FLW:23.50  FLW-FSD:19.00  FSD-PHM : 34.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :21.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+
+ RUN NO.     3     UYSB                    
+
+        CROP GROWTH   BIOMASS         LEAF   CROP N     STRESS  
+   DATE  AGE STAGE      kg/ha    LAI   NUM  kg/ha  %   H2O    N 
+ ------  --- ---------- -----  -----  ----  ---  ---  ----  ----
+  7 AUG    0 Start Sim      0   0.00   0.0    0  0.0  0.00  0.00
+ 10 AUG    0 Sowing         0   0.00   0.0    0  0.0  0.00  0.00
+ 22 AUG   12 Emergence      4   0.01   0.1    0  5.1  0.00  0.00
+ 22 AUG   12 End Juven.     4   0.01   0.1    0  5.1  0.00  0.00
+  9 SEP   30 Unifoliate    10   0.02   1.1    0  4.9  0.00  0.00
+ 10 SEP   31 Flower Ind    10   0.02   1.3    1  4.9  0.00  0.00
+ 10 NOV   92 First Flwr  1639   1.72   9.3   65  4.0  0.00  0.00
+  3 DEC  115 End Msnode  5242   4.13  13.6  171  3.3  0.00  0.05
+  6 DEC  118 First Pod   5811   4.45  13.6  191  3.3  0.00  0.00
+ 29 DEC  141 First Seed 10154   5.40  13.6  321  3.2  0.00  0.00
+ 10 JAN  153 End Leaf   11157   4.95  13.6  341  3.1  0.00  0.00
+ 22 JAN  165 End Pod    12797   4.58  13.6  386  3.0  0.00  0.00
+ 25 FEB  199 Phys. Mat  15430   3.19  13.6  477  3.1  0.00  0.00
+  9 MAR  211 Harv. Mat  12611   0.21  13.6  412  3.3  0.00  0.03
+  9 MAR  211 Harvest    12611   0.21  13.6  412  3.3  0.00  0.00
+
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                          SIMULATED     MEASURED
+      --------                          ---------     --------
+      Anthesis day (dap)                       92          -99
+      First pod day (dap)                     118          -99
+      First seed day (dap)                    141          -99
+      Physiological maturity day (dap)        199          -99
+      Yield at harvest maturity (kg [dm]/    5773          -99
+      Pod/Ear/Panicle weight at maturity     7925          -99
+      Number at maturity (no/m2)             2740          -99
+      Unit wt at maturity (g [dm]/unit)    0.2107          -99
+      Number at maturity (no/unit)           2.20          -99
+      Tops weight at maturity (kg [dm]/ha   12611          -99
+      By-product produced (stalk) at matu    6840          -99
+      Leaf area index, maximum               5.47          -99
+      Harvest index at maturity             0.458          -99
+      Threshing % at maturity               72.85          -99
+      Grain N at maturity (kg/ha)             343          -99
+      Tops N at maturity (kg/ha)              412          -99
+      Stem N at maturity (kg/ha)               35          -99
+      Grain N at maturity (%)                5.94          -99
+      Tops weight at anthesis (kg [dm]/ha    1639          -99
+      Tops N at anthesis (kg/ha)               65          -99
+      Leaf number per stem at maturity      13.59          -99
+      Grain oil at maturity (%)             19.94          -99
+      Canopy height (m)                      0.58          -99
+      Harvest maturity day (dap)              211          -99
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|---------Stress----------|
+                              |--------Average-------|---Cumulative--|  (0=Min, 1=Max Stress)  |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo
+                         days    øC    øC MJ/m2     hr     mm     mm  synth Growth  synth Growth
+------------------------------------------------------------------------------------------------
+ Emergence -First Flower   80  21.5   9.3  18.5  12.34  140.2  174.4  0.000  0.000  0.000  0.000
+ First Flower-First Seed   49  27.3  14.2  24.3  13.92  132.0  260.1  0.000  0.000  0.000  0.022
+ First Seed - Phys. Mat.   58  27.7  18.0  21.3  13.57  371.0  284.7  0.000  0.000  0.053  0.002
+ Emergence  - Phys. Mat.  187  24.9  13.3  20.9  13.13  643.2  719.2  0.000  0.000  0.000  0.006
+
+                   Soybean YIELD :     5773 kg/ha    [Dry weight] 
+
+************************************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 11, 2016; 19:59:12
+                                                                                
+*RUN   4        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0145 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 6 UY          ECOTYPE :SB0601    
+ STARTING DATE  : AUG  8 1990                                                   
+ PLANTING DATE  : AUG 11 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1990                                                   
+ SOIL           : UYSS0P2304     TEXTURE : CL    -  P23-04    SNIA CLAY LOAM    
+ SOIL INITIAL C : DEPTH:137cm EXTR. H2O:180.9mm  NO3: 24.9kg/ha  NH4: 28.7kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        2 kg/ha IN     2 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+  5- 15 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+ 15- 30 0.274 0.408 0.480 0.133 0.341   0.84   1.32   5.61   4.17   1.50   1.62 
+ 30- 45 0.295 0.427 0.495 0.132 0.361   0.40   1.39   5.90   1.90   1.50   0.79 
+ 45- 60 0.280 0.413 0.484 0.133 0.364   0.37   1.41   6.38   1.39   1.50   0.65 
+ 60- 90 0.238 0.373 0.454 0.135 0.373   0.30   1.46   7.70   0.00   1.50   0.28 
+ 90-120 0.133 0.252 0.399 0.120 0.252   0.20   1.48   7.89   0.00   1.50   0.11 
+120-137 0.191 0.336 0.441 0.145 0.336   0.13   1.27   7.83   0.00   1.50   2.07 
+                                                                                
+TOT-137  31.1  49.2  62.1  18.1  45.5  <--cm   -  kg/ha-->   24.9   28.7 161462 
+SOIL ALBEDO    : 0.12      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0161-GM 6 UY            ECOTYPE :SB0601                 
+ CSDVAR :12.90  PPSEN  : 0.31  EMG-FLW:23.50  FLW-FSD:19.00  FSD-PHM : 34.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :21.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+
+ RUN NO.     4     UYSB                    
+
+        CROP GROWTH   BIOMASS         LEAF   CROP N     STRESS  
+   DATE  AGE STAGE      kg/ha    LAI   NUM  kg/ha  %   H2O    N 
+ ------  --- ---------- -----  -----  ----  ---  ---  ----  ----
+  8 AUG    0 Start Sim      0   0.00   0.0    0  0.0  0.00  0.00
+ 11 AUG    0 Sowing         0   0.00   0.0    0  0.0  0.00  0.00
+ 23 AUG   12 Emergence      4   0.01   0.0    0  5.1  0.00  0.00
+ 23 AUG   12 End Juven.     4   0.01   0.0    0  5.1  0.00  0.00
+  9 SEP   29 Unifoliate    10   0.01   1.1    0  4.8  0.00  0.00
+ 11 SEP   31 Flower Ind    11   0.02   1.2    1  4.9  0.00  0.00
+ 30 OCT   80 First Flwr   665   1.00   8.3   28  4.2  0.00  0.00
+ 21 NOV  102 End Msnode  2963   2.86  12.3   92  3.1  0.00  0.04
+ 23 NOV  104 First Pod   3304   3.04  12.3  101  3.1  0.00  0.04
+ 17 DEC  128 First Seed  7068   4.10  12.3  218  3.1  0.00  0.00
+ 31 DEC  142 End Leaf    9446   4.00  12.3  281  3.0  0.00  0.00
+ 13 JAN  155 End Pod    11475   3.75  12.3  338  2.9  0.00  0.00
+ 18 FEB  191 Phys. Mat  14366   2.64  12.3  410  2.9  0.00  0.00
+  2 MAR  203 Harv. Mat  11178   0.17  12.3  333  3.0  0.00  0.02
+  2 MAR  203 Harvest    11178   0.17  12.3  333  3.0  0.00  0.00
+
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                          SIMULATED     MEASURED
+      --------                          ---------     --------
+      Anthesis day (dap)                       80          -99
+      First pod day (dap)                     104          -99
+      First seed day (dap)                    128          -99
+      Physiological maturity day (dap)        191          -99
+      Yield at harvest maturity (kg [dm]/    4282          -99
+      Pod/Ear/Panicle weight at maturity     6241          -99
+      Number at maturity (no/m2)             2290          -99
+      Unit wt at maturity (g [dm]/unit)    0.1870          -99
+      Number at maturity (no/unit)           2.20          -99
+      Tops weight at maturity (kg [dm]/ha   11178          -99
+      By-product produced (stalk) at matu    6900          -99
+      Leaf area index, maximum               4.12          -99
+      Harvest index at maturity             0.383          -99
+      Threshing % at maturity               68.62          -99
+      Grain N at maturity (kg/ha)             258          -99
+      Tops N at maturity (kg/ha)              333          -99
+      Stem N at maturity (kg/ha)               39          -99
+      Grain N at maturity (%)                6.03          -99
+      Tops weight at anthesis (kg [dm]/ha     665          -99
+      Tops N at anthesis (kg/ha)               28          -99
+      Leaf number per stem at maturity      12.26          -99
+      Grain oil at maturity (%)             19.92          -99
+      Canopy height (m)                      0.54          -99
+      Harvest maturity day (dap)              203          -99
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|---------Stress----------|
+                              |--------Average-------|---Cumulative--|  (0=Min, 1=Max Stress)  |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo
+                         days    øC    øC MJ/m2     hr     mm     mm  synth Growth  synth Growth
+------------------------------------------------------------------------------------------------
+ Emergence -First Flower   68  21.2  10.6  15.0  12.15  173.3  121.7  0.000  0.000  0.000  0.000
+ First Flower-First Seed   48  25.0  14.8  19.9  13.75  375.8  207.8  0.000  0.000  0.000  0.022
+ First Seed - Phys. Mat.   63  27.9  16.2  24.2  13.74  197.9  340.1  0.000  0.000  0.024  0.002
+ Emergence  - Phys. Mat.  179  24.6  13.7  19.6  13.14  747.0  669.6  0.000  0.000  0.000  0.006
+
+                   Soybean YIELD :     4282 kg/ha    [Dry weight] 
+
+************************************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 11, 2016; 19:59:12
+                                                                                
+*RUN   5        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0145 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 6 UY          ECOTYPE :SB0601    
+ STARTING DATE  : AUG  8 1990                                                   
+ PLANTING DATE  : AUG 11 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1990                                                   
+ SOIL           : UYSS0P2304     TEXTURE : CL    -  P23-04    SNIA CLAY LOAM    
+ SOIL INITIAL C : DEPTH:137cm EXTR. H2O:180.9mm  NO3: 24.9kg/ha  NH4: 28.7kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        2 kg/ha IN     2 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+  5- 15 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+ 15- 30 0.274 0.408 0.480 0.133 0.341   0.84   1.32   5.61   4.17   1.50   1.62 
+ 30- 45 0.295 0.427 0.495 0.132 0.361   0.40   1.39   5.90   1.90   1.50   0.79 
+ 45- 60 0.280 0.413 0.484 0.133 0.364   0.37   1.41   6.38   1.39   1.50   0.65 
+ 60- 90 0.238 0.373 0.454 0.135 0.373   0.30   1.46   7.70   0.00   1.50   0.28 
+ 90-120 0.133 0.252 0.399 0.120 0.252   0.20   1.48   7.89   0.00   1.50   0.11 
+120-137 0.191 0.336 0.441 0.145 0.336   0.13   1.27   7.83   0.00   1.50   2.07 
+                                                                                
+TOT-137  31.1  49.2  62.1  18.1  45.5  <--cm   -  kg/ha-->   24.9   28.7 161462 
+SOIL ALBEDO    : 0.12      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0161-GM 6 UY            ECOTYPE :SB0601                 
+ CSDVAR :12.90  PPSEN  : 0.31  EMG-FLW:23.50  FLW-FSD:19.00  FSD-PHM : 34.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :21.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+
+ RUN NO.     5     UYSB                    
+
+        CROP GROWTH   BIOMASS         LEAF   CROP N     STRESS  
+   DATE  AGE STAGE      kg/ha    LAI   NUM  kg/ha  %   H2O    N 
+ ------  --- ---------- -----  -----  ----  ---  ---  ----  ----
+  8 AUG    0 Start Sim      0   0.00   0.0    0  0.0  0.00  0.00
+ 11 AUG    0 Sowing         0   0.00   0.0    0  0.0  0.00  0.00
+ 23 AUG   12 Emergence      4   0.01   0.0    0  5.1  0.00  0.00
+ 23 AUG   12 End Juven.     4   0.01   0.0    0  5.1  0.00  0.00
+ 14 SEP   34 Unifoliate     9   0.01   1.1    0  4.8  0.00  0.00
+ 15 SEP   35 Flower Ind    10   0.02   1.2    0  4.9  0.00  0.00
+ 30 OCT   80 First Flwr   707   0.88   8.1   30  4.2  0.00  0.00
+ 19 NOV  100 End Msnode  3101   2.83  11.9  100  3.2  0.00  0.03
+ 22 NOV  103 First Pod   3630   3.04  11.9  117  3.2  0.00  0.00
+ 16 DEC  127 First Seed  7735   4.18  11.9  245  3.2  0.00  0.00
+ 28 DEC  139 End Leaf    9852   4.08  11.9  300  3.0  0.00  0.00
+ 10 JAN  152 End Pod    11594   3.81  11.9  352  3.0  0.00  0.00
+ 16 FEB  189 Phys. Mat  14519   2.68  11.9  439  3.0  0.00  0.00
+ 28 FEB  201 Harv. Mat  11431   0.18  11.9  362  3.2  0.00  0.04
+ 28 FEB  201 Harvest    11431   0.18  11.9  362  3.2  0.00  0.00
+
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                          SIMULATED     MEASURED
+      --------                          ---------     --------
+      Anthesis day (dap)                       80          -99
+      First pod day (dap)                     103          -99
+      First seed day (dap)                    127          -99
+      Physiological maturity day (dap)        189          -99
+      Yield at harvest maturity (kg [dm]/    4763          -99
+      Pod/Ear/Panicle weight at maturity     6762          -99
+      Number at maturity (no/m2)             2368          -99
+      Unit wt at maturity (g [dm]/unit)    0.2011          -99
+      Number at maturity (no/unit)           2.20          -99
+      Tops weight at maturity (kg [dm]/ha   11431          -99
+      By-product produced (stalk) at matu    6670          -99
+      Leaf area index, maximum               4.19          -99
+      Harvest index at maturity             0.417          -99
+      Threshing % at maturity               70.44          -99
+      Grain N at maturity (kg/ha)             286          -99
+      Tops N at maturity (kg/ha)              362          -99
+      Stem N at maturity (kg/ha)               39          -99
+      Grain N at maturity (%)                6.01          -99
+      Tops weight at anthesis (kg [dm]/ha     707          -99
+      Tops N at anthesis (kg/ha)               30          -99
+      Leaf number per stem at maturity      11.93          -99
+      Grain oil at maturity (%)             20.09          -99
+      Canopy height (m)                      0.52          -99
+      Harvest maturity day (dap)              201          -99
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|---------Stress----------|
+                              |--------Average-------|---Cumulative--|  (0=Min, 1=Max Stress)  |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo
+                         days    øC    øC MJ/m2     hr     mm     mm  synth Growth  synth Growth
+------------------------------------------------------------------------------------------------
+ Emergence -First Flower   68  20.9  10.6  15.7  12.15  274.7  135.3  0.000  0.000  0.000  0.000
+ First Flower-First Seed   47  26.7  14.3  23.2  13.74  128.2  242.3  0.000  0.000  0.000  0.015
+ First Seed - Phys. Mat.   62  30.1  17.5  23.9  13.76  139.5  346.1  0.000  0.000  0.032  0.000
+ Emergence  - Phys. Mat.  177  25.6  14.0  20.5  13.14  542.4  723.7  0.000  0.000  0.000  0.004
+
+                   Soybean YIELD :     4763 kg/ha    [Dry weight] 
+
+************************************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 11, 2016; 19:59:12
+                                                                                
+*RUN   6        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0145 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 6 UY          ECOTYPE :SB0601    
+ STARTING DATE  : AUG  8 1990                                                   
+ PLANTING DATE  : AUG 11 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1990                                                   
+ SOIL           : UYSS0P2304     TEXTURE : CL    -  P23-04    SNIA CLAY LOAM    
+ SOIL INITIAL C : DEPTH:137cm EXTR. H2O:180.9mm  NO3: 24.9kg/ha  NH4: 28.7kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        2 kg/ha IN     2 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+  5- 15 0.267 0.401 0.475 0.134 0.334   1.00   1.30   5.50   5.00   1.50   1.92 
+ 15- 30 0.274 0.408 0.480 0.133 0.341   0.84   1.32   5.61   4.17   1.50   1.62 
+ 30- 45 0.295 0.427 0.495 0.132 0.361   0.40   1.39   5.90   1.90   1.50   0.79 
+ 45- 60 0.280 0.413 0.484 0.133 0.364   0.37   1.41   6.38   1.39   1.50   0.65 
+ 60- 90 0.238 0.373 0.454 0.135 0.373   0.30   1.46   7.70   0.00   1.50   0.28 
+ 90-120 0.133 0.252 0.399 0.120 0.252   0.20   1.48   7.89   0.00   1.50   0.11 
+120-137 0.191 0.336 0.441 0.145 0.336   0.13   1.27   7.83   0.00   1.50   2.07 
+                                                                                
+TOT-137  31.1  49.2  62.1  18.1  45.5  <--cm   -  kg/ha-->   24.9   28.7 161462 
+SOIL ALBEDO    : 0.12      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0161-GM 6 UY            ECOTYPE :SB0601                 
+ CSDVAR :12.90  PPSEN  : 0.31  EMG-FLW:23.50  FLW-FSD:19.00  FSD-PHM : 34.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :21.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+*SIMULATED CROP AND SOIL STATUS AT MAIN DEVELOPMENT STAGES
+
+ RUN NO.     6     UYSB                    
+
+        CROP GROWTH   BIOMASS         LEAF   CROP N     STRESS  
+   DATE  AGE STAGE      kg/ha    LAI   NUM  kg/ha  %   H2O    N 
+ ------  --- ---------- -----  -----  ----  ---  ---  ----  ----
+  8 AUG    0 Start Sim      0   0.00   0.0    0  0.0  0.00  0.00
+ 11 AUG    0 Sowing         0   0.00   0.0    0  0.0  0.00  0.00
+ 25 AUG   14 Emergence      4   0.01   0.1    0  5.2  0.00  0.00
+ 25 AUG   14 End Juven.     4   0.01   0.1    0  5.2  0.00  0.00
+  6 SEP   26 Flower Ind     8   0.01   1.0    0  4.8  0.00  0.00
+  7 SEP   27 Unifoliate     9   0.02   1.2    0  4.9  0.00  0.00
+  5 NOV   86 First Flwr  1106   1.35   8.7   46  4.2  0.00  0.00
+ 25 NOV  106 End Msnode  3719   3.44  12.6  115  3.1  0.00  0.07
+ 28 NOV  109 First Pod   4252   3.68  12.6  134  3.1  0.00  0.00
+ 22 DEC  133 First Seed  9080   4.90  12.6  285  3.1  0.00  0.00
+  4 JAN  146 End Leaf   11135   4.70  12.6  334  3.0  0.00  0.00
+ 16 JAN  158 End Pod    12890   4.41  12.6  384  3.0  0.00  0.00
+ 21 FEB  194 Phys. Mat  15503   3.09  12.6  461  3.0  0.00  0.00
+  4 MAR  206 Harv. Mat  12113   0.20  12.6  384  3.2  0.00  0.00
+  4 MAR  206 Harvest    12113   0.20  12.6  384  3.2  0.00  0.00
+
+
+*MAIN GROWTH AND DEVELOPMENT VARIABLES
+
+@     VARIABLE                          SIMULATED     MEASURED
+      --------                          ---------     --------
+      Anthesis day (dap)                       86          -99
+      First pod day (dap)                     109          -99
+      First seed day (dap)                    133          -99
+      Physiological maturity day (dap)        194          -99
+      Yield at harvest maturity (kg [dm]/    5061          -99
+      Pod/Ear/Panicle weight at maturity     7202          -99
+      Number at maturity (no/m2)             2588          -99
+      Unit wt at maturity (g [dm]/unit)    0.1956          -99
+      Number at maturity (no/unit)           2.20          -99
+      Tops weight at maturity (kg [dm]/ha   12113          -99
+      By-product produced (stalk) at matu    7050          -99
+      Leaf area index, maximum               4.90          -99
+      Harvest index at maturity             0.418          -99
+      Threshing % at maturity               70.27          -99
+      Grain N at maturity (kg/ha)             308          -99
+      Tops N at maturity (kg/ha)              384          -99
+      Stem N at maturity (kg/ha)               38          -99
+      Grain N at maturity (%)                6.09          -99
+      Tops weight at anthesis (kg [dm]/ha    1106          -99
+      Tops N at anthesis (kg/ha)               46          -99
+      Leaf number per stem at maturity      12.63          -99
+      Grain oil at maturity (%)             19.92          -99
+      Canopy height (m)                      0.55          -99
+      Harvest maturity day (dap)              206          -99
+
+
+*ENVIRONMENTAL AND STRESS FACTORS
+
+ |-----Development Phase------|-------------Environment--------------|---------Stress----------|
+                              |--------Average-------|---Cumulative--|  (0=Min, 1=Max Stress)  |
+                         Time  Temp  Temp Solar Photop         Evapo |----Water---|--Nitrogen--|
+                         Span   Max   Min   Rad  [day]   Rain  Trans  Photo         Photo
+                         days    øC    øC MJ/m2     hr     mm     mm  synth Growth  synth Growth
+------------------------------------------------------------------------------------------------
+ Emergence -First Flower   72  21.5  10.0  17.5  12.28  205.5  146.9  0.000  0.000  0.000  0.000
+ First Flower-First Seed   47  28.2  14.8  24.7  13.84  103.5  258.5  0.000  0.000  0.000  0.029
+ First Seed - Phys. Mat.   61  28.1  17.0  22.9  13.67  228.1  316.6  0.000  0.000  0.041  0.000
+ Emergence  - Phys. Mat.  180  25.5  13.6  21.2  13.16  537.1  722.1  0.000  0.000  0.000  0.008
+
+                   Soybean YIELD :     5061 kg/ha    [Dry weight] 
+
+************************************************************************************************

@@ -1,0 +1,101 @@
+*SOIL N BALANCE - CERES SOIL N&C ROUTINES
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 15, 2016; 16:22:36
+
+*RUN   1        : UYMZ                    
+ MODEL          : MZCER040 - Maize           
+ EXPERIMENT     : UYMZ0213 MZ    late to create DSS                             
+ TREATMENT  1   : UYMZ                    
+
+
+
+                                         INITIAL Year/Doy      FINAL Year/Doy
+                                                 1990/224            1991/024
+SOIL N BALANCE                                  -----------kg N/ha-----------
+
+   Soil Humus N                                  16646.04            16541.51
+   Soil Litter N                                     0.00               12.70
+   N in Surface Residue                              0.00                0.00
+   Soil NO3                                         74.81                5.74
+   Soil NH4                                         23.95                8.09
+   Soil Urea                                         0.00                0.00
+
+   Added to / Removed from Soil:
+   N in Harvest Residues from Previous Crop          0.00
+   N from Organic Applications                       0.00
+   N from senesced plant matter                     17.00
+   Fertilizer N                                     13.00
+   Leached NO3                                                           9.83
+   N Denitrified                                                         2.40
+   N Uptake From Soil                                                  194.29
+   Ammonia volatilization                                                0.25
+
+   Total N balance                               16774.80            16774.80
+
+================================================================================
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 15, 2016; 16:22:36
+
+*RUN   2        : UYMZ                    
+ MODEL          : MZCER040 - Maize           
+ EXPERIMENT     : UYMZ0213 MZ    late to create DSS                             
+ TREATMENT  1   : UYMZ                    
+
+
+
+                                         INITIAL Year/Doy      FINAL Year/Doy
+                                                 1991/224            1992/014
+SOIL N BALANCE                                  -----------kg N/ha-----------
+
+   Soil Humus N                                  16646.04            16549.89
+   Soil Litter N                                     0.00               11.70
+   N in Surface Residue                              0.00                0.00
+   Soil NO3                                         74.81                6.64
+   Soil NH4                                         23.95                7.74
+   Soil Urea                                         0.00                0.00
+
+   Added to / Removed from Soil:
+   N in Harvest Residues from Previous Crop          0.00
+   N from Organic Applications                       0.00
+   N from senesced plant matter                     17.31
+   Fertilizer N                                     13.00
+   Leached NO3                                                           9.42
+   N Denitrified                                                         0.65
+   N Uptake From Soil                                                  188.81
+   Ammonia volatilization                                                0.28
+
+   Total N balance                               16775.12            16775.12
+
+================================================================================
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 15, 2016; 16:22:36
+
+*RUN   3        : UYMZ                    
+ MODEL          : MZCER040 - Maize           
+ EXPERIMENT     : UYMZ0213 MZ    late to create DSS                             
+ TREATMENT  1   : UYMZ                    
+
+
+
+                                         INITIAL Year/Doy      FINAL Year/Doy
+                                                 1992/224            1993/021
+SOIL N BALANCE                                  -----------kg N/ha-----------
+
+   Soil Humus N                                  16646.04            16549.21
+   Soil Litter N                                     0.00               16.46
+   N in Surface Residue                              0.00                0.00
+   Soil NO3                                         74.81                5.89
+   Soil NH4                                         23.95                8.23
+   Soil Urea                                         0.00                0.00
+
+   Added to / Removed from Soil:
+   N in Harvest Residues from Previous Crop          0.00
+   N from Organic Applications                       0.00
+   N from senesced plant matter                     22.32
+   Fertilizer N                                     13.00
+   Leached NO3                                                           1.15
+   N Denitrified                                                         0.03
+   N Uptake From Soil                                                  198.88
+   Ammonia volatilization                                                0.27
+
+   Total N balance                               16780.13            16780.12

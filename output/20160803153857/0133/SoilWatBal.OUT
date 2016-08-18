@@ -1,0 +1,145 @@
+*WATER BALANCE OUTPUT FILE
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 03, 2016; 15:38:57
+
+*RUN   1        : UYMZ                    
+ MODEL          : MZCER040 - Maize           
+ EXPERIMENT     : UYMZ0133 MZ    late to create DSS                             
+ TREATMENT  1   : UYMZ                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 1987/212     490.84
+     Soil H20 (final) on Year/day 1988/025     552.69
+     Effective Irrigation                       73.70
+     Precipitation                             961.90
+     Drainage                                  290.49
+     Runoff                                     64.00
+     Soil Evaporation                          166.02
+     Transpiration                             453.24
+     Potential ET                              729.17
+
+     Final Balance                             0.0000
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 03, 2016; 15:38:57
+
+*RUN   2        : UYMZ                    
+ MODEL          : MZCER040 - Maize           
+ EXPERIMENT     : UYMZ0133 MZ    late to create DSS                             
+ TREATMENT  1   : UYMZ                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 1988/212     490.84
+     Soil H20 (final) on Year/day 1989/014     449.15
+     Effective Irrigation                      309.67
+     Precipitation                             453.20
+     Drainage                                  125.60
+     Runoff                                      3.25
+     Soil Evaporation                          188.20
+     Transpiration                             487.51
+     Potential ET                              772.85
+
+     Final Balance                            -0.0001
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 03, 2016; 15:38:57
+
+*RUN   3        : UYMZ                    
+ MODEL          : MZCER040 - Maize           
+ EXPERIMENT     : UYMZ0133 MZ    late to create DSS                             
+ TREATMENT  1   : UYMZ                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 1989/212     490.84
+     Soil H20 (final) on Year/day 1990/010     462.49
+     Effective Irrigation                      227.83
+     Precipitation                             495.80
+     Drainage                                  113.86
+     Runoff                                      1.78
+     Soil Evaporation                          183.54
+     Transpiration                             452.79
+     Potential ET                              719.89
+
+     Final Balance                             0.0001
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 03, 2016; 15:38:57
+
+*RUN   4        : UYMZ                    
+ MODEL          : MZCER040 - Maize           
+ EXPERIMENT     : UYMZ0133 MZ    late to create DSS                             
+ TREATMENT  1   : UYMZ                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 1990/212     490.84
+     Soil H20 (final) on Year/day 1991/014     475.55
+     Effective Irrigation                       74.69
+     Precipitation                             690.10
+     Drainage                                  157.46
+     Runoff                                      5.83
+     Soil Evaporation                          173.16
+     Transpiration                             443.63
+     Potential ET                              707.55
+
+     Final Balance                            -0.0001
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 03, 2016; 15:38:57
+
+*RUN   5        : UYMZ                    
+ MODEL          : MZCER040 - Maize           
+ EXPERIMENT     : UYMZ0133 MZ    late to create DSS                             
+ TREATMENT  1   : UYMZ                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 1991/212     490.84
+     Soil H20 (final) on Year/day 1992/011     492.28
+     Effective Irrigation                       60.30
+     Precipitation                             695.30
+     Drainage                                  180.46
+     Runoff                                     12.54
+     Soil Evaporation                          143.71
+     Transpiration                             417.45
+     Potential ET                              630.12
+
+     Final Balance                             0.0001
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 03, 2016; 15:38:57
+
+*RUN   6        : UYMZ                    
+ MODEL          : MZCER040 - Maize           
+ EXPERIMENT     : UYMZ0133 MZ    late to create DSS                             
+ TREATMENT  1   : UYMZ                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 1992/212     490.84
+     Soil H20 (final) on Year/day 1993/018     551.91
+     Effective Irrigation                      221.39
+     Precipitation                             538.20
+     Drainage                                   56.71
+     Runoff                                     17.23
+     Soil Evaporation                          171.63
+     Transpiration                             452.94
+     Potential ET                              729.68
+
+     Final Balance                             0.0000
+

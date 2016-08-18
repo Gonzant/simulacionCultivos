@@ -1,0 +1,48 @@
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+
+*RUN   1        : UYMZ                     
+ MODEL          : MZCER040 - MAIZE     
+ EXPERIMENT     : UYMZ0214 SN late to create DSS                                
+ TREATMENT  1   : UYMZ                     
+
+ CROP           : MAIZE          CULTIVAR : CCORTO UY        ECOTYPE :IB0001
+ STARTING DATE  : OCT 28 2000
+ PLANTING DATE  : OCT 31 2000    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
+ WEATHER        : UYLB   2000
+ SOIL           : UYSS0N1706     TEXTURE : SL    -  N17-06    SNIA SANDY WES
+ SOIL INITIAL C : DEPTH:100cm EXTR. H2O: 79.2mm  NO3: 63.0kg/ha  NH4: 23.1kg/ha
+ WATER BALANCE  : RAINFED
+ IRRIGATION     : NOT IRRIGATED
+ NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION
+ N-FERTILIZER   :        0 kg/ha IN     0 APPLICATIONS
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00  
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00  
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :N  FERT :D  RESIDUE:N  HARVEST:M  WTH:M
+
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
+
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %
+-------------------------------------------------------------------------------
+  0-  5 0.116 0.202 0.414 0.086 0.159   1.00   1.47   6.00  15.00   1.50   1.10
+  5- 15 0.116 0.202 0.414 0.086 0.159   1.00   1.47   6.00  15.00   1.50   1.10
+ 15- 30 0.118 0.205 0.410 0.087 0.161   0.48   1.49   6.00   8.41   1.50   0.84
+ 30- 45 0.139 0.224 0.402 0.084 0.194   0.37   1.51   6.00   4.93   1.50   0.67
+ 45- 60 0.182 0.261 0.387 0.079 0.261   0.30   1.56   6.00   0.00   1.50   0.40
+ 60- 80 0.176 0.248 0.378 0.072 0.248   0.20   1.59   6.00   0.00   1.50   0.20
+ 80-100 0.156 0.228 0.374 0.072 0.228   0.00   1.60   6.00   0.00   1.50   0.14
+
+TOT-100  15.0  22.9  39.2   7.9  21.1  <--cm   -  kg/ha-->   63.0   23.1  78401
+SOIL ALBEDO    : 0.13      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.60         FERT. FACTOR : 1.00
+
+ MAIZE      CULTIVAR :UY0371-CCORTO UY          ECOTYPE :IB0001
+ P1     : 190.00  P2     : 0.0000  P5     : 750.00
+ G2     : 800.00  G3     :  7.500  PHINT  : 38.900
+
+
+

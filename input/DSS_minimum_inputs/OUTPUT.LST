@@ -1,0 +1,16 @@
+*Output file list
+
+@FILENAME        DESCRIPTION
+PlantGro.OUT     Daily plant growth output file                    
+PlantN.OUT       Daily plant nitrogen output file                  
+SoilN.OUT        Daily soil nitrogen output file                   
+SoilTemp.OUT     Daily soil temperature output file                
+SoilWat.OUT      Daily soil water output file                      
+ET.OUT           Daily soil-plant-atmosphere output file           
+Weather.OUT      Daily weather output file                         
+Overview.OUT     Seasonal overview output file                     
+Summary.OUT      Seasonal summary output file                      
+Evaluate.OUT     Evaluation output file (simulated vs. measured)   
+SoilNBal.OUT     Seasonal soil nitrogen balance                    
+SoilWatBal.OUT   Seasonal soil water balance                       
+Warning.OUT      Warning messages                                  

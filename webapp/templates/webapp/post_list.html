@@ -1,0 +1,675 @@
+﻿ {% load staticfiles %}
+<html>
+	
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modelo de Simulación de Cultivos </title>
+	
+	<!--JQuery-->	
+	<script src="{% static 'lib/jquery-3.1.0/jquery-3.1.0.min.js' %}"></script>
+	
+	<!--Boostrap-->
+	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap-theme.min.css' %}">	
+	<script src="{% static 'lib/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+	
+	<!--Simulacion-->
+	<!--<link rel="stylesheet" href="{% static 'css/style.css' %}">-->
+	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/cargarDatos.js' %}"></script>
+	
+	<!--Pasar estos si se usan local-->
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">	
+	<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js"> </script>
+	<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">  </script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js">  </script>
+	
+</head>	
+<body>	
+
+<script>	
+	//Variables globales
+	var cultivos = [];
+	var estaciones = [];
+	var escenarios = [];
+	
+	function cargarEstaciones(){
+		{% for estacion in estaciones %}
+			var estacion = {
+				nombre: "{{ estacion.nombre }}",
+				valor: "{{ estacion.valor }}",
+				etiqueta: "{{ estacion.etiqueta }}",
+				desde: "{{ estacion.desde }}",
+				hasta: "{{ estacion.hasta }}"
+			}
+			estaciones.push(estacion);			
+		{% endfor %}
+	};
+	
+	function changeEstacion() {
+		var desdeAnio = document.getElementById("desdeAnio");	
+		var hastaAnio = document.getElementById("hastaAnio");		
+		var selectEstacion = document.getElementById("selectEstacion");		
+		desdeAnio.value = estaciones[selectEstacion.selectedIndex].desde;
+		hastaAnio.value = estaciones[selectEstacion.selectedIndex].hasta;			
+	};
+	
+	function cargarDetallesCultivos(){			
+		{% for cultivo in cultivos %}
+			var cultivo = {
+				nombre: "{{cultivo.nombre}}",
+				suelos: 
+					[
+						
+						{% for suelo in cultivo.suelos.all %}
+							{
+								nombre: "{{suelo.nombre}}",
+								etiqueta: "{{suelo.etiqueta}}",
+								valor: "{{suelo.valor}}"
+							},
+						{% endfor %}						
+					],						
+				tipo_cultivares: 
+					[
+						{% for tipo_cultivar in cultivo.tipo_cultivares.all %}
+							{
+								nombre:"{{tipo_cultivar.nombre}}",
+								etiqueta:"{{tipo_cultivar.etiqueta}}",
+								valor: "{{tipo_cultivar.valor}}"
+							},
+						{% endfor %}
+					],
+				h2os: 
+					[
+						{% for h2o in cultivo.h2os.all %}
+							{
+								nombre:"{{h2o.nombre}}",
+								etiqueta:"{{h2o.etiqueta}}",
+								valor:"{{h2o.valor}}"
+							},
+						{% endfor %}
+					],
+				no3s: 
+					[
+						{% for no3 in cultivo.no3s.all %}
+							{
+								nombre:"{{no3.nombre}}",
+								etiqueta:"{{no3.etiqueta}}",
+								valor:"{{no3.valor}}"
+							},
+						{% endfor %}
+					]				
+			}			
+			cultivos.push(cultivo);
+		{% endfor %}		
+	};		
+	
+	function cargarComboBoxDetalle(radio){
+		var div = document.getElementById('detalleCultivo');	
+		
+		var no3Div = document.getElementById('NO3inicial');
+		document.getElementById('cmbDetalleSuelo').options.length = 0;
+		document.getElementById('cmbDetalleCultivar').options.length = 0;
+		document.getElementById('cmbDetalleH20').options.length = 0;
+		document.getElementById('cmbDetalleNO3').options.length = 0;
+		
+		if(radio.value === 'MZ'){
+			valor =1;
+			no3Div.style.display = (no3Div.style.display == 'inline') ? 'block' : 'inline'; 
+		}
+		if(radio.value === 'SB'){
+			valor = 0;
+			no3Div.style.display = (no3Div.style.display == 'none') ? 'block' : 'none'; 
+		}
+			
+		var cmbDetalleSuelo = document.getElementById("cmbDetalleSuelo");					
+		for(i = 0; i < cultivos[valor].suelos.length; i++) {
+			var option = document.createElement('option');
+			option.text = cultivos[valor].suelos[i].etiqueta;
+			option.value = cultivos[valor].suelos[i].valor;
+			cmbDetalleSuelo.add(option);
+		}
+		
+		var cmbDetalleCultivar = document.getElementById("cmbDetalleCultivar");					
+		
+		for(i = 0; i < cultivos[valor].tipo_cultivares.length; i++) {
+			var option = document.createElement('option');
+			option.text = cultivos[valor].tipo_cultivares[i].etiqueta;
+			option.value = cultivos[valor].tipo_cultivares[i].valor;
+			cmbDetalleCultivar.add(option);
+		}
+		var cmbDetalleH20 = document.getElementById("cmbDetalleH20");					
+		for(i = 0; i < cultivos[valor].h2os.length; i++) {
+			var option = document.createElement('option');
+			option.text = cultivos[valor].h2os[i].etiqueta;
+			option.value = cultivos[valor].h2os[i].valor;
+			cmbDetalleH20.add(option);
+		}	
+		var cmbDetalleNO3 = document.getElementById("cmbDetalleNO3");					
+		for(i = 0; i < cultivos[valor].no3s.length; i++) {
+			var option = document.createElement('option');
+			option.text = cultivos[valor].no3s[i].etiqueta;
+			option.value = cultivos[valor].no3s[i].valor;
+			cmbDetalleNO3.add(option);
+		}
+		if(radio.value === 'SB'){
+			
+			var option = document.createElement('option');
+			option.text = "Por defecto Bajo";
+			option.value = "B";
+			cmbDetalleNO3.add(option);
+		}
+		if(radio.checked=== true){
+			div.style.display = (div.style.display == 'inline') ? 'block' : 'inline'; 
+		}	
+	};
+	
+	/*function cargarRiego(){
+		var cmbDetalleRiego = document.getElementById("cmbDetalleRiego");
+		{% for riego in riegos %}
+			var option = document.createElement('option');
+			option.text = "{{riego.etiqueta}}";
+			option.value = "{{riego.valor}}";
+			cmbDetalleRiego.add(option);			
+		{% endfor %}		
+	};*/
+	
+	/*function cargarTipoFertilizantes(){
+		var cmbFertilizacionTipo1 = document.getElementById("cmbFertilizacionTipo1");
+		var cmbFertilizacionTipo2 = document.getElementById("cmbFertilizacionTipo2");
+		{% for fertilizante in fertilizantes %}
+			var option = document.createElement('option');
+			option.text = "{{fertilizante.etiqueta}}";
+			option.value = "{{fertilizante.valor}}";
+			cmbFertilizacionTipo1.add(option);
+			var option = document.createElement('option');
+			option.text = "{{fertilizante.etiqueta}}";
+			option.value = "{{fertilizante.valor}}";			
+			cmbFertilizacionTipo2.add(option);
+		{% endfor %}		
+	};
+	
+	function cargarAplicacionFertilizantes(){
+		var cmbFertilizacionAplicacion1 = document.getElementById("cmbFertilizacionAplicacion1");
+		var cmbFertilizacionAplicacion2 = document.getElementById("cmbFertilizacionAplicacion2");
+		{% for aplicacion_f in aplicaciones %}
+			var option = document.createElement('option');
+			option.text = "{{aplicacion_f.etiqueta}}";
+			option.value = "{{aplicacion_f.valor}}";
+			cmbFertilizacionAplicacion1.add(option);
+			var option = document.createElement('option');
+			option.text = "{{aplicacion_f.etiqueta}}";
+			option.value = "{{aplicacion_f.valor}}";						
+			cmbFertilizacionAplicacion2.add(option);	
+		{% endfor %}		
+	};*/
+	
+	function agregarEscenarioPanel(){
+		var table = document.getElementById("tablaEscenarios");
+		var count = escenarios.length;	
+		console.log(count);
+		// Create an empty <tr> element and add it to the 1st position of the table:
+		var row = table.insertRow(count);	
+		var celdas = [];
+		
+		for (i=0; i<17; i++){
+			var cell = row.insertCell(i);
+			celdas.push(cell);
+		}
+		/*<tr>
+								<td><input type="text" name="estMeteorologica"></td>
+								<td><input type="text" name="FInicioSim"></td>
+								<td><input type="text" name="FFinSim"></td>
+								<td><input type="text" name="CultivoTSuelo"></td>
+								<td><input type="text" name="CultivoTCultivar"></td>
+								<td><input type="text" name="CultivoNHumedad"></td>
+								<td><input type="text" name="CultivoNO3"></td>
+								<td><input type="text" name="CultivoFSiembra"></td>
+								<td><input type="text" name="FertilizacionSiembraDias"></td>
+								<td><input type="text" name="FertilizacionSiembraCantidad"></td>
+								<td><input type="text" name="Fertilizacion1Dias"></td>
+								<td><input type="text" name="Fertilizacion1Cantidad"></td>
+								<td><input type="text" name="Fertilizacion2Dias"></td>
+								<td><input type="text" name="Fertilizacion2Cantidad"></td>
+								<td><input type="text" name="Riego"></td>
+								<td><input type="text" name="NombreEscenario"></td>								
+							</tr>*/
+
+		// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:		
+
+		// Add some text to the new cells:	
+		var i = 0;
+		celdas[i].innerHTML = "<input type='text' name='estMeteorologica' value='" + escenarios[count-1].estacion + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='fInicioSim' value='" + escenarios[count-1].desdeAnioSimulacion + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='fFinSim' value='" + escenarios[count-1].hastaAnioSimulacion + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='cultivo' value='" + escenarios[count-1].cultivo.nombreCultivo + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='cultivoTSuelo' value='" + escenarios[count-1].cultivo.detalle.suelo + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='cultivoTCultivar' value='" + escenarios[count-1].cultivo.detalle.tCultivar + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='cultivoNHumedad' value='" + escenarios[count-1].cultivo.detalle.nHumedadd + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='cultivoNO3' value='" + escenarios[count-1].cultivo.detalle.no3 + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='cultivoFSiembra' value='" + escenarios[count-1].cultivo.detalle.fSiembra + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacionSiembraDias' value='" + escenarios[count-1].fertilizacionSiembra.diasSiembra + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacionSiembraCantidad' value='" + escenarios[count-1].fertilizacionSiembra.cantidad + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacion1Dias' value='" + escenarios[count-1].fertilizaciones[0].diasSiembra + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacion1Cantidad' value='" + escenarios[count-1].fertilizaciones[0].cantidad + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacion2Dias' value='" + escenarios[count-1].fertilizaciones[1].diasSiembra + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacion2Cantidad' value='" + escenarios[count-1].fertilizaciones[1].cantidad + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='riego' value='" + escenarios[count-1].riego + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='nombreEscenario' value='" + escenarios[count-1].nombre + "'>";//escenarios[count-1].nombre;	
+	};
+	
+	function agregarEscenario(){
+		for (var i=0;i< document.getElementsByName("cultivo").length; i++){
+			if ( document.getElementsByName("cultivo")[i].checked ) {
+				var ncultivo = (document.getElementsByName("cultivo")[i].value);
+			}
+		};	
+		for (var i=0;i< document.getElementsByName("riego").length; i++){
+			if ( document.getElementsByName("riego")[i].checked ) {
+				var nriego = (document.getElementsByName("riego")[i].value);
+			}
+		};		
+		var escenarioActual = {
+			nombre: document.getElementsByName("nombreEscenario")[0].value,
+			estacion: document.getElementById("selectEstacion").value,
+			desdeAnioSimulacion: document.getElementById("desdeAnioSimulacion").value,
+			hastaAnioSimulacion: document.getElementById("hastaAnioSimulacion").value,
+			cultivo: {
+				nombreCultivo: ncultivo,
+				detalle: {
+					suelo: document.getElementById("cmbDetalleSuelo").value,
+					tCultivar: document.getElementById("cmbDetalleCultivar").value,
+					nHumedadd: document.getElementById("cmbDetalleH20").value,
+					no3: document.getElementById("cmbDetalleNO3").value,
+					fSiembra: document.getElementsByName("fechaSiembra")[0].value
+				}
+			},
+			fertilizacionSiembra: {
+				diasSiembra: document.getElementsByName("diasDespuesSiembra")[0].value,
+				cantidad: document.getElementsByName("diasDespuesSiembra")[0].value
+			},
+			fertilizaciones: [
+				{
+					diasSiembra: document.getElementsByName("diasDespuesSiembra")[1].value,
+					cantidad: document.getElementsByName("diasDespuesSiembra")[1].value
+				}, 
+				{
+					diasSiembra: document.getElementsByName("diasDespuesSiembra")[2].value,
+					cantidad: document.getElementsByName("diasDespuesSiembra")[2].value
+				}
+			],
+			riego: nriego				
+		};
+		escenarios.push(escenarioActual);
+		agregarEscenarioPanel();
+	};
+	
+	function agregarEscenarioNav(){
+		var divE = document.getElementById('navEscenarios');
+		var errores = "";
+		var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0;
+		var anioHastaNoVacio=parseInt($('#hastaAnioSimulacion').val().length) != 0;
+		var checkFertilizaSiembra = $("#fertiliza").attr('checked', true).val() === '1';
+		var checkFertilizaOtras1 = $("#fertiliza1").attr('checked', true).val() === '1';
+		var checkFertilizaOtras2 = $("#fertiliza2").attr('checked', true).val() === '2';
+		var nombreEscenario = $('#inNombreEscenario').val(); 
+		var cultivo="";
+		var ciclo = document.getElementById("cmbDetalleCultivar").value;
+		var cicloMostrar=ciclo;
+		var riego ="";
+		
+		//control de errores
+		
+		//muestro div de escenarios
+		divE.style.display = (divE.style.display == 'inline') ? 'block' : 'inline';
+		
+		//fin - control de errores
+		if($('input[name="riego"]:checked', '#rbRiego').val() ==='1'){
+			riego = "Riego automático."
+		}else{riego = "No riego."}
+		
+		if($('input[name="cultivo"]:checked', '#rdCultivo').val() ==='MZ'){
+			cultivo = "Maiz"
+			if(ciclo ==="UY0370"){cicloMostrar="Ciclo medio";}
+			else{
+				if(ciclo ==="UY0371"){cicloMostrar="Ciclo corto";}
+				else{ if(ciclo ==="UY0372"){ cicloMostrar="Ciclo largo";} else{cicloMostrar="";}}
+			}
+			
+		}else{
+			cultivo = "Soja";
+			if(ciclo ==="UY0141"){cicloMostrar="GM 4";}
+			else{
+				if(ciclo ==="UY0151"){cicloMostrar="GM 5";}
+				else{ if(ciclo ==="UY0161"){ cicloMostrar="GM 6";} else{cicloMostrar="";}}
+			}	
+		}
+		
+		$("#accordion").append(
+		"<div class=" + '"' +"panel panel-default" + '"' + "> " +
+			"<div class=" + '"' + "panel-heading panelEscenarios" +'"' + ">" + 
+			"<button class="+ '"'+"panel-title botonEscenario form-control"+'"'+"data-toggle="+'"'+"collapse"+'"'+"data-parent="+'"'+"#accordion" +'"'+"href="+'"'+"#collapse" +nombreEscenario +'"' +">Escenario 1: " + nombreEscenario +"</button>"+
+			"<div id=" + '"' + "collapse"+ nombreEscenario + '"' + "class=" +'"' + "panel-collapse collapse in" +'"' +">"+
+				"<div class=" + '"' + "panel-body" + '"' +">"+ cultivo + "<br>" + cicloMostrar  + "<br>" + riego +	"<div>" + "<div>"+
+			"<div>"+
+		"<div>");
+	};
+	
+	function escucharAgregarEscenario(){
+		document.getElementById("agregarIdEscenario").addEventListener("click", agregarEscenario);
+		document.getElementById("agregarIdEscenario").addEventListener("click", agregarEscenarioNav);		
+	};
+	
+	function ejecutarSimulacion(){
+		agregarEscenario();
+		agregarEscenarioNav();		
+		document.getElementById('ejecutarDSSAT').submit();
+	}
+	
+</script>
+
+
+<div class="container">	
+	<div class="page-header">
+		<div class="row">
+			<div class="col-sm-3"> 
+				<img src="/static/img/logoSNIA.png" class="img-responsive">
+			</div>		
+			<div class="col-sm-6 text-center">
+				<h1 style="color: #848688;"> Simulador de Cultivo </h1>
+			</div>	
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-2">
+				<ul class="nav">
+					<li>
+						<a class="contacto" href="http://snia.gub.uy/contacto-5/contacto-72?,,mnu-e-55-3-mnu-" target="_blank"><span class="glyphicon glyphicon-envelope"></span> Contacto</a>
+					</li>
+				</ul>
+			</div>		
+	   </div>	
+	</div>		
+
+	<div id = "divErrores" class="alert alert-danger ocultar"></div>
+	
+	<div class="row paddingBottom">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra in ante sit amet aliquet. Proin nulla massa, tincidunt vitae mauris sit amet, luctus consequat ex. Cras elementum finibus auctor. Maecenas placerat mi erat, et iaculis elit blandit sit amet. Cras at ullamcorper ipsum. Proin elementum at mauris nec scelerisque. Quisque in commodo libero. Etiam at mi ut odio ultrices sodales. Proin quis ex lacus. Nam condimentum sit amet ante et feugiat. Etiam in tempor lorem, eu placerat ante.</p>		
+	</div>
+	
+	<div class="row paddingBottom" style="background-color:#f2ffe6;">
+		<div class="row">
+			<h2> Clima </h2>
+		</div>	
+		
+		<div class="row" id='estacionMeteorologica'>
+			<div class="col-sm-6" id='comboEstacionMeteorologica'>
+				<div class="col-sm-6">
+					<h4> Estación Meteorológica: </h4>
+				</div>
+				<div class="col-sm-6">
+					<select name="estacion" id="selectEstacion" onchange="changeEstacion()" style: "width:30px">
+						{% for estacion in estaciones %}
+							<option value="{{ estacion.valor }}">{{ estacion.etiqueta }}</option>							
+						{% endfor %}			  
+					</select>
+				</div>
+			</div>
+			<div class="col-sm-6" id='aniosEstacionMeteorologica'>
+				<div class="col-sm-6">
+					<div class="col-sm-6">
+						<label for="desdeAnio">Desde:</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" name="desdeAnio" value="" id= "desdeAnio" readonly="readonly" style="border:none; background:transparent">
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="col-sm-6">
+						<label for="hastaAnio">Hasta: </label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" name="hastaAnio" value="" id= "hastaAnio" readonly="readonly" style="border:none; background:transparent">
+					</div>
+				</div>
+			</div>
+		</div>		
+		<div id='periodoSimulacion' class="col-sm-4">
+			<h4>Periodo de Simulaci&oacute;n : </h4>
+			<div id="periodoAnioSimulacion">
+				<div class="" id="anioDesdeS"> 
+					<label for="desdeAnioSimulacion">A&ntilde;o inicial:</label>
+					<input type="text" class="form-control" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" style="height:30px;" required>
+					<span  id= "desdeAnioSimulacionS" aria-hidden="true"></span>
+					<p id="errorAnioDesde" class = "control-label has-error"></p>
+				</div>
+				<div class="" id="anioHastaS"> 
+					<label for="hastaAnioSimulacion">A&ntilde;o final:</label>
+					<input type="text" class="form-control" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" style="height:30px;" required>
+					<span  id= "hastaAnioSimulacionS" aria-hidden="true"></span>
+					<p id="errorAnioHasta" class = "control-label has-error"></p>	
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="row paddingBottom" style="background-color:#ffffe6;">
+		<div id='cultivo' class="col-xs-4 col-sm-6 col-lg-8">
+			<h3> Cultivo </h3>
+			<div id='rdCultivo'>								
+				{% for cultivo in cultivos %}
+					<input id="nombreCultivo" type="radio" name="cultivo" class = "radio-inline" value="{{ cultivo.value }}" onchange="cargarComboBoxDetalle (this)">{{ cultivo.nombre }}
+				{% endfor %}				
+			</div>
+			
+			<div id = "detalleCultivo" class="ocultar">	
+				<br>
+				<div>
+					<b> Detalles de cultivo	</b>
+				</div>
+				<br>
+				<div id="tipoSuelo" class="col-xs-8"> 
+					Tipo de suelo: <select name="tipoSuelo" id="cmbDetalleSuelo" class= "form-control"> </select>
+				</div>
+
+				<div id="tipoCultivar" class="col-xs-8"> 
+					Tipo de cultivar: <select name="tipoCultivar" id="cmbDetalleCultivar" class= "form-control">	</select>
+				</div>
+
+				<div id="nivelHumedad" class="col-xs-8"> 
+					Nivel de humedad: <select name="nivelHumedad" id="cmbDetalleH20" class= "form-control"> </select>
+				</div>
+
+				<div id="NO3inicial" class="col-xs-8"> 
+					NO3 inicial del suelo:  <select name="no3Inicial" id="cmbDetalleNO3" class= "form-control"> </select>
+				</div>
+
+				<div id="fechaSiembra" class="col-xs-8"> 
+					Fecha de siembra:
+					<div id="datetimepicker4" class="input-append">
+						<input data-format="yyyy-MM-dd" type="text" name="fechaSiembra" class= "form-control" required></input>
+						<span class="add-on form-control">
+						<i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
+						</span>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>	
+	<div class="row paddingBottom" style="background-color:#f2ffe6;">
+		<h3> Aplicaci&oacute;n del fertilizante </h3>
+		<!--Fertilización a la siembra -->
+		<div id='AplicacionFertilizacionSiembra' class="col-xs-3">			
+			<h4> Fertilizaci&oacute;n a la siembra: </h4>
+			<div id="rbFertilizacion">	
+				<input id="fertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="1" onchange="OnChangeRadioFertilizacion (this)" >Fertiliza
+				<input id="noFertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="0" onchange="OnChangeRadioFertilizacion (this)" checked="checked">No Fertiliza		
+			</div>	
+			<div id= "fertilizacionSiembra">
+				<div id= "diasDespuesSiembra" class="ocultar">
+					<br>
+					<div class="" id="diasDespuesSiembraD"> 
+						<label for="diasDespuesSiembra"> D&iacute;as despues de Siembra:</label>
+						<input type="text" class="form-control" name="diasDespuesSiembra" id= "diasDespuesSiembraI" style="height:30px;">
+						<span  id= "diasDespuesSiembraS" aria-hidden="true" class=""></span>
+						<p id="errordiasDespuesSiembra" class = "control-label has-error"></p>	
+					</div>	
+					<div id= "cantidadFertilizante">
+						<div class="" id="cantidadFertilizanteD"> 
+							<label for="cantidadFertilizante"> Cantidad (N, Kg/Ha):</label>
+							<input type="text" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteI" style="height:30px;">
+							<span  id= "cantidadFertilizanteS" aria-hidden="true" class=""></span>
+							<p id="errorCantidadFertilizante" class = "control-label has-error"></p>	
+						</div>	
+					</div>
+				</div>	
+			</div>
+			<!--<div id='fertilizacionTipo'>
+				Tipo Fertilización: 
+				<select id="cmbFertilizacionTipo" class= "form-control">	</select>
+			</div>-->
+			<!--<div id='fertilizacionAplicacion'>	
+				Aplicación Fertilización: 
+				<select id="cmbFertilizacionAplicacion" class= "form-control">	</select>
+			</div>-->
+		</div>				
+		<!--Otras Fertilizaciones -->
+		<div id='fertilizacionOtras' class="col-xs-9" style="margin-left:1px;">	
+			<h4> Otras aplicaciones fertilizante: </h4>			
+			<div id="rbFertilizacionOtras">	
+				<input id="fertiliza1" type="radio" name="fertilizacionO" class = "radio-inline" value="1" onchange="OnChangeRadioFertilizacionOtras (this)">1 Aplicación
+				<input id="fertiliza2" type="radio" name="fertilizacionO" class = "radio-inline" value="2" onchange="OnChangeRadioFertilizacionOtras (this)" checked="checked">2 Aplicaciones
+				<input id="noFertilizaO" type="radio" name="fertilizacionO" class = "radio-inline" value="0" onchange="OnChangeRadioFertilizacionOtras (this)">No Fertiliza		
+			</div>	
+			<br>
+			<div id= "fertilizacionOtrasAplicaciones" >
+				<div id= "fertilizacionOtrasAplicaciones1" class="col-xs-5">
+					<div class="" id="diasDespuesSiembraAp1D"> 
+						<label for="diasDespuesSiembraAp1"> D&iacute;as despues de Siembra:</label>
+						<input type="text" class="form-control" name="diasDespuesSiembra" id= "diasDespuesSiembraAp1I" style="height:30px;">
+						<span  id= "diasDespuesSiembraAp1S" aria-hidden="true" class=""></span>
+						<p id="errordiasDespuesSiembraAp1" class = "control-label has-error"></p>	
+					</div>	
+					<div id= "cantidadFertilizanteAp1">
+						<div class="" id="cantidadFertilizanteAp1D"> 
+							<label for="cantidadFertilizante"> Cantidad (N, Kg/Ha):</label>
+							<input type="text" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteAp1I" style="height:30px;">
+							<span  id= "cantidadFertilizanteAp1S" aria-hidden="true" class=""></span>
+							<p id="errorCantidadFertilizanteAp1" class = "control-label has-error"></p>	
+						</div>	
+					</div>
+				</div>
+				<div id= "fertilizacionOtrasAplicaciones2" class="col-xs-5">
+					<div class="" id="diasDespuesSiembraAp2D"> 
+						<label for="diasDespuesSiembraAp2"> D&iacute;as despues de Siembra:</label>
+						<input type="text" class="form-control" name="diasDespuesSiembra" id= "diasDespuesSiembraAp2I" style="height:30px;">
+						<span  id= "diasDespuesSiembraAp2S" aria-hidden="true" class=""></span>
+						<p id="errordiasDespuesSiembraAp2" class = "control-label has-error"></p>	
+					</div>	
+					<div id= "cantidadFertilizanteAp2">
+						<div class="" id="cantidadFertilizanteAp2D"> 
+							<label for="cantidadFertilizante"> Cantidad (N, Kg/Ha):</label>
+							<input type="text" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteAp2I" style="height:30px;">
+							<span  id= "cantidadFertilizanteAp2S" aria-hidden="true" class=""></span>
+							<p id="errorCantidadFertilizanteAp2" class = "control-label has-error"></p>	
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>					
+	<div class="row paddingBottom" style="background-color:#ffffe6;">
+		<div id='riego' class="col-xs-4 ">
+			<h3> Riego </h3>			
+			<div id="rbRiego">	
+				<input type="radio" name="riego" class = "radio-inline" value="1" onchange = "OnChangeRadioRiego (this)" checked="checked">Automático cuando se requiera				
+				<input type="radio" name="riego" class = "radio-inline" value="0" onchange = "OnChangeRadioRiego (this)">No Riego		
+			</div>				
+			<!--
+			<div id='detalleRiego'>
+				Método de riego: <select  name ="metodoRiego" id="cmbDetalleRiego" class= "form-control">	</select>
+			</div>
+			-->
+		</div>
+		
+	</div>	
+	<div class="row paddingBottom" style="background-color:#e6e6ff;">
+		<h3> Escenario </h3>
+		<div id='escenario'>
+			<label for="nombreEscenario"> <b> Nombre Escenario: </b> </label>
+			<input type="text" name="nombreEscenario" class="form-control" id= "inNombreEscenario">
+		</div>			
+		
+	</div>
+	<div id="navEscenarios" class="row ocultar" style="background-color:#ffffe6;"> 
+		<h3> Escenarios agregados</h3>			 
+		<div class="panel-group panelEscenarios" id="accordion">
+		</div>
+	</div>	
+	<form id="ejecutarDSSAT" action="btnDSSAT">	
+		<div class="row ocultar">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading">Escenarios</div>
+					<!-- Table -->
+					<table class="table" id="tablaEscenarios">
+						<thead>
+							<tr>
+								<th>Est.Meteorológica</th>
+								<th>FInicioSim</th>
+								<th>FFinSim</th>								
+								<th>Cultivo</th>
+								<th>CultivoTSuelo</th>
+								<th>CultivoTCultivar</th>
+								<th>CultivoNHumedad</th>
+								<th>CultivoNO3</th>
+								<th>CultivoFSiembra</th>																
+								<th>FertilizacionSiembraDias</th>
+								<th>FertilizacionSiembraCantidad</th>
+								<th>Fertilizacion1Dias</th>
+								<th>Fertilizacion1Cantidad</th>
+								<th>Fertilizacion2Dias</th>
+								<th>Fertilizacion2Cantidad</th>								
+								<th>Riego</th>								
+								<th>NombreEscenario</th>
+							</tr>
+						</thead>
+					</table>
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col-sm-6">
+				<input type='button' name="DSSAT" value="Simular" class="form-control primary" style="width:50%;margin:0px auto; display:block;" onclick="ejecutarSimulacion()">
+			</div>	
+			<div class="col-sm-6">
+				<input id="agregarIdEscenario" type='button' name="agregarEscenario" value="Agregar nuevo Escenario" class="form-control primary" style="width:50%;margin:0px auto; display:block;">		
+			</div>			
+		</div>						
+	</form>
+</div>
+<script>		
+	cargarEstaciones();
+	changeEstacion();
+	cargarDetallesCultivos();
+	escucharAgregarEscenario();
+	//cargarRiego();
+	//cargarTipoFertilizantes();
+	//cargarAplicacionFertilizantes();
+</script>	
+</body>
+</html>
