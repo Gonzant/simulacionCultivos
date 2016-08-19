@@ -2,235 +2,580 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
 
 *RUN   1        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
- SOILDY  YEAR DOY = 2000 302
+ SOILDY  YEAR DOY = 2000 228
  Surface runoff curve number has been changed from  10.0 to  25.0.             
 
- IPSOIL  YEAR DOY = 2000 302
+ IPSOIL  YEAR DOY = 2000 228
  File does not exist:                                                          
  SOILN040.SOL                                                                  
  Default residue characteristics will be used.                                 
 
- SOILNI  YEAR DOY = 2000 302
+ SOILNI  YEAR DOY = 2000 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   1 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2000 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   2 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2000 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   3 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2000 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   4 is unlikely:      9.7                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2000 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   5 is unlikely:      8.6                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2000 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   6 is unlikely:      7.3                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2000 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   7 is unlikely:      8.8                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
 
 *RUN   2        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
- SOILNI  YEAR DOY = 2001 302
+ SOILNI  YEAR DOY = 2001 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   1 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2001 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   2 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2001 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   3 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2001 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   4 is unlikely:      9.7                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2001 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   5 is unlikely:      8.6                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2001 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   6 is unlikely:      7.3                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2001 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   7 is unlikely:      8.8                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
 
 *RUN   3        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
- SOILNI  YEAR DOY = 2002 302
+ SOILNI  YEAR DOY = 2002 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   1 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2002 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   2 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2002 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   3 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2002 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   4 is unlikely:      9.7                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2002 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   5 is unlikely:      8.6                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2002 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   6 is unlikely:      7.3                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2002 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   7 is unlikely:      8.8                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
 
 *RUN   4        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
- SOILNI  YEAR DOY = 2003 302
+ SOILNI  YEAR DOY = 2003 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   1 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2003 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   2 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2003 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   3 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2003 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   4 is unlikely:      9.7                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2003 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   5 is unlikely:      8.6                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2003 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   6 is unlikely:      7.3                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2003 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   7 is unlikely:      8.8                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
 
 *RUN   5        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
- SOILNI  YEAR DOY = 2004 302
+ SOILNI  YEAR DOY = 2004 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   1 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2004 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   2 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2004 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   3 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2004 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   4 is unlikely:      9.7                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2004 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   5 is unlikely:      8.6                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2004 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   6 is unlikely:      7.3                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2004 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   7 is unlikely:      8.8                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
 
 *RUN   6        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
- SOILNI  YEAR DOY = 2005 302
+ SOILNI  YEAR DOY = 2005 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   1 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2005 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   2 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2005 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   3 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2005 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   4 is unlikely:      9.7                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2005 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   5 is unlikely:      8.6                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2005 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   6 is unlikely:      7.3                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2005 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   7 is unlikely:      8.8                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
 
 *RUN   7        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
- SOILNI  YEAR DOY = 2006 302
+ SOILNI  YEAR DOY = 2006 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   1 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2006 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   2 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2006 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   3 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2006 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   4 is unlikely:      9.7                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2006 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   5 is unlikely:      8.6                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2006 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   6 is unlikely:      7.3                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2006 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   7 is unlikely:      8.8                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
 
 *RUN   8        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
- SOILNI  YEAR DOY = 2007 302
+ SOILNI  YEAR DOY = 2007 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   1 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2007 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   2 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2007 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   3 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2007 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   4 is unlikely:      9.7                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2007 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   5 is unlikely:      8.6                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2007 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   6 is unlikely:      7.3                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2007 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   7 is unlikely:      8.8                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
 
 *RUN   9        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
- SOILNI  YEAR DOY = 2008 302
+ SOILNI  YEAR DOY = 2008 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   1 is unlikely:      9.1                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
- MZPHEN  YEAR DOY = 2008 326
- Crop failure because of lack of germination within 15 days of sowing          
+ SOILNI  YEAR DOY = 2008 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   2 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2008 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   3 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2008 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   4 is unlikely:      9.7                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2008 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   5 is unlikely:      8.6                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2008 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   6 is unlikely:      7.3                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2008 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   7 is unlikely:      8.8                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
 
 *RUN  10        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
- SOILNI  YEAR DOY = 2009 302
+ SOILNI  YEAR DOY = 2009 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   1 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2009 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   2 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2009 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   3 is unlikely:      9.1                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2009 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   4 is unlikely:      9.7                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2009 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   5 is unlikely:      8.6                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2009 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   6 is unlikely:      7.3                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2009 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   7 is unlikely:      8.8                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
 
 *RUN  11        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
- SOILNI  YEAR DOY = 2010 302
+ SOILNI  YEAR DOY = 2010 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   1 is unlikely:      9.1                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
-******************************************************************************
-
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
-
-*RUN  12        : UYMZ                    
- MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
- TREATMENT  1   : UYMZ                    
-
-
- SOILNI  YEAR DOY = 2011 302
+ SOILNI  YEAR DOY = 2010 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   2 is unlikely:      9.1                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
-******************************************************************************
-
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
-
-*RUN  13        : UYMZ                    
- MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
- TREATMENT  1   : UYMZ                    
-
-
- SOILNI  YEAR DOY = 2012 302
+ SOILNI  YEAR DOY = 2010 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   3 is unlikely:      9.1                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
-******************************************************************************
-
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 16, 2016; 17:55:43
-
-*RUN  14        : UYMZ                    
- MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0214 MZ    late to create DSS                             
- TREATMENT  1   : UYMZ                    
-
-
- SOILNI  YEAR DOY = 2013 302
+ SOILNI  YEAR DOY = 2010 228
  Warning: The initialized C:N ratio of the soil organic                        
- matter (humus) in layer   7 is unlikely:      8.2                             
+ matter (humus) in layer   4 is unlikely:      9.7                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2010 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   5 is unlikely:      8.6                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2010 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   6 is unlikely:      7.3                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+ SOILNI  YEAR DOY = 2010 228
+ Warning: The initialized C:N ratio of the soil organic                        
+ matter (humus) in layer   7 is unlikely:      8.8                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              

@@ -84,8 +84,18 @@
 			<div class="col-sm-6">
 				<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/boxplot.png" alt="Rendimientos esperados (Boxplot)">
 			</div>
+			<div>
+				<p></p>
+				<p>Este gráfico permite visualizar rápidamente los valores medios y la variabilidad esperada para cada escenario planteado.</p>
+			</div>
+		</div>	
+		<div class="row">
 			<div class="col-sm-6">
 				<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/curvaPExcedencia.png" alt="Rendimientos esperados (Curva de probabilidad de exedencia)">
+			</div>
+			<div>
+				<p></p>
+				<p>Este gráfico permite estimar la probabilidad de superar un determinado valor de rendimiento para diferentes escenarios.</p>
 			</div>
 		</div>
 
@@ -120,9 +130,7 @@
 					<div class="col-sm-2">
 						<label for="gastosGeneralesEscenario">Gastos generales (U$S/ha):</label>						
 					</div>									
-				</div>
-				
-				
+				</div>				
 				
 				{% for nEscenario in nombreEscenarios %}
 				<div class="row">				

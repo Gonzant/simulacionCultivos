@@ -413,9 +413,7 @@
 	   </div>	
 	</div>		
 
-	<div id= "msgErrores" class="ocultar" class="alert alert-warning">
-		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>		  
-	</div>
+	<div id= "msgErrores" class=" "></div>
 	
 	<div class="row paddingBottom" style="background-color:#ffffe6;">
 		<div class="paddingLeft">
@@ -462,26 +460,26 @@
 				</div>
 			</div>
 		</div>		
-		<div id='periodoSimulacion' class="col-sm-4">
+		<div id='periodoSimulacion' class="col-sm-8">
 			<h4>Periodo de Simulaci&oacute;n : </h4>
 			<div id="periodoAnioSimulacion">
 				<div class="" id="anioDesdeS"> 
-					<label for="desdeAnioSimulacion">A&ntilde;o inicial:</label>
-					<input type="text" class="form-control" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" style="height:30px;" required>
+					<label for="desdeAnioSimulacion" class="col-sm-5">A&ntilde;o inicial:</label>
+					<input type="number" class="col-sm-7" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" style="height:30px;" required>
 					<span  id= "desdeAnioSimulacionS" aria-hidden="true"></span>
-					<p id="errorAnioDesde" class = "control-label has-error"></p>
-				</div>
-				<div class="" id="anioHastaS"> 
-					<label for="hastaAnioSimulacion">A&ntilde;o final:</label>
-					<input type="text" class="form-control" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" style="height:30px;" required>
+					<p id="errorAnioDesde" class = "control-label has-error" class="col-sm-7"></p>
+				</div> 
+				<div class="" id="anioHastaS" class="col-sm-7"> 
+					<label for="hastaAnioSimulacion" class="col-sm-5">A&ntilde;o final:</label>
+					<input type="number" class="col-sm-7" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" style="height:30px;" required>
 					<span  id= "hastaAnioSimulacionS" aria-hidden="true"></span>
-					<p id="errorAnioHasta" class = "control-label has-error"></p>	
+					<p id="errorAnioHasta" class = "control-label has-error" class="col-sm-7"></p>	
 				</div>	
 			</div>
 		</div>
 	</div>
 	<div class="row paddingBottom" style="background-color:#ffffe6;">
-		<div id='cultivo' class="col-xs-4 col-sm-6 col-lg-8">
+		<div id='cultivo' class="col-lg-8">
 			<h3> Cultivo </h3>
 			<div id='rdCultivo'>								
 				{% for cultivo in cultivos %}
@@ -489,34 +487,38 @@
 				{% endfor %}				
 			</div>
 			
-			<div id = "detalleCultivo" class="ocultar">	
+			<div id = "detalleCultivo" class="ocultar" style="display:none;">	
 				<br>
 				<div>
 					<b> Detalles de cultivo	</b>
 				</div>
 				<br>
-				<div id="tipoSuelo" class="col-xs-8"> 
-					Tipo de suelo: <select name="tipoSuelo" id="cmbDetalleSuelo" class= "form-control"> </select>
+				<div id="tipoSuelo" class="col-xs-10"> 
+					<label for="cmbDetalleSuelo" class="col-sm-4">Tipo de suelo: </label>
+					<select name="tipoSuelo" id="cmbDetalleSuelo" class="col-sm-8"> </select>
 				</div>
 
-				<div id="tipoCultivar" class="col-xs-8"> 
-					Tipo de cultivar: <select name="tipoCultivar" id="cmbDetalleCultivar" class= "form-control">	</select>
+				<div id="tipoCultivar" class="col-xs-10"> 
+					<label for="cmbDetalleCultivar" class="col-sm-4">Tipo de cultivar:</label>
+					<select name="tipoCultivar" id="cmbDetalleCultivar" class="col-sm-8">	</select>
 				</div>
 
-				<div id="nivelHumedad" class="col-xs-8"> 
-					Nivel de humedad: <select name="nivelHumedad" id="cmbDetalleH20" class= "form-control"> </select>
+				<div id="nivelHumedad" class="col-xs-10"> 
+					<label for="cmbDetalleH20" class="col-sm-4">Nivel de humedad: </label>
+					<select name="nivelHumedad" id="cmbDetalleH20" class="col-sm-8"> </select>
 				</div>
 
-				<div id="NO3inicial" class="col-xs-8"> 
-					NO3 inicial del suelo:  <select name="no3Inicial" id="cmbDetalleNO3" class= "form-control"> </select>
+				<div id="NO3inicial" class="col-xs-10"> 
+					<label for="cmbDetalleNO3" class="col-sm-4">Nivel de humedad: </label>
+					<select name="no3Inicial" id="cmbDetalleNO3" class="col-sm-8"> </select>
 				</div>
 
-				<div id="fechaSiembra" class="col-xs-8"> 
-					Fecha de siembra:
-					<div id="datetimepicker4" class="input-append">
-						<input data-format="yyyy-MM-dd" type="text" name="fechaSiembra" class= "form-control" required></input>
-						<span class="add-on form-control">
-						<i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
+				<div id="fechaSiembra" class="col-xs-10"> 
+					<label for="datetimepicker4" class="col-sm-4">Fecha de siembra: </label>
+					<div id="datetimepicker4" class="col-sm-8 input-append">
+						<input data-format="yyyy-MM-dd" type="text" name="fechaSiembra" class= "form-control" style="height:30px;" required></input>
+						<span class="add-on form-control" style="height:30px;">
+						<i data-time-icon="icon-time" data-date-icon="icon-calendar" > </i>
 						</span>
 					</div>
 				</div>	
@@ -529,8 +531,8 @@
 		<div id='AplicacionFertilizacionSiembra' class="col-xs-3">			
 			<h4> Fertilizaci&oacute;n a la siembra: </h4>
 			<div id="rbFertilizacion">	
-				<input id="fertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="1" onchange="OnChangeRadioFertilizacion (this)" >Fertiliza
-				<input id="noFertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="0" onchange="OnChangeRadioFertilizacion (this)" checked="checked">No Fertiliza		
+				<input id="fertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="1" onchange="OnChangeRadioFertilizacion (this)" checked="checked">Fertiliza
+				<input id="noFertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="0" onchange="OnChangeRadioFertilizacion (this)">No Fertiliza		
 			</div>	
 			<div id= "fertilizacionSiembra">
 				<div id= "diasDespuesSiembra" class="ocultar">
@@ -623,8 +625,8 @@
 	<div class="row paddingBottom" style="background-color:#e6e6ff;">
 		<h3> Escenario </h3>
 		<div id='escenario'>
-			<label for="nombreEscenario"> <b> Nombre Escenario: </b> </label>
-			<input type="text" name="nombreEscenario" class="form-control" id= "inNombreEscenario">
+			<label for="nombreEscenario" class="col-sm-4"> <b> Nombre Escenario: </b> </label>
+			<input type="text" style="width:50%" name="nombreEscenario" class="col-sm-6" id= "inNombreEscenario">
 		</div>			
 		
 	</div>

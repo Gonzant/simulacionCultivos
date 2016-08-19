@@ -52,8 +52,14 @@ function validaCamposVacios(){
 		datosOk=false;
 	}
 	if(errores!="<strong> Verifique los siguientes campos: </strong>"){
-		document.getElementById("msgErrores").className = "alert alert-warning";
-		$("#msgErrores" ).html(errores);
+		var div= "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
+		/*
+		<div class="alert alert-warning">
+		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>		  
+	</div>
+		*/
+		//document.getElementById("msgErrores").className = "alert alert-warning";
+		$("#msgErrores" ).html(div);
 		$('body,html').animate({scrollTop : 0}, 500);
 	}
 	return datosOk;
@@ -68,8 +74,9 @@ function agregarEscenario(boton){
 
 //DATETIMEPICKER
   
+
 $(function() {
-    $('#datetimepicker4').datetimepicker({
+	$('#datetimepicker4').datetimepicker({
 		pickTime: false,
 		todayHighlight: true,
 		autoclose: true,
