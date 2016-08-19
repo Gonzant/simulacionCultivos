@@ -1,6 +1,76 @@
 /* $(function () { $('#collapseThree').collapse('toggle')});
    $(function () { $('#collapseOne').collapse('hide')});
   */ 
+function validaCamposVacios(){
+	var errores="<strong> Verifique no sean vacios/incorrectos los siguientes campos: </strong>" 
+	var datosOk=false;
+	var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0;
+	var anioHastaNoVacio=parseInt($('#hastaAnioSimulacion').val().length) != 0;
+	var cultivoSeleccionado = ($('input[name=cultivo]:checked').attr('value')==='SB') || ($('input[name=cultivo]:checked').attr('value')==='MZ');
+	var fertilizaSeleccionado = ($('input[name=fertilizacion]:checked').attr('value')==='1');
+	var diasS, diasS1, diasS2, cantidadS, cantidadS1, cantidadS2;
+	var fertiliza1Seleccionado = ($('input[name=fertilizacionO]:checked').attr('value')==='1');
+	var fertiliza2Seleccionado = ($('input[name=fertilizacionO]:checked').attr('value')==='2');
+	var nombreEscenarioNoVacio = $('#inNombreEscenario').val().length !=0; 
+	diasS1 =parseInt($('#diasDespuesSiembraAp1I').val().length) != 0;
+	diasS2 =parseInt($('#diasDespuesSiembraAp2I').val().length) != 0;
+	if(anioDesdeNoVacio && anioHastaNoVacio){ 		
+		datosOk=true;		
+	}else{		
+		errores = errores + "<p>Periodo de simulacion</p>";		
+		datosOk=false;
+	}
+	if(cultivoSeleccionado){ 		
+		datosOk=true;		
+	}else{		
+		errores = errores + "<p>Debe seleccionar un cultivo<p>";		
+		datosOk=false;
+	}
+	if(fertilizaSeleccionado){//fertiliza Siembra seleccionado
+		diasS=parseInt($('#diasDespuesSiembraI').val().length) != 0;
+		cantidadS=parseInt($('#cantidadFertilizanteI').val().length) != 0;
+		if(diasDespuesSiembraIValido()==false){
+			errores = errores + "<p> Dias (fertilizacion a la siembra)</p>";
+			datosOk=false;
+		}
+		if(cantidadFertilizanteIValido()==false){
+			errores = errores + "<p> Cantidad (fertilizacion a la siembra)</p>";
+			datosOk=false;
+		}
+	}
+	if(fertiliza1Seleccionado){//fertiliza 1 ap seleccionado
+		if(diasDespuesSiembraAp1IValido()==false){
+			errores = errores + "<p> Dias (otras fertilizaciones - 1 aplicación)</p>";
+			datosOk=false;
+		}
+		if(cantidadFertilizanteAp1IValido()==false){
+			errores = errores + "<p> Cantidad (otras fertilizaciones - 1 aplicación)</p>";
+			datosOk=false;
+		}
+	}
+	
+	if(fertiliza2Seleccionado){//fertiliza 2 ap seleccionado
+		if((diasDespuesSiembraAp1IValido()===false) && (diasDespuesSiembraAp2IValido()===false)){
+			errores = errores + "<p> Dias (otras fertilizaciones - 2 aplicaciones)</p>";
+			datosOk=false;			
+		}
+		if(cantidadFertilizanteAp1IValido()==false && cantidadFertilizanteAp2IValido()==false){
+			errores = errores + "<p> Cantidad (otras fertilizaciones - 2 aplicaciones)</p>";
+			datosOk=false;
+			
+		}
+	}
+	if(nombreEscenarioNoVacio ===false){
+		errores = errores + "<p> Nombre del escenario </p>";
+		datosOk=false;
+	}
+	if(errores!="<strong> Verifique no sean vacios/incorrectos los siguientes campos: </strong>"){
+		document.getElementById("msgErrores").className = "alert alert-warning";
+		$("#msgErrores" ).html(errores);
+		$('body,html').animate({scrollTop : 0}, 500);
+	}
+	return datosOk;
+}
   
   
 //Boton agregar escenario
@@ -20,7 +90,7 @@ $(function() {
 	
 	$('#datetimepicker4').datetimepicker('setDate', new Date());
 });
-
+/*
 //agregar escenario
 $(function() {
    	$('#agregarEscenario').click(function () {
@@ -75,7 +145,8 @@ $(function() {
 		"<div>");
 	});
 });
-  
+ */
+ 
 //FERTILIZACION
 
 function OnChangeRadioFertilizacion (radio) {
@@ -108,6 +179,32 @@ function OnChangeRadioFertilizacion (radio) {
 	document.getElementById("diasDespuesSiembra").className = " ";
 	el.style.display = (el.style.display == 'inline') ? 'block' : 'inline'; 	
   }	
+}
+
+function diasDespuesSiembraIValido(){
+	var diasValido= (parseInt($('#diasDespuesSiembraI').val()) < 0) || parseInt(($('#diasDespuesSiembraI').val())) >150;
+	return diasValido; 
+}
+function diasDespuesSiembraAp1IValido(){
+	var diasValido= (parseInt($('#diasDespuesSiembraAp1I').val()) < 0) || parseInt(($('#diasDespuesSiembraAp1I').val())) >150;
+	return diasValido; 
+}
+function diasDespuesSiembraAp2IValido(){
+	var diasValido= (parseInt($('#diasDespuesSiembraAp2I').val()) < 0) || parseInt(($('#diasDespuesSiembraAp2I').val())) >150;
+	return diasValido; 
+}
+function cantidadFertilizanteIValido(){
+	var cantValido= (parseInt($('#cantidadFertilizanteI').val()) < 0) || parseInt(($('#cantidadFertilizanteI').val())) >100;
+	return cantValido; 
+}
+function cantidadFertilizanteAp1IValido(){
+	var cantValido= (parseInt($('#cantidadFertilizanteAp1I').val()) < 0) || parseInt(($('#cantidadFertilizanteAp1I').val())) >100;
+	return cantValido; 
+}
+function cantidadFertilizanteAp2IValido(){
+	var cantValido= (parseInt($('#cantidadFertilizanteAp2I').val()) < 0) || parseInt(($('#cantidadFertilizanteAp2I').val())) >100;
+	cantValido=cantValido && cantidadFertilizanteAp1IValido();
+	return cantValido; 
 }
 
 function OnChangeRadioFertilizacionOtras (radio) {
@@ -181,9 +278,8 @@ function OnChangeRadioFertilizacionOtras (radio) {
 	
 $(function() { //valida dias despues de siembra
 	$('#diasDespuesSiembraI').change(function () {   
-		if(parseInt($('#diasDespuesSiembraI').val().length) != 0){
-					
-			if((parseInt($('#diasDespuesSiembraI').val()) < 0) || parseInt(($('#diasDespuesSiembraI').val())) >150){
+		if(parseInt($('#diasDespuesSiembraI').val().length) != 0){					
+			if(diasDespuesSiembraIValido()){
 				document.getElementById("diasDespuesSiembraD").className = "form-group has-error has-feedback";
 				document.getElementById("errordiasDespuesSiembra").innerHTML = 'Incorrecto';
 				document.getElementById("diasDespuesSiembraS").className = "glyphicon glyphicon-remove form-control-feedback";
@@ -199,7 +295,7 @@ $(function() { //valida dias despues de siembra
 	$('#diasDespuesSiembraAp1I').change(function () {   
 		if(parseInt($('#diasDespuesSiembraAp1I').val().length) != 0){
 					
-			if((parseInt($('#diasDespuesSiembraAp1I').val()) < 0) || parseInt(($('#diasDespuesSiembraAp1I').val())) >150){
+			if(diasDespuesSiembraAp1IValido()){
 				document.getElementById("diasDespuesSiembraAp1D").className = "form-group has-error has-feedback";
 				document.getElementById("errordiasDespuesSiembraAp1").innerHTML = 'Incorrecto';
 				document.getElementById("diasDespuesSiembraAp1S").className = "glyphicon glyphicon-remove form-control-feedback";
@@ -215,7 +311,7 @@ $(function() { //valida dias despues de siembra
 	$('#diasDespuesSiembraAp2I').change(function () {   
 		if(parseInt($('#diasDespuesSiembraAp2I').val().length) != 0){
 					
-			if((parseInt($('#diasDespuesSiembraAp2I').val()) < 0) || parseInt(($('#diasDespuesSiembraAp2I').val())) >150){
+			if(diasDespuesSiembraAp2IValido()){
 				document.getElementById("diasDespuesSiembraAp2D").className = "form-group has-error has-feedback";
 				document.getElementById("errordiasDespuesSiembraAp2").innerHTML = 'Incorrecto';
 				document.getElementById("diasDespuesSiembraAp2S").className = "glyphicon glyphicon-remove form-control-feedback";
