@@ -2,7 +2,7 @@
    $(function () { $('#collapseOne').collapse('hide')});
   */ 
 function validaCamposVacios(){
-	var errores="<strong> Verifique no sean vacios/incorrectos los siguientes campos: </strong>" 
+	var errores="<strong> Verifique los siguientes campos: </strong>" 
 	var datosOk=false;
 	var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0;
 	var anioHastaNoVacio=parseInt($('#hastaAnioSimulacion').val().length) != 0;
@@ -29,42 +29,29 @@ function validaCamposVacios(){
 	if(fertilizaSeleccionado){//fertiliza Siembra seleccionado
 		diasS=parseInt($('#diasDespuesSiembraI').val().length) != 0;
 		cantidadS=parseInt($('#cantidadFertilizanteI').val().length) != 0;
-		if(diasDespuesSiembraIValido()==false){
-			errores = errores + "<p> Dias (fertilizacion a la siembra)</p>";
-			datosOk=false;
-		}
-		if(cantidadFertilizanteIValido()==false){
-			errores = errores + "<p> Cantidad (fertilizacion a la siembra)</p>";
+		if(diasDespuesSiembraIValido()==false || cantidadFertilizanteIValido()==false){
+			errores = errores + "<p> Fertilizacion a la siembra</p>";
 			datosOk=false;
 		}
 	}
 	if(fertiliza1Seleccionado){//fertiliza 1 ap seleccionado
-		if(diasDespuesSiembraAp1IValido()==false){
-			errores = errores + "<p> Dias (otras fertilizaciones - 1 aplicación)</p>";
-			datosOk=false;
-		}
-		if(cantidadFertilizanteAp1IValido()==false){
-			errores = errores + "<p> Cantidad (otras fertilizaciones - 1 aplicación)</p>";
+		if(diasDespuesSiembraAp1IValido()==false || cantidadFertilizanteAp1IValido()==false){
+			errores = errores + "<p> Otras fertilizaciones (1 aplicacion)</p>";
 			datosOk=false;
 		}
 	}
 	
 	if(fertiliza2Seleccionado){//fertiliza 2 ap seleccionado
-		if((diasDespuesSiembraAp1IValido()===false) && (diasDespuesSiembraAp2IValido()===false)){
-			errores = errores + "<p> Dias (otras fertilizaciones - 2 aplicaciones)</p>";
+		if((diasDespuesSiembraAp1IValido()===false && diasDespuesSiembraAp2IValido()===false) || (cantidadFertilizanteAp1IValido()==false && cantidadFertilizanteAp2IValido()==false)){
+			errores = errores + "<p> Otras fertilizaciones (2 aplicaciones)</p>";
 			datosOk=false;			
-		}
-		if(cantidadFertilizanteAp1IValido()==false && cantidadFertilizanteAp2IValido()==false){
-			errores = errores + "<p> Cantidad (otras fertilizaciones - 2 aplicaciones)</p>";
-			datosOk=false;
-			
 		}
 	}
 	if(nombreEscenarioNoVacio ===false){
 		errores = errores + "<p> Nombre del escenario </p>";
 		datosOk=false;
 	}
-	if(errores!="<strong> Verifique no sean vacios/incorrectos los siguientes campos: </strong>"){
+	if(errores!="<strong> Verifique los siguientes campos: </strong>"){
 		document.getElementById("msgErrores").className = "alert alert-warning";
 		$("#msgErrores" ).html(errores);
 		$('body,html').animate({scrollTop : 0}, 500);

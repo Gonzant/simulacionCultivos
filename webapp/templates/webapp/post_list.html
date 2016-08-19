@@ -60,7 +60,8 @@
 			var cultivo = {
 				nombre: "{{cultivo.nombre}}",
 				suelos: 
-					[						
+					[
+						
 						{% for suelo in cultivo.suelos.all %}
 							{
 								nombre: "{{suelo.nombre}}",
@@ -275,55 +276,57 @@
 	};
 	
 	function agregarEscenario(){
-		if(validaCamposVacios()===true){
-			for (var i=0;i< document.getElementsByName("cultivo").length; i++){
-				if ( document.getElementsByName("cultivo")[i].checked ) {
-					var ncultivo = (document.getElementsByName("cultivo")[i].value);
-				}
-			};	
-			for (var i=0;i< document.getElementsByName("riego").length; i++){
-				if ( document.getElementsByName("riego")[i].checked ) {
-					var nriego = (document.getElementsByName("riego")[i].value);
-				}
-			};		
-			var escenarioActual = {
-				nombre: document.getElementsByName("nombreEscenario")[0].value,
-				estacion: document.getElementById("selectEstacion").value,
-				desdeAnioSimulacion: document.getElementById("desdeAnioSimulacion").value,
-				hastaAnioSimulacion: document.getElementById("hastaAnioSimulacion").value,
-				cultivo: {
-					nombreCultivo: ncultivo,
-					detalle: {
-						suelo: document.getElementById("cmbDetalleSuelo").value,
-						tCultivar: document.getElementById("cmbDetalleCultivar").value,
-						nHumedadd: document.getElementById("cmbDetalleH20").value,
-						no3: document.getElementById("cmbDetalleNO3").value,
-						fSiembra: document.getElementsByName("fechaSiembra")[0].value
+			if(validaCamposVacios()===true){
+				for (var i=0;i< document.getElementsByName("cultivo").length; i++){
+					if ( document.getElementsByName("cultivo")[i].checked ) {
+						var ncultivo = (document.getElementsByName("cultivo")[i].value);
 					}
-				},
-				fertilizacionSiembra: {
-					diasSiembra: document.getElementsByName("diasDespuesSiembra")[0].value,
-					cantidad: document.getElementsByName("diasDespuesSiembra")[0].value
-				},
-				fertilizaciones: [
-					{
-						diasSiembra: document.getElementsByName("diasDespuesSiembra")[1].value,
-						cantidad: document.getElementsByName("diasDespuesSiembra")[1].value
-					}, 
-					{
-						diasSiembra: document.getElementsByName("diasDespuesSiembra")[2].value,
-						cantidad: document.getElementsByName("diasDespuesSiembra")[2].value
+				};	
+				for (var i=0;i< document.getElementsByName("riego").length; i++){
+					if ( document.getElementsByName("riego")[i].checked ) {
+						var nriego = (document.getElementsByName("riego")[i].value);
 					}
-				],
-				riego: nriego				
-			};
-			escenarios.push(escenarioActual);
-			agregarEscenarioPanel();
-			agregarEscenarioNav();
-		else{
-			$('body,html').animate({scrollTop : 0}, 500);
-			//alert("No ok");
-		}	
+				};		
+				var escenarioActual = {
+					nombre: document.getElementsByName("nombreEscenario")[0].value,
+					estacion: document.getElementById("selectEstacion").value,
+					desdeAnioSimulacion: document.getElementById("desdeAnioSimulacion").value,
+					hastaAnioSimulacion: document.getElementById("hastaAnioSimulacion").value,
+					cultivo: {
+						nombreCultivo: ncultivo,
+						detalle: {
+							suelo: document.getElementById("cmbDetalleSuelo").value,
+							tCultivar: document.getElementById("cmbDetalleCultivar").value,
+							nHumedadd: document.getElementById("cmbDetalleH20").value,
+							no3: document.getElementById("cmbDetalleNO3").value,
+							fSiembra: document.getElementsByName("fechaSiembra")[0].value
+						}
+					},
+					fertilizacionSiembra: {
+						diasSiembra: document.getElementsByName("diasDespuesSiembra")[0].value,
+						cantidad: document.getElementsByName("diasDespuesSiembra")[0].value
+					},
+					fertilizaciones: [
+						{
+							diasSiembra: document.getElementsByName("diasDespuesSiembra")[1].value,
+							cantidad: document.getElementsByName("diasDespuesSiembra")[1].value
+						}, 
+						{
+							diasSiembra: document.getElementsByName("diasDespuesSiembra")[2].value,
+							cantidad: document.getElementsByName("diasDespuesSiembra")[2].value
+						}
+					],
+					riego: nriego				
+				};
+				escenarios.push(escenarioActual);
+				agregarEscenarioPanel();
+				agregarEscenarioNav();
+			}	
+			else{
+				$('body,html').animate({scrollTop : 0}, 500);
+				//alert("No ok");
+			}
+		
 	};
 	
 	function agregarEscenarioNav(){
@@ -410,7 +413,9 @@
 	   </div>	
 	</div>		
 
-	<div id = "divErrores" class=""></div>
+	<div id= "msgErrores" class="ocultar" class="alert alert-warning">
+		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>		  
+	</div>
 	
 	<div class="row paddingBottom" style="background-color:#ffffe6;">
 		<div class="paddingLeft">
@@ -424,10 +429,10 @@
 	</div>
 	<hr />
 	<div class="row paddingLeft paddingBottom" style="background-color:#f2ffe6;">
-		<h3> Clima </h3>		
+		<h2> Clima </h2>		
 		<div class="row" id='estacionMeteorologica'>
 			<div class="col-sm-6" id='comboEstacionMeteorologica'>
-				<div class="col-sm-6">
+				<div class="col-sm-5">
 					<h4> Estación Meteorológica: </h4>
 				</div>
 				<div class="col-sm-4">
