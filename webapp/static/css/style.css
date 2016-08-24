@@ -105,6 +105,9 @@ border: 1px solid red;
 .paddingLeft{
 	padding-left:3%;
 }
+.paddingRight{
+	padding-right:3%;
+}
 .logo{
 	height:7%;
 }

@@ -60,8 +60,7 @@
 			var cultivo = {
 				nombre: "{{cultivo.nombre}}",
 				suelos: 
-					[
-						
+					[						
 						{% for suelo in cultivo.suelos.all %}
 							{
 								nombre: "{{suelo.nombre}}",
@@ -276,7 +275,8 @@
 	};
 	
 	function agregarEscenario(){
-			if(validaCamposVacios()===true){
+		
+		if(validaCamposVacios()===true){
 				for (var i=0;i< document.getElementsByName("cultivo").length; i++){
 					if ( document.getElementsByName("cultivo")[i].checked ) {
 						var ncultivo = (document.getElementsByName("cultivo")[i].value);
@@ -321,12 +321,12 @@
 				escenarios.push(escenarioActual);
 				agregarEscenarioPanel();
 				agregarEscenarioNav();
+				limpiarFormulario();
 			}	
 			else{
 				$('body,html').animate({scrollTop : 0}, 500);
 				//alert("No ok");
-			}
-		
+			}		
 	};
 	
 	function agregarEscenarioNav(){
@@ -460,20 +460,20 @@
 				</div>
 			</div>
 		</div>		
-		<div id='periodoSimulacion' class="col-sm-8">
+		<div id='periodoSimulacion' class="col-sm-6 paddingRight paddingLeft">
 			<h4>Periodo de Simulaci&oacute;n : </h4>
-			<div id="periodoAnioSimulacion">
+			<div id="periodoAnioSimulacion" class="" >
 				<div class="" id="anioDesdeS"> 
-					<label for="desdeAnioSimulacion" class="col-sm-5">A&ntilde;o inicial:</label>
-					<input type="number" class="col-sm-7" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" style="height:30px;" required>
+					<label for="desdeAnioSimulacion">Año inicial:</label>
+					<input type="text" class="form-control" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" style="height:30px;" required>
 					<span  id= "desdeAnioSimulacionS" aria-hidden="true"></span>
-					<p id="errorAnioDesde" class = "control-label has-error" class="col-sm-7"></p>
-				</div> 
-				<div class="" id="anioHastaS" class="col-sm-7"> 
-					<label for="hastaAnioSimulacion" class="col-sm-5">A&ntilde;o final:</label>
-					<input type="number" class="col-sm-7" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" style="height:30px;" required>
+					<p id="errorAnioDesde" class = "control-label has-error"></p>
+				</div>
+				<div class="" id="anioHastaS"> 
+					<label for="hastaAnioSimulacion">Año final:</label>
+					<input type="text" class="form-control" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" style="height:30px;" required>
 					<span  id= "hastaAnioSimulacionS" aria-hidden="true"></span>
-					<p id="errorAnioHasta" class = "control-label has-error" class="col-sm-7"></p>	
+					<p id="errorAnioHasta" class = "control-label has-error"></p>	
 				</div>	
 			</div>
 		</div>

@@ -2,6 +2,7 @@
    $(function () { $('#collapseOne').collapse('hide')});
   */ 
 function validaCamposVacios(){
+	
 	var errores="<strong> Verifique los siguientes campos: </strong>" 
 	var datosOk=false;
 	var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0;
@@ -29,22 +30,28 @@ function validaCamposVacios(){
 	if(fertilizaSeleccionado){//fertiliza Siembra seleccionado
 		diasS=parseInt($('#diasDespuesSiembraI').val().length) != 0;
 		cantidadS=parseInt($('#cantidadFertilizanteI').val().length) != 0;
-		if(diasDespuesSiembraIValido()==false || cantidadFertilizanteIValido()==false){
+		if((parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteI').val()) >= 0) && parseInt(($('#cantidadFertilizanteI').val())) <= 100==false)){
 			errores = errores + "<p> Fertilizacion a la siembra</p>";
 			datosOk=false;
+		}else{
+			datosOk= true;
 		}
 	}
 	if(fertiliza1Seleccionado){//fertiliza 1 ap seleccionado
-		if(diasDespuesSiembraAp1IValido()==false || cantidadFertilizanteAp1IValido()==false){
+		if((parseInt($('#diasDespuesSiembraAp1I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp1I').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteAp1I').val()) >= 0) && parseInt(($('#cantidadFertilizanteAp1I').val())) <= 100==false)){
 			errores = errores + "<p> Otras fertilizaciones (1 aplicacion)</p>";
 			datosOk=false;
+		}else{
+			datosOk= true;
 		}
 	}
 	
 	if(fertiliza2Seleccionado){//fertiliza 2 ap seleccionado
-		if((diasDespuesSiembraAp1IValido()===false && diasDespuesSiembraAp2IValido()===false) || (cantidadFertilizanteAp1IValido()==false && cantidadFertilizanteAp2IValido()==false)){
+		if((parseInt($('#diasDespuesSiembraAp2I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp2I').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteAp2I').val()) >= 0) && parseInt(($('#cantidadFertilizanteAp2I').val())) <= 100==false)){
 			errores = errores + "<p> Otras fertilizaciones (2 aplicaciones)</p>";
-			datosOk=false;			
+			datosOk=false;
+		}else{
+			datosOk= true;
 		}
 	}
 	if(nombreEscenarioNoVacio ===false){
@@ -84,62 +91,6 @@ $(function() {
 	
 	$('#datetimepicker4').datetimepicker('setDate', new Date());
 });
-/*
-//agregar escenario
-$(function() {
-   	$('#agregarEscenario').click(function () {
-		var errores = "";
-		var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0;
-		var anioHastaNoVacio=parseInt($('#hastaAnioSimulacion').val().length) != 0;
-		var checkFertilizaSiembra = $("#fertiliza").attr('checked', true).val() === '1';
-		var nombreCultNoVacio = $("#nombreCultivo").attr('checked', true).val() != 0;
-		var checkFertilizaOtras1 = $("#fertiliza1").attr('checked', true).val() === '1';
-		var checkFertilizaOtras2 = $("#fertiliza2").attr('checked', true).val() === '2';
-		var nombreEscenario = $('#inNombreEscenario').val(); 
-		var nomCultivo = document.getElementById("nombreCultivo").value;
-		var cultivo="";
-		var ciclo = document.getElementById("cmbDetalleCultivar").value;
-		var cicloMostrar=ciclo;
-		var riego ="";
-		
-		//control de errores
-		
-		
-		//fin - control de errores
-		if($('input[name="riego"]:checked', '#rbRiego').val() ==='1'){
-			riego = "Riego automático."
-		}else{riego = "No riego."}
-		if(nomCultivo ==='SB'){ 
-			cultivo = "Soja";
-			if(ciclo ==="UY0370"){cicloMostrar="Ciclo medio";}
-			else{
-				if(ciclo ==="UY0371"){cicloMostrar="Ciclo corto";}
-				else{ if(ciclo ==="UY0372"){ cicloMostrar="Ciclo largo";} else{cicloMostrar="";}}
-			}
-		}
-		else{
-			cultivo = "Maíz";
-			if(ciclo ==="UY0141"){cicloMostrar="GM 4";}
-			else{
-				if(ciclo ==="UY0151"){cicloMostrar="GM 5";}
-				else{ if(ciclo ==="UY0161"){ cicloMostrar="GM 6";} else{cicloMostrar="";}}
-			}	
-					
-			
-		}
-				
-		alert(cicloMostrar);
-		$("#accordion").append(
-		"<div class=" + '"' +"panel panel-default" + '"' + "> " +
-			"<div class=" + '"' + "panel-heading panelEscenarios" +'"' + ">" + 
-			"<button class="+ '"'+"panel-title botonEscenario form-control"+'"'+"data-toggle="+'"'+"collapse"+'"'+"data-parent="+'"'+"#accordion" +'"'+"href="+'"'+"#collapse" +nombreEscenario +'"' +">Escenario 1: " + nombreEscenario +"</button>"+
-			"<div id=" + '"' + "collapse"+ nombreEscenario + '"' + "class=" +'"' + "panel-collapse collapse in" +'"' +">"+
-				"<div class=" + '"' + "panel-body" + '"' +">"+ cultivo + "<br>" + cicloMostrar  + "<br>" + riego +	"<div>" + "<div>"+
-			"<div>"+
-		"<div>");
-	});
-});
- */
  
 //FERTILIZACION
 
@@ -175,31 +126,6 @@ function OnChangeRadioFertilizacion (radio) {
   }	
 }
 
-function diasDespuesSiembraIValido(){
-	var diasValido= (parseInt($('#diasDespuesSiembraI').val()) < 0) || parseInt(($('#diasDespuesSiembraI').val())) >150;
-	return diasValido; 
-}
-function diasDespuesSiembraAp1IValido(){
-	var diasValido= (parseInt($('#diasDespuesSiembraAp1I').val()) < 0) || parseInt(($('#diasDespuesSiembraAp1I').val())) >150;
-	return diasValido; 
-}
-function diasDespuesSiembraAp2IValido(){
-	var diasValido= (parseInt($('#diasDespuesSiembraAp2I').val()) < 0) || parseInt(($('#diasDespuesSiembraAp2I').val())) >150;
-	return diasValido; 
-}
-function cantidadFertilizanteIValido(){
-	var cantValido= (parseInt($('#cantidadFertilizanteI').val()) < 0) || parseInt(($('#cantidadFertilizanteI').val())) >100;
-	return cantValido; 
-}
-function cantidadFertilizanteAp1IValido(){
-	var cantValido= (parseInt($('#cantidadFertilizanteAp1I').val()) < 0) || parseInt(($('#cantidadFertilizanteAp1I').val())) >100;
-	return cantValido; 
-}
-function cantidadFertilizanteAp2IValido(){
-	var cantValido= (parseInt($('#cantidadFertilizanteAp2I').val()) < 0) || parseInt(($('#cantidadFertilizanteAp2I').val())) >100;
-	cantValido=cantValido && cantidadFertilizanteAp1IValido();
-	return cantValido; 
-}
 
 function OnChangeRadioFertilizacionOtras (radio) {
   var el = document.getElementById('fertilizacionOtrasAplicaciones');
@@ -321,7 +247,6 @@ $(function() { //valida dias despues de siembra
 	
 }); 
 
-
 $(function() { //valida cantidad
 	$('#cantidadFertilizanteI').change(function () {   
 		if(parseInt($('#cantidadFertilizanteI').val().length) != 0){
@@ -355,7 +280,6 @@ $(function() { //valida cantidad
 			document.getElementById("errorCantidadFertilizanteAp1").innerHTML = 'Campo no puede ser vacio';
 		}		
 	});
-	
 	$('#cantidadFertilizanteAp2I').change(function () {   
 		if(parseInt($('#cantidadFertilizanteAp2I').val().length) != 0){
 					
@@ -423,25 +347,18 @@ $(function() { //valida el año de inicio y fin del periodo de simulación
 		}
 	});
 });  
-  
-  
-  //valida precio del grano 
-  
-/*$(function() { //valida precio del grano
-	$('#precioGranoEscenario').change(function () {   
-	alert('Hola');
-		if(parseInt($('#precioGranoEscenario').val()) < 0 || (parseInt($('#precioGranoEscenario').val()) > 1000)){
-				document.getElementById("precioGranoEscenarioS").className = "form-group has-error has-feedback";
-				document.getElementById("errorPrecioGranoEscenario").innerHTML = 'Incorrecto';
-				document.getElementById("precioGranoEscenarioS").className = "glyphicon glyphicon-remove form-control-feedback";
-			} else{							
-				document.getElementById("precioGranoEscenarioS").className = "form-group has-success has-feedback";
-				document.getElementById("precioGranoEscenarioS").className = "glyphicon glyphicon-ok form-control-feedback";
-				document.getElementById("errorPrecioGranoEscenario").innerHTML = ' ';
-			}
-		});
-
-});*/
+    
+function limpiarFormulario(){
+	$('#desdeAnioSimulacion').val(" ");
+	$('#hastaAnioSimulacion').val(" ");
+	$('#diasDespuesSiembraI').val(" ");
+	$('#cantidadFertilizanteI').val(" ");
+	$('#diasDespuesSiembraAp1I').val(" ");
+	$('#diasDespuesSiembraAp2I').val(" ");
+	$('#cantidadFertilizanteAp1I').val(" ");
+	$('#cantidadFertilizanteAp2I').val(" ");
+	$('#inNombreEscenario').val(" ");
+}  
 
 
 
