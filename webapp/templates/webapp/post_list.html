@@ -1,4 +1,4 @@
-﻿ {% load staticfiles %}
+﻿{% load staticfiles %}
 <html>
 	
 <head>
@@ -14,9 +14,8 @@
 	<script src="{% static 'lib/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
 	
 	<!--Simulacion-->
-	<!--<link rel="stylesheet" href="{% static 'css/style.css' %}">-->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/cargarDatos.js' %}"></script>
 	
 	<!--Pasar estos si se usan local-->
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -60,7 +59,8 @@
 			var cultivo = {
 				nombre: "{{cultivo.nombre}}",
 				suelos: 
-					[						
+					[
+						
 						{% for suelo in cultivo.suelos.all %}
 							{
 								nombre: "{{suelo.nombre}}",
@@ -115,7 +115,7 @@
 		
 		if(radio.value === 'MZ'){
 			valor =1;
-			no3Div.style.display = (no3Div.style.display == 'inline') ? 'block' : 'inline'; 
+			no3Div.style.display = 'block'; 
 		}
 		if(radio.value === 'SB'){
 			valor = 0;
@@ -160,7 +160,7 @@
 			cmbDetalleNO3.add(option);
 		}
 		if(radio.checked=== true){
-			div.style.display = (div.style.display == 'inline') ? 'block' : 'inline'; 
+			div.style.display = 'block';
 		}	
 	};
 	
@@ -208,7 +208,7 @@
 		var table = document.getElementById("tablaEscenarios");
 		var count = escenarios.length;	
 		console.log(count);
-		// Create an empty <tr> element and add it to the 1st position of the table:
+
 		var row = table.insertRow(count);	
 		var celdas = [];
 		
@@ -216,28 +216,7 @@
 			var cell = row.insertCell(i);
 			celdas.push(cell);
 		}
-		/*<tr>
-								<td><input type="text" name="estMeteorologica"></td>
-								<td><input type="text" name="FInicioSim"></td>
-								<td><input type="text" name="FFinSim"></td>
-								<td><input type="text" name="CultivoTSuelo"></td>
-								<td><input type="text" name="CultivoTCultivar"></td>
-								<td><input type="text" name="CultivoNHumedad"></td>
-								<td><input type="text" name="CultivoNO3"></td>
-								<td><input type="text" name="CultivoFSiembra"></td>
-								<td><input type="text" name="FertilizacionSiembraDias"></td>
-								<td><input type="text" name="FertilizacionSiembraCantidad"></td>
-								<td><input type="text" name="Fertilizacion1Dias"></td>
-								<td><input type="text" name="Fertilizacion1Cantidad"></td>
-								<td><input type="text" name="Fertilizacion2Dias"></td>
-								<td><input type="text" name="Fertilizacion2Cantidad"></td>
-								<td><input type="text" name="Riego"></td>
-								<td><input type="text" name="NombreEscenario"></td>								
-							</tr>*/
 
-		// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:		
-
-		// Add some text to the new cells:	
 		var i = 0;
 		celdas[i].innerHTML = "<input type='text' name='estMeteorologica' value='" + escenarios[count-1].estacion + "'>";//escenarios[count-1].nombre;
 		i++;
@@ -275,58 +254,61 @@
 	};
 	
 	function agregarEscenario(){
+		var result = true;
+		//if(validaCamposVacios()===true){
+			for (var i=0;i< document.getElementsByName("cultivo").length; i++){
+				if ( document.getElementsByName("cultivo")[i].checked ) {
+					var ncultivo = (document.getElementsByName("cultivo")[i].value);
+				}
+			};	
+			for (var i=0;i< document.getElementsByName("riego").length; i++){
+				if ( document.getElementsByName("riego")[i].checked ) {
+					var nriego = (document.getElementsByName("riego")[i].value);
+				}
+			};		
+			var escenarioActual = {
+				nombre: document.getElementsByName("nombreEscenario")[0].value,
+				estacion: document.getElementById("selectEstacion").value,
+				desdeAnioSimulacion: document.getElementById("desdeAnioSimulacion").value,
+				hastaAnioSimulacion: document.getElementById("hastaAnioSimulacion").value,
+				cultivo: {
+					nombreCultivo: ncultivo,
+					detalle: {
+						suelo: document.getElementById("cmbDetalleSuelo").value,
+						tCultivar: document.getElementById("cmbDetalleCultivar").value,
+						nHumedadd: document.getElementById("cmbDetalleH20").value,
+						no3: document.getElementById("cmbDetalleNO3").value,
+						fSiembra: document.getElementsByName("fechaSiembra")[0].value
+					}
+				},
+				fertilizacionSiembra: {
+					diasSiembra: document.getElementsByName("diasDespuesSiembra")[0].value,
+					cantidad: document.getElementsByName("diasDespuesSiembra")[0].value
+				},
+				fertilizaciones: [
+					{
+						diasSiembra: document.getElementsByName("diasDespuesSiembra")[1].value,
+						cantidad: document.getElementsByName("diasDespuesSiembra")[1].value
+					}, 
+					{
+						diasSiembra: document.getElementsByName("diasDespuesSiembra")[2].value,
+						cantidad: document.getElementsByName("diasDespuesSiembra")[2].value
+					}
+				],
+				riego: nriego				
+			};
+			escenarios.push(escenarioActual);
+			agregarEscenarioPanel();
+			agregarEscenarioNav();
+			result = true;
+		/*}	
+		else{
+			$('body,html').animate({scrollTop : 0}, 500);
+			//alert("No ok");
+			result = false;
+		}*/
+		return result;
 		
-		if(validaCamposVacios()===true){
-				for (var i=0;i< document.getElementsByName("cultivo").length; i++){
-					if ( document.getElementsByName("cultivo")[i].checked ) {
-						var ncultivo = (document.getElementsByName("cultivo")[i].value);
-					}
-				};	
-				for (var i=0;i< document.getElementsByName("riego").length; i++){
-					if ( document.getElementsByName("riego")[i].checked ) {
-						var nriego = (document.getElementsByName("riego")[i].value);
-					}
-				};		
-				var escenarioActual = {
-					nombre: document.getElementsByName("nombreEscenario")[0].value,
-					estacion: document.getElementById("selectEstacion").value,
-					desdeAnioSimulacion: document.getElementById("desdeAnioSimulacion").value,
-					hastaAnioSimulacion: document.getElementById("hastaAnioSimulacion").value,
-					cultivo: {
-						nombreCultivo: ncultivo,
-						detalle: {
-							suelo: document.getElementById("cmbDetalleSuelo").value,
-							tCultivar: document.getElementById("cmbDetalleCultivar").value,
-							nHumedadd: document.getElementById("cmbDetalleH20").value,
-							no3: document.getElementById("cmbDetalleNO3").value,
-							fSiembra: document.getElementsByName("fechaSiembra")[0].value
-						}
-					},
-					fertilizacionSiembra: {
-						diasSiembra: document.getElementsByName("diasDespuesSiembra")[0].value,
-						cantidad: document.getElementsByName("diasDespuesSiembra")[0].value
-					},
-					fertilizaciones: [
-						{
-							diasSiembra: document.getElementsByName("diasDespuesSiembra")[1].value,
-							cantidad: document.getElementsByName("diasDespuesSiembra")[1].value
-						}, 
-						{
-							diasSiembra: document.getElementsByName("diasDespuesSiembra")[2].value,
-							cantidad: document.getElementsByName("diasDespuesSiembra")[2].value
-						}
-					],
-					riego: nriego				
-				};
-				escenarios.push(escenarioActual);
-				agregarEscenarioPanel();
-				agregarEscenarioNav();
-				limpiarFormulario();
-			}	
-			else{
-				$('body,html').animate({scrollTop : 0}, 500);
-				//alert("No ok");
-			}		
 	};
 	
 	function agregarEscenarioNav(){
@@ -346,7 +328,7 @@
 		//control de errores
 		
 		//muestro div de escenarios
-		divE.style.display = (divE.style.display == 'inline') ? 'block' : 'inline';
+		divE.style.display = 'block';
 		
 		//fin - control de errores
 		if($('input[name="riego"]:checked', '#rbRiego').val() ==='1'){
@@ -386,167 +368,165 @@
 	};
 	
 	function ejecutarSimulacion(){
-		agregarEscenario();
-		//agregarEscenarioNav();		
-		document.getElementById('ejecutarDSSAT').submit();
-	}
+		if (agregarEscenario()){
+			document.getElementById('ejecutarDSSAT').submit();
+		}				
+	};
 	
+	function checkSoja(){
+		document.getElementById("nombreCultivo").checked = true;
+		cargarComboBoxDetalle(document.getElementById("nombreCultivo"));		
+	};
 </script>
 
 
 <div class="container">	
-	<div class="page-header">
-		<div class="row">
-			<div class="col-sm-3"> 
-				<img src="/static/img/logoSNIA.png" style="height:8%;" class="logo img-responsive">
-			</div>		
-			<div class="col-sm-6 text-center">
-				<h2 style="color: #848688;"> Simulador de Cultivo </h2>
-			</div>	
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-2">
-				<ul class="nav">
-					<li><a style="color: #848688;" href="http://snia.gub.uy/contacto-5/contacto-72?,,mnu-e-55-3-mnu-" target="_blank"><span class="glyphicon glyphicon-envelope"></span> Contacto</a></li>
-				</ul>
-			</div>		
-	   </div>	
+	<div class="page-header row">		
+		<div class="col-xs-3"> 
+			<img src="/static/img/logoSNIA.png" class="logo img-responsive">
+		</div>		
+		<div class="col-xs-6 text-center">
+			<h2 style="color: #848688;"> Simulador de Cultivo </h2>
+		</div>			
+		<div class="col-xs-2 col-xs-offset-1">
+			<ul class="nav">
+				<li><a style="color: #848688;" href="http://snia.gub.uy/contacto-5/contacto-72?,,mnu-e-55-3-mnu-" target="_blank"><span class="glyphicon glyphicon-envelope"></span> Contacto</a></li>
+			</ul>
+		</div>			   
 	</div>		
 
-	<div id= "msgErrores" class=" "></div>
+	<div id= "msgErrores" class=""></div>
 	
-	<div class="row paddingBottom" style="background-color:#ffffe6;">
-		<div class="paddingLeft">
-			<p>Una buena planificación de la producción de cultivos anuales requiere la consideración de posibles escenarios.</p>
-			<p>Los modelos utilizados en esta herramienta, desarrollada por IRI-SNIA, son incluidos en el paquete DSSAT (Decision Support System for Agrotechnology Transfer).</p> 
-				<!--La estructura de estos modelos refleja la complejidad de los sistemas suelo-clima-planta y los factores que determinan el resultado final.-->
-			<p>La finalidad de esta herramienta es ser un soporte para la toma de decisiones del productor o técnico asesor, que facilite la definición de estrategias productivas óptimas, 
-				el estudio de riesgos de adopción de tecnologías, evaluación de efectos a largo plazo, considerando tanto factores en forma individual como la interacción de varios factores.</p>
-			<p>A continuación deberá ingresar una serie de variables necesarias para llevar a cabo la simulación.</p>	
+	<div class="row">		
+		<!--<p>Una buena planificación de la producción de cultivos anuales requiere la consideración de posibles escenarios.</p>
+		<p>Los modelos utilizados en esta herramienta, desarrollada por IRI-SNIA, son incluidos en el paquete DSSAT (Decision Support System for Agrotechnology Transfer).</p> 
+			<!--La estructura de estos modelos refleja la complejidad de los sistemas suelo-clima-planta y los factores que determinan el resultado final.-->
+		<p>La finalidad de esta herramienta es ser un soporte para la toma de decisiones del productor o técnico asesor, que facilite la definición de estrategias productivas óptimas, 
+			el estudio de riesgos de adopción de tecnologías, evaluación de efectos a largo plazo, considerando tanto factores en forma individual como la interacción de varios factores.</p>
+		<p>A continuación deberá ingresar una serie de variables necesarias para llevar a cabo la simulación.</p>			
+	</div>	
+	<div class="paddingBottom">
+		<div class="row">
+			<h3> Clima </h3>		
 		</div>
-	</div>
-	<hr />
-	<div class="row paddingLeft paddingBottom" style="background-color:#f2ffe6;">
-		<h2> Clima </h2>		
 		<div class="row" id='estacionMeteorologica'>
-			<div class="col-sm-6" id='comboEstacionMeteorologica'>
-				<div class="col-sm-5">
-					<h4> Estación Meteorológica: </h4>
+			<div id='comboEstacionMeteorologica'>
+				<div class="col-xs-4">
+					<label for="selectEstacion"> Estación Meteorológica: </label>
 				</div>
-				<div class="col-sm-4">
-					<select name="estacion" id="selectEstacion" onchange="changeEstacion()" style: "width:30px">
+				
+					<select class="col-xs-4" name="estacion" id="selectEstacion" onchange="changeEstacion()">
 						{% for estacion in estaciones %}
 							<option value="{{ estacion.valor }}">{{ estacion.etiqueta }}</option>							
 						{% endfor %}			  
-					</select>
-				</div>
+					</select>					
+				
 			</div>
-			<div class="col-sm-6" id='aniosEstacionMeteorologica'>
-				<div class="col-sm-5">
-					<div class="col-sm-3">
-						<label for="desdeAnio">Desde:</label>
-					</div>
-					<div class="col-sm-2">
-						<input type="text" name="desdeAnio" value="" id= "desdeAnio" readonly="readonly" style="border:none; width:50px; background:transparent">
-					</div>
+			<div id='aniosEstacionMeteorologica'>			
+				<div class="col-xs-1">
+					<label for="desdeAnio">Desde:</label>
 				</div>
-				<div class="col-sm-5">
-					<div class="col-sm-3">
-						<label for="hastaAnio">Hasta: </label>
-					</div>
-					<div class="col-sm-2">
-						<input type="text" name="hastaAnio" value="" id= "hastaAnio" readonly="readonly" style="border:none; width:50px; background:transparent">
-					</div>
+				<div class="col-xs-1">
+					<input type="text" name="desdeAnio" value="" id= "desdeAnio" readonly="readonly" style="border:none; width:50px; background:transparent">
+				</div>						
+				<div class="col-xs-1">
+					<label for="hastaAnio">Hasta: </label>
 				</div>
+				<div class="col-xs-1">
+					<input type="text" name="hastaAnio" value="" id= "hastaAnio" readonly="readonly" style="border:none; width:50px; background:transparent">
+				</div>			
 			</div>
 		</div>		
-		<div id='periodoSimulacion' class="col-sm-6 paddingRight paddingLeft">
+		
+		<div class="row">
 			<h4>Periodo de Simulaci&oacute;n : </h4>
-			<div id="periodoAnioSimulacion" class="" >
-				<div class="" id="anioDesdeS"> 
-					<label for="desdeAnioSimulacion">Año inicial:</label>
-					<input type="text" class="form-control" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" style="height:30px;" required>
-					<span  id= "desdeAnioSimulacionS" aria-hidden="true"></span>
-					<p id="errorAnioDesde" class = "control-label has-error"></p>
-				</div>
-				<div class="" id="anioHastaS"> 
-					<label for="hastaAnioSimulacion">Año final:</label>
-					<input type="text" class="form-control" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" style="height:30px;" required>
-					<span  id= "hastaAnioSimulacionS" aria-hidden="true"></span>
-					<p id="errorAnioHasta" class = "control-label has-error"></p>	
-				</div>	
-			</div>
+		</div>			
+		<div id="periodoAnioSimulacion">
+			<div class = "row" id="anioDesdeS"> 
+				<label for="desdeAnioSimulacion" class="col-xs-4">A&ntilde;o inicial:</label>
+				<input type="number" class="col-xs-8 alturaInput" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" required>
+				<span  id= "desdeAnioSimulacionS" aria-hidden="true"></span>
+				<p id="errorAnioDesde" class = "control-label has-error" class="col-xs-6"></p>
+			</div> 
+			<div class = "row" id="anioHastaS"> 
+				<label for="hastaAnioSimulacion" class="col-xs-4">A&ntilde;o final:</label>
+				<input type="number" class="col-xs-8 alturaInput" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" required>
+				<span  id= "hastaAnioSimulacionS" aria-hidden="true"></span>
+				<p id="errorAnioHasta" class = "control-label has-error" class="col-xs-6"></p>	
+			</div>	
 		</div>
 	</div>
-	<div class="row paddingBottom" style="background-color:#ffffe6;">
-		<div id='cultivo' class="col-lg-8">
+	
+	<div class="paddingBottom" id='cultivo'>
+		<div class="row">
 			<h3> Cultivo </h3>
-			<div id='rdCultivo'>								
-				{% for cultivo in cultivos %}
-					<input id="nombreCultivo" type="radio" name="cultivo" class = "radio-inline" value="{{ cultivo.value }}" onchange="cargarComboBoxDetalle (this)">{{ cultivo.nombre }}
-				{% endfor %}				
-			</div>
-			
-			<div id = "detalleCultivo" class="ocultar" style="display:none;">	
-				<br>
-				<div>
-					<b> Detalles de cultivo	</b>
-				</div>
-				<br>
-				<div id="tipoSuelo" class="col-xs-10"> 
-					<label for="cmbDetalleSuelo" class="col-sm-4">Tipo de suelo: </label>
-					<select name="tipoSuelo" id="cmbDetalleSuelo" class="col-sm-8"> </select>
-				</div>
-
-				<div id="tipoCultivar" class="col-xs-10"> 
-					<label for="cmbDetalleCultivar" class="col-sm-4">Tipo de cultivar:</label>
-					<select name="tipoCultivar" id="cmbDetalleCultivar" class="col-sm-8">	</select>
-				</div>
-
-				<div id="nivelHumedad" class="col-xs-10"> 
-					<label for="cmbDetalleH20" class="col-sm-4">Nivel de humedad: </label>
-					<select name="nivelHumedad" id="cmbDetalleH20" class="col-sm-8"> </select>
-				</div>
-
-				<div id="NO3inicial" class="col-xs-10"> 
-					<label for="cmbDetalleNO3" class="col-sm-4">Nivel de humedad: </label>
-					<select name="no3Inicial" id="cmbDetalleNO3" class="col-sm-8"> </select>
-				</div>
-
-				<div id="fechaSiembra" class="col-xs-10"> 
-					<label for="datetimepicker4" class="col-sm-4">Fecha de siembra: </label>
-					<div id="datetimepicker4" class="col-sm-8 input-append">
-						<input data-format="yyyy-MM-dd" type="text" name="fechaSiembra" class= "form-control" style="height:30px;" required></input>
-						<span class="add-on form-control" style="height:30px;">
-						<i data-time-icon="icon-time" data-date-icon="icon-calendar" > </i>
-						</span>
-					</div>
-				</div>	
-			</div>
 		</div>
+		<div class = "row" id='rdCultivo'>			
+			{% for cultivo in cultivos %}
+				<label class="radio-inline"><input id="nombreCultivo" type="radio" name="cultivo" value="{{ cultivo.value }}" onchange="cargarComboBoxDetalle (this)">{{ cultivo.nombre }}</label>
+			{% endfor %}			
+		</div>
+			
+		<div id = "detalleCultivo">
+			<div class="row">
+				<h4> Detalles de cultivo</h4>
+			</div>
+			<div id="tipoSuelo" class="row"> 
+				<label for="cmbDetalleSuelo" class="col-xs-4">Tipo de suelo: </label>
+				<select name="tipoSuelo" id="cmbDetalleSuelo" class="col-xs-8"> </select>
+			</div>
+
+			<div id="tipoCultivar" class="row"> 
+				<label for="cmbDetalleCultivar" class="col-xs-4">Tipo de cultivar:</label>
+				<select name="tipoCultivar" id="cmbDetalleCultivar" class="col-xs-8">	</select>
+			</div>
+
+			<div id="nivelHumedad" class="row"> 
+				<label for="cmbDetalleH20" class="col-xs-4">Nivel de humedad: </label>
+				<select name="nivelHumedad" id="cmbDetalleH20" class="col-xs-8"> </select>
+			</div>
+
+			<div id="NO3inicial" class="row"> 
+				<label for="cmbDetalleNO3" class="col-xs-4">Nivel de NO3: </label>
+				<select name="no3Inicial" id="cmbDetalleNO3" class="col-xs-8"> </select>
+			</div>
+
+			<div id="fechaSiembra" class="row"> 
+				<label for="datetimepicker4" class="col-xs-4">Fecha de siembra: </label>
+				<div id="datetimepicker4" class="col-xs-8 input-append">
+					<input data-format="yyyy-MM-dd" type="text" name="fechaSiembra" class= "form-control alturaInput" required></input>
+					<span class="add-on form-control" style="height:30px;">
+					<i data-time-icon="icon-time" data-date-icon="icon-calendar" > </i>
+					</span>
+				</div>
+			</div>	
+		</div>		
 	</div>	
-	<div class="row paddingBottom" style="background-color:#f2ffe6;">
-		<h3> Aplicaci&oacute;n del fertilizante </h3>
+	<div class="paddingBottom">
+		<div class="row">		
+			<h3> Aplicaci&oacute;n del fertilizante </h3>
+		</div>
 		<!--Fertilización a la siembra -->
-		<div id='AplicacionFertilizacionSiembra' class="col-xs-3">			
-			<h4> Fertilizaci&oacute;n a la siembra: </h4>
-			<div id="rbFertilizacion">	
-				<input id="fertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="1" onchange="OnChangeRadioFertilizacion (this)" checked="checked">Fertiliza
-				<input id="noFertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="0" onchange="OnChangeRadioFertilizacion (this)">No Fertiliza		
+		<div id='AplicacionFertilizacionSiembra'>	
+			<div class="row">			
+				<h4> Fertilizaci&oacute;n a la siembra: </h4>
+			</div>
+			<div class = "row" id="rbFertilizacion">					
+				<label class="radio-inline"><input id="fertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="1" onchange="OnChangeRadioFertilizacion (this)" checked="checked">Fertiliza</label>
+				<label class="radio-inline"><input id="noFertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="0" onchange="OnChangeRadioFertilizacion (this)">No Fertiliza</label>
 			</div>	
 			<div id= "fertilizacionSiembra">
-				<div id= "diasDespuesSiembra" class="ocultar">
-					<br>
-					<div class="" id="diasDespuesSiembraD"> 
-						<label for="diasDespuesSiembra"> D&iacute;as despues de Siembra:</label>
-						<input type="text" class="form-control" name="diasDespuesSiembra" id= "diasDespuesSiembraI" style="height:30px;">
+				<div id= "diasDespuesSiembra">				
+					<div class="row" id="diasDespuesSiembraD"> 
+						<label class ="col-xs-4" for="diasDespuesSiembraI"> D&iacute;as despues de Siembra:</label>
+						<input class = "col-xs-8 alturaInput" type="text" name="diasDespuesSiembra" id= "diasDespuesSiembraI">
 						<span  id= "diasDespuesSiembraS" aria-hidden="true" class=""></span>
 						<p id="errordiasDespuesSiembra" class = "control-label has-error"></p>	
 					</div>	
 					<div id= "cantidadFertilizante">
-						<div class="" id="cantidadFertilizanteD"> 
-							<label for="cantidadFertilizante"> Cantidad (N, Kg/Ha):</label>
-							<input type="text" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteI" style="height:30px;">
+						<div class="row" id="cantidadFertilizanteD"> 
+							<label class ="col-xs-4"  for="cantidadFertilizanteI"> Cantidad (N, Kg/Ha):</label>
+							<input class ="col-xs-8 alturaInput"  type="text" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteI">
 							<span  id= "cantidadFertilizanteS" aria-hidden="true" class=""></span>
 							<p id="errorCantidadFertilizante" class = "control-label has-error"></p>	
 						</div>	
@@ -563,42 +543,56 @@
 			</div>-->
 		</div>				
 		<!--Otras Fertilizaciones -->
-		<div id='fertilizacionOtras' class="col-xs-9" style="margin-left:1px;">	
-			<h4> Otras aplicaciones fertilizante: </h4>			
-			<div id="rbFertilizacionOtras">	
-				<input id="fertiliza1" type="radio" name="fertilizacionO" class = "radio-inline" value="1" onchange="OnChangeRadioFertilizacionOtras (this)">1 Aplicación
-				<input id="fertiliza2" type="radio" name="fertilizacionO" class = "radio-inline" value="2" onchange="OnChangeRadioFertilizacionOtras (this)" checked="checked">2 Aplicaciones
-				<input id="noFertilizaO" type="radio" name="fertilizacionO" class = "radio-inline" value="0" onchange="OnChangeRadioFertilizacionOtras (this)">No Fertiliza		
+		<div id='fertilizacionOtras'>	
+			<div class="row">	
+				<h4> Otras aplicaciones de fertilizante: </h4>			
 			</div>	
-			<br>
+			<div id="rbFertilizacionOtras">	
+				<div class="row radio">
+					<label><input id="fertiliza1" type="radio" name="fertilizacionO" value="1" onchange="OnChangeRadioFertilizacionOtras (this)">Una aplicación</label>
+				</div>
+				<div class="row radio">
+					<label><input id="fertiliza2" type="radio" name="fertilizacionO" value="2" onchange="OnChangeRadioFertilizacionOtras (this)" checked="checked">Dos aplicaciones</label>
+				</div>
+				<div class="row radio">
+					<label><input id="noFertilizaO" type="radio" name="fertilizacionO" value="0" onchange="OnChangeRadioFertilizacionOtras (this)">No fertiliza</label>
+				</div>								
+			</div>	
+
 			<div id= "fertilizacionOtrasAplicaciones" >
-				<div id= "fertilizacionOtrasAplicaciones1" class="col-xs-5">
-					<div class="" id="diasDespuesSiembraAp1D"> 
-						<label for="diasDespuesSiembraAp1"> D&iacute;as despues de Siembra:</label>
-						<input type="text" class="form-control" name="diasDespuesSiembra" id= "diasDespuesSiembraAp1I" style="height:30px;">
+				<div class="row">	
+					<h4> Primera aplicación: </h4>			
+				</div>	
+				<div id= "fertilizacionOtrasAplicaciones1">
+					<div class="row" id="diasDespuesSiembraAp1D"> 
+						<label class="col-xs-4" for="diasDespuesSiembraAp1I"> D&iacute;as despues de Siembra:</label>
+						<input class="col-xs-8 alturaInput" type="text" class="form-control" name="diasDespuesSiembra" id= "diasDespuesSiembraAp1I">
 						<span  id= "diasDespuesSiembraAp1S" aria-hidden="true" class=""></span>
 						<p id="errordiasDespuesSiembraAp1" class = "control-label has-error"></p>	
 					</div>	
 					<div id= "cantidadFertilizanteAp1">
-						<div class="" id="cantidadFertilizanteAp1D"> 
-							<label for="cantidadFertilizante"> Cantidad (N, Kg/Ha):</label>
-							<input type="text" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteAp1I" style="height:30px;">
+						<div class="row" id="cantidadFertilizanteAp1D"> 
+							<label class="col-xs-4" for="cantidadFertilizanteAp1I"> Cantidad (N, Kg/Ha):</label>
+							<input class="col-xs-8 alturaInput" type="text" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteAp1I">
 							<span  id= "cantidadFertilizanteAp1S" aria-hidden="true" class=""></span>
 							<p id="errorCantidadFertilizanteAp1" class = "control-label has-error"></p>	
 						</div>	
 					</div>
 				</div>
-				<div id= "fertilizacionOtrasAplicaciones2" class="col-xs-5">
-					<div class="" id="diasDespuesSiembraAp2D"> 
-						<label for="diasDespuesSiembraAp2"> D&iacute;as despues de Siembra:</label>
-						<input type="text" class="form-control" name="diasDespuesSiembra" id= "diasDespuesSiembraAp2I" style="height:30px;">
+				<div id= "fertilizacionOtrasAplicaciones2">
+					<div class="row">	
+						<h4> Segunda aplicación: </h4>			
+					</div>	
+					<div class="row" id="diasDespuesSiembraAp2D"> 
+						<label class="col-xs-4" for="diasDespuesSiembraAp2I"> D&iacute;as despues de Siembra:</label>
+						<input class="col-xs-8 alturaInput" type="text" class="form-control" name="diasDespuesSiembra" id= "diasDespuesSiembraAp2I">
 						<span  id= "diasDespuesSiembraAp2S" aria-hidden="true" class=""></span>
 						<p id="errordiasDespuesSiembraAp2" class = "control-label has-error"></p>	
 					</div>	
-					<div id= "cantidadFertilizanteAp2">
-						<div class="" id="cantidadFertilizanteAp2D"> 
-							<label for="cantidadFertilizante"> Cantidad (N, Kg/Ha):</label>
-							<input type="text" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteAp2I" style="height:30px;">
+					<div id="cantidadFertilizanteAp2">
+						<div class="row" id="cantidadFertilizanteAp2D"> 
+							<label class="col-xs-4" for="cantidadFertilizanteAp2I"> Cantidad (N, Kg/Ha):</label>
+							<input class="col-xs-8 alturaInput" type="text" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteAp2I">
 							<span  id= "cantidadFertilizanteAp2S" aria-hidden="true" class=""></span>
 							<p id="errorCantidadFertilizanteAp2" class = "control-label has-error"></p>	
 						</div>	
@@ -607,12 +601,14 @@
 			</div>
 		</div>		
 	</div>					
-	<div class="row paddingBottom" style="background-color:#ffffe6;">
-		<div id='riego' class="col-xs-4 ">
-			<h3> Riego </h3>			
-			<div id="rbRiego">	
-				<input type="radio" name="riego" class = "radio-inline" value="1" onchange = "OnChangeRadioRiego (this)" checked="checked">Automático cuando se requiera				
-				<input type="radio" name="riego" class = "radio-inline" value="0" onchange = "OnChangeRadioRiego (this)">No Riego		
+	<div class="paddingBottom">
+		<div id='riego'>
+			<div class="row">
+				<h3> Riego </h3>			
+			</div>
+			<div class="row" id="rbRiego">				
+				<label class="radio-inline"><input type="radio" name="riego" class = "radio-inline" value="1" checked="checked">Automático cuando se requiera</label>
+				<label class="radio-inline"><input type="radio" name="riego" class = "radio-inline" value="0" >No Riego</label>
 			</div>				
 			<!--
 			<div id='detalleRiego'>
@@ -622,15 +618,16 @@
 		</div>
 		
 	</div>	
-	<div class="row paddingBottom" style="background-color:#e6e6ff;">
-		<h3> Escenario </h3>
-		<div id='escenario'>
-			<label for="nombreEscenario" class="col-sm-4"> <b> Nombre Escenario: </b> </label>
-			<input type="text" style="width:50%" name="nombreEscenario" class="col-sm-6" id= "inNombreEscenario">
-		</div>			
-		
+	<div class="paddingBottom">
+		<div class="row">
+			<h3> Escenario </h3>
+		</div>
+		<div class="row" id='escenario'>
+			<label for="nombreEscenario" class="col-xs-4"> <b> Nombre Escenario: </b> </label>
+			<input type="text" name="nombreEscenario" class="col-xs-8 alturaInput" id= "inNombreEscenario">
+		</div>		
 	</div>
-	<div id="navEscenarios" class="row ocultar" style="background-color:#ffffe6;"> 
+	<div class="row ocultar" id="navEscenarios"> 
 		<h3> Escenarios agregados</h3>			 
 		<div class="panel-group panelEscenarios" id="accordion">
 		</div>
@@ -666,12 +663,12 @@
 					</table>
 			</div>
 		</div>	
-		<div class="row">
-			<div class="col-sm-6">
+		<div class="row margenTop">
+			<div class="col-xs-6">
 				<input type='button' name="DSSAT" value="Simular" class="form-control primary" style="width:50%;margin:0px auto; display:block;" onclick="ejecutarSimulacion()">
 			</div>	
-			<div class="col-sm-6">
-				<input id="agregarIdEscenario" type='button' name="agregarEscenario" value="Agregar nuevo Escenario" class="form-control primary" style="width:50%;margin:0px auto; display:block;">		
+			<div class="col-xs-6">
+				<input id="agregarIdEscenario" type='button' name="agregarEscenario" value="Agregar nuevo Escenario" class="form-control primary" style="width:50%;margin:0px auto; display:block;">
 			</div>			
 		</div>						
 	</form>
@@ -681,6 +678,7 @@
 	changeEstacion();
 	cargarDetallesCultivos();
 	escucharAgregarEscenario();
+	checkSoja();
 	//cargarRiego();
 	//cargarTipoFertilizantes();
 	//cargarAplicacionFertilizantes();

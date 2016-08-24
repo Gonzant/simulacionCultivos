@@ -1,12 +1,29 @@
+{% load staticfiles %}
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Climate-Agriculture Modeling Decision Tool </title>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"> </script>
+<head>	
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modelo de Simulación de Cultivos </title>
 	
+	<!--JQuery-->	
+	<script src="{% static 'lib/jquery-3.1.0/jquery-3.1.0.min.js' %}"></script>
+	
+	<!--Boostrap-->
+	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap-theme.min.css' %}">	
+	<script src="{% static 'lib/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+	
+	<!--Simulacion-->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/cargarDatos.js' %}"></script>
+	
+	<!--Pasar estos si se usan local-->
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">	
+	<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js"> </script>
+	<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">  </script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js">  </script>
+		
 	<script>	 
 	//valida precio del grano 
  	/*$(function() {
@@ -67,40 +84,72 @@
 	});*/
 	
 	</script>
+	<script>
+		
+		var escenarios = [];						
+		
+		//listMean,listMediana,listWhiskersMenor,listWhiskersMayor,listBase,listMayor
+		
+		function cargarDatos(){			
+			count = 0;
+			datosNumericos = {{ resultPlot }};
+			{% for nomE in nombreEscenarios %}
+				escenario = {
+					nombre: "{{ nomE }}",
+					promedio: datosNumericos[0][count],
+					mediana: datosNumericos[1][count],
+					whiskMenor: datosNumericos[2][count],
+					whiskMayor: datosNumericos[3][count],
+					base: datosNumericos[4][count], 
+					mayor: datosNumericos[5][count]
+				};		
+				escenarios.push(escenario);
+				count = count + 1;
+			{% endfor %}
+		};
+		
+		function cargarParrafos(){										
+			for (i = 0; i < escenarios.length; i++) { 						
+				var para = document.createElement("P");
+				var texto = "Con el escenario " + escenarios[i].nombre +" el promedio de rendimientos es de " + escenarios[i].promedio + "Kg/ha y la mediana se ubica en " + escenarios[i].mediana + "Kg/ha. El 50% de los resultados se ubican entre "+escenarios[i].whiskMenor+" y "+escenarios[i].whiskMayor+"Kg/ha, lo que refleja la variabilidad del escenario "+escenarios[i].nombre+". Rendimientos por encima de "+escenarios[i].mayor+"Kg/ha se obtienen en el 5% de los casos, es decir una vez cada 20 años y de igual modo se dan los rendimientos por debajo de "+escenarios[i].base+"Kg/ha."			
+				var t = document.createTextNode(texto);       
+				para.appendChild(t);                                          
+				document.getElementById("datosBoxplot").appendChild(para);                          			
+			}					
+		};
+	</script>
 </head>
 <body>
-	<div class="container">
-		<div class="row page-header">
-			<div class="col-sm-3">
-				<img class="img-responsive" src="/static/img/logoSNIA.png" alt="Logo SNIA">
-			</div>
-			<div class="col-sm-6 text-center">
-				<h2> Simulador de Cultivo </h2>			
-			</div>
-			<div class="col-sm-3">					
-			</div>
+
+	<div class="container">	
+		<div class="page-header row">		
+			<div class="col-xs-3"> 
+				<img src="/static/img/logoSNIA.png" class="logo img-responsive">
+			</div>		
+			<div class="col-xs-6 text-center">
+				<h2 style="color: #848688;"> Simulador de Cultivo </h2>
+			</div>			
+			<div class="col-xs-2 col-xs-offset-1">
+				<ul class="nav">
+					<li><a style="color: #848688;" href="http://snia.gub.uy/contacto-5/contacto-72?,,mnu-e-55-3-mnu-" target="_blank"><span class="glyphicon glyphicon-envelope"></span> Contacto</a></li>
+				</ul>
+			</div>			   
 		</div>	
-		<div class="row">
-			<div class="col-sm-6">
-				<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/boxplot.png" alt="Rendimientos esperados (Boxplot)">
-			</div>
-			<div>
-				<p></p>
-				<p>Este gráfico permite visualizar rápidamente los valores medios y la variabilidad esperada para cada escenario planteado.</p>
-				<!--<p>Con el escenario {{ nEscenario }} el promedio de rendimientos es de 3250Kg/ha y la mediana se ubica en 3450Kg/ha. 
-				Los resultados entre 3000 y 3600Kg/ha, se dan en el 50% de los casos.
-				Rendimientos por encima de 3850Kg se obtienen en el 5% de los casos, es decir una vez cada 20 años y de igual modo se dan 
-				los rendimientos por debajo de 2800Kg/ha.
-				</p>-->
-			</div>
-		</div>	
-		<div class="row">
-			<div class="col-sm-6">
-				<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/curvaPExcedencia.png" alt="Rendimientos esperados (Curva de probabilidad de exedencia)">
-			</div>
-			<div>
-				<p></p>
-				<p>Este gráfico permite estimar la probabilidad de superar un determinado valor de rendimiento para diferentes escenarios.</p>
+		<div class="paddingBottom">
+			<div class="row paddingBottom">
+				<div class="col-sm-6">
+					<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/boxplot.png" alt="Rendimientos esperados (Boxplot)">
+				</div>
+				<div class="col-sm-6" id = "datosBoxplot">				
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-sm-6">
+					<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/curvaPExcedencia.png" alt="Rendimientos esperados (Curva de probabilidad de exedencia)">
+				</div>
+				<div class="col-sm-6">					
+					<p>Este gráfico permite estimar la probabilidad de superar un determinado valor de rendimiento para diferentes escenarios.</p>
+				</div>
 			</div>
 		</div>
 
@@ -114,9 +163,9 @@
 			</div>
 			{% endfor %}
 			
-			<div class="row" style="background-color:#e6e6ff;">				
-				<div class="row col-sm-12">				
-					<h3>Escenarios</h3>
+			<div>				
+				<div class="row">				
+					<h4>Escenarios</h4>
 				</div>
 				
 				<div class="row">				
@@ -164,9 +213,15 @@
 					</div>									
 				</div>
 				{% endfor %}
-				<input type='submit' name="margenBruto" value="Graficar margen bruto">
+				<div class="row margenTop">									
+					<input class="form-control primary" style="width:50%;margin:0px auto; display:block;" type='submit' name="margenBruto" value="Graficar margen bruto">
+				</div>
 			</div>
 		</form>
 	</div>
+	<script>
+		cargarDatos();
+		cargarParrafos();
+	</script>
 </body>
 </html>

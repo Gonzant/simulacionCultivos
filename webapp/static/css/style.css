@@ -1,4 +1,24 @@
-.texto{
+.paddingBottom{
+	padding-bottom:20px;
+}
+
+.ocultar{
+	display:none;
+}
+
+.margenTop{
+	margin-top:15px;
+}
+
+.alturaInput{
+	height: 30px !important;
+}
+
+#datetimepicker4{
+	margin-left:-15px;
+}
+
+/*.texto{
 	width: 50px;	
 	border: none;
 }
@@ -83,9 +103,7 @@ border: 1px solid red;
 	display:block;
 	
 }
-.ocultar{
-	display:none;
-}
+
 .contacto{
 	color: #848688;
 }
@@ -99,15 +117,10 @@ border: 1px solid red;
 	background: white;
 }
 
-.paddingBottom{
-	padding-bottom:20px;
-}
 .paddingLeft{
 	padding-left:3%;
-}
-.paddingRight{
-	padding-right:3%;
 }
 .logo{
 	height:7%;
 }
+*/

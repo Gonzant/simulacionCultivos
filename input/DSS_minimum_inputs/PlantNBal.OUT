@@ -1,0 +1,1141 @@
+*PLANT N BALANCE
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN   1        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.78    33.68    35.46
+   Stem N             13.04     6.14    19.18
+   Shell N            25.18    52.12    77.30
+   Seed N            210.39     0.00   210.39
+   Root N              8.40     7.93    16.32
+   Nodule N            3.37     2.98     6.35
+   Total N           262.16   102.85   365.01
+   N leakage                            29.27
+   TOTAL N                                      394.28
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            246.32
+   N Uptake from Soil                  147.34
+   TOTAL N                                      394.30
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN   2        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.68    32.87    34.56
+   Stem N             12.49     6.08    18.57
+   Shell N            22.55    45.14    67.68
+   Seed N            195.36     0.00   195.36
+   Root N              8.11     7.37    15.48
+   Nodule N            3.15     3.07     6.22
+   Total N           243.36    94.52   337.88
+   N leakage                            28.00
+   TOTAL N                                      365.88
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            228.69
+   N Uptake from Soil                  136.56
+   TOTAL N                                      365.90
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN   3        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.46    27.14    28.60
+   Stem N             10.97     5.08    16.05
+   Shell N            24.46    45.72    70.18
+   Seed N            156.75     0.00   156.75
+   Root N              6.82     5.64    12.47
+   Nodule N            3.04     2.94     5.99
+   Total N           203.51    86.52   290.03
+   N leakage                            30.29
+   TOTAL N                                      320.33
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            209.21
+   N Uptake from Soil                  110.49
+   TOTAL N                                      320.34
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN   4        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              0.89    17.29    18.18
+   Stem N              5.93     3.11     9.04
+   Shell N            15.22    29.12    44.34
+   Seed N            167.17     0.00   167.17
+   Root N              4.53     4.29     8.81
+   Nodule N            2.78     2.38     5.16
+   Total N           196.52    56.18   252.70
+   N leakage                            17.44
+   TOTAL N                                      270.14
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            162.61
+   N Uptake from Soil                  106.90
+   TOTAL N                                      270.16
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN   5        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.59    31.63    33.22
+   Stem N             11.57     5.76    17.33
+   Shell N            24.49    54.54    79.03
+   Seed N            206.95     0.00   206.95
+   Root N              8.37     7.53    15.90
+   Nodule N            3.38     3.17     6.55
+   Total N           256.35   102.63   358.98
+   N leakage                            27.90
+   TOTAL N                                      386.89
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            240.53
+   N Uptake from Soil                  145.73
+   TOTAL N                                      386.91
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN   6        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.86    34.60    36.46
+   Stem N             13.34     6.28    19.62
+   Shell N            29.33    52.78    82.11
+   Seed N            242.75     0.00   242.75
+   Root N              8.98     8.62    17.60
+   Nodule N            3.55     3.12     6.67
+   Total N           299.81   105.41   405.21
+   N leakage                            28.87
+   TOTAL N                                      434.09
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            285.77
+   N Uptake from Soil                  147.69
+   TOTAL N                                      434.11
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN   7        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.93    37.98    39.90
+   Stem N             13.94     7.02    20.96
+   Shell N            23.79    48.98    72.78
+   Seed N            241.88     0.00   241.88
+   Root N              9.15     8.79    17.93
+   Nodule N            4.02     2.60     6.61
+   Total N           294.71   105.36   400.06
+   N leakage                            23.00
+   TOTAL N                                      423.06
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            278.98
+   N Uptake from Soil                  143.46
+   TOTAL N                                      423.09
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN   8        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.32    26.28    27.60
+   Stem N              9.13     4.66    13.79
+   Shell N            21.15    39.91    61.06
+   Seed N            233.09     0.00   233.09
+   Root N              6.96     7.06    14.03
+   Nodule N            3.22     3.18     6.40
+   Total N           274.87    81.10   355.97
+   N leakage                            23.72
+   TOTAL N                                      379.68
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            229.88
+   N Uptake from Soil                  149.18
+   TOTAL N                                      379.70
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN   9        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.17    22.48    23.64
+   Stem N              8.46     4.01    12.46
+   Shell N            20.47    40.80    61.27
+   Seed N            158.79     0.00   158.79
+   Root N              6.11     5.30    11.40
+   Nodule N            2.94     2.49     5.42
+   Total N           197.93    75.07   273.00
+   N leakage                            26.45
+   TOTAL N                                      299.45
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            171.62
+   N Uptake from Soil                  127.20
+   TOTAL N                                      299.47
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN  10        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.41    26.34    27.75
+   Stem N              9.29     4.73    14.02
+   Shell N            23.20    46.08    69.28
+   Seed N            224.56     0.00   224.56
+   Root N              6.73     6.67    13.40
+   Nodule N            3.39     3.21     6.60
+   Total N           268.58    87.03   355.61
+   N leakage                            26.00
+   TOTAL N                                      381.61
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            236.32
+   N Uptake from Soil                  144.66
+   TOTAL N                                      381.63
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN  11        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.39    25.87    27.26
+   Stem N              9.60     4.75    14.34
+   Shell N            24.19    39.32    63.51
+   Seed N            198.18     0.00   198.18
+   Root N              6.74     6.46    13.20
+   Nodule N            2.79     3.61     6.40
+   Total N           242.89    80.01   322.90
+   N leakage                            28.90
+   TOTAL N                                      351.80
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            244.78
+   N Uptake from Soil                  106.38
+   TOTAL N                                      351.81
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN  12        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              2.08    41.23    43.31
+   Stem N             14.94     7.49    22.43
+   Shell N            24.39    42.16    66.54
+   Seed N            258.70     0.00   258.70
+   Root N              9.86    10.75    20.61
+   Nodule N            2.90     4.65     7.56
+   Total N           312.86   106.29   419.15
+   N leakage                            26.36
+   TOTAL N                                      445.51
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            288.23
+   N Uptake from Soil                  156.66
+   TOTAL N                                      445.53
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN  13        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.83    33.14    34.97
+   Stem N             12.45     6.08    18.53
+   Shell N            27.75    54.07    81.82
+   Seed N            229.44     0.00   229.44
+   Root N              8.07     8.08    16.15
+   Nodule N            3.19     3.34     6.53
+   Total N           282.73   104.72   387.45
+   N leakage                            24.53
+   TOTAL N                                      411.99
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            271.53
+   N Uptake from Soil                  139.83
+   TOTAL N                                      412.01
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN  14        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.17    22.81    23.98
+   Stem N              7.84     4.08    11.92
+   Shell N            19.21    40.48    59.69
+   Seed N            219.48     0.00   219.48
+   Root N              6.24     5.93    12.17
+   Nodule N            3.64     2.37     6.01
+   Total N           257.59    75.67   333.26
+   N leakage                            20.89
+   TOTAL N                                      354.15
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            221.72
+   N Uptake from Soil                  131.80
+   TOTAL N                                      354.16
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+                                                                                
+*RUN  15        : UYSB                                                          
+ MODEL          : CRGRO040 - SOYBEAN                                            
+ EXPERIMENT     : UYSB0398 SN late to create DSS                                
+ TREATMENT  1   : UYSB                                                          
+                                                                                
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401    
+ STARTING DATE  : AUG 20 1999                                                   
+ PLANTING DATE  : AUG 23 1999    PLANTS/m2 :  7.0     ROW SPACING :  15.cm      
+ WEATHER        : UYTA   1999                                                   
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS    
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 30.1kg/ha  NH4: 23.9kg/ha 
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]    
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION              
+ N-FERTILIZER   :        1 kg/ha IN     1 APPLICATIONS                          
+ RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS   
+ ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00    
+                  RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00    
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
+                  PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M  
+                                                                                
+*SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS                                   
+                                                                                
+   SOIL LOWER UPPER   SAT  EXTR  INIT   ROOT   BULK     pH    NO3    NH4    ORG 
+  DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C  
+   cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %  
+------------------------------------------------------------------------------- 
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50   5.00   1.50   2.74 
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   4.60   1.50   1.07 
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   2.45   1.50   0.90 
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64 
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35 
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14 
+                                                                                
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   30.1   23.9 166127 
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00 
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00 
+                                                                                
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401                 
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00    
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00    
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+
+
+   PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
+   ---------------  -------- kg[N]/ha -------  -------
+   Leaf N              1.41    25.90    27.32
+   Stem N              9.71     4.73    14.44
+   Shell N            23.46    44.26    67.72
+   Seed N            215.26     0.00   215.26
+   Root N              6.40     6.87    13.27
+   Nodule N            3.03     3.32     6.35
+   Total N           259.28    85.08   344.36
+   N leakage                            21.23
+   TOTAL N                                      365.60
+
+
+   N INPUTS TO SYSTEM                kg[N]/ha
+   ------------------                --------
+   Seed N At Planting                    0.65
+   N2 Fixed                            239.15
+   N Uptake from Soil                  125.82
+   TOTAL N                                      365.62
+
+   * Lost due to senescence, freeze, pest or disease damage.
+
+*******************************************************************************
