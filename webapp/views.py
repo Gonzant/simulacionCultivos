@@ -574,12 +574,12 @@ def graficasYield(directorioEscenario, anios, nombreEscenarios ):
 		
 	#faltan 4 valores mas
 	for x in range(0, count):
-		listMean.append(resultB1["means"][x].get_data()[1][0])
-		listMediana.append(resultB1["medians"][x].get_data()[1][0])
-		listWhiskersMenor.append(resultB1["whiskers"][x*2].get_data()[1][0]) 
-		listWhiskersMayor.append(resultB1["whiskers"][x*2+1].get_data()[1][0]) 
-		listBase.append(resultB1["whiskers"][x*2].get_data()[1][1])
-		listMayor.append(resultB1["whiskers"][x*2+1].get_data()[1][1])		
+		listMean.append(int(round(resultB1["means"][x].get_data()[1][0],-1)))
+		listMediana.append(int(round(resultB1["medians"][x].get_data()[1][0],-1)))
+		listWhiskersMenor.append(int(round(resultB1["whiskers"][x*2].get_data()[1][0],-1)))
+		listWhiskersMayor.append(int(round(resultB1["whiskers"][x*2+1].get_data()[1][0],-1))) 
+		listBase.append(int(round(resultB1["whiskers"][x*2].get_data()[1][1],-1)))
+		listMayor.append(int(round(resultB1["whiskers"][x*2+1].get_data()[1][1],-1)))		
 	
 	print("prueba2")
 	print (listMean)
