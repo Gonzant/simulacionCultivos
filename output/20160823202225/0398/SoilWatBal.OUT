@@ -1,0 +1,361 @@
+*WATER BALANCE OUTPUT FILE
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN   1        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 1999/232     490.84
+     Soil H20 (final) on Year/day 2000/037     509.18
+     Effective Irrigation                      382.46
+     Precipitation                             323.30
+     Drainage                                   38.28
+     Runoff                                      0.08
+     Soil Evaporation                          300.08
+     Transpiration                             348.99
+     Potential ET                              840.73
+
+     Final Balance                             0.0002
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN   2        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2000/232     490.84
+     Soil H20 (final) on Year/day 2001/039     553.10
+     Effective Irrigation                      128.31
+     Precipitation                             812.20
+     Drainage                                  232.69
+     Runoff                                      1.60
+     Soil Evaporation                          333.52
+     Transpiration                             310.45
+     Potential ET                              803.30
+
+     Final Balance                             0.0000
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN   3        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2001/232     490.84
+     Soil H20 (final) on Year/day 2002/032     562.92
+     Effective Irrigation                      198.85
+     Precipitation                            1055.30
+     Drainage                                  517.46
+     Runoff                                     73.40
+     Soil Evaporation                          307.36
+     Transpiration                             283.84
+     Potential ET                              749.17
+
+     Final Balance                             0.0003
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN   4        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2002/232     490.84
+     Soil H20 (final) on Year/day 2003/029     534.64
+     Effective Irrigation                      104.95
+     Precipitation                            1277.10
+     Drainage                                  640.04
+     Runoff                                    158.64
+     Soil Evaporation                          306.53
+     Transpiration                             233.04
+     Potential ET                              733.53
+
+     Final Balance                            -0.0001
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN   5        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2003/232     490.84
+     Soil H20 (final) on Year/day 2004/041     519.03
+     Effective Irrigation                      158.02
+     Precipitation                             646.70
+     Drainage                                  139.88
+     Runoff                                      2.04
+     Soil Evaporation                          314.43
+     Transpiration                             320.19
+     Potential ET                              844.58
+
+     Final Balance                            -0.0001
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN   6        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2004/232     490.84
+     Soil H20 (final) on Year/day 2005/044     506.85
+     Effective Irrigation                      288.93
+     Precipitation                             504.20
+     Drainage                                   97.17
+     Runoff                                      0.40
+     Soil Evaporation                          312.20
+     Transpiration                             367.34
+     Potential ET                              868.01
+
+     Final Balance                             0.0002
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN   7        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2005/232     490.84
+     Soil H20 (final) on Year/day 2006/046     476.17
+     Effective Irrigation                      274.04
+     Precipitation                             584.40
+     Drainage                                  188.08
+     Runoff                                      8.02
+     Soil Evaporation                          314.13
+     Transpiration                             362.89
+     Potential ET                              878.35
+
+     Final Balance                             0.0000
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN   8        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2006/232     490.84
+     Soil H20 (final) on Year/day 2007/034     541.52
+     Effective Irrigation                      164.89
+     Precipitation                             546.30
+     Drainage                                   66.67
+     Runoff                                      3.88
+     Soil Evaporation                          259.91
+     Transpiration                             330.05
+     Potential ET                              837.83
+
+     Final Balance                            -0.0001
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN   9        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2007/232     490.84
+     Soil H20 (final) on Year/day 2008/027     483.38
+     Effective Irrigation                      258.20
+     Precipitation                             497.00
+     Drainage                                  193.28
+     Runoff                                      2.64
+     Soil Evaporation                          294.81
+     Transpiration                             271.93
+     Potential ET                              753.25
+
+     Final Balance                             0.0003
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN  10        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2008/232     490.84
+     Soil H20 (final) on Year/day 2009/035     481.67
+     Effective Irrigation                      346.20
+     Precipitation                             345.30
+     Drainage                                   62.64
+     Runoff                                      0.01
+     Soil Evaporation                          301.87
+     Transpiration                             336.16
+     Potential ET                              837.63
+
+     Final Balance                             0.0001
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN  11        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2009/232     490.84
+     Soil H20 (final) on Year/day 2010/045     550.69
+     Effective Irrigation                       74.45
+     Precipitation                            1435.70
+     Drainage                                  809.90
+     Runoff                                     29.30
+     Soil Evaporation                          330.36
+     Transpiration                             280.74
+     Potential ET                              794.71
+
+     Final Balance                            -0.0004
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN  12        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2010/232     490.84
+     Soil H20 (final) on Year/day 2011/048     546.15
+     Effective Irrigation                      289.17
+     Precipitation                             525.50
+     Drainage                                  112.90
+     Runoff                                     12.41
+     Soil Evaporation                          246.38
+     Transpiration                             387.67
+     Potential ET                              872.81
+
+     Final Balance                             0.0001
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN  13        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2011/232     490.84
+     Soil H20 (final) on Year/day 2012/041     548.06
+     Effective Irrigation                      328.92
+     Precipitation                             549.90
+     Drainage                                  157.50
+     Runoff                                      0.75
+     Soil Evaporation                          306.99
+     Transpiration                             356.37
+     Potential ET                              851.94
+
+     Final Balance                             0.0001
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN  14        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2012/232     490.84
+     Soil H20 (final) on Year/day 2013/027     506.13
+     Effective Irrigation                      122.90
+     Precipitation                             820.60
+     Drainage                                  289.59
+     Runoff                                     44.54
+     Soil Evaporation                          290.65
+     Transpiration                             303.43
+     Potential ET                              777.25
+
+     Final Balance                             0.0000
+
+
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 23, 2016; 20:22:29
+
+*RUN  15        : UYSB                    
+ MODEL          : CRGRO040 - Soybean         
+ EXPERIMENT     : UYSB0398 SB    late to create DSS                             
+ TREATMENT  1   : UYSB                    
+
+
+     WATER BALANCE PARAMETERS
+     ========================                  --mm--
+
+     Soil H20 (start) on Year/day 2013/232     490.84
+     Soil H20 (final) on Year/day 2014/033     590.12
+     Effective Irrigation                      217.49
+     Precipitation                             993.00
+     Drainage                                  432.42
+     Runoff                                     34.04
+     Soil Evaporation                          323.94
+     Transpiration                             320.81
+     Potential ET                              802.32
+
+     Final Balance                            -0.0002
+

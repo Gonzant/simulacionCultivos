@@ -45,7 +45,7 @@ def get_soil_IC(ID_SOIL):
             soil_depth=line[33:36]
             soil_flag=1
         if soil_flag == 1:
-            print line
+            print (line)
             count=count+1
             if count >= 7:
                 depth_layer.append(int(line[0:6]))
@@ -412,9 +412,9 @@ def btnDSSAT(request):
 	#return render(request, 'webapp/run_dssat.html', {})
 	
 	print(cantidadAniosEscenarios)
-	graficasYield(dirEscenario, cantidadAniosEscenarios, nombreEscenarios)
+	resultPlot = graficasYield(dirEscenario, cantidadAniosEscenarios, nombreEscenarios)
 
-	return render(request, 'webapp/show_graphics.html', {'dir': 'output/' + fechaActual, 'nombreEscenarios': request.GET.getlist("nombreEscenario"), 'aniosEscenarios': cantidadAniosEscenarios})	
+	return render(request, 'webapp/show_graphics.html', {'dir': 'output/' + fechaActual, 'nombreEscenarios': nombreEscenarios, 'aniosEscenarios': cantidadAniosEscenarios, 'resultPlot':resultPlot})	
 	
 def run_dssat(dir, dirInputDSS, listaArchivos):
 	#entries = ("AveStress.txt", "SumStress.txt", "YIELD.txt","PgtTHRESHPct.txt","PlantGro.OUT","Evaluate.OUT",
@@ -440,9 +440,9 @@ def run_dssat(dir, dirInputDSS, listaArchivos):
 		#==RUN DSSAT with ARGUMENT
 		args = "DSCSM040.EXE B D4Batch.DV4"
 		#Run executable with argument
-		print time.strftime("%Y-%m-%d %H:%M")
+		print (time.strftime("%Y-%m-%d %H:%M"))
 		subprocess.call(args, cwd='input\DSS_minimum_inputs', shell=True)
-		print time.strftime("%Y-%m-%d %H:%M")
+		print (time.strftime("%Y-%m-%d %H:%M"))
 		print('termina subprocess')
 		#creo la carpeta del escenario dentro de los escenarios del usuario
 		carpetaContador = a[4:9]
@@ -464,7 +464,7 @@ def writeDV4_main(dirInputDSS,nombreArchivo):
 	for line in range(0,10):
 		temp_str=fr.readline()
 		fw.write(temp_str)
-		print temp_str
+		print (temp_str)
 
 	temp_str=fr.readline()
 	new_str=snx_fname + temp_str[12:]
@@ -557,9 +557,35 @@ def graficasYield(directorioEscenario, anios, nombreEscenarios ):
 	
 	# Plot a line between the means of each dataset
 	#plt.plot(myXList, obs, 'go-')
-	ax.boxplot(yield_data, labels=scename, showmeans=True, meanline=True, meanprops ={'color':'green'}) #, notch=True, bootstrap=10000)
+	resultB1 = ax.boxplot(yield_data, labels=scename, showmeans=True, meanline=True, meanprops ={'color':'green'}) #, notch=True, bootstrap=10000)
 	plt.savefig(directorioEscenario+'\\boxplot.png')
 	#plt.show()	
+	
+	print("boxplot result:")
+	listMean = []
+	listMediana = []
+	listWhiskersMenor = []
+	listWhiskersMayor = []
+	listBase = []
+	listMayor = []
+		
+	print("whiscku")	
+	print(resultB1["whiskers"])	
+		
+	#faltan 4 valores mas
+	for x in range(0, count):
+		listMean.append(resultB1["means"][x].get_data()[1][0])
+		listMediana.append(resultB1["medians"][x].get_data()[1][0])
+		listWhiskersMenor.append(resultB1["whiskers"][x*2].get_data()[1][0]) 
+		listWhiskersMayor.append(resultB1["whiskers"][x*2+1].get_data()[1][0]) 
+		listBase.append(resultB1["whiskers"][x*2].get_data()[1][1])
+		listMayor.append(resultB1["whiskers"][x*2+1].get_data()[1][1])		
+	
+	print("prueba2")
+	print (listMean)
+	print (listMediana)
+	print (listWhiskersMenor)
+	print (listWhiskersMayor)
 	
 	#Plotting 2
 	fig = plt.figure()
@@ -581,6 +607,8 @@ def graficasYield(directorioEscenario, anios, nombreEscenarios ):
 	# Put a legend to the right of the current axis
 	ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 	plt.savefig(directorioEscenario+'\\curvaPExcedencia.png')
+	
+	return ([listMean,listMediana,listWhiskersMenor,listWhiskersMayor,listBase,listMayor])
 
 def margenBruto(request):
 	currentDir = os.getcwd()
