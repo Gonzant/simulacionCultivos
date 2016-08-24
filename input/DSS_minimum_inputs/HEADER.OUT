@@ -1,8 +1,8 @@
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN   1        : UYMZ                     
  MODEL          : MZCER040 - MAIZE     
- EXPERIMENT     : UYMZ0219 SN late to create DSS                                
+ EXPERIMENT     : UYMZ0220 SN late to create DSS                                
  TREATMENT  1   : UYMZ                     
 
  CROP           : MAIZE          CULTIVAR : CMEDIO UY        ECOTYPE :IB0001

@@ -2,11 +2,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN   1        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0220 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
@@ -62,11 +62,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN   2        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0220 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
@@ -114,11 +114,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN   3        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0220 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
@@ -166,11 +166,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN   4        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0220 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
@@ -218,11 +218,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN   5        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0220 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
@@ -270,11 +270,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN   6        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0220 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
@@ -322,11 +322,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN   7        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0220 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
@@ -374,11 +374,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN   8        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0220 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
@@ -426,11 +426,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN   9        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0220 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
@@ -478,11 +478,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN  10        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0220 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
@@ -530,11 +530,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:33:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 19, 2016; 14:56:29
 
 *RUN  11        : UYMZ                    
  MODEL          : MZCER040 - Maize           
- EXPERIMENT     : UYMZ0219 MZ    late to create DSS                             
+ EXPERIMENT     : UYMZ0220 MZ    late to create DSS                             
  TREATMENT  1   : UYMZ                    
 
 
