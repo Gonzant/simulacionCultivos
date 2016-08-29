@@ -195,62 +195,8 @@ $(function() { //valida cantidad
 
 //PERIODO DE SIMULACIÓN
 
-$(function() { //valida el año de inicio y fin del periodo de simulación
-
-    $('#desdeAnioSimulacion').change(function () {   
-		if(parseInt($('#desdeAnioSimulacion').val().length) != 0){
-			if((parseInt($('#desdeAnioSimulacion').val())) < parseInt($('#desdeAnio').val()) || 
-					parseInt(($('#desdeAnioSimulacion').val())) > parseInt($('#hastaAnio').val())){
-				document.getElementById("anioDesdeS").className = "form-group has-error has-feedback";
-				document.getElementById("errorAnioDesde").innerHTML = 'Incorrecto';
-				document.getElementById("desdeAnioSimulacionS").className = "glyphicon glyphicon-remove form-control-feedback";
-			} else{							
-				document.getElementById("anioDesdeS").className = "form-group has-success has-feedback";
-				document.getElementById("desdeAnioSimulacionS").className = "glyphicon glyphicon-ok form-control-feedback";
-				document.getElementById("errorAnioDesde").innerHTML = ' ';
-			}
-		}else{
-			document.getElementById("errorAnioDesde").innerHTML = 'Campo no puede ser vacio';
-		}		
-	});
-	$('#hastaAnioSimulacion').change(function () {   
-		if(parseInt($('#hastaAnioSimulacion').val().length) != 0){
-				if((parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnio').val())) || 
-				(parseInt($('#hastaAnioSimulacion').val()) > parseInt($('#hastaAnio').val())) || 
-				(parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnioSimulacion').val()))){
-					document.getElementById("anioHastaS").className = "form-group has-error has-feedback";
-					document.getElementById("errorAnioHasta").innerHTML = 'Incorrecto';
-					document.getElementById("hastaAnioSimulacionS").className = "glyphicon glyphicon-remove form-control-feedback";
-			}else{				
-				document.getElementById("anioHastaS").className = "form-group has-success has-feedback";
-				document.getElementById("errorAnioDesde").innerHTML = ' ';				
-				document.getElementById("hastaAnioSimulacionS").className = "glyphicon glyphicon-ok form-control-feedback";
-			}
-		}else{
-			document.getElementById("anioHastaS").className = "form-group has-success has-feedback";
-		}
-	});
-});  
-
   
-  
-  //valida precio del grano 
-  
-/*$(function() { //valida precio del grano
-	$('#precioGranoEscenario').change(function () {   
-	alert('Hola');
-		if(parseInt($('#precioGranoEscenario').val()) < 0 || (parseInt($('#precioGranoEscenario').val()) > 1000)){
-				document.getElementById("precioGranoEscenarioS").className = "form-group has-error has-feedback";
-				document.getElementById("errorPrecioGranoEscenario").innerHTML = 'Incorrecto';
-				document.getElementById("precioGranoEscenarioS").className = "glyphicon glyphicon-remove form-control-feedback";
-			} else{							
-				document.getElementById("precioGranoEscenarioS").className = "form-group has-success has-feedback";
-				document.getElementById("precioGranoEscenarioS").className = "glyphicon glyphicon-ok form-control-feedback";
-				document.getElementById("errorPrecioGranoEscenario").innerHTML = ' ';
-			}
-		});
 
-});*/
 
 
 

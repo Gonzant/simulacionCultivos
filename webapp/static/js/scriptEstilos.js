@@ -1,6 +1,3 @@
-/* $(function () { $('#collapseThree').collapse('toggle')});
-   $(function () { $('#collapseOne').collapse('hide')});
-  */   
   
 //Boton agregar escenario
 function agregarEscenario(boton){
@@ -38,9 +35,7 @@ $(function() {
 		var cicloMostrar=ciclo;
 		var riego ="";
 		
-		//control de errores
-		
-		
+		//control de errores		
 		//fin - control de errores
 		if($('input[name="riego"]:checked', '#rbRiego').val() ==='1'){
 			riego = "Riego automático."
@@ -59,9 +54,7 @@ $(function() {
 			else{
 				if(ciclo ==="UY0151"){cicloMostrar="GM 5";}
 				else{ if(ciclo ==="UY0161"){ cicloMostrar="GM 6";} else{cicloMostrar="";}}
-			}	
-					
-			
+			}				
 		}
 				
 		alert(cicloMostrar);
@@ -180,16 +173,98 @@ function OnChangeRadioFertilizacionOtras (radio) {
 }
 	
 	
-
-
-/* RIEGO
-function OnChangeRadioRiego (radio) {
-  var el = document.getElementById('detalleRiego');
-  if((parseInt(radio.value) === 0) || (radio.value === '1')){
-	el.style.display = (el.style.display == 'none') ? 'block' : 'none'; 
-  }
-  else{
-	el.style.display = (el.style.display == 'inline') ? 'block' : 'inline'; 
-  }	
-}*/
-
+function validaCamposVacios(){
+	
+	var errores="<strong> Verifique los siguientes campos: </strong>" 
+	var datosOk=false;
+	var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0 && validaPeriodoSimulacion();
+	var anioHastaNoVacio=parseInt($('#hastaAnioSimulacion').val().length) != 0 && validaPeriodoSimulacion();
+	var cultivoSeleccionado = ($('input[name=cultivo]:checked').attr('value')==='SB') || ($('input[name=cultivo]:checked').attr('value')==='MZ');
+	var fertilizaSeleccionado = ($('input[name=fertilizacion]:checked').attr('value')==='1');
+	var diasS, diasS1, diasS2, cantidadS, cantidadS1, cantidadS2;
+	var fertiliza1Seleccionado = ($('input[name=fertilizacionO]:checked').attr('value')==='1');
+	var fertiliza2Seleccionado = ($('input[name=fertilizacionO]:checked').attr('value')==='2');
+	var nombreEscenarioNoVacio = $('#inNombreEscenario').val().length !=0; 
+	diasS1 = parseInt($('#diasDespuesSiembraAp1I').val().length) != 0;
+	diasS2 =parseInt($('#diasDespuesSiembraAp2I').val().length) != 0;
+	if(anioDesdeNoVacio && anioHastaNoVacio){ 		
+		datosOk=true;		
+	}else{		
+		errores = errores + "<p>Periodo de simulacion</p>";		
+		datosOk=false;
+	}
+	if(cultivoSeleccionado){ 		
+		datosOk=true;		
+	}else{		
+		errores = errores + "<p>Debe seleccionar un cultivo<p>";		
+		datosOk=false;
+	}
+	if(fertilizaSeleccionado){//fertiliza Siembra seleccionado
+		diasS = parseInt($('#diasDespuesSiembraI').val().length) != 0;
+		cantidadS=parseInt($('#cantidadFertilizanteI').val().length) != 0;
+		if((parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteI').val()) >= 0) && parseInt(($('#cantidadFertilizanteI').val())) <= 100==false)){
+			errores = errores + "<p> Fertilizacion a la siembra</p>";
+			datosOk=false;
+		}else{
+			datosOk= true;
+		}
+	}
+	if(fertiliza1Seleccionado){//fertiliza 1 ap seleccionado
+		if((parseInt($('#diasDespuesSiembraAp1I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp1I').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteAp1I').val()) >= 0) && parseInt(($('#cantidadFertilizanteAp1I').val())) <= 100==false)){
+			errores = errores + "<p> Otras fertilizaciones (1 aplicacion)</p>";
+			datosOk=false;
+		}else{
+			datosOk= true;
+		}
+	}
+	
+	if(fertiliza2Seleccionado){//fertiliza 2 ap seleccionado
+		if((parseInt($('#diasDespuesSiembraAp2I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp2I').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteAp2I').val()) >= 0) && parseInt(($('#cantidadFertilizanteAp2I').val())) <= 100==false)){
+			errores = errores + "<p> Otras fertilizaciones (2 aplicaciones)</p>";
+			datosOk=false;
+		}else{
+			datosOk= true;
+		}
+	}
+	if(nombreEscenarioNoVacio ===false){
+		errores = errores + "<p> Nombre del escenario </p>";
+		datosOk=false;
+	}
+	if(errores!="<strong> Verifique los siguientes campos: </strong>"){
+		var div= "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
+		/*
+		<div class="alert alert-warning">
+		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>		  
+	</div>
+		*/
+		//document.getElementById("msgErrores").className = "alert alert-warning";
+		$("#msgErrores" ).html(div);
+		$('body,html').animate({scrollTop : 0}, 500);
+	}
+	return datosOk;
+}
+ 
+ 
+function validaPeriodoSimulacion(){
+	//retorna true si el periodo es valido
+	var retorno = false; 
+	if(parseInt($('#desdeAnioSimulacion').val().length) != 0  || (parseInt($('#hastaAnioSimulacion').val().length) != 0)){
+		if(((parseInt($('#desdeAnioSimulacion').val())) < parseInt($('#desdeAnio').val()) || 
+			parseInt(($('#desdeAnioSimulacion').val())) > parseInt($('#hastaAnio').val())) || ((parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnio').val())) || 
+			(parseInt($('#hastaAnioSimulacion').val()) > parseInt($('#hastaAnio').val())) || (parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnioSimulacion').val())))){
+				retorno = false;
+		} else{							
+				retorno = true;
+			}
+	}else{
+		retorno = false;
+	}		
+	return retorno; 	
+} 
+ 
+function vaciarForm(){
+	$('#desdeAnioSimulacion').val('');
+	$('#hastaAnioSimulacion').val('');
+	$('#inNombreEscenario').val('');
+	
+}
