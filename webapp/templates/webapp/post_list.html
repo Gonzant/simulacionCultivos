@@ -255,7 +255,7 @@
 	
 	function agregarEscenario(){
 		var result = true;
-		//if(validaCamposVacios()===true){
+		if(validaCamposVacios()===true){
 			for (var i=0;i< document.getElementsByName("cultivo").length; i++){
 				if ( document.getElementsByName("cultivo")[i].checked ) {
 					var ncultivo = (document.getElementsByName("cultivo")[i].value);
@@ -300,13 +300,14 @@
 			escenarios.push(escenarioActual);
 			agregarEscenarioPanel();
 			agregarEscenarioNav();
+			vaciarForm();
 			result = true;
-		/*}	
+		}	
 		else{
 			$('body,html').animate({scrollTop : 0}, 500);
 			//alert("No ok");
 			result = false;
-		}*/
+		}
 		return result;
 		
 	};
@@ -353,7 +354,7 @@
 		}
 		
 		$("#accordion").append(
-		"<div class=" + '"' +"panel panel-default" + '"' + "> " +
+		"<div class=" + '"' +"panel panel-default col-xs-5" + '"' + "> " +
 			"<div class=" + '"' + "panel-heading panelEscenarios" +'"' + ">" + 
 			"<button class="+ '"'+"panel-title botonEscenario form-control"+'"'+"data-toggle="+'"'+"collapse"+'"'+"data-parent="+'"'+"#accordion" +'"'+"href="+'"'+"#collapse" +nombreEscenario +'"' +">Escenario 1: " + nombreEscenario +"</button>"+
 			"<div id=" + '"' + "collapse"+ nombreEscenario + '"' + "class=" +'"' + "panel-collapse collapse in" +'"' +">"+
@@ -629,7 +630,7 @@
 	</div>
 	<div class="row ocultar" id="navEscenarios"> 
 		<h3> Escenarios agregados</h3>			 
-		<div class="panel-group panelEscenarios" id="accordion">
+		<div class="panel-group panelEscenarios row" id="accordion">
 		</div>
 	</div>	
 	<form id="ejecutarDSSAT" action="btnDSSAT">	
