@@ -111,10 +111,15 @@
 		function cargarParrafos(){										
 			for (i = 0; i < escenarios.length; i++) { 						
 				var para = document.createElement("P");
-				var texto = "Con el escenario " + escenarios[i].nombre +" el promedio de rendimientos es de " + escenarios[i].promedio + "Kg/ha y la mediana se ubica en " + escenarios[i].mediana + "Kg/ha. El 50% de los resultados se ubican entre "+escenarios[i].whiskMenor+" y "+escenarios[i].whiskMayor+"Kg/ha, lo que refleja la variabilidad del escenario "+escenarios[i].nombre+". Rendimientos por encima de "+escenarios[i].mayor+"Kg/ha se obtienen en el 5% de los casos, es decir una vez cada 20 años y de igual modo se dan los rendimientos por debajo de "+escenarios[i].base+"Kg/ha."			
-				var t = document.createTextNode(texto);       
-				para.appendChild(t);                                          
-				document.getElementById("datosBoxplot").appendChild(para);                          			
+				var paraCE = document.createElement("P");
+				var textoCE = "Para el escenario “1” hay una probabilidad de 75% (una vez cada 4 años) de obtener rindes por encima de " + escenarios[i].whiskMenor + "y una probabilidad de 25% (una vez cada 4 años) de obtener rindes por encima de " + escenarios[i].mayor + "Kg/ha";
+				var texto = "Con el escenario " + escenarios[i].nombre +" el promedio de rendimientos es de " + escenarios[i].promedio + "Kg/ha y la mediana se ubica en " + escenarios[i].mediana + "Kg/ha. El 50% de los resultados se ubican entre "+escenarios[i].whiskMenor+" y "+escenarios[i].whiskMayor+"Kg/ha, lo que refleja la variabilidad del escenario "+escenarios[i].nombre+". Rendimientos por encima de "+escenarios[i].mayor+"Kg/ha se obtienen en el 5% de los casos, es decir una vez cada 20 años y de igual modo se dan los rendimientos por debajo de "+escenarios[i].base+"Kg/ha."	;		
+				var t = document.createTextNode(texto);  
+				var tCE = document.createTextNode(textoCE);       				
+				para.appendChild(t);  
+				paraCE.appendChild(tCE);				
+				document.getElementById("datosBoxplot").appendChild(para); 
+				document.getElementById("datosCurvaExedencia").appendChild(paraCE);				
 			}					
 		};
 	</script>
@@ -143,12 +148,11 @@
 				<div class="col-sm-6" id = "datosBoxplot">				
 				</div>
 			</div>	
-			<div class="row">
+			<<div class="row paddingBottom">
 				<div class="col-sm-6">
 					<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/curvaPExcedencia.png" alt="Rendimientos esperados (Curva de probabilidad de exedencia)">
 				</div>
-				<div class="col-sm-6">					
-					<p>Este gráfico permite estimar la probabilidad de superar un determinado valor de rendimiento para diferentes escenarios.</p>
+				<div class="col-sm-6" id = "datosCurvaExedencia">				
 				</div>
 			</div>
 		</div>
