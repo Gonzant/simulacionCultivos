@@ -1,26 +1,26 @@
-*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 30, 2016; 15:56:53
+*DSSAT Cropping System Model Ver. 4.0.2.000               Aug 31, 2016; 16:08:22
 
-*RUN   1        : UYMZ                     
- MODEL          : MZCER040 - MAIZE     
- EXPERIMENT     : UYMZ0543 SN late to create DSS                                
- TREATMENT  1   : UYMZ                     
+*RUN   1        : UYSB                     
+ MODEL          : CRGRO040 - SOYBEAN   
+ EXPERIMENT     : UYSB0616 SN late to create DSS                                
+ TREATMENT  1   : UYSB                     
 
- CROP           : MAIZE          CULTIVAR : CMEDIO UY        ECOTYPE :IB0001
- STARTING DATE  : AUG 27 1990
- PLANTING DATE  : AUG 30 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
+ CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401
+ STARTING DATE  : AUG 28 1990
+ PLANTING DATE  : AUG 31 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
  WEATHER        : UYTA   1990
- SOIL           : UYSN1N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS
- SOIL INITIAL C : DEPTH:125cm EXTR. H2O:208.7mm  NO3: 66.4kg/ha  NH4: 22.4kg/ha
+ SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS
+ SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 74.8kg/ha  NH4: 23.9kg/ha
  WATER BALANCE  : RAINFED
  IRRIGATION     : NOT IRRIGATED
- NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION
- N-FERTILIZER   :       10 kg/ha IN     1 APPLICATIONS
+ NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION
+ N-FERTILIZER   : NO N-FERTILIZER APPLIED
  RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
  ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00  
                   RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00  
- SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N
+ SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N
                   PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
- MANAGEMENT OPT : PLANTING:R  IRRIG   :N  FERT :D  RESIDUE:N  HARVEST:M  WTH:M
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :N  FERT :N  RESIDUE:N  HARVEST:M  WTH:M
 
 *SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
 
@@ -28,22 +28,23 @@
   DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C
    cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %
 -------------------------------------------------------------------------------
-  0-  5 0.367 0.602 0.614 0.235 0.437   1.00   0.98   7.00  15.00   1.50   4.64
-  5- 15 0.367 0.602 0.614 0.235 0.437   1.00   0.98   7.00  15.00   1.50   4.64
- 15- 30 0.367 0.602 0.614 0.235 0.437   1.00   0.98   7.00  15.00   1.50   4.64
- 30- 45 0.336 0.524 0.535 0.188 0.392   0.40   1.11   6.80   8.50   1.50   2.74
- 45- 60 0.322 0.485 0.509 0.164 0.415   0.21   1.19   7.03   4.53   1.50   1.96
- 60- 90 0.303 0.438 0.478 0.135 0.438   0.00   1.30   7.40   0.00   1.50   1.00
- 90-108 0.295 0.426 0.472 0.131 0.426   0.00   1.32   7.80   0.00   1.50   0.71
-108-125 0.283 0.409 0.464 0.126 0.409   0.00   1.35   7.97   0.00   1.50   0.40
+  0-  5 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50  15.00   1.50   2.74
+  5- 15 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50  15.00   1.50   2.74
+ 15- 30 0.331 0.542 0.585 0.211 0.394   1.00   1.11   6.50  15.00   1.50   2.74
+ 30- 45 0.290 0.438 0.491 0.148 0.334   0.43   1.26   6.50   8.50   1.50   1.07
+ 45- 60 0.292 0.431 0.480 0.138 0.375   0.39   1.29   6.27   4.53   1.50   0.90
+ 60- 90 0.293 0.419 0.466 0.126 0.419   0.32   1.34   6.00   0.00   1.50   0.64
+ 90-108 0.286 0.408 0.460 0.122 0.408   0.23   1.36   6.00   0.00   1.50   0.35
+108-125 0.276 0.395 0.456 0.119 0.395   0.12   1.38   6.00   0.00   1.50   0.14
 
-TOT-125  40.1  60.9  64.8  20.9  53.0  <--cm   -  kg/ha-->   66.4   22.4 281809
-SOIL ALBEDO    : 0.12      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
-RUNOFF CURVE # :73.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00
+TOT-125  37.3  55.9  62.1  18.6  49.1  <--cm   -  kg/ha-->   74.8   23.9 166127
+SOIL ALBEDO    : 0.09      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
+RUNOFF CURVE # :10.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00
 
- MAIZE      CULTIVAR :UY0370-CMEDIO UY          ECOTYPE :IB0001
- P1     : 280.00  P2     : 0.0000  P5     : 750.00
- G2     : 800.00  G3     :  7.500  PHINT  : 38.900
+ SOYBEAN    CULTIVAR :UY0141-GM 4 UY            ECOTYPE :SB0401
+ CSDVAR :13.39  PPSEN  : 0.29  EMG-FLW:21.50  FLW-FSD:18.00  FSD-PHM : 32.00
+ WTPSD  :0.190  SDPDVR : 2.20  SDFDUR :23.00  PODDUR :10.00  XFRUIT  :  1.00
+
 
 
 

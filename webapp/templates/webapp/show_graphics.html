@@ -136,8 +136,8 @@
 			for (i = 0; i < escenarios.length; i++) { 						
 				var para = document.createElement("P");
 				var paraCE = document.createElement("P");
-				var textoCE = "Para el escenario “1” hay una probabilidad de 75% (una vez cada 4 años) de obtener rindes por encima de " + escenarios[i].whiskMenor + "y una probabilidad de 25% (una vez cada 4 años) de obtener rindes por encima de " + escenarios[i].mayor + "Kg/ha";
-				var texto = "Con el escenario " + escenarios[i].nombre +" el promedio de rendimientos es de " + escenarios[i].promedio + "Kg/ha y la mediana se ubica en " + escenarios[i].mediana + "Kg/ha. El 50% de los resultados se ubican entre "+escenarios[i].whiskMenor+" y "+escenarios[i].whiskMayor+"Kg/ha, lo que refleja la variabilidad del escenario "+escenarios[i].nombre+". Rendimientos por encima de "+escenarios[i].mayor+"Kg/ha se obtienen en el 5% de los casos, es decir una vez cada 20 años y de igual modo se dan los rendimientos por debajo de "+escenarios[i].base+"Kg/ha."	;		
+				var textoCE = "Para el escenario “1” hay una probabilidad de 75% (una vez cada 4 años) de obtener rindes por encima de " + escenarios[i].whiskMenor + "y una probabilidad de 25% (una vez cada 4 años) de obtener rindes por encima de " + escenarios[i].mayor + "Kg/ha";				
+				var texto = "El gráfico muestra que en el escenario " + escenarios[i].nombre + " hay un 50% de chances de que el rendimiento esté entre " + escenarios[i].whiskMenor +" y "+ escenarios[i].whiskMayor +" Kg/ha (límites de la “Caja”). Por otro lado la chance de obtener "+escenarios[i].mediana+" Kg/ha o más es de 50%, es decir se puede esperar que en la mitad de los años el rendimiento sea por lo menos "+escenarios[i].mediana+" Kg/ha.  La probabilidad de obtener " + escenarios[i].whiskMenor +" Kg/ha o menos es de 25%, es decir una vez cada 4 años se pueden esperar rendimientos menores a "+escenarios[i].whiskMenor+" Kg/ha. Lo mismo sucede con rendimientos superiores a " +escenarios[i].whiskMayor+" Kg/ha";								
 				var t = document.createTextNode(texto);  
 				var tCE = document.createTextNode(textoCE);       				
 				para.appendChild(t);  
@@ -168,7 +168,22 @@
 				cell4.innerHTML = escenarios[i].riego;
 				console.log(escenarios[i]);
 				cell5.innerHTML = "<button class='btn btn-primary' onclick='setearCookie("+i+")'>Modificar</button>";			
-			}			
+			}
+
+			if (escenarios.length<5){
+				var row = table.insertRow(escenarios.length+1);
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+				var cell3 = row.insertCell(2);
+				var cell4 = row.insertCell(3);
+				var cell5 = row.insertCell(4);
+				cell1.innerHTML = "";
+				cell2.innerHTML = "";
+				cell3.innerHTML = "";
+				cell4.innerHTML = "";				
+				cell5.innerHTML = "<button class='btn btn-primary' onclick='agregarNuevoEscenario()' disabled>Agregar escenario</button>";	
+				
+			}
 		};
 		
 		function setearCookie(esc){
@@ -177,7 +192,7 @@
 			var cookie = ['escenarios', '=', JSON.stringify(escenarios),'; domain=', "127.0.0.1", '; path=/;'].join('');					
 			document.cookie = cookie;
 			window.location = "http://127.0.0.1:8000/webapp/?modificar="+ esc;
-		};
+		};			
 		
 		function read_cookie() {
 			var result = document.cookie.match(new RegExp('escenarios' + '=([^;]+)'));
@@ -198,10 +213,30 @@
 						valor: "{{ s.valor }}",
 						etiqueta: "{{ s.etiqueta }}",					
 					}
-					suelos.push(s);			
+					suelos.push(suelo);			
 				{% endfor %}			
 			{% endfor %}			
-		};		
+		};	
+
+		function calcularMargenBruto(){
+			var dir = document.getElementsByName('dirEscenario')[0].value;
+			var danios = document.getElementsByName('aEscenario');
+			console.log(dir);
+			var cookieEscenarios = ['escenariosMB', '=', JSON.stringify(escenarios),'; domain=', "127.0.0.1", '; path=/;'].join('');					
+			document.cookie = cookieEscenarios;			
+			var nombres = "";
+			var anios = "";
+			var noms  = "nombreEscenario=";						
+			for (var n=0;n<escenarios.length;n++){
+				if (n!==0){
+					nombres = nombres + "&";
+					anios = anios +"&";
+				};
+				nombres = nombres + noms + escenarios[n].nombre;
+				anios = anios + "aEscenario=" + danios[n].value;
+			};
+			window.location.href = "http://127.0.0.1:8000/webapp/margenBruto?dirEscenario=" + dir + "&" + nombres + "&" + anios;	
+		};
 	</script>
 </head>
 <body>
@@ -237,7 +272,7 @@
 			</div>
 		</div>
 		
-		<div class="paddingBottom">
+		<div>
 			<div class="row">
 				<h3> Escenarios agregados </h3>
 			</div>
@@ -257,72 +292,23 @@
 				</table>				
 			</div>		
 		</div>
-
-		<form action="margenBruto">
-			<input type="text" value="{{dir}}" name="dirEscenario" style="display:none">
-			
-			{% for anioE in aniosEscenarios %}
+		
+		<!--Parametros para pasar -->
+		{% for anioE in aniosEscenarios %}
 			<div id='aniosEscenario' style="display:none">
 				<label for="aEscenario"> <b> Cantidad a&ntilde;os escenarios: </b> </label>
 				<input type="text" name="aEscenario" class="form-control" id= "inAnioEscenario" value="{{ anioE }}" style="display:none">
 			</div>
-			{% endfor %}
-			
-			<div>				
-				<div class="row">				
-					<h4>Escenarios</h4>
-				</div>
-				
-				<div class="row">				
-					<div class="col-xs-4">
-						<label for="nombreEscenario"> <b> Nombre escenario: </b> </label>						
-					</div>						
-					<div class="col-xs-2">
-						<label for="precioGranoEscenario">Precio del grano (U$S/ton):</label>												
-					</div>
-					<div class="col-xs-2">
-						<label for="precioFertilizanteEscenario">Precio del fertilizante (U$S/kg N):</label>						
-					</div>					
-					<div class="col-xs-2">
-						<label for="costeRiegoEscenario">Costo del riego (U$S/mm):</label>						
-					</div>
-					<div class="col-xs-2">
-						<label for="gastosGeneralesEscenario">Otros costos de producción (U$S/ha):</label>						
-					</div>									
-				</div>				
-				
-				{% for nEscenario in nombreEscenarios %}
-				<div class="row">				
-					<div id='escenario' class="col-xs-4">						
-						<input type="text" name="nombreEscenario" class="form-control" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}">
-					</div>						
-					<div class="col-xs-2" id='precioGranoEscenarioD'>						
-						<input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="form-control">
-						<!--<span  id= "precioGranoS" aria-hidden="true"></span>
-						<p id="errorPrecioGrano" class = "control-label has-error"></p>	-->
-					</div>
-					<div class="col-xs-2" id='precioFertilizanteEscenarioD'>						
-						<input type="text" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="form-control">
-						<!--<span  id= "precioFertilizanteEscenarioS" aria-hidden="true"></span>
-						<p id="errorprecioFertilizanteEscenario" class = "control-label has-error"></p>	-->
-					</div>					
-					<div class="col-xs-2" id='costeRiegoEscenarioD'>						
-						<input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="form-control">
-						<!--<span  id= "costeRiegoEscenarioS" aria-hidden="true"></span>
-						<p id="errorCosteRiegoEscenario" class = "control-label has-error"></p>	-->
-					</div>
-					<div class="col-xs-2" id='gastosGeneralesEscenarioD'>						
-						<input type="text" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="form-control">
-						<!--<span  id= "gastosGeneralesEscenarioS" aria-hidden="true"></span>
-						<p id="errorGastosGeneralesEscenario" class = "control-label has-error"></p>	-->
-					</div>									
-				</div>
-				{% endfor %}
-				<div class="row margenTop">									
-					<input class="form-control primary" style="width:50%;margin:0px auto; display:block;" type='submit' name="margenBruto" value="Graficar margen bruto">
-				</div>
-			</div>
-		</form>
+		{% endfor %}
+		<input type="text" value="{{dir}}" name="dirEscenario" style="display:none">		
+		
+		<div class="row">				
+			<input class="btn btn-success" style="width:50%;margin:0px auto; display:block;" onclick='calcularMargenBruto()' name="margenBruto" value="Calcular margen bruto">
+		</div>
+		
+		<div class="row margenTop">				
+		</div>		
+		
 	</div>
 	<script>
 		cargarDatos();

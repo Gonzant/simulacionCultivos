@@ -614,8 +614,9 @@ def graficasYield(directorioEscenario, anios, nombreEscenarios ):
 	plt.savefig(directorioEscenario+'\\curvaPExcedencia.png')
 	
 	return ([listMean,listMediana,listWhiskersMenor,listWhiskersMayor,listBase,listMayor])
-
+	
 def margenBruto(request):
+	print("Entra margen burto")
 	currentDir = os.getcwd()
 	dirEscenario = os.path.normpath(request.GET['dirEscenario'])
 	pathCompleto = os.path.join(currentDir, dirEscenario)
@@ -629,7 +630,7 @@ def margenBruto(request):
 		if os.path.isdir(dir):
 			listaDir.append(dir)							
 	
-	print (listaDir)
+	print (listaDir)		
 		
 	# le tengo qque pasar todos los escenarios y sus costos
 	# los anioos de cada escenario
@@ -649,55 +650,57 @@ def margenBruto(request):
 	costG_list=[]
 	price_list=[]	
 	count = len(nombreEscenarios)
+	tienePrecio = (len(precioGranoEscenarios)!=0)
 	
-	for i in range(count):
-		fname.append(listaDir[i] + "\\Summary.out")
-		costN_list.append(precioFertilizanteEscenarios[i])
-		costI_list.append(costoRiegoEscenarios[i])
-		costG_list.append(gastosGeneralesEscenarios[i])
-		price_list.append(precioGranoEscenarios[i])
-		scename.append(nombreEscenarios[i])
-		nyears.append(aniosEscenarios[i])
+	if (tienePrecio):
+		for i in range(count):
+			fname.append(listaDir[i] + "\\Summary.out")
+			costN_list.append(precioFertilizanteEscenarios[i])
+			costI_list.append(costoRiegoEscenarios[i])
+			costG_list.append(gastosGeneralesEscenarios[i])
+			price_list.append(precioGranoEscenarios[i])
+			scename.append(nombreEscenarios[i])
+			nyears.append(aniosEscenarios[i])
+			
+		max_nyears=int(max(nyears))
+
+		#create an empty matrix
+		GMargin_data = np.empty((max_nyears,count))
+		GMargin_data[:] = np.NAN
+		#Read Summary.out from all scenario output
+		for x in range(0, count):
+			fr = open(fname[x],"r") #opens summary.out to read
+			price=price_list[x]   #$/ton
+			cost_N=costN_list[x] #$/kg N
+			cost_I=costI_list[x] #$/mm irrigation cost
+			cost_G=costG_list[x] #$/ha general cost
+			for line in range(0,4): #read headers
+				temp_str=fr.readline()
+			for line in range(0,int(nyears[x])): #read actual simulated data
+				temp_str=fr.readline()
+				yield_out=float(temp_str[135:141])
+				fert_amount=float(temp_str[248:254])  #NICM   Tot N app kg/ha Inorganic N applied (kg [N]/ha)    
+				irr_amount=float(temp_str[194:200])   #IRCM   Irrig mm        Season irrigation (mm)   
+				GMargin_data[line,x]=yield_out*float(price)*0.001 - float(cost_N)*fert_amount - float(cost_I)*irr_amount - float(cost_G)#$/ha
+			fr.close()
+
+		#X data for plot
+	   # myXList=[i+1 for i in range(3)]
+		myXList=[i+1 for i in range(count)]
+
+		#Plotting
+		fig = plt.figure()
+		fig.suptitle('Margen Bruto', fontsize=14, fontweight='bold')
+
+		ax = fig.add_subplot(111)
+		#fig.subplots_adjust(top=0.85)
+		#ax.set_title('Yield Forecast')
+		ax.set_xlabel('Escenario',fontsize=14)
+		ax.set_ylabel('Margen Bruto[US$/ha]',fontsize=14)
 		
-	max_nyears=int(max(nyears))
-
-	#create an empty matrix
-	GMargin_data = np.empty((max_nyears,count))
-	GMargin_data[:] = np.NAN
-	#Read Summary.out from all scenario output
-	for x in range(0, count):
-		fr = open(fname[x],"r") #opens summary.out to read
-		price=price_list[x]   #$/ton
-		cost_N=costN_list[x] #$/kg N
-		cost_I=costI_list[x] #$/mm irrigation cost
-		cost_G=costG_list[x] #$/ha general cost
-		for line in range(0,4): #read headers
-			temp_str=fr.readline()
-		for line in range(0,int(nyears[x])): #read actual simulated data
-			temp_str=fr.readline()
-			yield_out=float(temp_str[135:141])
-			fert_amount=float(temp_str[248:254])  #NICM   Tot N app kg/ha Inorganic N applied (kg [N]/ha)    
-			irr_amount=float(temp_str[194:200])   #IRCM   Irrig mm        Season irrigation (mm)   
-			GMargin_data[line,x]=yield_out*float(price)*0.001 - float(cost_N)*fert_amount - float(cost_I)*irr_amount - float(cost_G)#$/ha
-		fr.close()
-
-	#X data for plot
-   # myXList=[i+1 for i in range(3)]
-	myXList=[i+1 for i in range(count)]
-
-	#Plotting
-	fig = plt.figure()
-	fig.suptitle('Margen Bruto', fontsize=14, fontweight='bold')
-
-	ax = fig.add_subplot(111)
-	#fig.subplots_adjust(top=0.85)
-	#ax.set_title('Yield Forecast')
-	ax.set_xlabel('Escenario',fontsize=14)
-	ax.set_ylabel('Margen Bruto[US$/ha]',fontsize=14)
+		# Plot a line between the means of each dataset
+		#plt.plot(myXList, obs, 'go-')
+		ax.boxplot(GMargin_data,labels=scename, showmeans=True, meanline=True, meanprops ={'color':'green'}) #, notch=True, bootstrap=10000)
+		plt.savefig(dirEscenario+'\\margenBruto.png')
 	
-	# Plot a line between the means of each dataset
-	#plt.plot(myXList, obs, 'go-')
-	ax.boxplot(GMargin_data,labels=scename, showmeans=True, meanline=True, meanprops ={'color':'green'}) #, notch=True, bootstrap=10000)
-	plt.savefig(dirEscenario+'\\margenBruto.png')
-	
-	return render(request, 'webapp/margen_bruto.html', {'dir': dirEscenario})
+	return render(request, 'webapp/margen_bruto.html', {'dir': dirEscenario,'nombreEscenarios': nombreEscenarios,'aniosEscenarios':aniosEscenarios})

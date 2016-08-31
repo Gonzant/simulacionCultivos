@@ -1,24 +1,157 @@
+{% load staticfiles %}
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Modelo de Simulación de Cultivos </title>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modelo de Simulación de Cultivos </title>
+	
+	<!--JQuery-->	
+	<script src="{% static 'lib/jquery-3.1.0/jquery-3.1.0.min.js' %}"></script>
+	
+	<!--Boostrap-->
+	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap-theme.min.css' %}">	
+	<script src="{% static 'lib/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+	
+	<!--Simulacion-->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
+	
+	
+	<!--Pasar estos si se usan local-->
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">	
+	<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js"> </script>
+	<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">  </script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js">  </script>
+	<script>  
+		var escenarios = [];
+		
+		function read_cookie() {
+			var result = document.cookie.match(new RegExp('escenariosMB' + '=([^;]+)'));
+			result && (result = JSON.parse(result[1]));
+			escenarios = result;
+		};
+		
+		function loadImg(){
+			get = window.location.search.replace("?", "");
+			getListParametros = get.split("&");
+			console.log(getListParametros);
+			var tienePrecio = false;
+			for (i=0;i<getListParametros.length;i++){
+				if (getListParametros[i].split("=")[0]==='precioGranoEscenario'){
+					tienePrecio = true;
+				}
+			};
+			console.log("tienePrecio");
+			console.log(tienePrecio);
+			if (tienePrecio){
+				var dimagen = document.getElementById('imagenMB');
+				var eimg = document.createElement("img");
+				eimg.setAttribute("src", "{{MEDIA_ROOT}}/{{dir}}/margenBruto.png");
+							
+				eimg.setAttribute("alt", "Margen bruto");
+				eimg.setAttribute("class", "img-responsive center-block");
+				//dimagen.write("<img class='img-responsive center-block' src='{{MEDIA_ROOT}}/{{dir}}/margenBruto.png' alt='Margen bruto'>");				
+				dimagen.appendChild(eimg); 
+			};
+			//<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/margenBruto.png" alt="Margen bruto">			
+		};
+	</script>
 </head>
 <body>
 	<div class="container">
-		<div class="row page-header">
-			<div class="col-sm-3">
-				<img class="img-responsive" src="/static/img/logoSNIA.png" alt="Logo SNIA">
-			</div>
-			<div class="col-sm-6 text-center">
-				<h2> Simulador de Cultivo </h2>			
-			</div>
-			<div class="col-sm-3">					
-			</div>
+		<div class="page-header row">		
+			<div class="col-xs-3"> 
+				<img src="/static/img/logoSNIA.png" class="logo img-responsive">
+			</div>		
+			<div class="col-xs-6 text-center">
+				<h2 style="color: #848688;"> Simulador de Cultivo </h2>
+			</div>			
+			<div class="col-xs-2 col-xs-offset-1">
+				<ul class="nav">
+					<li><a style="color: #848688;" href="http://snia.gub.uy/contacto-5/contacto-72?,,mnu-e-55-3-mnu-" target="_blank"><span class="glyphicon glyphicon-envelope"></span> Contacto</a></li>
+				</ul>
+			</div>			   
+		</div>		
+		
+		<div class="row">	
+			<p>La herramienta permite analizar también los Márgenes Brutos esperados para diferentes escenarios.  El Margen Bruto se calcula como la diferencia entre los ingresos por venta del producto y los costos de producción por ha.  Dado que los escenarios permiten variar la cantidad de fertilizante nitrogenado, y también permiten evaluar el uso de riego, esas dos variables se consideran aparte del resto de los costos de producción.  De esta manera, los “Otros Costos de Producción” en la herramienta incluyen todos los costos de producción excepto los de fertilizante nitrogenado y riego. </p>
+		</div>
+		
+		<div class="row" id="imagenMB">
+			<!--<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/margenBruto.png" alt="Margen bruto">-->
 		</div>	
-		<div class="row">			
-			<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/margenBruto.png" alt="Margen bruto">			
-		</div>				
+		
+		<form action="margenBruto">
+			<input type="text" value="{{dir}}" name="dirEscenario" style="display:none">
+			
+			{% for anioE in aniosEscenarios %}
+			<div id='aniosEscenario' style="display:none">
+				<label for="aEscenario"> <b> Cantidad a&ntilde;os escenarios: </b> </label>
+				<input type="text" name="aEscenario" class="form-control" id= "inAnioEscenario" value="{{ anioE }}" style="display:none">
+			</div>
+			{% endfor %}
+			
+			<div>				
+				<div class="row">				
+					<h4>Escenarios</h4>
+				</div>
+				
+				<div class="row">				
+					<div class="col-xs-4">
+						<label for="nombreEscenario"> <b> Nombre escenario: </b> </label>						
+					</div>						
+					<div class="col-xs-2">
+						<label for="precioGranoEscenario">Precio del grano (U$S/ton):</label>												
+					</div>
+					<div class="col-xs-2">
+						<label for="precioFertilizanteEscenario">Precio del fertilizante (U$S/kg N):</label>						
+					</div>					
+					<div class="col-xs-2">
+						<label for="costeRiegoEscenario">Costo del riego (U$S/mm):</label>						
+					</div>
+					<div class="col-xs-2">
+						<label for="gastosGeneralesEscenario">Otros costos de producción (U$S/ha):</label>						
+					</div>									
+				</div>				
+				
+				{% for nEscenario in nombreEscenarios %}
+				<div class="row">				
+					<div id='escenario' class="col-xs-4">						
+						<input type="text" name="nombreEscenario" class="form-control" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}">
+					</div>						
+					<div class="col-xs-2" id='precioGranoEscenarioD'>						
+						<input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="form-control">
+						<!--<span  id= "precioGranoS" aria-hidden="true"></span>
+						<p id="errorPrecioGrano" class = "control-label has-error"></p>	-->
+					</div>
+					<div class="col-xs-2" id='precioFertilizanteEscenarioD'>						
+						<input type="text" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="form-control">
+						<!--<span  id= "precioFertilizanteEscenarioS" aria-hidden="true"></span>
+						<p id="errorprecioFertilizanteEscenario" class = "control-label has-error"></p>	-->
+					</div>					
+					<div class="col-xs-2" id='costeRiegoEscenarioD'>						
+						<input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="form-control">
+						<!--<span  id= "costeRiegoEscenarioS" aria-hidden="true"></span>
+						<p id="errorCosteRiegoEscenario" class = "control-label has-error"></p>	-->
+					</div>
+					<div class="col-xs-2" id='gastosGeneralesEscenarioD'>						
+						<input type="text" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="form-control">
+						<!--<span  id= "gastosGeneralesEscenarioS" aria-hidden="true"></span>
+						<p id="errorGastosGeneralesEscenario" class = "control-label has-error"></p>	-->
+					</div>									
+				</div>
+				{% endfor %}
+				<div class="row margenTop">									
+					<input class="form-control primary" style="width:50%;margin:0px auto; display:block;" type='submit' name="margenBruto" value="Graficar margen bruto">
+				</div>
+			</div>
+		</form>						
 	</div>
+	
+	<script>
+		read_cookie();
+		loadImg();
+	</script>
 </body>
 </html>
