@@ -15,7 +15,7 @@
 	<!--Simulacion-->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/cargarDatos.js' %}"></script>
+	
 	
 	<!--Pasar estos si se usan local-->
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -87,7 +87,9 @@
 	<script>
 		
 		var escenarios = [];						
-		
+		var suelos = [];
+		var riegos = [];
+		var cultivos = [];
 		//listMean,listMediana,listWhiskerxsenor,listWhiskerxsayor,listBase,listMayor
 		
 		function cargarDatos(){			
@@ -95,9 +97,11 @@
 			datosNumericos = {{ resultPlot }};							
 			
 			get = window.location.search.replace("?", "");
-			getList = get.split("&");
+			getListParametros = get.split("&");
+			console.log(getListParametros);
 			
 			{% for nomE in nombreEscenarios %}
+
 				escenario = {
 					nombre: "{{ nomE }}",
 					promedio: datosNumericos[0][count],
@@ -105,12 +109,28 @@
 					whiskMenor: datosNumericos[2][count],
 					whiskMayor: datosNumericos[3][count],
 					base: datosNumericos[4][count], 
-					mayor: datosNumericos[5][count]
+					mayor: datosNumericos[5][count],
+					estMeteorologica: getListParametros[count*17+0].split("=")[1],
+					fInicioSim: getListParametros[count*17+1].split("=")[1],
+					fFinSim: getListParametros[count*17+2].split("=")[1],
+					cultivo: getListParametros[count*17+3].split("=")[1],
+					cultivoTSuelo: getListParametros[count*17+4].split("=")[1],
+					cultivoTCultivar: getListParametros[count*17+5].split("=")[1],
+					cultivoNHumedad: getListParametros[count*17+6].split("=")[1],
+					cultivoNO3: getListParametros[count*17+7].split("=")[1],
+					cultivoFSiembra: getListParametros[count*17+8].split("=")[1],
+					fertilizacionSiembraDias: getListParametros[count*17+9].split("=")[1],
+					fertilizacionSiembraCantidad: getListParametros[count*17+10].split("=")[1],
+					fertilizacion1Dias: getListParametros[count*17+11].split("=")[1],
+					fertilizacion1Cantidad: getListParametros[count*17+12].split("=")[1],
+					fertilizacion2Dias: getListParametros[count*17+13].split("=")[1],
+					fertilizacion2Cantidad: getListParametros[count*17+14].split("=")[1],
+					riego: getListParametros[count*17+15].split("=")[1]					
 				};		
 				escenarios.push(escenario);
 				count = count + 1;
 			{% endfor %}
-		};
+		};		
 		
 		function cargarParrafos(){										
 			for (i = 0; i < escenarios.length; i++) { 						
@@ -143,12 +163,45 @@
 
 				// Add some text to the new cells:
 				cell1.innerHTML = escenarios[i].nombre;
-				cell2.innerHTML = "NEW CELL2";
-				cell3.innerHTML = "NEW CELL2";
-				cell4.innerHTML = "NEW CELL2";
-				cell5.innerHTML = "NEW CELL2";
+				cell2.innerHTML = escenarios[i].cultivo;
+				cell3.innerHTML = escenarios[i].cultivoTCultivar;
+				cell4.innerHTML = escenarios[i].riego;
+				console.log(escenarios[i]);
+				cell5.innerHTML = "<button class='btn btn-primary' onclick='setearCookie("+i+")'>Modificar</button>";			
 			}			
 		};
+		
+		function setearCookie(esc){
+			console.log(esc);	
+			//document.cookie = escenarios[esc];						
+			var cookie = ['escenarios', '=', JSON.stringify(escenarios),'; domain=', "127.0.0.1", '; path=/;'].join('');					
+			document.cookie = cookie;
+			window.location = "http://127.0.0.1:8000/webapp/?modificar="+ esc;
+		};
+		
+		function read_cookie() {
+			var result = document.cookie.match(new RegExp('escenarios' + '=([^;]+)'));
+			result && (result = JSON.parse(result[1]));
+			return result;
+		};
+								
+		function cargarSuelos(){
+			{% for cultivo in cultivos %}
+				var c = {
+					nombre: "{{ cultivo.nombre }}",					
+					valor:"{{ cultivo.valor }}"
+				};
+				cultivos.push(c);
+				{% for s in cultivo.suelos.all %}
+					var suelo = {
+						nombre: "{{ s.nombre }}",
+						valor: "{{ s.valor }}",
+						etiqueta: "{{ s.etiqueta }}",					
+					}
+					suelos.push(s);			
+				{% endfor %}			
+			{% endfor %}			
+		};		
 	</script>
 </head>
 <body>
@@ -175,7 +228,7 @@
 				<div class="col-sm-6" id = "datosBoxplot">				
 				</div>
 			</div>	
-			<<div class="row paddingBottom">
+			<div class="row paddingBottom">
 				<div class="col-sm-6">
 					<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/curvaPExcedencia.png" alt="Rendimientos esperados (Curva de probabilidad de exedencia)">
 				</div>
@@ -196,18 +249,10 @@
 						<th>Cultivo</th>
 						<th>Tipo de cultivar</th>
 						<th>Riego</th>
-						<th> </th>
+						<th></th>
 					  </tr>
 					</thead>
 					<tbody>
-					  <tr>
-						<td>escenario</td>
-						<td>Doe</td>
-						<td>john@example.com</td>
-						<td>john@example.com</td>
-						<td>john@example.com</td>						
-					  </tr>
-					  
 					</tbody>
 				</table>				
 			</div>		
@@ -242,7 +287,7 @@
 						<label for="costeRiegoEscenario">Costo del riego (U$S/mm):</label>						
 					</div>
 					<div class="col-xs-2">
-						<label for="gastosGeneralesEscenario">Gastos generales (U$S/ha):</label>						
+						<label for="gastosGeneralesEscenario">Otros costos de producción (U$S/ha):</label>						
 					</div>									
 				</div>				
 				
@@ -281,8 +326,9 @@
 	</div>
 	<script>
 		cargarDatos();
-		cargarParrafos();
-		cargarEscenarios();
+		cargarParrafos();		
+		cargarEscenarios();		
+		cargarSuelos();		
 	</script>
 </body>
 </html>

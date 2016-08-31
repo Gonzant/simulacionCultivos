@@ -32,6 +32,7 @@
 	var cultivos = [];
 	var estaciones = [];
 	var escenarios = [];
+	var escenariosCookie = [];
 	
 	function cargarEstaciones(){
 		{% for estacion in estaciones %}
@@ -207,8 +208,7 @@
 	function agregarEscenarioPanel(){
 		var table = document.getElementById("tablaEscenarios");
 		var count = escenarios.length;	
-		console.log(count);
-
+	
 		var row = table.insertRow(count);	
 		var celdas = [];
 		
@@ -283,16 +283,16 @@
 				},
 				fertilizacionSiembra: {
 					diasSiembra: document.getElementsByName("diasDespuesSiembra")[0].value,
-					cantidad: document.getElementsByName("diasDespuesSiembra")[0].value
+					cantidad: document.getElementsByName("cantidadFertilizante")[0].value
 				},
 				fertilizaciones: [
 					{
 						diasSiembra: document.getElementsByName("diasDespuesSiembra")[1].value,
-						cantidad: document.getElementsByName("diasDespuesSiembra")[1].value
+						cantidad: document.getElementsByName("cantidadFertilizante")[1].value
 					}, 
 					{
 						diasSiembra: document.getElementsByName("diasDespuesSiembra")[2].value,
-						cantidad: document.getElementsByName("diasDespuesSiembra")[2].value
+						cantidad: document.getElementsByName("cantidadFertilizante")[2].value
 					}
 				],
 				riego: nriego				
@@ -378,6 +378,129 @@
 		document.getElementById("nombreCultivo").checked = true;
 		cargarComboBoxDetalle(document.getElementById("nombreCultivo"));		
 	};
+	
+	function esCargarEscenario(){
+		var get = window.location.search.replace("?", "");
+		getListParametros = get.split("&");
+		nEscenarioCookie = getListParametros[0].split("=")[1];
+		if (nEscenarioCookie){		
+			cargarOtrosEscenarios(nEscenarioCookie);
+			cargarEscenarioCookie(nEscenarioCookie);			
+		};
+	};
+	
+	function cargarEscenarioCookie(nEscenario){
+		var co = JSON.parse(getCookie('escenarios'));
+		var escenariosCookie = co[nEscenario];
+		var numeroEscenario = getCookie('numeroEscenario');
+		
+		//Estacion meteorologica
+		var selectEstacion = document.getElementById("selectEstacion");
+		setSelectedValue(selectEstacion, escenariosCookie.estMeteorologica);
+		
+		//Periodo simulacion
+		var desdeAnioSimulacion = document.getElementById("desdeAnioSimulacion").value = escenariosCookie.fInicioSim;
+		var hastaAnioSimulacion = document.getElementById("hastaAnioSimulacion").value = escenariosCookie.fFinSim;
+		
+		//Cultivo
+		var nombreCultivo = document.getElementsByName("cultivo");
+		cul = setRadioButton(nombreCultivo, escenariosCookie.cultivo);
+		cargarComboBoxDetalle(nombreCultivo[cul]);
+		
+		//Detalles cultivos
+		var detalleSuelo = document.getElementById("cmbDetalleSuelo");
+		
+		setSelectedValue(detalleSuelo, escenariosCookie.cultivoTSuelo);		
+		setSelectedValue(document.getElementById("cmbDetalleCultivar"), escenariosCookie.cultivoTCultivar);
+		setSelectedValue(document.getElementById("cmbDetalleH20"), escenariosCookie.cultivoNHumedad);
+		setSelectedValue(document.getElementById("cmbDetalleNO3"), escenariosCookie.cultivoNO3);
+
+		//VER LA FECHA!!!!!!!!
+		document.getElementsByName("fechaSiembra")[0].value = escenariosCookie.cultivoFSiembra;						
+		
+		// Fertilizacion a la siembra	
+		var fs;
+		if (escenariosCookie.fertilizacionSiembraDias === ""){
+			document.getElementsByName("fertilizacion")[1].checked = true;			
+			fs = 1; 
+		}else{
+			document.getElementsByName("fertilizacion")[0].checked = true;
+			document.getElementById("diasDespuesSiembraI").value = escenariosCookie.fertilizacionSiembraDias;
+			document.getElementById("cantidadFertilizanteI").value = escenariosCookie.fertilizacionSiembraCantidad;			
+			fs = 0;
+		};
+		OnChangeRadioFertilizacion (document.getElementsByName("fertilizacion")[fs]);
+		
+		// Fertilizacion luego de la siembra
+		var fls;
+		if (escenariosCookie.fertilizacion1Dias === ""){
+			fls = 2;
+			document.getElementsByName("fertilizacionO")[2].checked = true;			
+		}else{
+			document.getElementById("diasDespuesSiembraAp1I").value = escenariosCookie.fertilizacion1Dias;
+			document.getElementById("cantidadFertilizanteAp1I").value = escenariosCookie.fertilizacion1Cantidad;
+			if (escenariosCookie.fertilizacion2Dias === ""){
+				document.getElementsByName("fertilizacionO")[0].checked = true;
+				fls = 0;					
+			}else{
+				document.getElementsByName("fertilizacionO")[1].checked = true;
+				fls = 1;
+				document.getElementById("diasDespuesSiembraAp2I").value = escenariosCookie.fertilizacion2Dias;
+				document.getElementById("cantidadFertilizanteAp2I").value = escenariosCookie.fertilizacion2Cantidad;
+			};
+		};
+		OnChangeRadioFertilizacionOtras (document.getElementsByName("fertilizacionO")[fls]);
+		
+		//Riego
+		var riego = document.getElementsByName("riego");
+		setRadioButton(riego, escenariosCookie.riego);
+		
+		document.getElementById("inNombreEscenario").value = escenariosCookie.nombre;		
+	};
+	
+	function cargarOtrosEscenarios(menosEscenario){		
+		var co = JSON.parse(getCookie('escenarios'));		
+		for(var j=0;j<co.length;j++){			
+			if (j != menosEscenario){				
+				cargarEscenarioCookie(j);				
+				agregarEscenario();				
+			}
+		};		
+	};
+	
+	function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+	};
+
+	function setSelectedValue(selectObj, valueToSet) {
+		for (var i = 0; i < selectObj.options.length; i++) {
+			if (selectObj.options[i].value== valueToSet) {
+				selectObj.options[i].selected = true;
+				return;
+			}
+		}
+	};
+	
+	function setRadioButton(radioObj, valueToSet){
+		for (var i = 0; i < radioObj.length; i++) {
+			if (radioObj[i].value== valueToSet) {
+				radioObj[i].checked = true;
+				return i;
+			}
+		}
+	};
+	
 </script>
 
 
@@ -680,6 +803,7 @@
 	cargarDetallesCultivos();
 	escucharAgregarEscenario();
 	checkSoja();
+	esCargarEscenario();
 	//cargarRiego();
 	//cargarTipoFertilizantes();
 	//cargarAplicacionFertilizantes();

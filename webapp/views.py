@@ -413,8 +413,13 @@ def btnDSSAT(request):
 	
 	print(cantidadAniosEscenarios)
 	resultPlot = graficasYield(dirEscenario, cantidadAniosEscenarios, nombreEscenarios)
+	
+	#Se pasan etiquetas de cultivos y riego
+	cultivos = Cultivo.objects.all()
+	riegos = Riego.objects.all()
+	
 
-	return render(request, 'webapp/show_graphics.html', {'dir': 'output/' + fechaActual, 'nombreEscenarios': nombreEscenarios, 'aniosEscenarios': cantidadAniosEscenarios, 'resultPlot':resultPlot})	
+	return render(request, 'webapp/show_graphics.html', {'dir': 'output/' + fechaActual, 'nombreEscenarios': nombreEscenarios, 'aniosEscenarios': cantidadAniosEscenarios, 'resultPlot':resultPlot, 'cultivos':cultivos})	
 	
 def run_dssat(dir, dirInputDSS, listaArchivos):
 	#entries = ("AveStress.txt", "SumStress.txt", "YIELD.txt","PgtTHRESHPct.txt","PlantGro.OUT","Evaluate.OUT",
