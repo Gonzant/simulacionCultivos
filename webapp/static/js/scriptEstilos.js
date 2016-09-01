@@ -265,7 +265,7 @@ function vaciarForm(){
 		});
 	});*/
 	//valida costo del riego
- 	$(function() {
+/* 	$(function() {
 		$('#costeRiegoEscenario').change(function () {   
 			if((parseInt($('#costeRiegoEscenario').val()) < 1) || (parseInt($('#costeRiegoEscenario').val()) > 3)){
 					document.getElementById("costeRiegoEscenarioD").className = "form-group has-error has-feedback";
@@ -292,4 +292,5 @@ function vaciarForm(){
 				document.getElementById("gastosGeneralesEscenarioS").className = "glyphicon glyphicon-ok form-control-feedback";
 			}			
 		});
-	});*/
+	});
+*/
