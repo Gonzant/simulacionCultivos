@@ -651,6 +651,7 @@ def margenBruto(request):
 	price_list=[]	
 	count = len(nombreEscenarios)
 	tienePrecio = (len(precioGranoEscenarios)!=0)
+	resultPlotMB = []
 	
 	if (tienePrecio):
 		for i in range(count):
@@ -700,7 +701,24 @@ def margenBruto(request):
 		
 		# Plot a line between the means of each dataset
 		#plt.plot(myXList, obs, 'go-')
-		ax.boxplot(GMargin_data,labels=scename, showmeans=True, meanline=True, meanprops ={'color':'green'}) #, notch=True, bootstrap=10000)
+		resultB2 = ax.boxplot(GMargin_data,labels=scename, showmeans=True, meanline=True, meanprops ={'color':'green'}) #, notch=True, bootstrap=10000)
 		plt.savefig(dirEscenario+'\\margenBruto.png')
+		
+		print("boxplot result:")			
+			
+		print("whiscku")	
+		print(resultB2["whiskers"][0].get_data()[1][0])	
+		listMedianaMB = []
+		listWhiskersMenorMB = []
+		print(count)
+		#faltan 4 valores mas
+		for x in range(0, count):			
+			listMedianaMB.append(int(round(resultB2["medians"][x].get_data()[1][0],-1)))
+			listWhiskersMenorMB.append(int(round(resultB2["whiskers"][x*2].get_data()[1][0],-1)))	
+		print("prueba2")
+		print (listMedianaMB)
+		print (listWhiskersMenorMB)
+		resultPlotMB = [listMedianaMB,listWhiskersMenorMB]
+		dirEscenario = dirEscenario.replace("\\","/")
 	
-	return render(request, 'webapp/margen_bruto.html', {'dir': dirEscenario,'nombreEscenarios': nombreEscenarios,'aniosEscenarios':aniosEscenarios})
+	return render(request, 'webapp/margen_bruto.html', {'dir': dirEscenario,'nombreEscenarios': nombreEscenarios,'aniosEscenarios':aniosEscenarios,'resultPlot':resultPlotMB})

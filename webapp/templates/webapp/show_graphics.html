@@ -80,7 +80,7 @@
 			for (i = 0; i < escenarios.length; i++) { 						
 				var para = document.createElement("P");
 				var paraCE = document.createElement("P");
-				var textoCE = "Para el escenario “1” hay una probabilidad de 75% (una vez cada 4 años) de obtener rindes por encima de " + escenarios[i].whiskMenor + "y una probabilidad de 25% (una vez cada 4 años) de obtener rindes por encima de " + escenarios[i].mayor + "Kg/ha.";				
+				var textoCE = "Para el escenario "+ escenarios[i].nombre +" hay una probabilidad de 75% (una vez cada 4 años) de obtener rindes por encima de " + escenarios[i].base + " Kg/ha y una probabilidad de 25% (una vez cada 4 años) de obtener rindes por encima de " + escenarios[i].mayor + " Kg/ha.";				
 				var texto = "El gráfico muestra que en el escenario " + escenarios[i].nombre + " hay un 50% de chances de que el rendimiento esté entre " + escenarios[i].whiskMenor +" y "+ escenarios[i].whiskMayor +" Kg/ha (límites de la “Caja”). Por otro lado la chance de obtener "+escenarios[i].mediana+" Kg/ha o más es de 50%, es decir se puede esperar que en la mitad de los años el rendimiento sea por lo menos "+escenarios[i].mediana+" Kg/ha.  La probabilidad de obtener " + escenarios[i].whiskMenor +" Kg/ha o menos es de 25%, es decir una vez cada 4 años se pueden esperar rendimientos menores a "+escenarios[i].whiskMenor+" Kg/ha. Lo mismo sucede con rendimientos superiores a " +escenarios[i].whiskMayor+" Kg/ha.";								
 				var t = document.createTextNode(texto);  
 				var tCE = document.createTextNode(textoCE);       				
