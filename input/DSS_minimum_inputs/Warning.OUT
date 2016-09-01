@@ -2,11 +2,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN   1        : UYSB                    
  MODEL          : CRGRO040 - Soybean         
- EXPERIMENT     : UYSB0675 SB    late to create DSS                             
+ EXPERIMENT     : UYSB0677 SB    late to create DSS                             
  TREATMENT  1   : UYSB                    
 
 
@@ -62,11 +62,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN   2        : UYSB                    
  MODEL          : CRGRO040 - Soybean         
- EXPERIMENT     : UYSB0675 SB    late to create DSS                             
+ EXPERIMENT     : UYSB0677 SB    late to create DSS                             
  TREATMENT  1   : UYSB                    
 
 
@@ -114,11 +114,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN   3        : UYSB                    
  MODEL          : CRGRO040 - Soybean         
- EXPERIMENT     : UYSB0675 SB    late to create DSS                             
+ EXPERIMENT     : UYSB0677 SB    late to create DSS                             
  TREATMENT  1   : UYSB                    
 
 
@@ -166,11 +166,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN   4        : UYSB                    
  MODEL          : CRGRO040 - Soybean         
- EXPERIMENT     : UYSB0675 SB    late to create DSS                             
+ EXPERIMENT     : UYSB0677 SB    late to create DSS                             
  TREATMENT  1   : UYSB                    
 
 
@@ -218,11 +218,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN   5        : UYSB                    
  MODEL          : CRGRO040 - Soybean         
- EXPERIMENT     : UYSB0675 SB    late to create DSS                             
+ EXPERIMENT     : UYSB0677 SB    late to create DSS                             
  TREATMENT  1   : UYSB                    
 
 
@@ -270,11 +270,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN   6        : UYSB                    
  MODEL          : CRGRO040 - Soybean         
- EXPERIMENT     : UYSB0675 SB    late to create DSS                             
+ EXPERIMENT     : UYSB0677 SB    late to create DSS                             
  TREATMENT  1   : UYSB                    
 
 
@@ -322,11 +322,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN   7        : UYSB                    
  MODEL          : CRGRO040 - Soybean         
- EXPERIMENT     : UYSB0675 SB    late to create DSS                             
+ EXPERIMENT     : UYSB0677 SB    late to create DSS                             
  TREATMENT  1   : UYSB                    
 
 
@@ -374,11 +374,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN   8        : UYSB                    
  MODEL          : CRGRO040 - Soybean         
- EXPERIMENT     : UYSB0675 SB    late to create DSS                             
+ EXPERIMENT     : UYSB0677 SB    late to create DSS                             
  TREATMENT  1   : UYSB                    
 
 
@@ -426,11 +426,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN   9        : UYSB                    
  MODEL          : CRGRO040 - Soybean         
- EXPERIMENT     : UYSB0675 SB    late to create DSS                             
+ EXPERIMENT     : UYSB0677 SB    late to create DSS                             
  TREATMENT  1   : UYSB                    
 
 
@@ -478,11 +478,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN  10        : UYSB                    
  MODEL          : CRGRO040 - Soybean         
- EXPERIMENT     : UYSB0675 SB    late to create DSS                             
+ EXPERIMENT     : UYSB0677 SB    late to create DSS                             
  TREATMENT  1   : UYSB                    
 
 
@@ -530,11 +530,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN  11        : UYSB                    
  MODEL          : CRGRO040 - Soybean         
- EXPERIMENT     : UYSB0675 SB    late to create DSS                             
+ EXPERIMENT     : UYSB0677 SB    late to create DSS                             
  TREATMENT  1   : UYSB                    
 
 

@@ -1,8 +1,8 @@
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:07:14
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 13:33:28
 
 *RUN   1        : UYSB                     
  MODEL          : CRGRO040 - SOYBEAN   
- EXPERIMENT     : UYSB0675 SN late to create DSS                                
+ EXPERIMENT     : UYSB0677 SN late to create DSS                                
  TREATMENT  1   : UYSB                     
 
  CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401
