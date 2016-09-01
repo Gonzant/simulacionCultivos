@@ -18,6 +18,10 @@
 	margin-left:-15px;
 }
 
+.panel-group .panel+.panel {
+    margin-top: 0px;
+}
+
 /*.texto{
 	width: 50px;	
 	border: none;
