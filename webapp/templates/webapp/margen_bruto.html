@@ -44,15 +44,28 @@
 			};
 			console.log("tienePrecio");
 			console.log(tienePrecio);
+			console.log("{{MEDIA_ROOT}}/{{dir}}/margenBruto.png");
 			if (tienePrecio){
 				var dimagen = document.getElementById('imagenMB');
 				var eimg = document.createElement("img");
-				eimg.setAttribute("src", "{{MEDIA_ROOT}}/{{dir}}/margenBruto.png");
-							
+				eimg.setAttribute("src", "{{MEDIA_ROOT}}/{{dir}}/margenBruto.png");						
 				eimg.setAttribute("alt", "Margen bruto");
 				eimg.setAttribute("class", "img-responsive center-block");
 				//dimagen.write("<img class='img-responsive center-block' src='{{MEDIA_ROOT}}/{{dir}}/margenBruto.png' alt='Margen bruto'>");				
 				dimagen.appendChild(eimg); 
+				
+				var datosNum = {{resultPlot}};
+				console.log(datosNum);
+				
+				var dtexto = document.getElementById('datosMargenBoxplot');
+				console.log(escenarios.length);
+				for (var i = 0; i<escenarios.length;i++){
+					var parra = document.createElement("P");
+					var texto = "Con el escenario "+escenarios[i].nombre+" la probabilidad de obtener un margen bruto de "+datosNum[0][i]+" U$S/ha o más, es de 50%, o sea se puede esperar que en la mitad de los años el margen bruto sea por lo menos "+datosNum[0][i]+" U$S/ha. Por otra parte la probabilidad de obtener un margen bruto por debajo de "+datosNum[1][i]+" U$S/ha es de 25%, una vez cada 4 años. ";
+					var t = document.createTextNode(texto);
+					parra.appendChild(t);
+					dtexto.appendChild(parra);
+				};				
 			};
 			//<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/margenBruto.png" alt="Margen bruto">			
 		};
@@ -74,13 +87,22 @@
 			</div>			   
 		</div>		
 		
-		<div class="row">	
+		<div class="row paddingBottom">	
 			<p>La herramienta permite analizar también los Márgenes Brutos esperados para diferentes escenarios.  El Margen Bruto se calcula como la diferencia entre los ingresos por venta del producto y los costos de producción por ha.  Dado que los escenarios permiten variar la cantidad de fertilizante nitrogenado, y también permiten evaluar el uso de riego, esas dos variables se consideran aparte del resto de los costos de producción.  De esta manera, los “Otros Costos de Producción” en la herramienta incluyen todos los costos de producción excepto los de fertilizante nitrogenado y riego. </p>
 		</div>
 		
-		<div class="row" id="imagenMB">
-			<!--<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/margenBruto.png" alt="Margen bruto">-->
-		</div>	
+		
+		<div class="row paddingBottom">
+			<div id="imagenMB" class="col-sm-6">
+				
+			</div>
+			<div class="col-sm-6" id = "datosMargenBoxplot">								
+			</div>
+		</div>			
+				
+		<!--<div class="row" id="imagenMB">
+			<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/margenBruto.png" alt="Margen bruto">
+		</div>	-->
 		
 		<form action="margenBruto">
 			<input type="text" value="{{dir}}" name="dirEscenario" style="display:none">
@@ -113,7 +135,7 @@
 					<div class="col-xs-2">
 						<label for="gastosGeneralesEscenario">Otros costos de producción (U$S/ha):</label>						
 					</div>									
-				</div>				
+				</div>						
 				
 				{% for nEscenario in nombreEscenarios %}
 				<div class="row">				
