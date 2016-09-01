@@ -217,8 +217,10 @@ function validaPeriodoSimulacion(){
 } 
  
 function vaciarForm(){
-	$('#desdeAnioSimulacion').val('');
-	$('#hastaAnioSimulacion').val('');
+	//$('#desdeAnioSimulacion').val('');
+	$('#desdeAnioSimulacion').attr('readonly', true);
+	//$('#hastaAnioSimulacion').val('');
+	$('#hastaAnioSimulacion').attr('readonly', true);
 	$('#inNombreEscenario').val('');
 	$("#noFertiliza").prop("checked", "checked");
 	$("#fertiliza").prop("checked", "");
