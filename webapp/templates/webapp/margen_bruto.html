@@ -27,9 +27,11 @@
 		var escenarios = [];
 		
 		function read_cookie() {
-			var result = document.cookie.match(new RegExp('escenariosMB' + '=([^;]+)'));
-			result && (result = JSON.parse(result[1]));
-			escenarios = result;
+			//if(validacionesMB()){
+				var result = document.cookie.match(new RegExp('escenariosMB' + '=([^;]+)'));
+				result && (result = JSON.parse(result[1]));
+				escenarios = result;
+			//}
 		};
 		
 		function loadImg(){
@@ -67,8 +69,61 @@
 					dtexto.appendChild(parra);
 				};				
 			};
+			
 			//<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/margenBruto.png" alt="Margen bruto">			
 		};
+		function validacionesMB(){
+			var pg = false, pf=false, cr=false, oc=false;  
+			var errores= "<strong> Verifique los siguientes campos: </strong>"
+			if((parseInt($('#precioGranoEscenario').val()) < 0) || (parseInt($('#precioGranoEscenario').val()) > 1000)){ //incorrecto precio grano
+				errores = errores + "<p> Precio del grano </p>";
+				pg= false;
+			}
+			else{
+				pg = true;
+			}
+			
+			if((parseInt($('#precioFertilizanteEscenario').val()) < 1) || (parseInt($('#precioFertilizanteEscenario').val()) > 3)){ //incorrecto precio fertilizante
+				errores = errores + "<p> Precio del fertilizante </p>";
+				pf= false;
+			}
+			else{
+				pf = true;
+			}
+			
+			if((parseInt($('#costeRiegoEscenario').val()) < 1) || (parseInt($('#costeRiegoEscenario').val()) > 3)){ //incorrecto precio riego
+				errores = errores + "<p> Precio del riego </p>";
+				cr= false;
+			}
+			else{
+				cr = true;
+			}
+			
+			if((parseInt($('#gastosGeneralesEscenario').val()) < 300) || (parseInt($('#gastosGeneralesEscenario').val()) > 1000)){//incorrecto otros costos
+				errores = errores + "<p> Otros costos </p>";
+				oc= false;
+			}
+			else{
+				oc = true;
+			}
+			
+			if(errores!="<strong> Verifique los siguientes campos: </strong>"){
+	
+				var div= "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
+				//document.getElementById("msgErrores").className = "alert alert-warning";
+				$("#msgErroresMB" ).html(div);
+				$('body,html').animate({scrollTop : 0}, 500);
+			}
+	
+			if(pg && pf && cr && oc){
+				datosOk=true; 
+			}
+			else{
+				datosOk=false; 
+			}
+			return datosOk; 
+		}
+		
 	</script>
 </head>
 <body>
@@ -86,6 +141,8 @@
 				</ul>
 			</div>			   
 		</div>		
+		
+		<div id= "msgErroresMB" class=""></div>
 		
 		<div class="row paddingBottom">	
 			<p>La herramienta permite analizar también los Márgenes Brutos esperados para diferentes escenarios.  El Margen Bruto se calcula como la diferencia entre los ingresos por venta del producto y los costos de producción por ha.  Dado que los escenarios permiten variar la cantidad de fertilizante nitrogenado, y también permiten evaluar el uso de riego, esas dos variables se consideran aparte del resto de los costos de producción.  De esta manera, los “Otros Costos de Producción” en la herramienta incluyen todos los costos de producción excepto los de fertilizante nitrogenado y riego. </p>
@@ -172,6 +229,7 @@
 	</div>
 	
 	<script>
+		
 		read_cookie();
 		loadImg();
 	</script>
