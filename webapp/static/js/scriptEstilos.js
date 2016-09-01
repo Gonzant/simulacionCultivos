@@ -29,7 +29,7 @@ function OnChangeRadioFertilizacion (radio) {
   
   
   if(radio.value === '0'){
-	el.style.display = (el.style.display == 'none') ? 'block' : 'none'; 
+	el.style.display = 'none'; 
 	
 	diasSiembra.removeAttribute("required");
 	diasSiembra.value = "";
@@ -45,6 +45,7 @@ function OnChangeRadioFertilizacion (radio) {
 	document.getElementById("cantidadFertilizanteD").className = "form-group";
 	document.getElementById("errorCantidadFertilizante").innerHTML = ' ';
 	document.getElementById("cantidadFertilizanteS").className = " ";
+	
   }
   else{
 	document.getElementById("diasDespuesSiembra").className = " ";
@@ -66,7 +67,7 @@ function OnChangeRadioFertilizacionOtras (radio) {
   
   if(radio.value === '0'){
 	//no fertiliza  
-	el.style.display = (el.style.display == 'none') ? 'block' : 'none'; 
+	el.style.display = 'none'; 
 	el1.style.display = (el1.style.display == 'inline') ? 'block' : 'inline'; 
 	el2.style.display = (el2.style.display == 'inline') ? 'block' : 'inline'; 
 	
@@ -232,7 +233,7 @@ function vaciarForm(){
 
 
 	//valida precio del grano 
-	$(function() {
+	/*$(function() {
 		$('#precioGranoEscenario').change(function () {   
 			if((parseInt($('#precioGranoEscenario').val()) < 0) || (parseInt($('#precioGranoEscenario').val()) > 1000)){
 					document.getElementById("precioGranoEscenarioD").className = "form-group has-error has-feedback";
@@ -287,4 +288,4 @@ function vaciarForm(){
 				document.getElementById("gastosGeneralesEscenarioS").className = "glyphicon glyphicon-ok form-control-feedback";
 			}			
 		});
-	});
+	});*/

@@ -140,32 +140,32 @@
 				{% for nEscenario in nombreEscenarios %}
 				<div class="row">				
 					<div id='escenario' class="col-xs-4">						
-						<input type="text" name="nombreEscenario" class="col-xs-7 alturaInput" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}">
+						<input type="text" name="nombreEscenario" class="alturaInput" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}" style="width:100%">
 					</div>						
 					<div class="col-xs-2" id='precioGranoEscenarioD'>						
-						<input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="col-xs-9 alturaInput">
+						<input type="number" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%">
 						<!--<span  id= "precioGranoS" aria-hidden="true"></span>
 						<p id="errorPrecioGrano" class = "control-label has-error"></p>	-->
 					</div>
 					<div class="col-xs-2" id='precioFertilizanteEscenarioD'>						
-						<input type="text" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="col-xs-9 alturaInput">
+						<input type="number" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%">
 						<!--<span  id= "precioFertilizanteEscenarioS" aria-hidden="true"></span>
 						<p id="errorprecioFertilizanteEscenario" class = "control-label has-error"></p>	-->
 					</div>					
 					<div class="col-xs-2" id='costeRiegoEscenarioD'>						
-						<input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="col-xs-9 alturaInput">
+						<input type="number" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="alturaInput" style="width:100%">
 						<!--<span  id= "costeRiegoEscenarioS" aria-hidden="true"></span>
 						<p id="errorCosteRiegoEscenario" class = "control-label has-error"></p>	-->
 					</div>
 					<div class="col-xs-2" id='gastosGeneralesEscenarioD'>						
-						<input type="text" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="col-xs-9 alturaInput">
+						<input type="number" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%">
 						<!--<span  id= "gastosGeneralesEscenarioS" aria-hidden="true"></span>
 						<p id="errorGastosGeneralesEscenario" class = "control-label has-error"></p>	-->
 					</div>									
 				</div>
 				{% endfor %}
 				<div class="row margenTop">									
-					<input class="form-control primary" style="width:50%;margin:0px auto; display:block;" type='submit' name="margenBruto" value="Graficar margen bruto">
+					<input class="btn btn-success" style="width:50%;margin:0px auto; display:block;" type='submit' name="margenBruto" value="Graficar margen bruto">
 				</div>
 			</div>
 		</form>						

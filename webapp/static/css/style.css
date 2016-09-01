@@ -31,6 +31,10 @@
     background-repeat: repeat-x;
 }
 
+.cienAncho{
+	width:100%;
+}
+
 
 /*.texto{
 	width: 50px;	

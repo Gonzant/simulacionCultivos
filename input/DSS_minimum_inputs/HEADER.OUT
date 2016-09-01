@@ -1,8 +1,8 @@
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 11:12:40
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 01, 2016; 12:39:21
 
 *RUN   1        : UYSB                     
  MODEL          : CRGRO040 - SOYBEAN   
- EXPERIMENT     : UYSB0631 SN late to create DSS                                
+ EXPERIMENT     : UYSB0663 SN late to create DSS                                
  TREATMENT  1   : UYSB                     
 
  CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401
@@ -11,8 +11,8 @@
  WEATHER        : UYTA   1990
  SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS
  SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 74.8kg/ha  NH4: 23.9kg/ha
- WATER BALANCE  : RAINFED
- IRRIGATION     : NOT IRRIGATED
+ WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE
+ IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]
  NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION
  N-FERTILIZER   : NO N-FERTILIZER APPLIED
  RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
@@ -20,7 +20,7 @@
                   RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00  
  SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N
                   PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
- MANAGEMENT OPT : PLANTING:R  IRRIG   :N  FERT :N  RESIDUE:N  HARVEST:M  WTH:M
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :N  RESIDUE:N  HARVEST:M  WTH:M
 
 *SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
 
