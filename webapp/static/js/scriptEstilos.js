@@ -231,7 +231,7 @@ function vaciarForm(){
 	
 }
 
-
+/*
 	//valida precio del grano 
 	/*$(function() {
 		$('#precioGranoEscenario').change(function () {   
@@ -246,8 +246,12 @@ function vaciarForm(){
 			}			
 		});
 	});
-	//valida precio del fertilizante 
- 	$(function() {
+	
+	*/
+	
+	
+/*	//valida precio del fertilizante 
+	$(function() {
 		$('#precioFertilizanteEscenario').change(function () {   
 			if((parseInt($('#precioFertilizanteEscenario').val()) < 1) || (parseInt($('#precioFertilizanteEscenario').val()) > 3)){
 					document.getElementById("precioFertilizanteEscenarioD").className = "form-group has-error has-feedback";
@@ -259,7 +263,7 @@ function vaciarForm(){
 				document.getElementById("precioFertilizanteEscenarioS").className = "glyphicon glyphicon-ok form-control-feedback";
 			}			
 		});
-	});
+	});*/
 	//valida costo del riego
  	$(function() {
 		$('#costeRiegoEscenario').change(function () {   
