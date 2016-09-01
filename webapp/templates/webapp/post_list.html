@@ -255,7 +255,8 @@
 	
 	function agregarEscenario(){
 		var result = true;
-		if(validaCamposVacios()===true){
+		if(validaCamposVacios()===true){ //estan los dato ingresados correctamente
+		//alert("Ok");
 			for (var i=0;i< document.getElementsByName("cultivo").length; i++){
 				if ( document.getElementsByName("cultivo")[i].checked ) {
 					var ncultivo = (document.getElementsByName("cultivo")[i].value);

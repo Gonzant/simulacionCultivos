@@ -17,59 +17,7 @@ $(function() {
 	
 	$('#datetimepicker4').datetimepicker('setDate', new Date());
 });
-/*
-//agregar escenario
-$(function() {
-   	$('#agregarEscenario').click(function () {
-		var errores = "";
-		var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0;
-		var anioHastaNoVacio=parseInt($('#hastaAnioSimulacion').val().length) != 0;
-		var checkFertilizaSiembra = $("#fertiliza").attr('checked', true).val() === '1';
-		var nombreCultNoVacio = $("#nombreCultivo").attr('checked', true).val() != 0;
-		var checkFertilizaOtras1 = $("#fertiliza1").attr('checked', true).val() === '1';
-		var checkFertilizaOtras2 = $("#fertiliza2").attr('checked', true).val() === '2';
-		var nombreEscenario = $('#inNombreEscenario').val(); 
-		var nomCultivo = document.getElementById("nombreCultivo").value;
-		var cultivo="";
-		var ciclo = document.getElementById("cmbDetalleCultivar").value;
-		var cicloMostrar=ciclo;
-		var riego ="";
-		
-		//control de errores		
-		//fin - control de errores
-		if($('input[name="riego"]:checked', '#rbRiego').val() ==='1'){
-			riego = "Riego automático."
-		}else{riego = "No riego."}
-		if(nomCultivo ==='SB'){ 
-			cultivo = "Soja";
-			if(ciclo ==="UY0370"){cicloMostrar="Ciclo medio";}
-			else{
-				if(ciclo ==="UY0371"){cicloMostrar="Ciclo corto";}
-				else{ if(ciclo ==="UY0372"){ cicloMostrar="Ciclo largo";} else{cicloMostrar="";}}
-			}
-		}
-		else{
-			cultivo = "Maíz";
-			if(ciclo ==="UY0141"){cicloMostrar="GM 4";}
-			else{
-				if(ciclo ==="UY0151"){cicloMostrar="GM 5";}
-				else{ if(ciclo ==="UY0161"){ cicloMostrar="GM 6";} else{cicloMostrar="";}}
-			}				
-		}
-				
-		alert(cicloMostrar);
-		$("#accordion").append(
-		"<div class=" + '"' +"panel panel-default" + '"' + "> " +
-			"<div class=" + '"' + "panel-heading panelEscenarios" +'"' + ">" + 
-			"<button class="+ '"'+"panel-title botonEscenario form-control"+'"'+"data-toggle="+'"'+"collapse"+'"'+"data-parent="+'"'+"#accordion" +'"'+"href="+'"'+"#collapse" +nombreEscenario +'"' +">Escenario 1: " + nombreEscenario +"</button>"+
-			"<div id=" + '"' + "collapse"+ nombreEscenario + '"' + "class=" +'"' + "panel-collapse collapse in" +'"' +">"+
-				"<div class=" + '"' + "panel-body" + '"' +">"+ cultivo + "<br>" + cicloMostrar  + "<br>" + riego +	"<div>" + "<div>"+
-			"<div>"+
-		"<div>");
-	});
-});
- */
- 
+
 //FERTILIZACION
 
 function OnChangeRadioFertilizacion (radio) {
@@ -176,9 +124,10 @@ function OnChangeRadioFertilizacionOtras (radio) {
 function validaCamposVacios(){
 	
 	var errores="<strong> Verifique los siguientes campos: </strong>" 
-	var datosOk=false;
-	var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0 && validaPeriodoSimulacion();
-	var anioHastaNoVacio=parseInt($('#hastaAnioSimulacion').val().length) != 0 && validaPeriodoSimulacion();
+	var datosOk, periodoOk, cultivoOk, nombreOk=true, fertiSiembraOk=true, fertiSiembra1Ok=true, fertiSiembra2Ok=true;
+	
+	var anioDesdeNoVacio= validaPeriodoSimulacion()===true && parseInt($('#desdeAnioSimulacion').val().length) != 0; 
+	var anioHastaNoVacio= validaPeriodoSimulacion()===true && parseInt($('#hastaAnioSimulacion').val().length) != 0;
 	var cultivoSeleccionado = ($('input[name=cultivo]:checked').attr('value')==='SB') || ($('input[name=cultivo]:checked').attr('value')==='MZ');
 	var fertilizaSeleccionado = ($('input[name=fertilizacion]:checked').attr('value')==='1');
 	var diasS, diasS1, diasS2, cantidadS, cantidadS1, cantidadS2;
@@ -188,59 +137,66 @@ function validaCamposVacios(){
 	diasS1 = parseInt($('#diasDespuesSiembraAp1I').val().length) != 0;
 	diasS2 =parseInt($('#diasDespuesSiembraAp2I').val().length) != 0;
 	if(anioDesdeNoVacio && anioHastaNoVacio){ 		
-		datosOk=true;		
+		periodoOk=true;		
 	}else{		
 		errores = errores + "<p>Periodo de simulacion</p>";		
-		datosOk=false;
+		periodoOk=false;
 	}
 	if(cultivoSeleccionado){ 		
-		datosOk=true;		
+		cultivoOk=true;		
 	}else{		
 		errores = errores + "<p>Debe seleccionar un cultivo<p>";		
-		datosOk=false;
+		cultivoOk=false;
 	}
 	if(fertilizaSeleccionado){//fertiliza Siembra seleccionado
 		diasS = parseInt($('#diasDespuesSiembraI').val().length) != 0;
 		cantidadS=parseInt($('#cantidadFertilizanteI').val().length) != 0;
 		if((parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteI').val()) >= 0) && parseInt(($('#cantidadFertilizanteI').val())) <= 100==false)){
 			errores = errores + "<p> Fertilizacion a la siembra</p>";
-			datosOk=false;
+			fertiSiembraOk=false;
 		}else{
-			datosOk= true;
+			fertiSiembraOk= true;
 		}
 	}
 	if(fertiliza1Seleccionado){//fertiliza 1 ap seleccionado
 		if((parseInt($('#diasDespuesSiembraAp1I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp1I').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteAp1I').val()) >= 0) && parseInt(($('#cantidadFertilizanteAp1I').val())) <= 100==false)){
 			errores = errores + "<p> Otras fertilizaciones (1 aplicacion)</p>";
-			datosOk=false;
+			fertiSiembra1Ok=false;
 		}else{
-			datosOk= true;
+			fertiSiembra1Ok= true;
 		}
 	}
 	
 	if(fertiliza2Seleccionado){//fertiliza 2 ap seleccionado
 		if((parseInt($('#diasDespuesSiembraAp2I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp2I').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteAp2I').val()) >= 0) && parseInt(($('#cantidadFertilizanteAp2I').val())) <= 100==false)){
 			errores = errores + "<p> Otras fertilizaciones (2 aplicaciones)</p>";
-			datosOk=false;
+			fertiSiembra2Ok=false;
 		}else{
-			datosOk= true;
+			fertiSiembra2Ok= true;
 		}
 	}
 	if(nombreEscenarioNoVacio ===false){
 		errores = errores + "<p> Nombre del escenario </p>";
-		datosOk=false;
+		nombreOk=false;
 	}
 	if(errores!="<strong> Verifique los siguientes campos: </strong>"){
 		var div= "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
-		/*
-		<div class="alert alert-warning">
-		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>		  
-	</div>
-		*/
 		//document.getElementById("msgErrores").className = "alert alert-warning";
 		$("#msgErrores" ).html(div);
 		$('body,html').animate({scrollTop : 0}, 500);
 	}
+	/*alert("fertisiembra Ok" + fertiSiembraOk);
+	alert("cultivoOk Ok" + cultivoOk);
+	alert("nombreOk Ok" + nombreOk);
+	alert("fertiSiembra2Ok Ok" + fertiSiembra2Ok);
+	alert("fertiSiembra1Ok Ok" + fertiSiembra1Ok);
+	alert("periodo Ok" + periodoOk);
+*/
+	if(nombreOk && fertiSiembra2Ok && fertiSiembra1Ok && periodoOk && cultivoOk && fertiSiembraOk){
+		//datosOk, periodoOk, cultivoOk, nombreOk, fertiSiembraOk, fertiSiembra1Ok, fertiSiembra2Ok;
+		datosOk = true; 
+	}
+		
 	return datosOk;
 }
  
@@ -249,9 +205,7 @@ function validaPeriodoSimulacion(){
 	//retorna true si el periodo es valido
 	var retorno = false; 
 	if(parseInt($('#desdeAnioSimulacion').val().length) != 0  || (parseInt($('#hastaAnioSimulacion').val().length) != 0)){
-		if(((parseInt($('#desdeAnioSimulacion').val())) < parseInt($('#desdeAnio').val()) || 
-			parseInt(($('#desdeAnioSimulacion').val())) > parseInt($('#hastaAnio').val())) || ((parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnio').val())) || 
-			(parseInt($('#hastaAnioSimulacion').val()) > parseInt($('#hastaAnio').val())) || (parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnioSimulacion').val())))){
+		if((parseInt($('#desdeAnioSimulacion').val()) < parseInt($('#desdeAnio').val())) || (parseInt(($('#desdeAnioSimulacion').val())) > parseInt($('#hastaAnio').val())) || (parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnio').val())) || (parseInt($('#hastaAnioSimulacion').val()) > parseInt($('#hastaAnio').val())) || (parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnioSimulacion').val()))){
 				retorno = false;
 		} else{							
 				retorno = true;
@@ -266,6 +220,11 @@ function vaciarForm(){
 	$('#desdeAnioSimulacion').val('');
 	$('#hastaAnioSimulacion').val('');
 	$('#inNombreEscenario').val('');
+	$("#noFertiliza").prop("checked", "checked");
+	$("#fertiliza").prop("checked", "");
+	$("#noFertilizaO").prop("checked", "checked");
+	$("#fertiliza2").prop("checked", "");
+	$("#fertiliza1").prop("checked", "");
 	
 }
 
@@ -287,7 +246,7 @@ function vaciarForm(){
 	//valida precio del fertilizante 
  	$(function() {
 		$('#precioFertilizanteEscenario').change(function () {   
-			if((parseInt($('#precioFertilizanteEscenario').val()) < 1) || (parseInt($('#precioFertilizanteEscenario').val()) > 2)){
+			if((parseInt($('#precioFertilizanteEscenario').val()) < 1) || (parseInt($('#precioFertilizanteEscenario').val()) > 3)){
 					document.getElementById("precioFertilizanteEscenarioD").className = "form-group has-error has-feedback";
 					document.getElementById("errorprecioFertilizanteEscenario").innerHTML = 'Incorrecto';
 					document.getElementById("precioFertilizanteEscenarioS").className = "glyphicon glyphicon-remove form-control-feedback";

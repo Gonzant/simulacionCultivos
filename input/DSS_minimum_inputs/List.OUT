@@ -13018,6 +13018,7 @@ Num.  Variable Name
   38  OUTSN
    8  FILEA
   70  PNBAL
+<<<<<<< HEAD
   21  FILEIO
   90  OPCLR
   14  BATCH 
@@ -13128,3 +13129,5 @@ Num.  Variable Name
   38  OUTSN
    8  FILEA
   70  PNBAL
+=======
+>>>>>>> origin/master
