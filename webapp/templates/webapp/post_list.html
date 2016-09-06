@@ -254,6 +254,7 @@
 	};
 	
 	function agregarEscenario(){
+		//alert("agrega");
 		var result = true;
 		if(validaCamposVacios()===true){ //estan los dato ingresados correctamente
 		//alert("Ok");
@@ -298,15 +299,15 @@
 				],
 				riego: nriego				
 			};
+			$("#msgErrores" ).html(" ");
+			$('#myModal').modal('show');
 			escenarios.push(escenarioActual);
 			agregarEscenarioPanel();
-			agregarEscenarioNav();
-			vaciarForm();
+			agregarEscenarioNav();			
 			result = true;
 		}	
 		else{
 			$('body,html').animate({scrollTop : 0}, 500);
-			//alert("No ok");
 			result = false;
 		}
 		return result;
@@ -314,6 +315,7 @@
 	};
 	
 	function agregarEscenarioNav(){
+	
 		var divE = document.getElementById('navEscenarios');
 		var errores = "";
 		var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0;
@@ -357,7 +359,7 @@
 		$("#accordion").append(
 		"<div class=" + '"' +"panel panel-default col-xs-3" + '"' + "> " +
 			"<div class=" + '"' + "panel-heading panelEscenarios" +'"' + ">" + 
-			"<button class="+ '"'+"panel-title botonEscenario form-control"+'"'+"data-toggle="+'"'+"collapse"+'"'+"data-parent="+'"'+"#accordion" +'"'+"href="+'"'+"#collapse" +nombreEscenario +'"' +">Escenario 1: " + nombreEscenario +"</button>"+
+			"<button class="+ '"'+"panel-title botonEscenario form-control"+'"'+"data-toggle="+'"'+"collapse"+'"'+"data-parent="+'"'+"#accordion" +'"'+"href="+'"'+"#collapse" +nombreEscenario +'"' +">Escenario : " + nombreEscenario +"</button>"+
 			"<div id=" + '"' + "collapse"+ nombreEscenario + '"' + "class=" +'"' + "panel-collapse collapse in" +'"' +">"+
 				"<div class=" + '"' + "panel-body" + '"' +">"+ cultivo + "<br>" + cicloMostrar  + "<br>" + riego +	"<div>" + "<div>"+
 			"<div>"+
@@ -370,8 +372,8 @@
 	};
 	
 	function ejecutarSimulacion(){
-		if (agregarEscenario()){
-			document.getElementById('ejecutarDSSAT').submit();
+		if (agregarEscenario()){				
+			document.getElementById('ejecutarDSSAT').submit();			
 		}				
 	};
 	
@@ -503,7 +505,9 @@
 			}
 		}
 	};
-	
+		
+			
+		
 </script>
 
 
@@ -751,6 +755,7 @@
 		<div class="row" id='escenario'>
 			<label for="nombreEscenario" class="col-xs-4"> <b> Nombre Escenario: </b> </label>
 			<input type="text" name="nombreEscenario" class="col-xs-8 alturaInput" id= "inNombreEscenario">
+			<p class="text-center"> Recomendación: escenario no tenga m&aacute;s de 8 caracteres</p>
 		</div>		
 	</div>
 	<div class="row ocultar" id="navEscenarios"> 
@@ -791,12 +796,31 @@
 		</div>	
 		<div class="row margenTop">
 			<div class="col-xs-6">
-				<input type='button' name="DSSAT" value="Simular" class="btn btn-success" style="width:50%;margin:0px auto; display:block;" onclick="ejecutarSimulacion()">
+				<input type='button' name="DSSAT" value="Simular" class="btn btn-success" style="margin:0px auto; display:block;" onclick="ejecutarSimulacion()">
 			</div>	
 			<div class="col-xs-6">
-				<input id="agregarIdEscenario" type='button' name="agregarEscenario" value="Agregar nuevo Escenario" class="btn btn-success" style="width:50%;margin:0px auto; display:block;">
-			</div>			
-		</div>						
+				<button  type="button" id="agregarIdEscenario" name="agregarEscenario" class="btn btn-success" style="width:50%;margin:0px auto; display:block;">Agregar nuevo Escenario </button>
+			</div>
+		</div>		
+	   <div class="modal fade" id="myModal" style="-webkit-box-shadow: 0 3px 7px transparent; background: transparent; border: 1px solid transparent;">
+		  <div class="modal-dialog  modal-sm">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<!--<h4 class="modal-title" id="modal-title">Título del modal</h4>-->
+			  </div>
+			  <div class="modal-body" id="modal-body">
+				 <p>¿Desea conservar los datos ingresados para el próximo escenario? </p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" id="btnNoGuardaDatos" class="btn btn-default" onclick="vaciarForm();" data-dismiss="modal">No</button>
+				<button type="button" id="btnSiGuardaDatos" class="btn btn-primary" onclick="borrarNombreEscenario();" data-dismiss="modal">Si</button>
+			  </div>
+			</div>
+			<!-- /.modal-content -->
+		  </div>
+		  <!-- /.modal-dialog -->
+		</div>
 	</form>
 </div>
 <script>		
