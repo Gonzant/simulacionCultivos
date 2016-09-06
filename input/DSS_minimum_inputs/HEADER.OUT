@@ -1,40 +1,26 @@
-<<<<<<< HEAD
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 06, 2016; 12:10:33
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 06, 2016; 13:14:39
 
 *RUN   1        : UYSB                     
  MODEL          : CRGRO040 - SOYBEAN   
- EXPERIMENT     : UYSB0726 SN late to create DSS                                
+ EXPERIMENT     : UYSB0710 SN late to create DSS                                
  TREATMENT  1   : UYSB                     
 
  CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401
- STARTING DATE  : SEP  3 1990
- PLANTING DATE  : SEP  6 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
- WEATHER        : UYTA   1990
-=======
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 05, 2016; 11:25:20
-
-*RUN   1        : UYSB                     
- MODEL          : CRGRO040 - SOYBEAN   
- EXPERIMENT     : UYSB0702 SN late to create DSS                                
- TREATMENT  1   : UYSB                     
-
- CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401
- STARTING DATE  : SEP  1 2000
- PLANTING DATE  : SEP  4 2000    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
+ STARTING DATE  : SEP  2 2000
+ PLANTING DATE  : SEP  5 2000    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
  WEATHER        : UYTA   2000
->>>>>>> origin/master
  SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS
  SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 74.8kg/ha  NH4: 23.9kg/ha
  WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE
  IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]
  NITROGEN BAL.  : SOIL-N, N-UPTAKE & DYNAMIC N-FIXATION SIMULATION
- N-FERTILIZER   : NO N-FERTILIZER APPLIED
+ N-FERTILIZER   :       36 kg/ha IN     3 APPLICATIONS
  RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
  ENVIRONM. OPT. : DAYL=    0.00  SRAD=    0.00  TMAX=    0.00  TMIN=    0.00  
                   RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00  
  SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N
                   PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
- MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :N  RESIDUE:N  HARVEST:M  WTH:M
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :D  RESIDUE:N  HARVEST:M  WTH:M
 
 *SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
 

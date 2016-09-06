@@ -57,6 +57,13 @@
     background-clip: padding-box;
 }
 
+
+#footer {
+	/*background-color: #F0F0F0 ;*/
+	margin-top: 10%;
+}
+
+
 /*.texto{
 	width: 50px;	
 	border: none;
