@@ -1,4 +1,3 @@
-  
 //Boton agregar escenario
 function agregarEscenario(boton){
 	var cultivo = document.getElementById('rdCult');	
@@ -6,9 +5,14 @@ function agregarEscenario(boton){
 }
 
 //DATETIMEPICKER
-  
+function  borrarNombreEscenario (){	
+	$('#inNombreEscenario').val('');
+}
 
 $(function() {
+	$('#myModal').modal('hide');
+	
+	
 	$('#datetimepicker4').datetimepicker({
 		pickTime: false,
 		todayHighlight: true,
