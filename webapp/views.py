@@ -27,7 +27,7 @@ def dateToJulian(fecha):
 	fechaAnioActual = str(datetime.date.today().year) + fecha[4:]	
 	dt = datetime.datetime.strptime(fecha, fmt)
 	tt = dt.timetuple()	
-	return tt.tm_yday - 1
+	return tt.tm_yday -1
 	
 def get_soil_IC(ID_SOIL):
     currentPath = os.getcwd().replace("/","\\")

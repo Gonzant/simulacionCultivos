@@ -19,15 +19,11 @@
 	
 	<!--Pasar estos si se usan local-->
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">	
-	<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js"> </script>
-	<script type="text/javascript" src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">  </script>
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js">  </script>
-		
-	<script>	 
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'lib/bootstrap-datetimepicker-0.0.11/css/bootstrap-datetimepicker.min.css' %}">	
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.min.js' %}"> </script>	
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-BR.js' %}">  </script>
+	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>
 
-	
-	</script>
 	<script>
 		
 		var escenarios = [];						
@@ -91,6 +87,32 @@
 			}					
 		};
 		
+		function etiquetaCultivo(c){
+			for (var l = 0;l<cultivos.length;l++){
+				if (c===cultivos[l].valor){
+					return cultivos[l].nombre;
+				}
+			}
+		};
+		
+		function etiquetaSuelo(s){			
+			for (var l = 0;l<suelos.length;l++){
+				if (s===suelos[l].valor){
+					return suelos[l].etiqueta;
+				}
+			}
+		};
+		
+		function etiquetaRiego(r){
+			var rieg = "";
+			if (r=='0'){
+				rieg = "No";
+			}else{
+				rieg = "Automático";
+			}
+			return rieg;
+		};
+		
 		function cargarEscenarios(){
 			var table = document.getElementById("tEscenarios");						
 						
@@ -107,9 +129,9 @@
 
 				// Add some text to the new cells:
 				cell1.innerHTML = escenarios[i].nombre;
-				cell2.innerHTML = escenarios[i].cultivo;
-				cell3.innerHTML = escenarios[i].cultivoTCultivar;
-				cell4.innerHTML = escenarios[i].riego;
+				cell2.innerHTML = etiquetaCultivo(escenarios[i].cultivo);
+				cell3.innerHTML = etiquetaSuelo(escenarios[i].cultivoTCultivar);
+				cell4.innerHTML = etiquetaRiego(escenarios[i].riego);
 				console.log(escenarios[i]);
 				cell5.innerHTML = "<button class='btn btn-primary' onclick='setearCookie("+i+")'>Modificar</button>";			
 			}
@@ -144,14 +166,14 @@
 			return result;
 		};
 								
-		function cargarSuelos(){
+		function cargarTSuelos(){
 			{% for cultivo in cultivos %}
 				var c = {
 					nombre: "{{ cultivo.nombre }}",					
-					valor:"{{ cultivo.valor }}"
+					valor:"{{ cultivo.value }}"
 				};
 				cultivos.push(c);
-				{% for s in cultivo.suelos.all %}
+				{% for s in cultivo.tipo_cultivares.all %}
 					var suelo = {
 						nombre: "{{ s.nombre }}",
 						valor: "{{ s.valor }}",
@@ -255,10 +277,11 @@
 		
 	</div>
 	<script>
+		cargarTSuelos();	
 		cargarDatos();
 		cargarParrafos();		
 		cargarEscenarios();		
-		cargarSuelos();		
+			
 	</script>
 </body>
 </html>
