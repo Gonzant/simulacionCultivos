@@ -254,10 +254,8 @@
 	};
 	
 	function agregarEscenario(){
-		//alert("agrega");
 		var result = true;
 		if(validaCamposVacios()===true){ //estan los dato ingresados correctamente
-		//alert("Ok");
 			for (var i=0;i< document.getElementsByName("cultivo").length; i++){
 				if ( document.getElementsByName("cultivo")[i].checked ) {
 					var ncultivo = (document.getElementsByName("cultivo")[i].value);
@@ -299,8 +297,7 @@
 				],
 				riego: nriego				
 			};
-			$("#msgErrores" ).html(" ");
-			$('#myModal').modal('show');
+			$("#msgErrores" ).html(" ");			
 			escenarios.push(escenarioActual);
 			agregarEscenarioPanel();
 			agregarEscenarioNav();			
@@ -313,6 +310,12 @@
 		return result;
 		
 	};
+	
+	function btnAgregarEscenario(){
+		agregarEscenario();
+		$('#myModal').modal('show');	
+	};
+	
 	
 	function agregarEscenarioNav(){
 	
@@ -799,7 +802,7 @@
 				<input type='button' name="DSSAT" value="Simular" class="btn btn-success" style="width:50%; margin:0px auto; display:block;" onclick="ejecutarSimulacion()">
 			</div>	
 			<div class="col-xs-6">
-				<button type="button" id="agregarIdEscenario" name="agregarEscenario" class="btn btn-success" style="width:50%; margin:0px auto; display:block;">Agregar nuevo Escenario </button>
+				<input type="button" id="agregarIdEscenario" value ="Agregar nuevo Escenario" name="agregarEscenario" class="btn btn-success" style="width:50%; margin:0px auto; display:block;" onclick="btnAgregarEscenario()">
 			</div>
 		</div>		
 	   <div class="modal fade" id="myModal" style="-webkit-box-shadow: 0 3px 7px transparent; background: transparent; border: 1px solid transparent;">
