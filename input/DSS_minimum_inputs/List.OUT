@@ -15329,6 +15329,7 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
+<<<<<<< HEAD
   34  OUTPC
   81  OUTS
   68  SEVAL
@@ -15352,6 +15353,8 @@ Num.  Variable Name
   32  OUTG
   33  OUTPN
   34  OUTPC
+=======
+>>>>>>> origin/master
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15362,7 +15365,10 @@ Num.  Variable Name
   72  SNBAL
   38  OUTSN
    8  FILEA
+<<<<<<< HEAD
   70  PNBAL
+=======
+>>>>>>> origin/master
   21  FILEIO
   90  OPCLR
   14  BATCH 
@@ -15373,7 +15379,10 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
+<<<<<<< HEAD
   34  OUTPC
+=======
+>>>>>>> origin/master
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15384,7 +15393,10 @@ Num.  Variable Name
   72  SNBAL
   38  OUTSN
    8  FILEA
+<<<<<<< HEAD
   70  PNBAL
+=======
+>>>>>>> origin/master
   21  FILEIO
   90  OPCLR
   14  BATCH 
@@ -15415,7 +15427,10 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
+<<<<<<< HEAD
   34  OUTPC
+=======
+>>>>>>> origin/master
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15426,7 +15441,10 @@ Num.  Variable Name
   72  SNBAL
   38  OUTSN
    8  FILEA
+<<<<<<< HEAD
   70  PNBAL
+=======
+>>>>>>> origin/master
   21  FILEIO
   90  OPCLR
   14  BATCH 
@@ -15437,7 +15455,10 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
+<<<<<<< HEAD
   34  OUTPC
+=======
+>>>>>>> origin/master
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15448,7 +15469,10 @@ Num.  Variable Name
   72  SNBAL
   38  OUTSN
    8  FILEA
+<<<<<<< HEAD
   70  PNBAL
+=======
+>>>>>>> origin/master
   21  FILEIO
   90  OPCLR
   14  BATCH 
@@ -15459,7 +15483,10 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
+<<<<<<< HEAD
   34  OUTPC
+=======
+>>>>>>> origin/master
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15470,7 +15497,10 @@ Num.  Variable Name
   72  SNBAL
   38  OUTSN
    8  FILEA
+<<<<<<< HEAD
   70  PNBAL
+=======
+>>>>>>> origin/master
   21  FILEIO
   90  OPCLR
   14  BATCH 
@@ -15501,6 +15531,10 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
+<<<<<<< HEAD
+=======
+  34  OUTPC
+>>>>>>> origin/master
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15511,6 +15545,10 @@ Num.  Variable Name
   72  SNBAL
   38  OUTSN
    8  FILEA
+<<<<<<< HEAD
+=======
+  70  PNBAL
+>>>>>>> origin/master
   21  FILEIO
   90  OPCLR
   14  BATCH 
@@ -15521,6 +15559,10 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
+<<<<<<< HEAD
+=======
+  34  OUTPC
+>>>>>>> origin/master
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15531,6 +15573,10 @@ Num.  Variable Name
   72  SNBAL
   38  OUTSN
    8  FILEA
+<<<<<<< HEAD
+=======
+  70  PNBAL
+>>>>>>> origin/master
   21  FILEIO
   90  OPCLR
   14  BATCH 

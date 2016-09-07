@@ -7,20 +7,22 @@ function agregarEscenario(boton){
 //DATETIMEPICKER
 function  borrarNombreEscenario (){	
 	$('#inNombreEscenario').val('');
+	$('#desdeAnioSimulacion').attr('readonly', true);
+	$('#hastaAnioSimulacion').attr('readonly', true);
 }
 
 $(function() {
-	$('#myModal').modal('hide');
-	
-	
+	$('#myModal').modal('hide');	
 	$('#datetimepicker4').datetimepicker({
 		pickTime: false,
 		todayHighlight: true,
 		autoclose: true,
-    });
-	
+    });	
 	$('#datetimepicker4').datetimepicker('setDate', new Date());
 });
+
+//FERTILIZACION
+
 
 //FERTILIZACION
 
@@ -33,7 +35,7 @@ function OnChangeRadioFertilizacion (radio) {
   
   
   if(radio.value === '0'){
-	el.style.display = 'none'; 
+	el.style.display = (el.style.display == 'none') ? 'block' : 'none'; 
 	
 	diasSiembra.removeAttribute("required");
 	diasSiembra.value = "";
@@ -49,13 +51,13 @@ function OnChangeRadioFertilizacion (radio) {
 	document.getElementById("cantidadFertilizanteD").className = "form-group";
 	document.getElementById("errorCantidadFertilizante").innerHTML = ' ';
 	document.getElementById("cantidadFertilizanteS").className = " ";
-	
   }
   else{
 	document.getElementById("diasDespuesSiembra").className = " ";
 	el.style.display = (el.style.display == 'inline') ? 'block' : 'inline'; 	
   }	
 }
+
 
 function OnChangeRadioFertilizacionOtras (radio) {
   var el = document.getElementById('fertilizacionOtrasAplicaciones');
@@ -71,7 +73,7 @@ function OnChangeRadioFertilizacionOtras (radio) {
   
   if(radio.value === '0'){
 	//no fertiliza  
-	el.style.display = 'none'; 
+	el.style.display = (el.style.display == 'none') ? 'block' : 'none'; 
 	el1.style.display = (el1.style.display == 'inline') ? 'block' : 'inline'; 
 	el2.style.display = (el2.style.display == 'inline') ? 'block' : 'inline'; 
 	
@@ -124,7 +126,6 @@ function OnChangeRadioFertilizacionOtras (radio) {
 	}	
   }	
 }
-	
 	
 function validaCamposVacios(){
 	
@@ -190,13 +191,6 @@ function validaCamposVacios(){
 		$("#msgErrores" ).html(div);
 		$('body,html').animate({scrollTop : 0}, 500);
 	}
-	/*alert("fertisiembra Ok" + fertiSiembraOk);
-	alert("cultivoOk Ok" + cultivoOk);
-	alert("nombreOk Ok" + nombreOk);
-	alert("fertiSiembra2Ok Ok" + fertiSiembra2Ok);
-	alert("fertiSiembra1Ok Ok" + fertiSiembra1Ok);
-	alert("periodo Ok" + periodoOk);
-*/
 	if(nombreOk && fertiSiembra2Ok && fertiSiembra1Ok && periodoOk && cultivoOk && fertiSiembraOk){
 		//datosOk, periodoOk, cultivoOk, nombreOk, fertiSiembraOk, fertiSiembra1Ok, fertiSiembra2Ok;
 		datosOk = true; 
@@ -222,79 +216,29 @@ function validaPeriodoSimulacion(){
 } 
  
 function vaciarForm(){
-	//$('#desdeAnioSimulacion').val('');
 	$('#desdeAnioSimulacion').attr('readonly', true);
-	//$('#hastaAnioSimulacion').val('');
 	$('#hastaAnioSimulacion').attr('readonly', true);
-	$('#inNombreEscenario').val('');
+	$('#inNombreEscenario').val(''); 
+	$('#diasDespuesSiembraAp1I').val('');
+	$('#cantidadFertilizanteAp1I').val('');
+	$('#diasDespuesSiembraAp2I').val('');
+	$('#cantidadFertilizanteAp2I').val('');
+	$('#diasDespuesSiembraI').val('');
+	$('#cantidadFertilizanteI').val('');
 	$("#noFertiliza").prop("checked", "checked");
-	$("#fertiliza").prop("checked", "");
 	$("#noFertilizaO").prop("checked", "checked");
-	$("#fertiliza2").prop("checked", "");
-	$("#fertiliza1").prop("checked", "");
 	
 }
 
-/*
-	//valida precio del grano 
-	/*$(function() {
-		$('#precioGranoEscenario').change(function () {   
-			if((parseInt($('#precioGranoEscenario').val()) < 0) || (parseInt($('#precioGranoEscenario').val()) > 1000)){
-					document.getElementById("precioGranoEscenarioD").className = "form-group has-error has-feedback";
-					document.getElementById("errorPrecioGrano").innerHTML = 'Incorrecto';
-					document.getElementById("precioGranoS").className = "glyphicon glyphicon-remove form-control-feedback";
-			}else{				
-				document.getElementById("precioGranoEscenarioD").className = "form-group has-success has-feedback";
-				document.getElementById("errorPrecioGrano").innerHTML = ' ';				
-				document.getElementById("precioGranoS").className = "glyphicon glyphicon-ok form-control-feedback";
-			}			
-		});
-	});
-	
-	*/
-	
-	
-/*	//valida precio del fertilizante 
-	$(function() {
-		$('#precioFertilizanteEscenario').change(function () {   
-			if((parseInt($('#precioFertilizanteEscenario').val()) < 1) || (parseInt($('#precioFertilizanteEscenario').val()) > 3)){
-					document.getElementById("precioFertilizanteEscenarioD").className = "form-group has-error has-feedback";
-					document.getElementById("errorprecioFertilizanteEscenario").innerHTML = 'Incorrecto';
-					document.getElementById("precioFertilizanteEscenarioS").className = "glyphicon glyphicon-remove form-control-feedback";
-			}else{				
-				document.getElementById("precioFertilizanteEscenarioD").className = "form-group has-success has-feedback";
-				document.getElementById("errorprecioFertilizanteEscenario").innerHTML = ' ';				
-				document.getElementById("precioFertilizanteEscenarioS").className = "glyphicon glyphicon-ok form-control-feedback";
-			}			
-		});
-	});*/
-	//valida costo del riego
-/* 	$(function() {
-		$('#costeRiegoEscenario').change(function () {   
-			if((parseInt($('#costeRiegoEscenario').val()) < 1) || (parseInt($('#costeRiegoEscenario').val()) > 3)){
-					document.getElementById("costeRiegoEscenarioD").className = "form-group has-error has-feedback";
-					document.getElementById("errorCosteRiegoEscenario").innerHTML = 'Incorrecto';
-					document.getElementById("costeRiegoEscenarioS").className = "glyphicon glyphicon-remove form-control-feedback";
-			}else{				
-				document.getElementById("costeRiegoEscenarioD").className = "form-group has-success has-feedback";
-				document.getElementById("errorCosteRiegoEscenario").innerHTML = ' ';				
-				document.getElementById("costeRiegoEscenarioS").className = "glyphicon glyphicon-ok form-control-feedback";
-			}			
-		});
-	});
-	
-	//valida gastos generales
- 	$(function() {
-		$('#gastosGeneralesEscenario').change(function () {   
-			if((parseInt($('#gastosGeneralesEscenario').val()) < 300) || (parseInt($('#gastosGeneralesEscenario').val()) > 1000)){
-					document.getElementById("gastosGeneralesEscenarioD").className = "form-group has-error has-feedback";
-					document.getElementById("errorGastosGeneralesEscenario").innerHTML = 'Incorrecto';
-					document.getElementById("gastosGeneralesEscenarioS").className = "glyphicon glyphicon-remove form-control-feedback";
-			}else{				
-				document.getElementById("gastosGeneralesEscenarioD").className = "form-group has-success has-feedback";
-				document.getElementById("errorGastosGeneralesEscenario").innerHTML = ' ';				
-				document.getElementById("gastosGeneralesEscenarioS").className = "glyphicon glyphicon-ok form-control-feedback";
-			}			
-		});
-	});
-*/
+function read_cookie() {
+		var result = document.cookie.match(new RegExp('escenariosMB' + '=([^;]+)'));
+		result && (result = JSON.parse(result[1]));
+		escenarios = result;
+};
+
+
+
+
+
+
+

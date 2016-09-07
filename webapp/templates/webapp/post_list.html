@@ -254,10 +254,8 @@
 	};
 	
 	function agregarEscenario(){
-		//alert("agrega");
 		var result = true;
 		if(validaCamposVacios()===true){ //estan los dato ingresados correctamente
-		//alert("Ok");
 			for (var i=0;i< document.getElementsByName("cultivo").length; i++){
 				if ( document.getElementsByName("cultivo")[i].checked ) {
 					var ncultivo = (document.getElementsByName("cultivo")[i].value);
@@ -299,8 +297,7 @@
 				],
 				riego: nriego				
 			};
-			$("#msgErrores" ).html(" ");
-			$('#myModal').modal('show');
+			$("#msgErrores" ).html(" ");			
 			escenarios.push(escenarioActual);
 			agregarEscenarioPanel();
 			agregarEscenarioNav();			
@@ -313,6 +310,12 @@
 		return result;
 		
 	};
+	
+	function btnAgregarEscenario(){
+		agregarEscenario();
+		$('#myModal').modal('show');	
+	};
+	
 	
 	function agregarEscenarioNav(){
 	
@@ -514,14 +517,14 @@
 <div class="container">	
 	<div class="page-header row">		
 		<div class="col-xs-3"> 
-			<img src="/static/img/logoSNIA.png" class="logo img-responsive">
+			<img src="/static/img/logoSNIA.png" class="img-responsive">
 		</div>		
 		<div class="col-xs-6 text-center">
 			<h2 style="color: #848688;"> Simulador de Cultivo </h2>
 		</div>			
 		<div class="col-xs-2 col-xs-offset-1">
 			<ul class="nav">
-				<li><a style="color: #848688;" href="http://snia.gub.uy/contacto-5/contacto-72?,,mnu-e-55-3-mnu-" target="_blank"><span class="glyphicon glyphicon-envelope"></span> Contacto</a></li>
+				<li><a style="color: #848688; font-size: 16px;" href="http://snia.gub.uy/contacto-5/contacto-72?,,mnu-e-55-3-mnu-" target="_blank"><span class="glyphicon glyphicon-envelope"></span>Contacto</a></li>
 			</ul>
 		</div>			   
 	</div>		
@@ -796,17 +799,21 @@
 		</div>	
 		<div class="row margenTop">
 			<div class="col-xs-6">
-				<input type='button' name="DSSAT" value="Simular" class="btn btn-success" style="margin:0px auto; display:block;" onclick="ejecutarSimulacion()">
+				<input type='button' name="DSSAT" value="Simular" class="btn btn-success" style="width:50%; margin:0px auto; display:block;" onclick="ejecutarSimulacion()">
 			</div>	
 			<div class="col-xs-6">
+<<<<<<< HEAD
 				<button  type="button" id="agregarIdEscenario" name="agregarEscenario" class="btn btn-success" style="margin:0px auto; display:block;">Agregar nuevo Escenario </button>
+=======
+				<input type="button" id="agregarIdEscenario" value ="Agregar nuevo Escenario" name="agregarEscenario" class="btn btn-success" style="width:50%; margin:0px auto; display:block;" onclick="btnAgregarEscenario()">
+>>>>>>> origin/master
 			</div>
 		</div>		
 	   <div class="modal fade" id="myModal" style="-webkit-box-shadow: 0 3px 7px transparent; background: transparent; border: 1px solid transparent;">
 		  <div class="modal-dialog  modal-sm">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
 				<!--<h4 class="modal-title" id="modal-title">Título del modal</h4>-->
 			  </div>
 			  <div class="modal-body" id="modal-body">
@@ -822,6 +829,17 @@
 		  <!-- /.modal-dialog -->
 		</div>
 	</form>
+	<div class="row">	
+	<div>
+	<div id="footer" >
+		<hr>
+		<p class="muted credit " >
+			Hoogenboom, G., J.W. Jones, P.W. Wilkens, C.H. Porter, K.J. Boote, L.A. Hunt, U. Singh, J.L. Lizaso, J.W. White, O. Uryasev, F.S. Royce, R. Ogoshi, A.J. Gijsman, G.Y. Tsuji, and J. Koo. 2012. 
+			Decision Support System for Agrotechnology Transfer (DSSAT) Version 4.5.X.X (Replace X.X with sub-version numbers in your output files) [CD?ROM]. University of Hawaii, Honolulu, Hawaii.
+			Jones, J.W., G. Hoogenboom, C.H. Porter, K.J. Boote, W.D. Batchelor, L.A. Hunt, P.W. Wilkens, U. Singh, A.J. Gijsman, and J.T. Ritchie. 2003. DSSAT Cropping System Model. European Journal of Agronomy 18:235-265.
+		</p>
+	
+	</div>	
 </div>
 <script>		
 	cargarEstaciones();
