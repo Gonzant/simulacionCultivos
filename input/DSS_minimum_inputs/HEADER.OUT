@@ -1,28 +1,14 @@
-<<<<<<< HEAD
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 07, 2016; 15:27:45
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 07, 2016; 15:50:00
 
 *RUN   1        : UYSB                     
  MODEL          : CRGRO040 - SOYBEAN   
- EXPERIMENT     : UYSB0741 SN late to create DSS                                
+ EXPERIMENT     : UYSB0742 SN late to create DSS                                
  TREATMENT  1   : UYSB                     
 
  CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401
  STARTING DATE  : SEP  4 1990
  PLANTING DATE  : SEP  7 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
  WEATHER        : UYTA   1990
-=======
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 07, 2016; 13:20:40
-
-*RUN   1        : UYSB                     
- MODEL          : CRGRO040 - SOYBEAN   
- EXPERIMENT     : UYSB0714 SN late to create DSS                                
- TREATMENT  1   : UYSB                     
-
- CROP           : SOYBEAN        CULTIVAR : GM 4 UY          ECOTYPE :SB0401
- STARTING DATE  : SEP  3 2000
- PLANTING DATE  : SEP  6 2000    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
- WEATHER        : UYTA   2000
->>>>>>> origin/master
  SOIL           : UYSS0N2002     TEXTURE :       -  N20-02    SNIA CLAY RISS
  SOIL INITIAL C : DEPTH:125cm EXTR. H2O:186.3mm  NO3: 74.8kg/ha  NH4: 23.9kg/ha
  WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE

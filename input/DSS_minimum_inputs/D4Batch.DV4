@@ -8,8 +8,4 @@
 ! Debug        : C:\DSSAT4\DSCSM040.EXE " B D4Batch.DV4"                        
 !                                                                               
 @FILEX       TRTNO                                                              
-<<<<<<< HEAD
-UYSB0741.SNX     1
-=======
-UYSB0714.SNX     1
->>>>>>> origin/master
+UYSB0742.SNX     1
