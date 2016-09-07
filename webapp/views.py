@@ -1,5 +1,6 @@
 from django.shortcuts import render, render_to_response, redirect
 from django.utils import timezone
+from django.conf import settings
 from .models import Post, EstacionMeteorologica, Cultivo, Riego, Fertilizante, AplicacionF
 from .models import Administrativo_procesamiento, Administrativo_contador
 import os
@@ -12,26 +13,19 @@ import datetime
 import glob
 from scipy.stats import rankdata #to make a rank to create yield exceedance curve
 
-# Create your views here.
-def post_list(request):
-	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')	
-	estaciones = EstacionMeteorologica.objects.all()
-	cultivos = Cultivo.objects.all()
-	riegos = Riego.objects.all()
-	fertilizantes = Fertilizante.objects.all()
-	aplicaciones = AplicacionF.objects.all()
-	return render(request, 'webapp/post_list.html', {'posts': posts, 'estaciones': estaciones, 'cultivos':cultivos, 'riegos':riegos, 'fertilizantes':fertilizantes, 'aplicaciones':aplicaciones})
-	
+#Inicializacion de Variables
+nombre_aplicacion = "webapp"
+
+# Funciones auxiliares
 def dateToJulian(fecha):
 	fmt = '%Y-%m-%d'
 	fechaAnioActual = str(datetime.date.today().year) + fecha[4:]	
 	dt = datetime.datetime.strptime(fecha, fmt)
 	tt = dt.timetuple()	
-	return tt.tm_yday -1
+	return tt.tm_yday - 1
 	
-def get_soil_IC(ID_SOIL):
-    currentPath = os.getcwd().replace("/","\\")
-    SOL_file = os.getcwd().replace("/","\\") + "\\input\\DSS_minimum_inputs\\UY.SOL" # 'UYMZTEMP.SNX'
+def get_soil_IC(ID_SOIL):	
+    SOL_file = os.path.join(settings.BASE_DIR, "input", "DSS_minimum_inputs", "UY.SOL")
     #initialize
     depth_layer=[]
     ll_layer=[]
@@ -61,16 +55,12 @@ def get_soil_IC(ID_SOIL):
                     break
 					
 def P_procesamiento():	
-	procesamiento = Administrativo_procesamiento.objects.filter(procesamiento=0)	
-	print("procesamiento1")
-	print(procesamiento)
+	procesamiento = Administrativo_procesamiento.objects.filter(procesamiento=0)		
 	while(len(procesamiento) == 0):
 		print('Espera procesamiento')
 		time.sleep(10)		
 		procesamiento = Administrativo_procesamiento.objects.filter(procesamiento=0)		
 	procesamiento.update(procesamiento = 1)
-	print ("procesamiento")
-	print (procesamiento)	
 	
 def P_contador():	
 	contador = Administrativo_contador.objects.filter(usado=0)	
@@ -78,9 +68,7 @@ def P_contador():
 		print('Espera contador')
 		time.sleep(10)
 		contador = Administrativo_contador.objects.filter(usado=0)		
-	contador.update(usado = 1)
-	print ("contador")
-	print (contador)		
+	contador.update(usado = 1)	
 	
 def V_procesamiento():
 	procesamiento = Administrativo_procesamiento.objects.filter(procesamiento=1).update(procesamiento=0)
@@ -88,21 +76,183 @@ def V_procesamiento():
 def V_contador():
 	contador = Administrativo_contador.objects.filter(usado=1).update(usado=0)	
 
-def completarCeros(string):
-	print('string')
-	print(string)	
+def completarCeros(string):	
 	while (len(string)<4):
-		string = '0' + string
-	print(string)
+		string = '0' + string	
 	return string	
+		
+def run_dssat(dir, dirInputDSS, listaArchivos):
+	#entries = ("AveStress.txt", "SumStress.txt", "YIELD.txt","PgtTHRESHPct.txt","PlantGro.OUT","Evaluate.OUT",
+	entries = ("PlantGro.OUT","Evaluate.OUT",
+			   "ET.OUT","OVERVIEW.OUT","PlantN.OUT","SoilN.OUT","Weather.OUT",
+			   "SoilNbal.OUT","SoilTemp.OUT","SoilWat.OUT","SoilWatBal.OUT","Summary.OUT")			
 	
-def btnDSSAT(request):
-	currentPath = os.getcwd().replace("/","\\")
-	home_input = currentPath + '\\input\\DSS_minimum_inputs'
-	home_output = currentPath + '\\output'	
+	for a in listaArchivos:			
+		P_procesamiento()
+		writeDV4_main(dirInputDSS, a)		
+		#==RUN DSSAT with ARGUMENT
+		args = "DSCSM040.EXE B D4Batch.DV4"
+		#Run executable with argument		
+		print()
+		subprocess.call(args, cwd= os.path.join(settings.BASE_DIR, "input", "DSS_minimum_inputs"), shell=True)		
+		#creo la carpeta del escenario dentro de los escenarios del usuario
+		carpetaContador = a[4:9]
+		home_escenario = os.path.join(dir, carpetaContador)
+		os.makedirs(home_escenario)
+		for entry in entries:
+			source_file= os.path.join(dirInputDSS, entry)
+			shutil.move(source_file, home_escenario)
+		V_procesamiento()
+
+def writeDV4_main(dirInputDSS,nombreArchivo):
+	temp_dv4 = os.path.join(dirInputDSS, "D4Batch_TEMP_" + nombreArchivo[2:4] + ".DV4")
+	snx_fname = nombreArchivo
+	dv4_fname = os.path.join(dirInputDSS, "D4Batch.DV4")
+	fr = open(temp_dv4, "r") #opens temp DV4 file to read
+	fw = open(dv4_fname, "w")
+	#read template and write lines
+	for line in range(0,10):
+		temp_str=fr.readline()
+		fw.write(temp_str)		
+
+	temp_str = fr.readline()
+	new_str = snx_fname + temp_str[12:]
+	fw.write(new_str)
+	fr.close()
+	fw.close()
+
+def graficasYield(directorioEscenario, anios, nombreEscenarios ):
+	fname = []
+	scename = nombreEscenarios   #scenario name	
+	nyears = anios
+	listaEscenarios = os.listdir(directorioEscenario)		
+	count=0
+	
+	for escenario in listaEscenarios:
+		fname.append(os.path.join(directorioEscenario, escenario, "Summary.out"))		
+		count = count+1
+		
+	max_nyears = int(max(nyears))
+
+	#create an empty matrix
+	yield_data = np.empty((max_nyears,count))
+	yield_data[:] = np.NAN
+	
+	sorted_yield_data = np.empty((max_nyears,count))
+	sorted_yield_data[:] = np.NAN
+	excedp_data = np.empty((max_nyears,count))
+	excedp_data[:] = np.NAN
+
+	#Read Summary.out from all scenario output
+	for x in range(0, count):
+		fr = open(fname[x],"r") #opens summary.out to read
+		yield_list=[]
+		for line in range(0,4): #read headers
+			temp_str=fr.readline()
+		for line in range(0,int(nyears[x])): #read actual simulated data
+			temp_str=fr.readline()
+			yield_data[line,x]=int(temp_str[135:141])
+			yield_list.append(int(temp_str[135:141]))
+		fr.close()
+						
+		yield_array = np.array(yield_list)  #convert list to array
+		#compute rank using rankdata(note: The default assigns the average rank to the tied values:)
+		rank_yield=rankdata(yield_array) #from smallest to largest
+		rank_yield=max_nyears - rank_yield + 1  #from  largest (has rank=1) to smallest value
+
+		#exceedance probability; p=m/(n+1) where m is the rank from above, n is total number of data
+		excedp=rank_yield/(max_nyears+1)
+
+		#sort yield from smallest to largest
+		sorted_yield=np.sort(yield_array)
+		#get index of sorted array
+		sort_index = np.argsort(yield_array)
+
+		sorted_excedp=[]
+		for i in range(yield_array.__len__()):
+			sorted_excedp.append(excedp[sort_index[i]])
+		excedp_array = np.array(sorted_excedp)  #convert list to array
+
+		#save into one matrix
+		sorted_yield_data[:,x]=sorted_yield
+		excedp_data[:,x]=excedp_array
+
+	#X data for plot
+   # myXList=[i+1 for i in range(3)]
+	myXList=[i+1 for i in range(count)]
+
+	#Plotting 1
+	fig = plt.figure()
+	fig.suptitle('Rendimiento estimado', fontsize=14, fontweight='bold')
+
+	ax = fig.add_subplot(111)
+	#fig.subplots_adjust(top=0.85)
+	#ax.set_title('Yield Forecast')
+	ax.set_xlabel('Escenario',fontsize=14)
+	ax.set_ylabel('Rendimiento [kg/ha]',fontsize=14)
+		
+	# Plot a line between the means of each dataset
+	#plt.plot(myXList, obs, 'go-')
+	resultB1 = ax.boxplot(yield_data, labels=scename, showmeans=True, meanline=True, meanprops ={'color':'green'}) #, notch=True, bootstrap=10000)
+	plt.savefig(os.path.join(directorioEscenario, "boxplot.png"))	
+		
+	listMean = []
+	listMediana = []
+	listWhiskersMenor = []
+	listWhiskersMayor = []
+	listBase = []
+	listMayor = []		
+		
+	#faltan 4 valores mas
+	for x in range(0, count):
+		listMean.append(int(round(resultB1["means"][x].get_data()[1][0],-1)))
+		listMediana.append(int(round(resultB1["medians"][x].get_data()[1][0],-1)))
+		listWhiskersMenor.append(int(round(resultB1["whiskers"][x*2].get_data()[1][0],-1)))
+		listWhiskersMayor.append(int(round(resultB1["whiskers"][x*2+1].get_data()[1][0],-1))) 
+		listBase.append(int(round(resultB1["whiskers"][x*2].get_data()[1][1],-1)))
+		listMayor.append(int(round(resultB1["whiskers"][x*2+1].get_data()[1][1],-1)))		
+	
+	#Plotting 2
+	fig = plt.figure()
+	fig.suptitle('Curva de excedencia del rendimiento', fontsize=14, fontweight='bold')
+
+	ax = fig.add_subplot(111)
+	#fig.subplots_adjust(top=0.85)
+	#ax.set_title('Yield Forecast')
+	ax.set_xlabel('Rendimiento [kg/ha]',fontsize=14)
+	ax.set_ylabel('Probabilidad de excedencia [-]',fontsize=14)
+
+	for x in range(0, count):
+		ax.plot(sorted_yield_data[:,x],excedp_data[:,x],'o-', label=scename[x])
+##        #legend = ax.legend(loc='lower left', shadow=True, fontsize='large') #loc=0 => best location
+	# Shrink current axis by 15%
+	box = ax.get_position()
+	ax.set_position([box.x0, box.y0, box.width * 0.85, box.height])
+
+	# Put a legend to the right of the current axis
+	ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+	plt.savefig(os.path.join(directorioEscenario, "curvaPExcedencia.png"))
+	
+	return ([listMean,listMediana,listWhiskersMenor,listWhiskersMayor,listBase,listMayor])
+
+
+# Vistas
+def post_list(request):
+	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')	
+	estaciones = EstacionMeteorologica.objects.all()
+	cultivos = Cultivo.objects.all()
+	riegos = Riego.objects.all()
+	fertilizantes = Fertilizante.objects.all()
+	aplicaciones = AplicacionF.objects.all()
+	return render(request, 'webapp/post_list.html', {'posts': posts, 'estaciones': estaciones, 'cultivos':cultivos, 'riegos':riegos, 'fertilizantes':fertilizantes, 'aplicaciones':aplicaciones})
+	
+def btnDSSAT(request):	
+	home_input = os.path.join(settings.BASE_DIR, "input", "DSS_minimum_inputs")
+	home_output = os.path.join(settings.BASE_DIR, "output")
 	fechaActual = time.strftime("%Y%m%d%H%M%S")	
 	# Creo el directorio en output	
-	dirEscenario = home_output + '\\' + fechaActual
+	dirEscenario = os.path.join(home_output, fechaActual)
+	print(dirEscenario)
 	os.makedirs(dirEscenario)		
 	# Obtengo cantidad de escenarios
 	nombreEscenarios = request.GET.getlist("nombreEscenario")
@@ -150,7 +300,7 @@ def btnDSSAT(request):
 		#descripcionEscenario = request.GET['descripcionEscenario']
 		
 		# Se abre al template UYXXTEMP.SNX
-		fr = open(home_input + '\\UY' + cultivo + 'TEMP.SNX',"r") #opens temp SNX file to read				
+		fr = open(os.path.join(home_input,'UY' + cultivo + 'TEMP.SNX'),"r") #opens temp SNX file to read				
 		
 		listaArchivos = []
 		
@@ -168,7 +318,7 @@ def btnDSSAT(request):
 		archivoSNX = 'UY' + cultivo + contador + '.SNX'
 		listaArchivos.append(archivoSNX)
 		
-		fw = open(home_input + '\\' + archivoSNX,"w")	
+		fw = open(os.path.join(home_input, archivoSNX),"w")	
 				
 		#===set up parameters
 		MI = '0'  #should be one character
@@ -418,209 +568,14 @@ def btnDSSAT(request):
 	cultivos = Cultivo.objects.all()
 	riegos = Riego.objects.all()
 	
-
-	return render(request, 'webapp/show_graphics.html', {'dir': 'output/' + fechaActual, 'nombreEscenarios': nombreEscenarios, 'aniosEscenarios': cantidadAniosEscenarios, 'resultPlot':resultPlot, 'cultivos':cultivos})	
-	
-def run_dssat(dir, dirInputDSS, listaArchivos):
-	#entries = ("AveStress.txt", "SumStress.txt", "YIELD.txt","PgtTHRESHPct.txt","PlantGro.OUT","Evaluate.OUT",
-	entries = ("PlantGro.OUT","Evaluate.OUT",
-			   "ET.OUT","OVERVIEW.OUT","PlantN.OUT","SoilN.OUT","Weather.OUT",
-			   "SoilNbal.OUT","SoilTemp.OUT","SoilWat.OUT","SoilWatBal.OUT","Summary.OUT")	
-	
-	#Dato de entrada - Lo lee desde el directorio	
-	#x = glob.glob(dir+"\\*.SNX")
-	#listFile = []
-	#for i in x:		
-	#	listFile.append(i[len(dir+"\\"):])
-	
-	#print (listFile)
-	
-	for a in listaArchivos:	
-		print('archivo:')
-		print(a)
-		P_procesamiento()
-		writeDV4_main(dirInputDSS, a)
-		print('os.getcwd()')
-		print(os.getcwd())
-		#==RUN DSSAT with ARGUMENT
-		args = "DSCSM040.EXE B D4Batch.DV4"
-		#Run executable with argument
-		print (time.strftime("%Y-%m-%d %H:%M"))
-		subprocess.call(args, cwd='input\DSS_minimum_inputs', shell=True)
-		print (time.strftime("%Y-%m-%d %H:%M"))
-		print('termina subprocess')
-		#creo la carpeta del escenario dentro de los escenarios del usuario
-		carpetaContador = a[4:9]
-		home_escenario = dir + '\\'+ carpetaContador
-		os.makedirs(home_escenario)
-		for entry in entries:
-			source_file=dirInputDSS + "\\" + entry
-			shutil.move(source_file, home_escenario)
-		V_procesamiento()
-
-def writeDV4_main(dirInputDSS,nombreArchivo):
-	print(nombreArchivo)
-	temp_dv4= dirInputDSS + "\\D4Batch_TEMP_" + nombreArchivo[2:4] + ".DV4"
-	snx_fname=nombreArchivo
-	dv4_fname=dirInputDSS + "\\D4Batch.DV4"
-	fr = open(temp_dv4,"r") #opens temp DV4 file to read
-	fw = open(dv4_fname,"w")
-	#read template and write lines
-	for line in range(0,10):
-		temp_str=fr.readline()
-		fw.write(temp_str)
-		print (temp_str)
-
-	temp_str=fr.readline()
-	new_str=snx_fname + temp_str[12:]
-	fw.write(new_str)
-	fr.close()
-	fw.close()
-
-def graficasYield(directorioEscenario, anios, nombreEscenarios ):
-	fname=[]
-	scename=nombreEscenarios   #scenario name	
-	nyears=anios
-	
-	#Dato de entrada - Lo lee desde el directorio	
-	
-	print('va')
-	listaEscenarios = os.listdir(directorioEscenario)		
-	
-	print('listaEscenarios')
-	print(listaEscenarios)
-
-	count=0
-	
-	for escenario in listaEscenarios:
-		fname.append(directorioEscenario + "\\" + escenario + "\\Summary.out")
-		#scename.append(escenario)
-		count=count+1
-		
-	max_nyears=int(max(nyears))
-
-	#create an empty matrix
-	yield_data = np.empty((max_nyears,count))
-	yield_data[:] = np.NAN
-	
-	sorted_yield_data = np.empty((max_nyears,count))
-	sorted_yield_data[:] = np.NAN
-	excedp_data = np.empty((max_nyears,count))
-	excedp_data[:] = np.NAN
-
-	#Read Summary.out from all scenario output
-	for x in range(0, count):
-		fr = open(fname[x],"r") #opens summary.out to read
-		yield_list=[]
-		for line in range(0,4): #read headers
-			temp_str=fr.readline()
-		for line in range(0,int(nyears[x])): #read actual simulated data
-			temp_str=fr.readline()
-			yield_data[line,x]=int(temp_str[135:141])
-			yield_list.append(int(temp_str[135:141]))
-		fr.close()
-						
-		yield_array = np.array(yield_list)  #convert list to array
-		#compute rank using rankdata(note: The default assigns the average rank to the tied values:)
-		rank_yield=rankdata(yield_array) #from smallest to largest
-		rank_yield=max_nyears - rank_yield + 1  #from  largest (has rank=1) to smallest value
-
-		#exceedance probability; p=m/(n+1) where m is the rank from above, n is total number of data
-		excedp=rank_yield/(max_nyears+1)
-
-		#sort yield from smallest to largest
-		sorted_yield=np.sort(yield_array)
-		#get index of sorted array
-		sort_index = np.argsort(yield_array)
-
-		sorted_excedp=[]
-		for i in range(yield_array.__len__()):
-			sorted_excedp.append(excedp[sort_index[i]])
-		excedp_array = np.array(sorted_excedp)  #convert list to array
-
-		#save into one matrix
-		sorted_yield_data[:,x]=sorted_yield
-		excedp_data[:,x]=excedp_array
-
-	#X data for plot
-   # myXList=[i+1 for i in range(3)]
-	myXList=[i+1 for i in range(count)]
-
-	#Plotting 1
-	fig = plt.figure()
-	fig.suptitle('Rendimiento estimado', fontsize=14, fontweight='bold')
-
-	ax = fig.add_subplot(111)
-	#fig.subplots_adjust(top=0.85)
-	#ax.set_title('Yield Forecast')
-	ax.set_xlabel('Escenario',fontsize=14)
-	ax.set_ylabel('Rendimiento [kg/ha]',fontsize=14)
-	
-	
-	print("prueba boxplot")
-	print(yield_data)
-	
-	# Plot a line between the means of each dataset
-	#plt.plot(myXList, obs, 'go-')
-	resultB1 = ax.boxplot(yield_data, labels=scename, showmeans=True, meanline=True, meanprops ={'color':'green'}) #, notch=True, bootstrap=10000)
-	plt.savefig(directorioEscenario+'\\boxplot.png')
-	#plt.show()	
-	
-	print("boxplot result:")
-	listMean = []
-	listMediana = []
-	listWhiskersMenor = []
-	listWhiskersMayor = []
-	listBase = []
-	listMayor = []
-		
-	print("whiscku")	
-	print(resultB1["whiskers"])	
-		
-	#faltan 4 valores mas
-	for x in range(0, count):
-		listMean.append(int(round(resultB1["means"][x].get_data()[1][0],-1)))
-		listMediana.append(int(round(resultB1["medians"][x].get_data()[1][0],-1)))
-		listWhiskersMenor.append(int(round(resultB1["whiskers"][x*2].get_data()[1][0],-1)))
-		listWhiskersMayor.append(int(round(resultB1["whiskers"][x*2+1].get_data()[1][0],-1))) 
-		listBase.append(int(round(resultB1["whiskers"][x*2].get_data()[1][1],-1)))
-		listMayor.append(int(round(resultB1["whiskers"][x*2+1].get_data()[1][1],-1)))		
-	
-	print("prueba2")
-	print (listMean)
-	print (listMediana)
-	print (listWhiskersMenor)
-	print (listWhiskersMayor)
-	
-	#Plotting 2
-	fig = plt.figure()
-	fig.suptitle('Curva de excedencia del rendimiento', fontsize=14, fontweight='bold')
-
-	ax = fig.add_subplot(111)
-	#fig.subplots_adjust(top=0.85)
-	#ax.set_title('Yield Forecast')
-	ax.set_xlabel('Rendimiento [kg/ha]',fontsize=14)
-	ax.set_ylabel('Probabilidad de excedencia [-]',fontsize=14)
-
-	for x in range(0, count):
-		ax.plot(sorted_yield_data[:,x],excedp_data[:,x],'o-', label=scename[x])
-##        #legend = ax.legend(loc='lower left', shadow=True, fontsize='large') #loc=0 => best location
-	# Shrink current axis by 15%
-	box = ax.get_position()
-	ax.set_position([box.x0, box.y0, box.width * 0.85, box.height])
-
-	# Put a legend to the right of the current axis
-	ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-	plt.savefig(directorioEscenario+'\\curvaPExcedencia.png')
-	
-	return ([listMean,listMediana,listWhiskersMenor,listWhiskersMayor,listBase,listMayor])
+	print('output/' +fechaActual)
+	return render(request, 'webapp/show_graphics.html', {'dir': 'output/' +fechaActual, 'nombreEscenarios': nombreEscenarios, 'aniosEscenarios': cantidadAniosEscenarios, 'resultPlot':resultPlot, 'cultivos':cultivos})	
 	
 def margenBruto(request):
-	print("Entra margen burto")
-	currentDir = os.getcwd()
+	print("Entra margen burto")	
 	dirEscenario = os.path.normpath(request.GET['dirEscenario'])
-	pathCompleto = os.path.join(currentDir, dirEscenario)
-	
+	print(dirEscenario)
+	pathCompleto = os.path.join(settings.BASE_DIR, dirEscenario)			
 	print(pathCompleto)	
 	listaTodo = os.listdir(pathCompleto)
 	print(listaTodo)
@@ -655,7 +610,7 @@ def margenBruto(request):
 	
 	if (tienePrecio):
 		for i in range(count):
-			fname.append(listaDir[i] + "\\Summary.out")
+			fname.append(os.path.join(listaDir[i], "Summary.out"))
 			costN_list.append(precioFertilizanteEscenarios[i])
 			costI_list.append(costoRiegoEscenarios[i])
 			costG_list.append(gastosGeneralesEscenarios[i])
@@ -702,7 +657,7 @@ def margenBruto(request):
 		# Plot a line between the means of each dataset
 		#plt.plot(myXList, obs, 'go-')
 		resultB2 = ax.boxplot(GMargin_data,labels=scename, showmeans=True, meanline=True, meanprops ={'color':'green'}) #, notch=True, bootstrap=10000)
-		plt.savefig(dirEscenario+'\\margenBruto.png')
+		plt.savefig(os.path.join(dirEscenario, 'margenBruto.png'))
 		
 		print("boxplot result:")			
 			
@@ -718,7 +673,6 @@ def margenBruto(request):
 		print("prueba2")
 		print (listMedianaMB)
 		print (listWhiskersMenorMB)
-		resultPlotMB = [listMedianaMB,listWhiskersMenorMB]
-		dirEscenario = dirEscenario.replace("\\","/")
+		resultPlotMB = [listMedianaMB,listWhiskersMenorMB]		
 	
-	return render(request, 'webapp/margen_bruto.html', {'dir': dirEscenario,'nombreEscenarios': nombreEscenarios,'aniosEscenarios':aniosEscenarios,'resultPlot':resultPlotMB})
+	return render(request, 'webapp/margen_bruto.html', {'dir': dirEscenario.replace("\\","/"),'nombreEscenarios': nombreEscenarios,'aniosEscenarios':aniosEscenarios,'resultPlot':resultPlotMB})
