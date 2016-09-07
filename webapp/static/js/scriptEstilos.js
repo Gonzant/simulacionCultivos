@@ -7,20 +7,22 @@ function agregarEscenario(boton){
 //DATETIMEPICKER
 function  borrarNombreEscenario (){	
 	$('#inNombreEscenario').val('');
+	$('#desdeAnioSimulacion').attr('readonly', true);
+	$('#hastaAnioSimulacion').attr('readonly', true);
 }
 
 $(function() {
-	$('#myModal').modal('hide');
-	
-	
+	$('#myModal').modal('hide');	
 	$('#datetimepicker4').datetimepicker({
 		pickTime: false,
 		todayHighlight: true,
 		autoclose: true,
-    });
-	
+    });	
 	$('#datetimepicker4').datetimepicker('setDate', new Date());
 });
+
+//FERTILIZACION
+
 
 //FERTILIZACION
 
@@ -33,7 +35,7 @@ function OnChangeRadioFertilizacion (radio) {
   
   
   if(radio.value === '0'){
-	el.style.display = 'none'; 
+	el.style.display = (el.style.display == 'none') ? 'block' : 'none'; 
 	
 	diasSiembra.removeAttribute("required");
 	diasSiembra.value = "";
@@ -48,13 +50,14 @@ function OnChangeRadioFertilizacion (radio) {
 	//quito estilos de cantidad
 	document.getElementById("cantidadFertilizanteD").className = "form-group";
 	document.getElementById("errorCantidadFertilizante").innerHTML = ' ';
-	document.getElementById("cantidadFertilizanteS").className = " ";	
+	document.getElementById("cantidadFertilizanteS").className = " ";
   }
   else{
 	document.getElementById("diasDespuesSiembra").className = " ";
-	el.style.display = 'inline'; 	
+	el.style.display = (el.style.display == 'inline') ? 'block' : 'inline'; 	
   }	
 }
+
 
 function OnChangeRadioFertilizacionOtras (radio) {
   var el = document.getElementById('fertilizacionOtrasAplicaciones');
@@ -70,9 +73,9 @@ function OnChangeRadioFertilizacionOtras (radio) {
   
   if(radio.value === '0'){
 	//no fertiliza  
-	el.style.display = 'none'; 
-	el1.style.display = 'inline'; 
-	el2.style.display = 'inline'; 
+	el.style.display = (el.style.display == 'none') ? 'block' : 'none'; 
+	el1.style.display = (el1.style.display == 'inline') ? 'block' : 'inline'; 
+	el2.style.display = (el2.style.display == 'inline') ? 'block' : 'inline'; 
 	
 	diasSiembra1.removeAttribute("required");
 	cantS1.removeAttribute("required");	
@@ -100,9 +103,9 @@ function OnChangeRadioFertilizacionOtras (radio) {
   
   }else{
 	if(radio.value === '1'){
-		el.style.display = 'inline'; 
-		el1.style.display = 'inline'; 
-		el2.style.display = 'none'; 
+		el.style.display = (el.style.display == 'inline') ? 'block' : 'inline'; 
+		el1.style.display = (el1.style.display == 'inline') ? 'block' : 'inline'; 
+		el2.style.display = (el2.style.display == 'none') ? 'block' : 'none'; 
 		
 		diasSiembra2.value = "";
 		cantS2.value = "";
@@ -118,12 +121,11 @@ function OnChangeRadioFertilizacionOtras (radio) {
 		document.getElementById("cantidadFertilizanteAp2S").className = " ";
 		
 	} else{	
-		el.style.display = 'inline'; 
-		el2.style.display = 'inline'; 
+		el.style.display = (el.style.display == 'inline') ? 'block' : 'inline'; 
+		el2.style.display = (el2.style.display == 'inline') ? 'block' : 'inline'; 
 	}	
   }	
 }
-	
 	
 function validaCamposVacios(){
 	
@@ -225,5 +227,18 @@ function vaciarForm(){
 	$('#cantidadFertilizanteI').val('');
 	$("#noFertiliza").prop("checked", "checked");
 	$("#noFertilizaO").prop("checked", "checked");
-	$("#noFertiliza").prop("checked", "checked");
+	
 }
+
+function read_cookie() {
+		var result = document.cookie.match(new RegExp('escenariosMB' + '=([^;]+)'));
+		result && (result = JSON.parse(result[1]));
+		escenarios = result;
+};
+
+
+
+
+
+
+

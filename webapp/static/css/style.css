@@ -63,6 +63,9 @@
 	margin-top: 10%;
 }
 
+.logo{
+	height:7%;
+}
 
 /*.texto{
 	width: 50px;	
@@ -166,7 +169,5 @@ border: 1px solid red;
 .paddingLeft{
 	padding-left:3%;
 }
-.logo{
-	height:7%;
-}
+
 */
