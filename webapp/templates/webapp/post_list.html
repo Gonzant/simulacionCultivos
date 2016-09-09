@@ -323,9 +323,9 @@
 		var errores = "";
 		var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0;
 		var anioHastaNoVacio=parseInt($('#hastaAnioSimulacion').val().length) != 0;
-		var checkFertilizaSiembra = $("#fertiliza").attr('checked', true).val() === '1';
-		var checkFertilizaOtras1 = $("#fertiliza1").attr('checked', true).val() === '1';
-		var checkFertilizaOtras2 = $("#fertiliza2").attr('checked', true).val() === '2';
+		var checkFertilizaSiembra =($('input[name=fertilizacion]:checked').attr('value')==='1');
+		var checkFertilizaOtras1 =($('input[name=fertilizacionO]:checked').attr('value')==='1');
+		var checkFertilizaOtras2 = ($('input[name=fertilizacionO]:checked').attr('value')==='2');
 		var nombreEscenario = $('#inNombreEscenario').val(); 
 		var cultivo="";
 		var ciclo = document.getElementById("cmbDetalleCultivar").value;
@@ -374,8 +374,14 @@
 		//document.getElementById("agregarIdEscenario").addEventListener("click", agregarEscenarioNav);		
 	};
 	
+	function cerrar(){ 
+		$("#carga").animate({"opacity":"0"},1000,function(){$("#carga").css("display","none");}); 
+	} 
+	
 	function ejecutarSimulacion(){
-		if (agregarEscenario()){				
+		
+		if (agregarEscenario()){		
+			cerrar();		
 			document.getElementById('ejecutarDSSAT').submit();			
 		}				
 	};
@@ -514,7 +520,9 @@
 </script>
 
 
+
 <div class="container">	
+
 	<div class="page-header row">		
 		<div class="col-xs-3"> 
 			<img src="/static/img/logoSNIA.png" class="img-responsive">

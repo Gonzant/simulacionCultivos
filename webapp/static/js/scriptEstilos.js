@@ -199,6 +199,14 @@ function validaCamposVacios(){
 	return datosOk;
 }
  
+$(document).ready(function(){ 
+
+	
+	$("#carga").click(function(){cerrar();}); 
+
+});
+
+
  
 function validaPeriodoSimulacion(){
 	//retorna true si el periodo es valido
