@@ -50,7 +50,9 @@
 			if (tienePrecio){
 				var dimagen = document.getElementById('imagenMB');
 				var eimg = document.createElement("img");
-				eimg.setAttribute("src", "{{MEDIA_ROOT}}/{{dir}}/margenBruto.png");						
+				var rutaImg = "{{MEDIA_ROOT}}/{{dir}}/margenBruto.png";
+				console.log(rutaImg);
+				eimg.setAttribute("src", rutaImg );						
 				eimg.setAttribute("alt", "Margen bruto");
 				eimg.setAttribute("class", "img-responsive center-block");
 				//dimagen.write("<img class='img-responsive center-block' src='{{MEDIA_ROOT}}/{{dir}}/margenBruto.png' alt='Margen bruto'>");				

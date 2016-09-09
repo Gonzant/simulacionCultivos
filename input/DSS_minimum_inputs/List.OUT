@@ -15329,6 +15329,8 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
+<<<<<<< HEAD
+  34  OUTPC
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15339,6 +15341,62 @@ Num.  Variable Name
   72  SNBAL
   38  OUTSN
    8  FILEA
+  70  PNBAL
+  21  FILEIO
+  90  OPCLR
+  14  BATCH 
+  11  FILEW
+  51  OUTWARN
+  10  FINPUT
+  22  DTACDE
+  80  OUTO
+  32  OUTG
+  33  OUTPN
+  34  OUTPC
+=======
+>>>>>>> origin/master
+  81  OUTS
+  68  SEVAL
+  31  OUTWTH
+  36  OUTT
+  91  OUTET
+  37  OUTWAT
+  82  SWBAL
+  72  SNBAL
+  38  OUTSN
+   8  FILEA
+<<<<<<< HEAD
+  70  PNBAL
+=======
+>>>>>>> origin/master
+  21  FILEIO
+  90  OPCLR
+  14  BATCH 
+  11  FILEW
+  51  OUTWARN
+  10  FINPUT
+  22  DTACDE
+  80  OUTO
+  32  OUTG
+  33  OUTPN
+<<<<<<< HEAD
+  34  OUTPC
+=======
+>>>>>>> origin/master
+  81  OUTS
+  68  SEVAL
+  31  OUTWTH
+  36  OUTT
+  91  OUTET
+  37  OUTWAT
+  82  SWBAL
+  72  SNBAL
+  38  OUTSN
+   8  FILEA
+<<<<<<< HEAD
+  70  PNBAL
+=======
+>>>>>>> origin/master
   21  FILEIO
   90  OPCLR
   14  BATCH 
@@ -15369,6 +15427,10 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
+<<<<<<< HEAD
+  34  OUTPC
+=======
+>>>>>>> origin/master
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15379,6 +15441,66 @@ Num.  Variable Name
   72  SNBAL
   38  OUTSN
    8  FILEA
+<<<<<<< HEAD
+  70  PNBAL
+=======
+>>>>>>> origin/master
+  21  FILEIO
+  90  OPCLR
+  14  BATCH 
+  11  FILEW
+  51  OUTWARN
+  10  FINPUT
+  22  DTACDE
+  80  OUTO
+  32  OUTG
+  33  OUTPN
+<<<<<<< HEAD
+  34  OUTPC
+=======
+>>>>>>> origin/master
+  81  OUTS
+  68  SEVAL
+  31  OUTWTH
+  36  OUTT
+  91  OUTET
+  37  OUTWAT
+  82  SWBAL
+  72  SNBAL
+  38  OUTSN
+   8  FILEA
+<<<<<<< HEAD
+  70  PNBAL
+=======
+>>>>>>> origin/master
+  21  FILEIO
+  90  OPCLR
+  14  BATCH 
+  11  FILEW
+  51  OUTWARN
+  10  FINPUT
+  22  DTACDE
+  80  OUTO
+  32  OUTG
+  33  OUTPN
+<<<<<<< HEAD
+  34  OUTPC
+=======
+>>>>>>> origin/master
+  81  OUTS
+  68  SEVAL
+  31  OUTWTH
+  36  OUTT
+  91  OUTET
+  37  OUTWAT
+  82  SWBAL
+  72  SNBAL
+  38  OUTSN
+   8  FILEA
+<<<<<<< HEAD
+  70  PNBAL
+=======
+>>>>>>> origin/master
   21  FILEIO
   90  OPCLR
   14  BATCH 
@@ -15409,6 +15531,10 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
+<<<<<<< HEAD
+=======
+  34  OUTPC
+>>>>>>> origin/master
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15419,6 +15545,10 @@ Num.  Variable Name
   72  SNBAL
   38  OUTSN
    8  FILEA
+<<<<<<< HEAD
+=======
+  70  PNBAL
+>>>>>>> origin/master
   21  FILEIO
   90  OPCLR
   14  BATCH 
@@ -15429,6 +15559,10 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
+<<<<<<< HEAD
+=======
+  34  OUTPC
+>>>>>>> origin/master
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15439,26 +15573,10 @@ Num.  Variable Name
   72  SNBAL
   38  OUTSN
    8  FILEA
-  21  FILEIO
-  90  OPCLR
-  14  BATCH 
-  11  FILEW
-  51  OUTWARN
-  10  FINPUT
-  22  DTACDE
-  80  OUTO
-  32  OUTG
-  33  OUTPN
-  81  OUTS
-  68  SEVAL
-  31  OUTWTH
-  36  OUTT
-  91  OUTET
-  37  OUTWAT
-  82  SWBAL
-  72  SNBAL
-  38  OUTSN
-   8  FILEA
+<<<<<<< HEAD
+=======
+  70  PNBAL
+>>>>>>> origin/master
   21  FILEIO
   90  OPCLR
   14  BATCH 
@@ -15733,28 +15851,6 @@ Num.  Variable Name
   80  OUTO
   32  OUTG
   33  OUTPN
-  34  OUTPC
-  81  OUTS
-  68  SEVAL
-  31  OUTWTH
-  36  OUTT
-  91  OUTET
-  37  OUTWAT
-  82  SWBAL
-  72  SNBAL
-  38  OUTSN
-   8  FILEA
-  70  PNBAL
-  21  FILEIO
-  90  OPCLR
-  14  BATCH 
-  11  FILEW
-  51  OUTWARN
-  10  FINPUT
-  22  DTACDE
-  80  OUTO
-  32  OUTG
-  33  OUTPN
   81  OUTS
   68  SEVAL
   31  OUTWTH
@@ -15853,3 +15949,23 @@ Num.  Variable Name
   38  OUTSN
    8  FILEA
   70  PNBAL
+  21  FILEIO
+  90  OPCLR
+  14  BATCH 
+  11  FILEW
+  51  OUTWARN
+  10  FINPUT
+  22  DTACDE
+  80  OUTO
+  32  OUTG
+  33  OUTPN
+  81  OUTS
+  68  SEVAL
+  31  OUTWTH
+  36  OUTT
+  91  OUTET
+  37  OUTWAT
+  82  SWBAL
+  72  SNBAL
+  38  OUTSN
+   8  FILEA
