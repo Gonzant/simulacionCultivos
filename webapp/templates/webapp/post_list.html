@@ -370,7 +370,7 @@
 	};
 	
 	function escucharAgregarEscenario(){
-		document.getElementById("agregarIdEscenario").addEventListener("click", agregarEscenario);
+		//document.getElementById("agregarIdEscenario").addEventListener("click", agregarEscenario);
 		//document.getElementById("agregarIdEscenario").addEventListener("click", agregarEscenarioNav);		
 	};
 	
@@ -515,14 +515,24 @@
 		}
 	};
 		
-			
+	/*window.onload = cargarLoading();
+	function cargarLoading(){
+		document.getElementById("imgLOAD").style.display="none";
+	}
+	function detenerLoading(){
+		document.getElementById("imgLOAD").style.display="inline";
+	}
+	*/
 		
 </script>
 
 
 
 <div class="container">	
-
+	<!--<div id="imgLOAD" style="text-align:center;">
+		<b>Cargando...</b>
+		<img src="/static/img/loading.gif" />
+	</div>-->
 	<div class="page-header row">		
 		<div class="col-xs-3"> 
 			<img src="/static/img/logoSNIA.png" class="img-responsive">
@@ -842,7 +852,6 @@
 			Decision Support System for Agrotechnology Transfer (DSSAT) Version 4.5.X.X (Replace X.X with sub-version numbers in your output files) [CD?ROM]. University of Hawaii, Honolulu, Hawaii.
 			Jones, J.W., G. Hoogenboom, C.H. Porter, K.J. Boote, W.D. Batchelor, L.A. Hunt, P.W. Wilkens, U. Singh, A.J. Gijsman, and J.T. Ritchie. 2003. DSSAT Cropping System Model. European Journal of Agronomy 18:235-265.
 		</p>
-	
 	</div>	
 </div>
 <script>		
