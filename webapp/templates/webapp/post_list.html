@@ -323,7 +323,7 @@
 	};
 	
 	function escucharAgregarEscenario(){
-		document.getElementById("agregarIdEscenario").addEventListener("click", agregarEscenario);
+		//document.getElementById("agregarIdEscenario").addEventListener("click", agregarEscenario);
 		//document.getElementById("agregarIdEscenario").addEventListener("click", agregarEscenarioNav);		
 	};
 	
@@ -479,14 +479,24 @@
 		}
 	};
 		
-			
+	/*window.onload = cargarLoading();
+	function cargarLoading(){
+		document.getElementById("imgLOAD").style.display="none";
+	}
+	function detenerLoading(){
+		document.getElementById("imgLOAD").style.display="inline";
+	}
+	*/
 		
 </script>
 
 
 
 <div class="container">	
-
+	<!--<div id="imgLOAD" style="text-align:center;">
+		<b>Cargando...</b>
+		<img src="/static/img/loading.gif" />
+	</div>-->
 	<div class="page-header row">		
 		<div class="col-xs-3"> 
 			<img src="/static/img/logoSNIA.png" class="img-responsive">
