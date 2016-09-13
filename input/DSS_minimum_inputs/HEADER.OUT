@@ -1,32 +1,18 @@
-<<<<<<< HEAD
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 09, 2016; 15:30:38
+*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 12, 2016; 16:02:41
 
 *RUN   1        : UYMZ                     
  MODEL          : MZCER040 - MAIZE     
- EXPERIMENT     : UYMZ0747 SN late to create DSS                                
+ EXPERIMENT     : UYMZ0790 SN late to create DSS                                
  TREATMENT  1   : UYMZ                     
 
- CROP           : MAIZE          CULTIVAR : CMEDIO UY        ECOTYPE :IB0001
- STARTING DATE  : SEP  5 1990
- PLANTING DATE  : SEP  8 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
- WEATHER        : UYTA   1990
-=======
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 09, 2016; 09:47:21
-
-*RUN   1        : UYMZ                     
- MODEL          : MZCER040 - MAIZE     
- EXPERIMENT     : UYMZ0728 SN late to create DSS                                
- TREATMENT  1   : UYMZ                     
-
- CROP           : MAIZE          CULTIVAR : CMEDIO UY        ECOTYPE :IB0001
- STARTING DATE  : SEP  5 2000
- PLANTING DATE  : SEP  8 2000    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
- WEATHER        : UYTA   2000
->>>>>>> origin/master
- SOIL           : UYSN2N2002     TEXTURE : C     - N20-02    SNIA CLAY RISSO
- SOIL INITIAL C : DEPTH:125cm EXTR. H2O:124.1mm  NO3: 66.4kg/ha  NH4: 22.4kg/ha
- WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE
- IRRIGATION     : AUTOMATIC - PLANTING -> MATURITY [ SOIL DEPTH:30.00m 50.%]
+ CROP           : MAIZE          CULTIVAR : CCORTO UY        ECOTYPE :IB0001
+ STARTING DATE  : SEP  8 1990
+ PLANTING DATE  : SEP 11 1990    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
+ WEATHER        : UYSG   1990
+ SOIL           : UYSN2N1706     TEXTURE : SL    -  N17-06    SNIA SANDY WES
+ SOIL INITIAL C : DEPTH:100cm EXTR. H2O: 79.2mm  NO3: 24.9kg/ha  NH4: 23.1kg/ha
+ WATER BALANCE  : RAINFED
+ IRRIGATION     : NOT IRRIGATED
  NITROGEN BAL.  : SOIL-N & N-UPTAKE SIMULATION; NO N-FIXATION
  N-FERTILIZER   : NO N-FERTILIZER APPLIED
  RESIDUE/MANURE : INITIAL :     0 kg/ha ;       0 kg/ha IN     0 APPLICATIONS
@@ -34,7 +20,7 @@
                   RAIN=    0.00  CO2 = R330.00  DEW =    0.00  WIND=    0.00  
  SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:N  PHOSPH :N  PESTS  :N
                   PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G
- MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :N  RESIDUE:N  HARVEST:M  WTH:M
+ MANAGEMENT OPT : PLANTING:R  IRRIG   :N  FERT :N  RESIDUE:N  HARVEST:M  WTH:M
 
 *SUMMARY OF SOIL AND GENETIC INPUT PARAMETERS
 
@@ -42,21 +28,20 @@
   DEPTH LIMIT LIMIT    SW    SW    SW   DIST   DENS                          C
    cm   cm3/cm3    cm3/cm3    cm3/cm3         g/cm3         ugN/g  ugN/g     %
 -------------------------------------------------------------------------------
-  0-  5 0.367 0.500 0.614 0.133 0.406   1.00   0.98   7.00  15.00   1.50   1.64
-  5- 15 0.367 0.500 0.614 0.133 0.406   1.00   0.98   7.00  15.00   1.50   1.64
- 15- 30 0.367 0.500 0.614 0.133 0.406   1.00   0.98   7.00  15.00   1.50   1.64
- 30- 45 0.336 0.424 0.535 0.088 0.362   0.40   1.11   6.80   8.50   1.50   0.74
- 45- 60 0.322 0.385 0.509 0.064 0.352   0.35   1.19   7.03   4.53   1.50   0.43
- 60- 90 0.303 0.358 0.478 0.055 0.358   0.26   1.30   7.40   0.00   1.50   0.07
- 90-108 0.295 0.426 0.472 0.131 0.426   0.10   1.32   7.80   0.00   1.50   0.07
-108-125 0.283 0.409 0.464 0.126 0.409   0.01   1.35   7.97   0.00   1.50   0.05
+  0-  5 0.116 0.202 0.414 0.086 0.159   1.00   1.47   6.00   5.00   1.50   0.50
+  5- 15 0.116 0.202 0.414 0.086 0.159   1.00   1.47   6.00   5.00   1.50   0.50
+ 15- 30 0.118 0.205 0.410 0.087 0.161   0.62   1.49   6.00   3.79   1.50   0.41
+ 30- 45 0.139 0.224 0.402 0.084 0.194   0.50   1.51   6.00   2.40   1.50   0.33
+ 45- 60 0.182 0.261 0.387 0.079 0.261   0.37   1.56   6.00   0.00   1.50   0.20
+ 60- 80 0.176 0.248 0.378 0.072 0.248   0.25   1.59   6.00   0.00   1.50   0.10
+ 80-100 0.156 0.228 0.374 0.072 0.228   0.00   1.60   6.00   0.00   1.50   0.07
 
-TOT-125  40.1  52.5  64.8  12.4  48.2  <--cm   -  kg/ha-->   66.4   22.4  73774
-SOIL ALBEDO    : 0.12      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
-RUNOFF CURVE # :73.00      DRAINAGE RATE     : 0.40         FERT. FACTOR : 1.00
+TOT-100  15.0  22.9  39.2   7.9  21.1  <--cm   -  kg/ha-->   24.9   23.1  37917
+SOIL ALBEDO    : 0.13      EVAPORATION LIMIT : 6.00         MIN. FACTOR  : 1.00
+RUNOFF CURVE # :73.00      DRAINAGE RATE     : 0.60         FERT. FACTOR : 1.00
 
- MAIZE      CULTIVAR :UY0370-CMEDIO UY          ECOTYPE :IB0001
- P1     : 280.00  P2     : 0.0000  P5     : 750.00
+ MAIZE      CULTIVAR :UY0371-CCORTO UY          ECOTYPE :IB0001
+ P1     : 190.00  P2     : 0.0000  P5     : 750.00
  G2     : 800.00  G3     :  7.500  PHINT  : 38.900
 
 

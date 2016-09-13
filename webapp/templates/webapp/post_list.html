@@ -152,58 +152,11 @@
 			option.text = cultivos[valor].no3s[i].etiqueta;
 			option.value = cultivos[valor].no3s[i].valor;
 			cmbDetalleNO3.add(option);
-		}
-		if(radio.value === 'SB'){
-			
-			var option = document.createElement('option');
-			option.text = "Por defecto Bajo";
-			option.value = "B";
-			cmbDetalleNO3.add(option);
-		}
+		}		
 		if(radio.checked=== true){
 			div.style.display = 'block';
 		}	
 	};
-	
-	/*function cargarRiego(){
-		var cmbDetalleRiego = document.getElementById("cmbDetalleRiego");
-		{% for riego in riegos %}
-			var option = document.createElement('option');
-			option.text = "{{riego.etiqueta}}";
-			option.value = "{{riego.valor}}";
-			cmbDetalleRiego.add(option);			
-		{% endfor %}		
-	};*/
-	
-	/*function cargarTipoFertilizantes(){
-		var cmbFertilizacionTipo1 = document.getElementById("cmbFertilizacionTipo1");
-		var cmbFertilizacionTipo2 = document.getElementById("cmbFertilizacionTipo2");
-		{% for fertilizante in fertilizantes %}
-			var option = document.createElement('option');
-			option.text = "{{fertilizante.etiqueta}}";
-			option.value = "{{fertilizante.valor}}";
-			cmbFertilizacionTipo1.add(option);
-			var option = document.createElement('option');
-			option.text = "{{fertilizante.etiqueta}}";
-			option.value = "{{fertilizante.valor}}";			
-			cmbFertilizacionTipo2.add(option);
-		{% endfor %}		
-	};
-	
-	function cargarAplicacionFertilizantes(){
-		var cmbFertilizacionAplicacion1 = document.getElementById("cmbFertilizacionAplicacion1");
-		var cmbFertilizacionAplicacion2 = document.getElementById("cmbFertilizacionAplicacion2");
-		{% for aplicacion_f in aplicaciones %}
-			var option = document.createElement('option');
-			option.text = "{{aplicacion_f.etiqueta}}";
-			option.value = "{{aplicacion_f.valor}}";
-			cmbFertilizacionAplicacion1.add(option);
-			var option = document.createElement('option');
-			option.text = "{{aplicacion_f.etiqueta}}";
-			option.value = "{{aplicacion_f.valor}}";						
-			cmbFertilizacionAplicacion2.add(option);	
-		{% endfor %}		
-	};*/
 	
 	function agregarEscenarioPanel(){
 		var table = document.getElementById("tablaEscenarios");
@@ -395,9 +348,20 @@
 		var get = window.location.search.replace("?", "");
 		getListParametros = get.split("&");
 		nEscenarioCookie = getListParametros[0].split("=")[1];
+		console.log(nEscenarioCookie);
 		if (nEscenarioCookie){		
+			var divInicial = document.getElementById("inicial");
 			cargarOtrosEscenarios(nEscenarioCookie);
-			cargarEscenarioCookie(nEscenarioCookie);			
+			if (nEscenarioCookie === 'NuevoEscenario'){
+				console.log("entraesceasdajsdnanskhbdan");
+				//Chequear lo que hace vaciarForm
+				vaciarForm();
+				divInicial.innerHTML = "<p>Ingrese el nuevo escenario. (Texto a validar JS)</p>";
+			}else{
+				console.log("entra escook");
+				cargarEscenarioCookie(nEscenarioCookie);			
+				divInicial.innerHTML = "<p>Modifique las variables del escenario. (Texto a validar JS)</p>"	;
+			}			
 		};
 	};
 	
@@ -833,16 +797,22 @@
 		  <!-- /.modal-dialog -->
 		</div>
 	</form>
-	<div class="row">	
-	<div>
-	<div id="footer" >
+	<div class="row" id="footer" >
 		<hr>
-		<p class="muted credit " >
-			Hoogenboom, G., J.W. Jones, P.W. Wilkens, C.H. Porter, K.J. Boote, L.A. Hunt, U. Singh, J.L. Lizaso, J.W. White, O. Uryasev, F.S. Royce, R. Ogoshi, A.J. Gijsman, G.Y. Tsuji, and J. Koo. 2012. 
-			Decision Support System for Agrotechnology Transfer (DSSAT) Version 4.5.X.X (Replace X.X with sub-version numbers in your output files) [CD?ROM]. University of Hawaii, Honolulu, Hawaii.
-			Jones, J.W., G. Hoogenboom, C.H. Porter, K.J. Boote, W.D. Batchelor, L.A. Hunt, P.W. Wilkens, U. Singh, A.J. Gijsman, and J.T. Ritchie. 2003. DSSAT Cropping System Model. European Journal of Agronomy 18:235-265.
-		</p>
-	
+		<div class="col-xs-6">
+			<img src="/static/img/IRI.png" class="center-block img-responsive" style="max-height: 50px">
+			<p class="texto_chico muted credit" >
+				Eunjin Han, Ph.D. at IRI, Walter Baethgen, Ph.D. at IRI, Amor Ines, Ph.D. at Michigan State Univ. and IRI.
+			</p>
+		</div>
+		<div class="col-xs-6">
+			<img src="/static/img/DSSAT.png" class="center-block img-responsive" style="max-height: 50px">
+			<p class="texto_chico muted credit" >
+				Hoogenboom, G., J.W. Jones, P.W. Wilkens, C.H. Porter, K.J. Boote, L.A. Hunt, U. Singh, J.L. Lizaso, J.W. White, O. Uryasev, F.S. Royce, R. Ogoshi, A.J. Gijsman, G.Y. Tsuji, and J. Koo. 2012. 
+				Decision Support System for Agrotechnology Transfer (DSSAT) Version 4.5. University of Hawaii, Honolulu, Hawaii.
+				Jones, J.W., G. Hoogenboom, C.H. Porter, K.J. Boote, W.D. Batchelor, L.A. Hunt, P.W. Wilkens, U. Singh, A.J. Gijsman, and J.T. Ritchie. 2003. DSSAT Cropping System Model. European Journal of Agronomy 18:235-265.
+			</p>
+		</div>			
 	</div>	
 </div>
 <script>		

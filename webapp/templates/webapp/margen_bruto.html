@@ -175,52 +175,31 @@
 				<div class="row">				
 					<h4>Escenarios</h4>
 				</div>
-				
-				<div class="row">				
-					<div class="col-xs-4">
-						<label for="nombreEscenario"> <b> Nombre escenario: </b> </label>						
-					</div>						
-					<div class="col-xs-2">
-						<label for="precioGranoEscenario">Precio del grano (U$S/ton):</label>												
-					</div>
-					<div class="col-xs-2">
-						<label for="precioFertilizanteEscenario">Precio del fertilizante (U$S/kg N):</label>						
-					</div>					
-					<div class="col-xs-2">
-						<label for="costeRiegoEscenario">Costo del riego (U$S/mm):</label>						
-					</div>
-					<div class="col-xs-2">
-						<label for="gastosGeneralesEscenario">Otros costos de producción (U$S/ha):</label>						
-					</div>									
-				</div>						
-				
-				{% for nEscenario in nombreEscenarios %}
-				<div class="row">				
-					<div id='escenario' class="col-xs-4">						
-						<input type="text" name="nombreEscenario" class="alturaInput" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}" style="width:100%">
-					</div>						
-					<div class="col-xs-2" id='precioGranoEscenarioD'>						
-						<input type="number" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%">
-						<!--<span  id= "precioGranoS" aria-hidden="true"></span>
-						<p id="errorPrecioGrano" class = "control-label has-error"></p>	-->
-					</div>
-					<div class="col-xs-2" id='precioFertilizanteEscenarioD'>						
-						<input type="number" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%">
-						<!--<span  id= "precioFertilizanteEscenarioS" aria-hidden="true"></span>
-						<p id="errorprecioFertilizanteEscenario" class = "control-label has-error"></p>	-->
-					</div>					
-					<div class="col-xs-2" id='costeRiegoEscenarioD'>						
-						<input type="number" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="alturaInput" style="width:100%">
-						<!--<span  id= "costeRiegoEscenarioS" aria-hidden="true"></span>
-						<p id="errorCosteRiegoEscenario" class = "control-label has-error"></p>	-->
-					</div>
-					<div class="col-xs-2" id='gastosGeneralesEscenarioD'>						
-						<input type="number" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%">
-						<!--<span  id= "gastosGeneralesEscenarioS" aria-hidden="true"></span>
-						<p id="errorGastosGeneralesEscenario" class = "control-label has-error"></p>	-->
-					</div>									
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead class="tabla_header">
+					      <tr>
+					        <th>Nombre escenario:</th>
+					        <th>Precio del grano (U$S/ton):</th>
+					        <th>Precio del fertilizante (U$S/kg N):</th>
+					        <th>Costo del riego (U$S/mm):</th>
+					        <th>Otros costos de producción (U$S/ha):</th>				        
+					      </tr>
+					    </thead>
+					    <tbody>
+					    {% for nEscenario in nombreEscenarios %}
+					    	<tr>
+						        <td><input type="text" name="nombreEscenario" class="alturaInput" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}" style="width:100%"></td>
+						        <td><input type="number" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%"></td>
+						        <td><input type="number" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%"></td>
+						        <td><input type="number" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="alturaInput" style="width:100%"></td>					        
+						        <td><input type="number" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%"></td>
+						    </tr>
+					    {% endfor %}
+					    </tbody>
+					</table>
 				</div>
-				{% endfor %}
+				
 				<div class="row margenTop">									
 					<input class="btn btn-success" style="width:50%;margin:0px auto; display:block;" type='submit' name="margenBruto" value="Graficar margen bruto">
 				</div>

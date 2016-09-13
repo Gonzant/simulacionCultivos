@@ -4,6 +4,7 @@ from django.conf import settings
 from .models import Post, EstacionMeteorologica, Cultivo, Riego, Fertilizante, AplicacionF
 from .models import Administrativo_procesamiento, Administrativo_contador
 import os
+import sys
 import subprocess
 import shutil
 import numpy as np
@@ -22,7 +23,7 @@ def dateToJulian(fecha):
 	fechaAnioActual = str(datetime.date.today().year) + fecha[4:]	
 	dt = datetime.datetime.strptime(fecha, fmt)
 	tt = dt.timetuple()	
-	return tt.tm_yday - 1
+	return tt.tm_yday
 	
 def get_soil_IC(ID_SOIL):	
     SOL_file = os.path.join(settings.BASE_DIR, "input", "DSS_minimum_inputs", "UY.SOL")
@@ -93,16 +94,21 @@ def run_dssat(dir, dirInputDSS, listaArchivos):
 		#==RUN DSSAT with ARGUMENT
 		args = "DSCSM040.EXE B D4Batch.DV4"
 		#Run executable with argument		
-		print()
-		subprocess.call(args, cwd= os.path.join(settings.BASE_DIR, "input", "DSS_minimum_inputs"), shell=True)		
-		#creo la carpeta del escenario dentro de los escenarios del usuario
-		carpetaContador = a[4:9]
-		home_escenario = os.path.join(dir, carpetaContador)
-		os.makedirs(home_escenario)
-		for entry in entries:
-			source_file= os.path.join(dirInputDSS, entry)
-			shutil.move(source_file, home_escenario)
-		V_procesamiento()
+		try:
+			subprocess.call(args, cwd= os.path.join(settings.BASE_DIR, "input", "DSS_minimum_inputs"), shell=True)		
+			#creo la carpeta del escenario dentro de los escenarios del usuario
+			carpetaContador = a[4:9]
+			home_escenario = os.path.join(dir, carpetaContador)
+			os.makedirs(home_escenario)
+			for entry in entries:
+				source_file= os.path.join(dirInputDSS, entry)
+				shutil.move(source_file, home_escenario)
+			V_procesamiento()
+		except:
+			#Si ocurre un error libero el semaforo de procesamiento
+			print "Unexpected error:", sys.exc_info()[0]
+			V_procesamiento()
+
 
 def writeDV4_main(dirInputDSS,nombreArchivo):
 	temp_dv4 = os.path.join(dirInputDSS, "D4Batch_TEMP_" + nombreArchivo[2:4] + ".DV4")
@@ -427,7 +433,11 @@ def btnDSSAT(request):
 		#Get soil info from *.SOL
 		soil_depth, wp, fc, nlayer = get_soil_IC(ID_SOIL)  
 		temp_str=fr.readline()
+		print("nlayer", nlayer)		
+		print("i_NO3",i_NO3)
+		print("ID_SOIL",ID_SOIL)
 		for nline in range(0,nlayer):
+			print("nline",nline)
 			if nline == 0:  #first layer
 				temp_SH2O=IC_w_ratio*(fc[nline]- wp[nline])+ wp[nline]#EJ(6/25/2015): initial AWC=70% of maximum AWC
 				# SH2O=0.7*(float(fc[nline])- float(wp[nline]))+ float(wp[nline])#EJ(6/25/2015): initial AWC=70% of maximum AWC
@@ -437,9 +447,7 @@ def btnDSSAT(request):
 					else:
 						SNO3='15'  #**EJ(8/14/2015
 				elif i_NO3 == 'B': #'L': Low -> Bajo
-					SNO3='5'  #**EJ(5/27/2015)
-				else:
-					self.ini_NO3_err.activate()                   
+					SNO3='5'  #**EJ(5/27/2015)				                 
 			elif nline == 1:  #second layer
 				temp_SH2O=IC_w_ratio*(fc[nline]- wp[nline])+ wp[nline]#EJ(6/25/2015): initial AWC=70% of maximum AWC
 				if i_NO3 == 'A': #'H': High -> Alto
@@ -452,9 +460,7 @@ def btnDSSAT(request):
 					elif ID_SOIL[6:]== '1903':  #UYSN0P1903':
 						SNO3='13.9' 
 					elif ID_SOIL[6:]== '1706':  #UYSN0N1706':
-						SNO3='7.4'
-					else:
-						self.soiltype_err.activate()
+						SNO3='7.4'					
 				elif i_NO3 == 'B': #'L': Low -> Bajo
 					if ID_SOIL[6:]== '0806':  #ID_SOIL == 'UYSN0H0806':
 						SNO3='0.2'  #**EJ(8/14/2015
@@ -465,11 +471,7 @@ def btnDSSAT(request):
 					elif ID_SOIL[6:]== '1903':  #UYSN0P1903':
 						SNO3='7.3' 
 					elif ID_SOIL[6:]== '1706':  #UYSN0N1706':
-						SNO3='3.6'
-					else:
-						self.soiltype_err.activate()
-				else:
-					self.ini_NO3_err.activate()
+						SNO3='3.6'									
 			else:
 				temp_SH2O=fc[nline] #float
 				SNO3='0'  #**EJ(5/27/2015)

@@ -60,11 +60,21 @@
 
 #footer {
 	/*background-color: #F0F0F0 ;*/
-	margin-top: 10%;
+	margin-top: 10%;	
+}
+
+.texto_chico{
+	font-size:10px;
+	text-align : justify;
 }
 
 .logo{
 	height:7%;
+}
+
+/*Margen Bruto*/
+.tabla_header{	
+	font-size: 0.9em;
 }
 
 /*.texto{

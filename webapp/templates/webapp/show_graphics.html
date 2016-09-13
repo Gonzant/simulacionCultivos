@@ -147,9 +147,13 @@
 				cell2.innerHTML = "";
 				cell3.innerHTML = "";
 				cell4.innerHTML = "";				
-				cell5.innerHTML = "<button class='btn btn-primary' onclick='agregarNuevoEscenario()' disabled>Agregar escenario</button>";	
+				cell5.innerHTML = "<button class='btn btn-primary' onclick='agregarNuevoEscenario()'>Agregar escenario</button>";	
 				
 			}
+		};
+
+		function agregarNuevoEscenario(){
+			setearCookie('NuevoEscenario');
 		};
 		
 		function setearCookie(esc){
@@ -251,22 +255,24 @@
 		
 		<div>
 			<div class="row">
-				<h3> Escenarios agregados </h3>
+				<h4> Escenarios agregados </h4>
 			</div>
 			<div class="row" id='escenario'>
-				<table id="tEscenarios" class="table table-striped">
-					<thead>
-					  <tr>
-						<th>Escenario</th>
-						<th>Cultivo</th>
-						<th>Tipo de cultivar</th>
-						<th>Riego</th>
-						<th></th>
-					  </tr>
-					</thead>
-					<tbody>
-					</tbody>
-				</table>				
+				<div class="table-responsive">
+					<table id="tEscenarios" class="table table-striped">
+						<thead class="tabla_header">
+						  <tr>
+							<th>Escenario</th>
+							<th>Cultivo</th>
+							<th>Tipo de cultivar</th>
+							<th>Riego</th>
+							<th></th>
+						  </tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>	
+				</div>			
 			</div>		
 		</div>
 		
@@ -279,7 +285,7 @@
 		{% endfor %}
 		<input type="text" value="{{dir}}" name="dirEscenario" style="display:none">		
 		
-		<div class="row">				
+		<div class="row">
 			<input class="btn btn-success" style="width:50%;margin:0px auto; display:block;" onclick='calcularMargenBruto()' name="margenBruto" value="Calcular margen bruto">
 		</div>
 		
