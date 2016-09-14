@@ -24,8 +24,7 @@
 	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-BR.js' %}">  </script>
 	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>
 	<script>  
-		var escenarios = [];
-		
+		var escenarios = [];	
 		
 		
 		function loadImg(){
@@ -57,7 +56,7 @@
 				console.log(escenarios.length);
 				for (var i = 0; i<escenarios.length;i++){
 					var parra = document.createElement("P");
-					var texto = "Con el escenario "+escenarios[i].nombre+" la probabilidad de obtener un margen bruto de "+datosNum[0][i]+" U$S/ha o más, es de 50%, o sea se puede esperar que en la mitad de los años el margen bruto sea por lo menos "+datosNum[0][i]+" U$S/ha. Por otra parte la probabilidad de obtener un margen bruto por debajo de "+datosNum[1][i]+" U$S/ha es de 25%, una vez cada 4 años. ";
+					var texto = "Con el escenario "+ escenarios[i].nombre+" la probabilidad de obtener un margen bruto de "+datosNum[0][i]+" U$S/ha o más, es de 50%, o sea se puede esperar que en la mitad de los años el margen bruto sea por lo menos "+datosNum[0][i]+" U$S/ha. Por otra parte la probabilidad de obtener un margen bruto por debajo de "+datosNum[1][i]+" U$S/ha es de 25%, una vez cada 4 años. ";
 					var t = document.createTextNode(texto);
 					parra.appendChild(t);
 					dtexto.appendChild(parra);
@@ -68,54 +67,74 @@
 		};
 		function validacionesMB(){
 			var pg = false, pf=false, cr=false, oc=false;  
-			var errores= "<strong> Verifique los siguientes campos: </strong>"
-			if((parseInt($('#precioGranoEscenario').val()) < 0) || (parseInt($('#precioGranoEscenario').val()) > 1000)){ //incorrecto precio grano
-				errores = errores + "<p> Precio del grano </p>";
-				pg= false;
-			}
-			else{
-				pg = true;
-			}
+			var errores= "<strong> <u>Verifique los siguientes campos:</u> </strong>";
+			var cantEscenarios = escenarios.length;
+			var erroresMostrar = " "; 
+			var precioGrano = parseInt($('#precioGranoEscenario').val());
+			var precioFert = parseInt($('#precioFertilizanteEscenario').val());
+			var precioRiego = parseInt($('#costeRiegoEscenario').val());
+			var gastosG = parseInt($('#gastosGeneralesEscenario').val());
+				
+				alert(cantEscenarios);
+				
+			for (var i =0; i<cantEscenarios; i++){
+				alert(cantEscenarios);
+				if(($('#precioGranoEscenario').val().length === 0) || precioGrano < 0 || (precioGrano > 1000)){ //incorrecto precio grano
+					erroresMostrar = erroresMostrar + "<p> Precio del grano"+"</p>";
+					pg= false;
+				}
+				else{ 
+					pg = true;
+				}
+				
+				if(($('#precioFertilizanteEscenario').val().length === 0) || precioFert < 1 || precioFert > 3){ //incorrecto precio fertilizante
+					erroresMostrar = erroresMostrar + "<p> Precio del fertilizante </p>";
+					pf= false;
+				}
+				else{
+					pf = true;
+				}
+				
+				if(($('#costeRiegoEscenario').val().length === 0) || precioRiego < 1 || precioRiego > 3){ //incorrecto precio riego
+					erroresMostrar = erroresMostrar + "<p> Precio del riego </p>";
+					cr= false;
+				}
+				else{
+					cr = true;
+				}
+				
+				if(($('#gastosGeneralesEscenario').val().length === 0) || gastosG < 300 || gastosG > 1000){//incorrecto otros costos
+					erroresMostrar = erroresMostrar + "<p> Otros costos </p>";
+					oc= false;
+				}
+				else{
+					oc = true;
+				}
+				
+				if(erroresMostrar!=" "){
+					 erroresMostrar = errores + " <b><p> Escenario: " + escenarios[i].nombre + "<p></b>" + erroresMostrar;
+					var div= "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + erroresMostrar + "</div>";
+					//document.getElementById("msgErrores").className = "alert alert-warning";
+					$("#msgErroresMB" ).html(div);
+					$('body,html').animate({scrollTop : 0}, 500);
+				}
+				if(pg && pf && cr && oc){
+					datosOk = datosOk && true; 
+				}
+				else{
+					datosOk=false; 
+				}		
 			
-			if((parseInt($('#precioFertilizanteEscenario').val()) < 1) || (parseInt($('#precioFertilizanteEscenario').val()) > 3)){ //incorrecto precio fertilizante
-				errores = errores + "<p> Precio del fertilizante </p>";
-				pf= false;
-			}
-			else{
-				pf = true;
-			}
+			}			
 			
-			if((parseInt($('#costeRiegoEscenario').val()) < 1) || (parseInt($('#costeRiegoEscenario').val()) > 3)){ //incorrecto precio riego
-				errores = errores + "<p> Precio del riego </p>";
-				cr= false;
-			}
-			else{
-				cr = true;
-			}
 			
-			if((parseInt($('#gastosGeneralesEscenario').val()) < 300) || (parseInt($('#gastosGeneralesEscenario').val()) > 1000)){//incorrecto otros costos
-				errores = errores + "<p> Otros costos </p>";
-				oc= false;
-			}
-			else{
-				oc = true;
-			}
-			
-			if(errores!="<strong> Verifique los siguientes campos: </strong>"){
-	
-				var div= "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
-				//document.getElementById("msgErrores").className = "alert alert-warning";
-				$("#msgErroresMB" ).html(div);
-				$('body,html').animate({scrollTop : 0}, 500);
-			}
-	
-			if(pg && pf && cr && oc){
-				datosOk=true; 
-			}
-			else{
-				datosOk=false; 
-			}
 			return datosOk; 
+		}		
+		function btnGraficaMargenBruto(){
+			
+			if(validacionesMB()){
+				document.getElementById('graficarMB').submit();			
+			}
 		}
 		
 	</script>
@@ -153,7 +172,7 @@
 				
 		
 		
-		<form action="margenBruto">
+		<form id = "graficarMB" action="margenBruto">
 			<input type="text" value="{{dir}}" name="dirEscenario" style="display:none">
 			
 			{% for anioE in aniosEscenarios %}
@@ -214,7 +233,7 @@
 				</div>
 				{% endfor %}
 				<div class="row margenTop">									
-					<input class="btn btn-success" style="width:50%;margin:0px auto; display:block;" type='submit' name="margenBruto" value="Graficar margen bruto">
+					<input class="btn btn-success" type="button" style="width:50%;margin:0px auto; display:block;" onclick="btnGraficaMargenBruto()" name="margenBruto" value="Graficar margen bruto">
 				</div>
 			</div>
 		</form>						
