@@ -312,8 +312,9 @@
 	};
 	
 	function btnAgregarEscenario(){
-		agregarEscenario();
-		$('#myModal').modal('show');	
+		if(agregarEscenario()){
+			$('#myModal').modal('show');	
+		}
 	};
 	
 	
