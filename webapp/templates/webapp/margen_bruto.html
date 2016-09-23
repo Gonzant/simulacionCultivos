@@ -75,10 +75,10 @@
 			var precioRiego = parseInt($('#costeRiegoEscenario').val());
 			var gastosG = parseInt($('#gastosGeneralesEscenario').val());
 				
-				alert(cantEscenarios);
+				//alert(cantEscenarios);
 				
 			for (var i =0; i<cantEscenarios; i++){
-				alert(cantEscenarios);
+				//alert(cantEscenarios);
 				if(($('#precioGranoEscenario').val().length === 0) || precioGrano < 0 || (precioGrano > 1000)){ //incorrecto precio grano
 					erroresMostrar = erroresMostrar + "<p> Precio del grano"+"</p>";
 					pg= false;
@@ -125,8 +125,7 @@
 					datosOk=false; 
 				}		
 			
-			}			
-			
+			}		
 			
 			return datosOk; 
 		}		
@@ -136,6 +135,14 @@
 				document.getElementById('graficarMB').submit();			
 			}
 		}
+		
+		$(document).ready(function() {
+		 alert("document cargo margen bruto - ready"  );
+		});
+		
+		$(window).load(function() {
+		 alert("window cargo - margen bruto");
+		});
 		
 	</script>
 </head>

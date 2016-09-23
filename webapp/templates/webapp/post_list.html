@@ -317,7 +317,6 @@
 		}
 	};
 	
-	
 	function agregarEscenarioNav(){
 	
 		var divE = document.getElementById('navEscenarios');
@@ -370,11 +369,6 @@
 		"<div>");
 	};
 	
-	function escucharAgregarEscenario(){
-		//document.getElementById("agregarIdEscenario").addEventListener("click", agregarEscenario);
-		//document.getElementById("agregarIdEscenario").addEventListener("click", agregarEscenarioNav);		
-	};
-	
 	function cerrar(){ 
 		$("#carga").animate({"opacity":"0"},1000,function(){$("#carga").css("display","none");}); 
 	} 
@@ -382,8 +376,9 @@
 	function ejecutarSimulacion(){
 		
 		if (agregarEscenario()){		
-			cerrar();		
-			document.getElementById('ejecutarDSSAT').submit();			
+			cerrar();			
+			document.getElementById('ejecutarDSSAT').submit();	
+			$('#modalCargando').modal('show');			
 		}				
 	};
 	
@@ -515,19 +510,8 @@
 			}
 		}
 	};
-		
-	/*window.onload = cargarLoading();
-	function cargarLoading(){
-		document.getElementById("imgLOAD").style.display="none";
-	}
-	function detenerLoading(){
-		document.getElementById("imgLOAD").style.display="inline";
-	}
-	*/
-		
+	
 </script>
-
-
 
 <div class="container">	
 	<!--<div id="imgLOAD" style="text-align:center;">
@@ -838,6 +822,18 @@
 				<button type="button" id="btnNoGuardaDatos" class="btn btn-default" onclick="vaciarForm();" data-dismiss="modal">No</button>
 				<button type="button" id="btnSiGuardaDatos" class="btn btn-primary" onclick="borrarNombreEscenario();" data-dismiss="modal">Si</button>
 			  </div>
+			</div>
+			<!-- /.modal-content -->
+		  </div>
+		  <!-- /.modal-dialog -->
+		</div>
+		
+		<div class="modal fade" id="modalCargando" style="-webkit-box-shadow: 0 3px 5px transparent; background: transparent; border: 1px solid transparent;">
+		  <div class="modal-dialog  modal-sm">
+			<div class="modal-content" align="center">			  
+			  <div class="modal-body" id="modal-body" align="center">
+				 <img src="/static/img/cargando.gif" alt="cargando" class="img-responsive">
+			  </div>			  
 			</div>
 			<!-- /.modal-content -->
 		  </div>
