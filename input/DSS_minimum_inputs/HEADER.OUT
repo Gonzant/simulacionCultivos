@@ -1,13 +1,13 @@
-*DSSAT Cropping System Model Ver. 4.0.2.000               Sep 23, 2016; 12:36:07
+*DSSAT Cropping System Model Ver. 4.0.2.000               Oct 04, 2016; 09:39:03
 
 *RUN   1        : UYMZ                     
  MODEL          : MZCER040 - MAIZE     
- EXPERIMENT     : UYMZ0758 SN late to create DSS                                
+ EXPERIMENT     : UYMZ0759 SN late to create DSS                                
  TREATMENT  1   : UYMZ                     
 
  CROP           : MAIZE          CULTIVAR : CMEDIO UY        ECOTYPE :IB0001
- STARTING DATE  : SEP 19 2000
- PLANTING DATE  : SEP 22 2000    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
+ STARTING DATE  : SEP 30 2000
+ PLANTING DATE  : OCT  3 2000    PLANTS/m2 :  7.0     ROW SPACING :  15.cm 
  WEATHER        : UYTA   2000
  SOIL           : UYSN2N2002     TEXTURE : C     - N20-02    SNIA CLAY RISSO
  SOIL INITIAL C : DEPTH:125cm EXTR. H2O:124.1mm  NO3: 66.4kg/ha  NH4: 22.4kg/ha
