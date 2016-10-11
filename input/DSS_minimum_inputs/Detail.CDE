@@ -1,5 +1,5 @@
 *EXPERIMENTAL DETAILS CODES
-! DSSAT v4.0; 08/31/2005
+! DSSAT v4.6; 07/01/2015
 
 ! Headers used in the @ line to identify variables are listed first, codes to
 ! identify methods, chemicals, etc. are listed next in sections that relate to
@@ -146,7 +146,7 @@ SAKE     Potassium, exchangeable, cmol kg-1                                   IB
 SANI     Total nitrogen, %                                                    IB
 SAOC     Organic carbon, %                                                    IB
 SAPX     Phosphorus, extractable, mg kg-1                                     IB
-SH20     Water, cm3 cm-3                                                      IB
+SH2O     Water, cm3 cm-3                                                      IB
 SITE(S)  Name and location of experimental site(s)                            IB
 SLDP     Soil depth, cm                                                       IB
 SLTX     Soil texture                                                         IB
@@ -217,13 +217,15 @@ CH100    Pix [Mepiquat Chloride; Growth Regulator]                            IB
 AL       Alfalfa/Lucerne                                                      IB
 AR       Aroid                                                                IB
 BA       Barley                                                               IB
+BM       Bermuda grass                                                        IB
+BH       Bahia grass                                                          IB
 BN       Dry bean                                                             IB
 BR       Brachiaria                                                           IB
-BS       Beet sugar                                                           IB
+BS       Sugar beet                                                           IB
 BW       Broad leaf weeds                                                     IB
 CB       Cabbage                                                              IB
 CH       Chickpea                                                             IB
-CT       Citrus                                                               IB 
+CT       Citrus                                                               IB
 CN       Canola                                                               IB
 CO       Cotton                                                               IB
 CP       Cowpea                                                               IB
@@ -231,17 +233,19 @@ CS       Cassava                                                              IB
 CV       Clover                                                               IB
 FA       Fallow                                                               IB
 FB       Faba bean                                                            IB
-G0       Bahia grass                                                          IB
+GB       Green bean                                                           IB
+GR       Grass vegetation                                                     IB
 GW       Grass weeds                                                          IB
+LT       Lentil                                                               IB
 ML       Pearl millet                                                         IB
 MZ       Maize                                                                IB
 NN       Banana                                                               IB
-NP       Napier grass                                                         IB   
+NP       Napier grass                                                         IB
 OA       Oats                                                                 IB
 PE       Pea                                                                  IB
 PI       Pineapple                                                            IB
 PN       Peanut                                                               IB
-PO       Perennial peanut                                                     IB    	
+PO       Perennial peanut                                                     IB
 PP       Pigeonpea                                                            IB
 PR       Pepper                                                               IB
 PT       Potato                                                               IB
@@ -250,9 +254,11 @@ RP       Rhizoma peanut                                                       IB
 SB       Soybean                                                              IB
 SC       Sugarcane                                                            IB
 SG       Grain sorghum                                                        IB
+SI       Switch grass                                                         IB
+SQ       Sequence                                                             IB
 SS       Sesame                                                               IB
-ST       Shrubs/trees                                                         IB
 SU       Sunflower                                                            IB
+SW       Sweetcorn                                                            IB
 TM       Tomato                                                               IB
 TN       Tanier                                                               IB
 TR       Taro                                                                 IB
@@ -276,6 +282,18 @@ DR000    No drainage                                                          IB
 DR001    Ditches                                                              IB
 DR002    Sub-surface tiles                                                    IB
 DR003    Surface furrows                                                      IB
+
+*Element Code
+@CDE     DESCRIPTION                                                          SO
+B        Boron                                                                IB
+CA       Calcium                                                              IB
+FE       Iron                                                                 IB
+MG       Magnesium                                                            IB
+N        Nitrogen                                                             IB
+P        Phosphorus                                                           IB
+P        Potassium                                                            IB
+S        Sulfur                                                               IB
+ZN       Zinc                                                                 IB
 
 *Environment Modification Factors
 @CDE     DESCRIPTION                                                          SO
@@ -310,7 +328,7 @@ FE021    Rock phosphate                                                       IB
 FE022    Calcitic limestone                                                   IB
 FE024    Rhizobium                                                            IB
 FE026    Calcium hydroxide                                                    IB
-FE051    Urea super granules                                                  IB   
+FE051    Urea super granules (Control release)                                IB
 
 *Harvest components
 @CDE     DESCRIPTION                                                          SO
@@ -333,7 +351,7 @@ AP003    Banded on surface                                                    IB
 AP004    Banded beneath surface                                               IB
 AP005    Applied in irrigation water                                          IB
 AP006    Foliar spray                                                         IB
-AP007    Bottom of hole                                                       IB
+AP007    Bottom of hole, deep placement                                       IB
 AP008    On the seed                                                          IB
 AP009    Injected                                                             IB
 AP011    Broadcast on flooded/saturated soil, none in soil                    IB
@@ -387,11 +405,16 @@ SA015    NH4OAc                                                               IB
 
 *Planting Material/Method
 @CDE     DESCRIPTION                                                          SO
-S        Dry seed                                                             IB
-T        Transplants                                                          IB
+B        Bedded                                                               IB
+C        Cutting                                                              IB
+H        Horizontally planted sticks                                          IB
+I        Inclined (45o) sticks                                                IB
 N        Nursery                                                              IB
 P        Pregerminated seed                                                   IB
 R        Ratoon                                                               IB
+S        Dry seed                                                             IB
+T        Transplants                                                          IB
+V        Vertically planted sticks                                            IB
 
 *Plant Distribution
 @CDE     DESCRIPTION                                                          SO
@@ -401,11 +424,41 @@ U        Uniform/Broadcast                                                    IB
 
 *Residues and Organic Fertilizer
 @CDE     DESCRIPTION                                                          SO
-RE001    Crop residue                                                         IB
-RE002    Green Manure                                                         IB
-RE003    Barnyard Manure                                                      IB
-RE004    Liquid Manure                                                        IB
+RE001    Generic crop residue                                                 IB
+RE101    Generic legume residue                                               IB
+RE201    Generic cereal crop residue                                          IB
+RE301    Generic grass                                                        IB
+RE999    Decomposed crop residue                                              IB
+RE002    Green manure                                                         IB
+RE003    Barnyard manure                                                      IB
+RE004    Liquid manure                                                        IB
 RE005    Compost                                                              IB
+RE006    Bark                                                                 IB
+RE102    Cowpea residue                                                       IB
+RE103    Mucuna residue                                                       IB
+RE104    Peanut residue                                                       IB
+RE105    Pigeon Pea residue                                                   IB
+RE106    Soybean residue                                                      IB
+RE107    Alfalfa residue                                                      IB
+RE108    chickpea forage                                                      IB
+RE109    Faba bean                                                            IB
+RE110    Pea residue                                                          IB
+RE111    Hairy vetch                                                          IB
+RE202    Pearl millet residue                                                 IB
+RE203    Maize residue                                                        IB
+RE204    Sorghum residue                                                      IB
+RE205    Wheat residue                                                        IB
+RE206    Barley                                                               IB
+RE207    rice                                                                 IB
+RE208    rye                                                                  IB
+RE302    Bahiagrass                                                           IB
+RE303    Bermudagrass                                                         IB
+RE304    Switchgrass                                                          IB
+RE305    brachiaria                                                           IB
+RE306    forage grasses                                                       IB
+RE401    Bush fallow residue                                                  IB
+RE402    Sugarcane                                                            IB
+RE403    Pineapple                                                            IB
 
 *Rotation
 @CDE     DESCRIPTION                                                          SO
@@ -429,25 +482,50 @@ SL       Sandy loam                                                           IB
 
 *Tillage Implements
 @CDE     DESCRIPTION                                                          SO
-TI002    Tandem disk                                                          IB
-TI003    Offset disk                                                          IB
-TI004    Oneway disk                                                          IB
-TI005    Moldboard plow                                                       IB
-TI006    Chisel plow                                                          IB
+TI001    V-Ripper                                                             IB
+TI002    Subsoiler                                                            IB
+TI003    Moldboard plow 20 cm                                                 IB
+TI004    Chisel plow, sweeps                                                  IB
+TI005    Chisel plow, straight point                                          IB
+TI006    Chisel plow, twisted shovels                                         IB
 TI007    Disk plow                                                            IB
-TI008    Subsoiler                                                            IB
-TI009    Beeder/lister                                                        IB
-TI010    Field cultivator                                                     IB
-TI011    Row crop cultivator                                                  IB
-TI012    Harrow-springtooth                                                   IB
-TI013    Harrow-spike                                                         IB
-TI014    Rotary hoe                                                           IB
-TI015    Roto-tiller                                                          IB
-TI016    Row crop planter                                                     IB
-TI017    Drill                                                                IB
-TI018    Shredder                                                             IB
-TI019    Hoe                                                                  IB
-TI020    Planting stick                                                       IB
+TI008    Disk, 1-way                                                          IB
+TI009    Disk, tandem                                                         IB
+TI010    Disk, double disk                                                    IB
+TI011    Cultivator, field                                                    IB
+TI012    Cultivator, row                                                      IB
+TI013    Cultivator, ridge till                                               IB
+TI014    Harrow, spike                                                        IB
+TI015    Harrow, tine                                                         IB
+TI016    Lister                                                               IB
+TI017    Bedder                                                               IB
+TI018    Blade cultivator                                                     IB
+TI019    Fertilizer applicator, anhydrous                                     IB
+TI020    Manure injector                                                      IB
 TI021    Animal-drawn implement                                               IB
-TI022    Hand                                                                 IB
-TI023    Manual hoeing                                                        IB
+TI022    Mulch treader                                                        IB
+TI023    Plank                                                                IB
+TI024    Roller packer                                                        IB
+TI025    Drill, double-disk                                                   IB
+TI026    Drill, deep furrow                                                   IB
+TI031    Drill, no-till                                                       IB
+TI032    Drill, no-till [sod]                                                 IB
+TI033    Planter, row                                                         IB
+TI034    Planter, no-till                                                     IB
+TI035    Planting stick (hand)                                                IB
+TI036    Matraca hand planter                                                 IB
+TI037    Rod weeder                                                           IB
+TI038    Rotary hoe                                                           IB
+TI039    Roller harrow, cultipacker                                           IB
+TI041    Moldboard plow 25 cm                                                 IB
+TI042    Moldboard plow 30 cm                                                 IB
+
+*Field History
+@CDE     DESCRIPTION                                                          SO
+FH101    Cultivated, good mgmt, init default SOM                              IB
+FH102    Cultivated, poor mgmt, init default SOM                              IB
+FH201    Cultivated, good mgmt, init grass or forest                          IB
+FH202    Cultivated, poor mgmt, init grass or forest                          IB
+FH301    Cultivated, good mgmt, init degraded land                            IB
+FH302    Cultivated, poor mgmt, init degraded land                            IB
+

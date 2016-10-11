@@ -35,14 +35,20 @@ def get_soil_IC(ID_SOIL):
     soil_flag=0
     count=0
     fname = open(SOL_file,"r") #opens *.SOL
+    print('ID_SOIL')
+    print(ID_SOIL)
     for line in fname:
         if ID_SOIL in line:
             soil_depth=line[33:36]
+            print('soil_depth',soil_depth)
             soil_flag=1
         if soil_flag == 1:
             print (line)
             count=count+1
             if count >= 7:
+                print(count)
+                print(line)
+                print('fin',line[3:6])
                 depth_layer.append(int(line[0:6]))
                 ll_layer.append(float(line[13:18]))
                 ul_layer.append(float(line[19:24]))
@@ -84,15 +90,17 @@ def completarCeros(string):
 		
 def run_dssat(dir, dirInputDSS, listaArchivos):
 	#entries = ("AveStress.txt", "SumStress.txt", "YIELD.txt","PgtTHRESHPct.txt","PlantGro.OUT","Evaluate.OUT",
-	entries = ("PlantGro.OUT","Evaluate.OUT",
-			   "ET.OUT","OVERVIEW.OUT","PlantN.OUT","SoilN.OUT","Weather.OUT",
-			   "SoilNbal.OUT","SoilTemp.OUT","SoilWat.OUT","SoilWatBal.OUT","Summary.OUT")			
+	entries = ("ET.OUT", "PlantGro.OUT", "PlantN.OUT", 
+				"SoilNi.OUT", "SoilTemp.OUT", "SoilWat.OUT", "Weather.OUT",
+				"Mulch.OUT", "Evaluate.OUT", "OVERVIEW.OUT",
+				"SolNBalSum.OUT", "SoilNiBal.OUT", "SoilNoBal.OUT", "SoilWatBal.OUT",
+				"Summary.OUT", "INFO.OUT")
 	
 	for a in listaArchivos:			
 		P_procesamiento()
 		writeDV4_main(dirInputDSS, a)		
 		#==RUN DSSAT with ARGUMENT
-		args = "DSCSM040.EXE B D4Batch.DV4"
+		args = "DSCSM046.EXE B DSSBatch.v46"
 		#Run executable with argument		
 		try:
 			subprocess.call(args, cwd= os.path.join(settings.BASE_DIR, "input", "DSS_minimum_inputs"), shell=True)		
@@ -111,9 +119,8 @@ def run_dssat(dir, dirInputDSS, listaArchivos):
 
 
 def writeDV4_main(dirInputDSS,nombreArchivo):
-	temp_dv4 = os.path.join(dirInputDSS, "D4Batch_TEMP_" + nombreArchivo[2:4] + ".DV4")
-	snx_fname = nombreArchivo
-	dv4_fname = os.path.join(dirInputDSS, "D4Batch.DV4")
+	temp_dv4 = os.path.join(dirInputDSS, "DSSBatch_TEMP.v46")	
+	dv4_fname = os.path.join(dirInputDSS, "DSSBatch.v46")
 	fr = open(temp_dv4, "r") #opens temp DV4 file to read
 	fw = open(dv4_fname, "w")
 	#read template and write lines
@@ -122,7 +129,7 @@ def writeDV4_main(dirInputDSS,nombreArchivo):
 		fw.write(temp_str)		
 
 	temp_str = fr.readline()
-	new_str = snx_fname + temp_str[12:]
+	new_str = nombreArchivo + temp_str[12:]
 	fw.write(new_str)
 	fr.close()
 	fw.close()
@@ -135,7 +142,7 @@ def graficasYield(directorioEscenario, anios, nombreEscenarios ):
 	count=0
 	
 	for escenario in listaEscenarios:
-		fname.append(os.path.join(directorioEscenario, escenario, "Summary.out"))		
+		fname.append(os.path.join(directorioEscenario, escenario, "Summary.OUT"))		
 		count = count+1
 		
 	max_nyears = int(max(nyears))
@@ -157,8 +164,9 @@ def graficasYield(directorioEscenario, anios, nombreEscenarios ):
 			temp_str=fr.readline()
 		for line in range(0,int(nyears[x])): #read actual simulated data
 			temp_str=fr.readline()
-			yield_data[line,x]=int(temp_str[135:141])
-			yield_list.append(int(temp_str[135:141]))
+			yield_data[line,x]=int(temp_str[164:170])
+			yield_list.append(int(temp_str[164:170]))
+			print(yield_list)
 		fr.close()
 						
 		yield_array = np.array(yield_list)  #convert list to array
@@ -238,7 +246,6 @@ def graficasYield(directorioEscenario, anios, nombreEscenarios ):
 	# Put a legend to the right of the current axis
 	ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 	plt.savefig(os.path.join(directorioEscenario, "curvaPExcedencia.png"))
-	
 	return ([listMean,listMediana,listWhiskersMenor,listWhiskersMayor,listBase,listMayor])
 
 
@@ -612,7 +619,7 @@ def margenBruto(request):
 	
 	if (tienePrecio):
 		for i in range(count):
-			fname.append(os.path.join(listaDir[i], "Summary.out"))
+			fname.append(os.path.join(listaDir[i], "Summary.OUT"))
 			costN_list.append(precioFertilizanteEscenarios[i])
 			costI_list.append(costoRiegoEscenarios[i])
 			costG_list.append(gastosGeneralesEscenarios[i])
@@ -636,9 +643,9 @@ def margenBruto(request):
 				temp_str=fr.readline()
 			for line in range(0,int(nyears[x])): #read actual simulated data
 				temp_str=fr.readline()
-				yield_out=float(temp_str[135:141])
-				fert_amount=float(temp_str[248:254])  #NICM   Tot N app kg/ha Inorganic N applied (kg [N]/ha)    
-				irr_amount=float(temp_str[194:200])   #IRCM   Irrig mm        Season irrigation (mm)   
+				yield_out=float(temp_str[164:170])
+				fert_amount=float(temp_str[278:284])  #NICM   Tot N app kg/ha Inorganic N applied (kg [N]/ha)    
+				irr_amount=float(temp_str[224:230])   #IRCM   Irrig mm        Season irrigation (mm)   
 				GMargin_data[line,x]=yield_out*float(price)*0.001 - float(cost_N)*fert_amount - float(cost_I)*irr_amount - float(cost_G)#$/ha
 			fr.close()
 
