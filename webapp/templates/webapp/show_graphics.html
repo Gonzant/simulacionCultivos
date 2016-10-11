@@ -208,6 +208,14 @@
 			};
 			window.location.href = "http://127.0.0.1:8000/webapp/margenBruto?dirEscenario=" + dir + "&" + nombres + "&" + anios;	
 		};
+		
+		
+		$(document).ready(function() {
+			// alert("document cargo - show graphic - ready");
+			 $('#modalCargando').modal('hide');
+		});
+		
+		
 	</script>
 	
 
@@ -290,8 +298,9 @@
 		{% endfor %}
 		<input type="text" value="{{dir}}" name="dirEscenario" style="display:none">		
 		
-		<div class="row">
-			<input class="btn btn-success" style="width:50%;margin:0px auto; display:block;" onclick='calcularMargenBruto()' name="margenBruto" value="Calcular margen bruto">
+
+		<div class="row">				
+			<input class="btn btn-success" type= "button" style="width:50%;margin:0px auto; display:block;" onclick='calcularMargenBruto()' name="margenBruto" value="Calcular margen bruto">
 		</div>
 		
 		<div class="row margenTop">				
