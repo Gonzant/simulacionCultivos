@@ -8,6 +8,8 @@ import sys
 import subprocess
 import shutil
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import time
 import datetime
@@ -100,7 +102,12 @@ def run_dssat(dir, dirInputDSS, listaArchivos):
 		P_procesamiento()
 		writeDV4_main(dirInputDSS, a)		
 		#==RUN DSSAT with ARGUMENT
-		args = "DSCSM046.EXE B DSSBatch.v46"
+		
+		if os.name == 'nt':
+			exe = 'DSCSM046_W.EXE'
+		else: 
+			exe = 'DSCSM046.EXE'
+		args = exe + " B DSSBatch.v46"
 		#Run executable with argument		
 		try:
 			subprocess.call(args, cwd= os.path.join(settings.BASE_DIR, "input", "DSS_minimum_inputs"), shell=True)		
@@ -116,7 +123,6 @@ def run_dssat(dir, dirInputDSS, listaArchivos):
 			#Si ocurre un error libero el semaforo de procesamiento
 			print "Unexpected error:", sys.exc_info()[0]
 			V_procesamiento()
-
 
 def writeDV4_main(dirInputDSS,nombreArchivo):
 	temp_dv4 = os.path.join(dirInputDSS, "DSSBatch_TEMP.v46")	
@@ -666,7 +672,7 @@ def margenBruto(request):
 		# Plot a line between the means of each dataset
 		#plt.plot(myXList, obs, 'go-')
 		resultB2 = ax.boxplot(GMargin_data,labels=scename, showmeans=True, meanline=True, meanprops ={'color':'green'}) #, notch=True, bootstrap=10000)
-		plt.savefig(os.path.join(dirEscenario, 'margenBruto.png'))
+		plt.savefig(os.path.join(pathCompleto, 'margenBruto.png'))
 		
 		print("boxplot result:")			
 			
