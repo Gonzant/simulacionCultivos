@@ -1,8 +1,8 @@
-*EXP.DETAILS: UYSB0874SN late to create DSS                                          
+*EXP.DETAILS: UYSB0875SN late to create DSS                                          
 
 *FILES
 @N  EXP.DATA    AFILE        ADIR
-  1 EXP         UYSB0874.SNA                                                                                 
+  1 EXP         UYSB0875.SNA                                                                                 
 @N  SPECIES     SPFILE       SPDIR
   1 SPE         SBGRO046.SPE                                                                                 
 @N  ECOTYPE     EFILE        EDIR
@@ -12,7 +12,7 @@
 @N  SOIL        SFILE        SDIR
   1 SOIL        UY.SOL                                                                                       
 @N  WEATHER     WFILE        WDIR
-  1 WEATH       UYTT9001.WTH                                                                                 
+  1 WEATH       UYTA9001.WTH                                                                                 
 
 *SIMULATION CONTROL
 @N  GENERAL     NYERS NREPS START   SDATE RSEED SNAME.................... MODEL...
@@ -48,7 +48,7 @@
 
 *FIELDS
 @L  ID_FIELD WSTA....  FLSA  FLOB  FLDT  FLDD  FLDS  FLST SLTX   SLDP ID_SOIL
-  1 UYTT     UYTT9001   0.0  -99.   -99  -99.  100.   -99 -99    -99. UYSS0N2002
+  1 UYTA     UYTA9001   0.0  -99.   -99  -99.  100.   -99 -99    -99. UYSS0N2002
 @L             XCRD            YCRD      ELEV              AREA  SLEN  FLWR  SLAS PRMGT
   1       -99.00000       -99.00000    -99.00               1.0  100.   1.0 -99.0           0
 

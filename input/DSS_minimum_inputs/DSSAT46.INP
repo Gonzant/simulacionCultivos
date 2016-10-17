@@ -1,15 +1,15 @@
 *MODEL INPUT FILE            B     1     1     1   999     0
 *FILES              
 MODEL          CRGRO046
-FILEX          UYSB0874.SNX                                                                                 
-FILEA          UYSB0874.SNA                                                                                 
-FILET          UYSB0874.SNT                                                                                 
+FILEX          UYSB0875.SNX                                                                                 
+FILEA          UYSB0875.SNA                                                                                 
+FILET          UYSB0875.SNT                                                                                 
 SPECIES        SBGRO046.SPE                                                                                 
 ECOTYPE        SBGRO046.ECO                                                                                 
 CULTIVAR       SBGRO046.CUL                                                                                 
 PESTS          SBGRO046.PST C:\DSSAT46\PEST\                                                                
 SOILS          UY.SOL                                                                                       
-WEATHER        UYTT9001.WTH                                                                                 
+WEATHER        UYTA9001.WTH                                                                                 
 OUTPUT         OVERVIEW
 *SIMULATION CONTROL 
                    3     1     S 1990288  2150 15102000                 
@@ -24,13 +24,13 @@ OUTPUT         OVERVIEW
                 100.     1   20.
                      0 2000289  100.    0.
 *EXP.DETAILS        
-  1UYSB0874 SN late to create DSS                                          
+  1UYSB0875 SN late to create DSS                                          
 *TREATMENTS         
   1 1 1 0 UYSB                     
 *CULTIVARS          
    SB UY0141 GM 4 URUGUAY    
 *FIELDS             
-   UYTT     UYTT9001   0.0  -99.   -99  -99. 100.0   -99 -99    -99. UYSS0N2002
+   UYTA     UYTA9001   0.0  -99.   -99  -99. 100.0   -99 -99    -99. UYSS0N2002
          -99.00000       -99.00000    -99.00               1.0  100.   1.0 -99.0           0
 *INITIAL CONDITIONS 
    SB    1990290     0     0  1.00  1.00   0.0     0  0.00  0.00  100.    0.
