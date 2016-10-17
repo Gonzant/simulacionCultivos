@@ -136,6 +136,16 @@
 			}
 		}
 	
+		function agregarNuevoEscenario(){
+			setearCookie('NuevoEscenario');
+		};
+		
+		function setearCookie(esc){
+			console.log(esc);						
+			var cookie = ['escenarios', '=', JSON.stringify(escenarios),'; domain=', "127.0.0.1", '; path=/;'].join('');					
+			document.cookie = cookie;
+			window.location = "http://127.0.0.1:8000/webapp/?modificar="+ esc;
+		};	
 		
 	</script>
 </head>
@@ -152,13 +162,11 @@
 		
 		
 		<div class="row paddingBottom">
-			<div id="imagenMB" class="col-sm-6">
-				
+			<div id="imagenMB" class="col-sm-6">	
 			</div>
 			<div class="col-sm-6" id = "datosMargenBoxplot">								
 			</div>
 		</div>			
-				
 		
 		
 		<form id = "graficarMB" action="margenBruto">
@@ -203,6 +211,7 @@
 				<div class="row margenTop">									
 					<input class="btn btn-success" type="button" style="width:50%;margin:0px auto; display:block;" onclick="btnGraficaMargenBruto()" name="margenBruto" value="Graficar margen bruto">
 				</div>
+				<!--<button class='btn btn-primary' onclick=''>Agregar escenario</button>-->
 			</div>
 		</form>	
 
