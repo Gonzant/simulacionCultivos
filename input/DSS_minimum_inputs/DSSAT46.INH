@@ -1,8 +1,8 @@
-*EXP.DETAILS: UYMZ0855SN late to create DSS                                          
+*EXP.DETAILS: UYMZ0870SN late to create DSS                                          
 
 *FILES
 @N  EXP.DATA    AFILE        ADIR
-  1 EXP         UYMZ0855.SNA                                                                                 
+  1 EXP         UYMZ0870.SNA                                                                                 
 @N  SPECIES     SPFILE       SPDIR
   1 SPE         MZCER046.SPE                                                                                 
 @N  ECOTYPE     EFILE        EDIR
@@ -22,7 +22,7 @@
 @N  METHODS     WTHER INCON LIGHT EVAPO INFIL PHOTO HYDRO NSWIT SOMDY MESEV MESOL METMP
   1 ME              M     M     E     R     S     C     R     1     G     S     2     D
 @N  MANAGEMENT  PLANT IRRIG FERTI RESID HARVS
-  1 MA              R     A     D     N     M
+  1 MA              R     A     N     N     M
 @N  OUTPUTS     FNAME OVVEW SUMRY FROPT GROUT CAOUT WAOUT NIOUT MIOUT DIOUT  LONG CHOUT OPOUT
   1 OU              N     Y     Y     1     Y     N     Y     Y     N     N     Y     N     N
 
@@ -40,7 +40,7 @@
 
 *TREATMENTS
 @N   R O C TNAME....................  CU  FL  SA  IC  MP  MI  MF  MR  MC  MT  ME  MH  SM
-  1  1 1 0 UYMZ                        1   1   0   1   1   0   1   0   0   0   0   0   1
+  1  1 1 0 UYMZ                        1   1   0   1   1   0   0   0   0   0   0   0   1
 
 *CULTIVARS
 @C  CR INGENO CNAME
@@ -78,8 +78,6 @@
 
 *FERTILIZERS
 @F    FDATE  FMCD  FACD  FDEP  FAMN  FAMP  FAMK  FAMC  FAMO  FOCD
-  1       1 FE001 AP001    5.    1.  -99.  -99.  -99.  -99.   -99
-  1       2 FE001 AP001    5.    3.  -99.  -99.  -99.  -99.   -99
 
 *RESIDUES
 @R    RDATE  RCOD  RAMT  RESN  RESP  RESK  RINP  RDEP  RMET

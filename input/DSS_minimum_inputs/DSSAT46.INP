@@ -1,9 +1,9 @@
 *MODEL INPUT FILE            B     1     1     1   999     0
 *FILES              
 MODEL          MZCER046
-FILEX          UYMZ0855.SNX                                                                                 
-FILEA          UYMZ0855.SNA                                                                                 
-FILET          UYMZ0855.SNT                                                                                 
+FILEX          UYMZ0870.SNX                                                                                 
+FILEA          UYMZ0870.SNA                                                                                 
+FILET          UYMZ0870.SNT                                                                                 
 SPECIES        MZCER046.SPE                                                                                 
 ECOTYPE        MZCER046.ECO                                                                                 
 CULTIVAR       MZCER046.CUL                                                                                 
@@ -15,7 +15,7 @@ OUTPUT         OVERVIEW
                   11     1     S 2000288  2150 15102000                 
                    Y     Y     N     N     N     N     N     N     M
                    M     M     E     R     S     C     R     1     G     S     2     D
-                   R     A     D     N     M
+                   R     A     N     N     M
                    N     Y     Y     1     Y     N     Y     Y     N     N     Y     N     N
 !AUTOMATIC MANAGEM  
                1966289 1966289   40.  100.   30.   40.   10.
@@ -24,7 +24,7 @@ OUTPUT         OVERVIEW
                 100.     1   20.
                      0 2000289  100.    0.
 *EXP.DETAILS        
-  1UYMZ0855 SN late to create DSS                                          
+  1UYMZ0870 SN late to create DSS                                          
 *TREATMENTS         
   1 1 1 0 UYMZ                     
 *CULTIVARS          
@@ -49,8 +49,6 @@ OUTPUT         OVERVIEW
 *IRRIGATION         
    1.000    0.    0.    0. GS000 IR001   0.0
 *FERTILIZERS        
-         1 FE001 AP001    5.    1.  -99.  -99.  -99.  -99.   -99
-         2 FE001 AP001    5.    3.  -99.  -99.  -99.  -99.   -99
 *RESIDUES           
 *CHEMICALS          
 *TILLAGE            
