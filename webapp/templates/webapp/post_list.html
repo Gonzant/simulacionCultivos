@@ -263,13 +263,7 @@
 		return result;
 		
 	};
-	
-	function btnAgregarEscenario(){
-		if(agregarEscenario()){
-			$('#myModal').modal('show');	
-		}
-	};
-	
+		
 	function agregarEscenarioNav(){
 	
 		var divE = document.getElementById('navEscenarios');
@@ -326,15 +320,7 @@
 		$("#carga").animate({"opacity":"0"},1000,function(){$("#carga").css("display","none");}); 
 	} 
 	
-	function ejecutarSimulacion(){
 		
-		if (agregarEscenario()){		
-			cerrar();			
-			document.getElementById('ejecutarDSSAT').submit();	
-			$('#modalCargando').modal('show');			
-		}				
-	};
-	
 	function checkSoja(){
 		document.getElementById("nombreCultivo").checked = true;
 		cargarComboBoxDetalle(document.getElementById("nombreCultivo"));		
@@ -633,14 +619,7 @@
 					</div>
 				</div>	
 			</div>
-			<!--<div id='fertilizacionTipo'>
-				Tipo Fertilización: 
-				<select id="cmbFertilizacionTipo" class= "form-control">	</select>
-			</div>-->
-			<!--<div id='fertilizacionAplicacion'>	
-				Aplicación Fertilización: 
-				<select id="cmbFertilizacionAplicacion" class= "form-control">	</select>
-			</div>-->
+		
 		</div>				
 		<!--Otras Fertilizaciones -->
 		<div id='fertilizacionOtras'>	
