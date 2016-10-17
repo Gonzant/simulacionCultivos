@@ -1,8 +1,8 @@
-*EXP.DETAILS: UYMZ0882SN late to create DSS                                          
+*EXP.DETAILS: UYMZ0884SN late to create DSS                                          
 
 *FILES
 @N  EXP.DATA    AFILE        ADIR
-  1 EXP         UYMZ0882.SNA                                                                                 
+  1 EXP         UYMZ0884.SNA                                                                                 
 @N  SPECIES     SPFILE       SPDIR
   1 SPE         MZCER046.SPE                                                                                 
 @N  ECOTYPE     EFILE        EDIR

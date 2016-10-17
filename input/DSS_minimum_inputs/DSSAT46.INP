@@ -1,9 +1,9 @@
 *MODEL INPUT FILE            B     1     1     1   999     0
 *FILES              
 MODEL          MZCER046
-FILEX          UYMZ0882.SNX                                                                                 
-FILEA          UYMZ0882.SNA                                                                                 
-FILET          UYMZ0882.SNT                                                                                 
+FILEX          UYMZ0884.SNX                                                                                 
+FILEA          UYMZ0884.SNA                                                                                 
+FILET          UYMZ0884.SNT                                                                                 
 SPECIES        MZCER046.SPE                                                                                 
 ECOTYPE        MZCER046.ECO                                                                                 
 CULTIVAR       MZCER046.CUL                                                                                 
@@ -24,7 +24,7 @@ OUTPUT         OVERVIEW
                 100.     1   20.
                      0 2000289  100.    0.
 *EXP.DETAILS        
-  1UYMZ0882 SN late to create DSS                                          
+  1UYMZ0884 SN late to create DSS                                          
 *TREATMENTS         
   1 1 1 0 UYMZ                     
 *CULTIVARS          
