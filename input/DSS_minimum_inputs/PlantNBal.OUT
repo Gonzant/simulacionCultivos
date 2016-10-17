@@ -1,18 +1,18 @@
 *PLANT N BALANCE
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 11, 2016; 16:00:59
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 17, 2016; 11:24:59
                                                                                 
-*RUN   1        : UYSB                      CRGRO046 UYSB0849    1              
+*RUN   1        : UYSB                      CRGRO046 UYSB0874    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB0849 SN late to create DSS                                
+ EXPERIMENT     : UYSB0874 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
                                                                                 
  CROP           : Soybean          CULTIVAR : GM 4 URUGUAY     ECOTYPE :INDETE  
- STARTING DATE  : OCT  9 1990                                                   
- PLANTING DATE  : OCT 12 1990        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
- WEATHER        : UYTA   1990                                                   
+ STARTING DATE  : OCT 15 1990                                                   
+ PLANTING DATE  : OCT 18 1990        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
+ WEATHER        : UYTT   1990                                                   
  SOIL           : UYSS0N2002     TEXTURE : -99   -  N20-02    SNIA CLAY RISS    
  SOIL INITIAL C : DEPTH:125cm EXTR. H2O:154.7mm  NO3: 28.7kg/ha  NH4: 24.1kg/ha 
  WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
@@ -24,7 +24,7 @@
                   RAIN=    0.00  CO2 =    0.00  DEW =    0.00  WIND=    0.00    
  SIMULATION OPT : WATER   :Y  NITROGEN:Y  N-FIX:Y  PHOSPH :N  PESTS  :N         
                   PHOTO   :C  ET      :R  INFIL:S  HYDROL :R  SOM    :G         
-                  CO2 354ppm  NSWIT   :1  EVAP :S  SOIL   :2  STEMP  :D         
+                  CO2 355ppm  NSWIT   :1  EVAP :S  SOIL   :2  STEMP  :D         
  MANAGEMENT OPT : PLANTING:R  IRRIG   :A  FERT :N  RESIDUE:N  HARVEST:M         
                   WEATHER :M  TILLAGE :N                                        
                                                                                 
@@ -57,41 +57,41 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
 
    PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
    ---------------  -------- kg[N]/ha -------  -------
-   Leaf N              1.17    23.15    24.32
-   Stem N              8.33     3.97    12.30
-   Shell N            20.96    37.80    58.75
-   Seed N            187.75     0.00   187.75
-   Root N              5.90     6.01    11.91
-   Nodule N            2.47     2.96     5.43
-   Total N           226.58    73.88   300.47
-   N leakage                            31.05
-   TOTAL N                                      331.52
+   Leaf N              1.50    28.66    30.15
+   Stem N              9.88     4.93    14.80
+   Shell N            24.49    35.89    60.38
+   Seed N            220.65     0.00   220.65
+   Root N              7.48     7.18    14.66
+   Nodule N            2.37     3.59     5.96
+   Total N           266.36    80.25   346.61
+   N leakage                            26.85
+   TOTAL N                                      373.46
 
 
    N INPUTS TO SYSTEM                kg[N]/ha
    ------------------                --------
    Seed N At Planting                    0.68
-   N2 Fixed                            157.60
-   N Uptake from Soil                  173.27
-   TOTAL N                                      331.55
+   N2 Fixed                            203.01
+   N Uptake from Soil                  169.79
+   TOTAL N                                      373.48
 
    * Lost due to senescence, freeze, pest or disease damage.
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 11, 2016; 16:00:59
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 17, 2016; 11:24:59
                                                                                 
-*RUN   2        : UYSB                      CRGRO046 UYSB0849    1              
+*RUN   2        : UYSB                      CRGRO046 UYSB0874    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB0849 SN late to create DSS                                
+ EXPERIMENT     : UYSB0874 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
                                                                                 
  CROP           : Soybean          CULTIVAR : GM 4 URUGUAY     ECOTYPE :INDETE  
- STARTING DATE  : OCT  9 1991                                                   
- PLANTING DATE  : OCT 12 1991        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
- WEATHER        : UYTA9101                                                      
+ STARTING DATE  : OCT 15 1991                                                   
+ PLANTING DATE  : OCT 18 1991        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
+ WEATHER        : UYTT9101                                                      
  SOIL           : UYSS0N2002     TEXTURE : -99   -  N20-02    SNIA CLAY RISS    
  SOIL INITIAL C : DEPTH:125cm EXTR. H2O:154.7mm  NO3: 28.7kg/ha  NH4: 24.1kg/ha 
  WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
@@ -136,41 +136,41 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
 
    PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
    ---------------  -------- kg[N]/ha -------  -------
-   Leaf N              0.91    19.07    19.98
-   Stem N              6.41     3.25     9.66
-   Shell N            18.92    34.08    53.00
-   Seed N            185.63     0.00   185.63
-   Root N              4.50     5.73    10.23
-   Nodule N            1.89     3.83     5.72
-   Total N           218.26    65.95   284.21
-   N leakage                            19.19
-   TOTAL N                                      303.40
+   Leaf N              1.18    23.63    24.81
+   Stem N              8.08     4.02    12.10
+   Shell N            17.84    33.88    51.72
+   Seed N            205.50     0.00   205.50
+   Root N              5.98     7.40    13.39
+   Nodule N            2.19     3.82     6.01
+   Total N           240.77    72.75   313.52
+   N leakage                            19.39
+   TOTAL N                                      332.91
 
 
    N INPUTS TO SYSTEM                kg[N]/ha
    ------------------                --------
    Seed N At Planting                    0.68
-   N2 Fixed                            127.62
-   N Uptake from Soil                  175.15
-   TOTAL N                                      303.45
+   N2 Fixed                            152.56
+   N Uptake from Soil                  179.70
+   TOTAL N                                      332.94
 
    * Lost due to senescence, freeze, pest or disease damage.
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 11, 2016; 16:00:59
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 17, 2016; 11:24:59
                                                                                 
-*RUN   3        : UYSB                      CRGRO046 UYSB0849    1              
+*RUN   3        : UYSB                      CRGRO046 UYSB0874    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB0849 SN late to create DSS                                
+ EXPERIMENT     : UYSB0874 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
                                                                                 
  CROP           : Soybean          CULTIVAR : GM 4 URUGUAY     ECOTYPE :INDETE  
- STARTING DATE  : OCT  8 1992                                                   
- PLANTING DATE  : OCT 11 1992        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
- WEATHER        : UYTA9201                                                      
+ STARTING DATE  : OCT 14 1992                                                   
+ PLANTING DATE  : OCT 17 1992        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
+ WEATHER        : UYTT9201                                                      
  SOIL           : UYSS0N2002     TEXTURE : -99   -  N20-02    SNIA CLAY RISS    
  SOIL INITIAL C : DEPTH:125cm EXTR. H2O:154.7mm  NO3: 28.7kg/ha  NH4: 24.1kg/ha 
  WATER BALANCE  : AUTOMATIC IRRIGATION - REFILL PROFILE                         
@@ -215,23 +215,23 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
 
    PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
    ---------------  -------- kg[N]/ha -------  -------
-   Leaf N              1.11    21.83    22.93
-   Stem N              6.59     3.75    10.35
-   Shell N            20.68    27.76    48.44
-   Seed N            227.79     0.00   227.79
-   Root N              5.29     7.02    12.31
-   Nodule N            2.46     3.65     6.11
-   Total N           263.92    64.01   327.93
-   N leakage                            21.32
-   TOTAL N                                      349.26
+   Leaf N              1.41    27.24    28.64
+   Stem N              8.96     4.71    13.67
+   Shell N            21.31    28.00    49.31
+   Seed N            239.18     0.00   239.18
+   Root N              6.29     8.73    15.02
+   Nodule N            2.76     4.02     6.77
+   Total N           279.91    72.69   352.60
+   N leakage                            21.20
+   TOTAL N                                      373.79
 
 
    N INPUTS TO SYSTEM                kg[N]/ha
    ------------------                --------
    Seed N At Planting                    0.68
-   N2 Fixed                            172.92
-   N Uptake from Soil                  175.67
-   TOTAL N                                      349.27
+   N2 Fixed                            187.49
+   N Uptake from Soil                  185.64
+   TOTAL N                                      373.81
 
    * Lost due to senescence, freeze, pest or disease damage.
 
