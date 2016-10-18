@@ -17,19 +17,30 @@ $(function() {
 		pickTime: false,
 		todayHighlight: true,
 		autoclose: true,
+		//format:'%Y-%m-%d', 
+		//minDate: getFormattedDate(new Date())
     });	
 	$('#datetimepicker4').datetimepicker('setDate', new Date());
+	$('.datepicker').datepicker({
+    startDate: '-3d'
 });
+});
+
+function getFormattedDate(date) {
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear().toString().slice(2);
+    return year + '-' + month + '-' + day;
+}
 
 //FERTILIZACION
 
 function OnChangeRadioFertilizacion (radio) {
 	
-  var el = document.getElementById('fertilizacionSiembra');
-  
+	
+  var el = document.getElementById('fertilizacionSiembra');  
   var diasSiembra = document.getElementById('diasDespuesSiembraI');
-  var cantS = document.getElementById('cantidadFertilizanteI');
-  
+  var cantS = document.getElementById('cantidadFertilizanteI');  
   
   if(radio.value === '0'){
 	el.style.display = 'none'; 
@@ -172,6 +183,8 @@ function validaCamposVacios(){
 }
  
 $(document).ready(function(){ 
+	
+
 	$("#carga").click(function(){cerrar();}); 
 });
  
