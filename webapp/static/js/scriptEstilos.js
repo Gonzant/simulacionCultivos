@@ -21,9 +21,9 @@ $(function() {
 		//minDate: getFormattedDate(new Date())
     });	
 	$('#datetimepicker4').datetimepicker('setDate', new Date());
-	$('.datepicker').datepicker({
-    startDate: '-3d'
-});
+	//$('.datepicker').datepicker({
+    //startDate: '-3d'
+	//});
 });
 
 function getFormattedDate(date) {
