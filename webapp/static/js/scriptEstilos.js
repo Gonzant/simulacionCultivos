@@ -17,14 +17,10 @@ $(function() {
 		pickTime: false,
 		todayHighlight: true,
 		autoclose: true,
-		//format:'%Y-%m-%d', 
-		//minDate: getFormattedDate(new Date())
     });	
 	$('#datetimepicker4').datetimepicker('setDate', new Date());
-	//$('.datepicker').datepicker({
-    //startDate: '-3d'
-	//});
 });
+
 
 function getFormattedDate(date) {
     var day = date.getDate();

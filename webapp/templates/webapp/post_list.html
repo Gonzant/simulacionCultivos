@@ -231,7 +231,7 @@
 						tCultivar: document.getElementById("cmbDetalleCultivar").value,
 						nHumedadd: document.getElementById("cmbDetalleH20").value,
 						no3: document.getElementById("cmbDetalleNO3").value,
-						fSiembra: document.getElementsByName("")[0].value
+						fSiembra: document.getElementsByName("fechaSiembra")[0].value
 					}
 				},
 				fertilizacionSiembra: {
@@ -514,18 +514,18 @@
 		</div>		
 		
 		<div class="row">
-			<h4>Periodo considerado para la Simulaci&oacute;n : </h4>
+			<h4>Periodo considerado para la simulaci&oacute;n : </h4>
 		</div>			
 		<div id="periodoAnioSimulacion">
 			<div class = "row" id="anioDesdeS"> 
 				<label for="desdeAnioSimulacion" class="col-xs-4">A&ntilde;o inicial:</label>
-				<input type="number" class="col-xs-8 alturaInput" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" required>
+				<input type="number" class="col-xs-8 alturaInput" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" min = "1950" required>
 				<span  id= "desdeAnioSimulacionS" aria-hidden="true"></span>
 				<p id="errorAnioDesde" class = "control-label has-error" class="col-xs-6"></p>
 			</div> 
 			<div class = "row" id="anioHastaS"> 
 				<label for="hastaAnioSimulacion" class="col-xs-4">A&ntilde;o final:</label>
-				<input type="number" class="col-xs-8 alturaInput" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" required>
+				<input type="number" class="col-xs-8 alturaInput" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" min = "1950" required>
 				<span  id= "hastaAnioSimulacionS" aria-hidden="true"></span>
 				<p id="errorAnioHasta" class = "control-label has-error" class="col-xs-6"></p>	
 			</div>	
@@ -544,7 +544,7 @@
 			
 		<div id = "detalleCultivo">
 			<div class="row">
-				<h4> Detalles de cultivo</h4>
+				<h4> Detalles del cultivo  y suelos: </h4>
 			</div>
 			<div id="tipoSuelo" class="row"> 
 				<label for="cmbDetalleSuelo" class="col-xs-4">Tipo de suelo: </label>
