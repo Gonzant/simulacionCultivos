@@ -9,7 +9,13 @@ $BATCH(SEASONAL)
 !
 @FILEX                                                                                        TRTNO     RP     SQ     OP     CO
 <<<<<<< HEAD
+<<<<<<< HEAD
 UYSB0923.SNX                                                                                      1      1      0      1      0
 =======
 UYSB0908.SNX                                                                                      1      1      0      1      0
+=======
+UYSB0875.SNX                                                                                      1      1      0      1      0
+=======
+UYMZ0870.SNX                                                                                      1      1      0      1      0
+>>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
 >>>>>>> origin/master

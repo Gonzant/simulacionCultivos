@@ -26,15 +26,15 @@
 
 	<script>
 		
-		var escenarios = [];
+		var escenarios = [];						
 		var suelos = [];
 		var riegos = [];
 		var cultivos = [];
 		//listMean,listMediana,listWhiskerxsenor,listWhiskerxsayor,listBase,listMayor
 		
-		function cargarDatos(){
+		function cargarDatos(){			
 			count = 0;
-			datosNumericos = {{ resultPlot }};
+			datosNumericos = {{ resultPlot }};							
 			
 			get = window.location.search.replace("?", "");
 			getListParametros = get.split("&");
@@ -185,7 +185,8 @@
 		cargarTSuelos();	
 		cargarDatos();
 		cargarParrafos();		
-		cargarEscenarios();					
+		cargarEscenarios();		
+			
 	</script>
 </body>
 </html>

@@ -14,7 +14,8 @@
 	
 	<!--Simulacion-->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>	
+	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
+	
 	
 	<!--Pasar estos si se usan local-->
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -66,7 +67,7 @@
 				}
 			}
 		};
-		
+
 
 		function loadImg(){
 			get = window.location.search.replace("?", "");
@@ -101,8 +102,7 @@
 					var t = document.createTextNode(texto);
 					parra.appendChild(t);
 					dtexto.appendChild(parra);
-				};
-				cargarPreciosIngresados();				
+				};				
 			};
 			
 			//<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/margenBruto.png" alt="Margen bruto">			
@@ -176,31 +176,20 @@
 			if(validacionesMB()){
 				document.getElementById('graficarMB').submit();			
 			}
-		}		
-
-		function cargarTSuelos(){
-			{% for cultivo in cultivos %}
-				var c = {
-					nombre: "{{ cultivo.nombre }}",					
-					valor:"{{ cultivo.value }}"
-				};
-				cultivos.push(c);
-				{% for s in cultivo.tipo_cultivares.all %}
-					var suelo = {
-						nombre: "{{ s.nombre }}",
-						valor: "{{ s.valor }}",
-						etiqueta: "{{ s.etiqueta }}",					
-					}
-					suelos.push(suelo);			
-				{% endfor %}			
-			{% endfor %}		
-			console.log(suelos)	;
-			console.log('terminaaaaaaaaaaaaaaaaaa________suelos')	;
+		}
+	
+		function agregarNuevoEscenario(){
+			setearCookie('NuevoEscenario');
+		};
+		
+		function setearCookie(esc){
+			console.log(esc);						
+			var cookie = ['escenarios', '=', JSON.stringify(escenarios),'; domain=', "127.0.0.1", '; path=/;'].join('');					
+			document.cookie = cookie;
+			window.location = "http://127.0.0.1:8000/webapp/?modificar="+ esc;
 		};	
 		
 	</script>
-
-	<script type="text/javascript" src="{% static 'js/showGraphics.js' %}"></script>
 </head>
 <body>
 	<div class="container">
@@ -258,29 +247,6 @@
 					    </tbody>
 					</table>
 				</div>
-
-				<div>
-					<div class="row">
-						<h4> Escenarios agregados </h4>
-					</div>
-					<div class="row" id='escenario'>
-						<div class="table-responsive">
-							<table id="tEscenarios" class="table table-striped">
-								<thead class="tabla_header">
-								  <tr>
-									<th>Escenario</th>
-									<th>Cultivo</th>
-									<th>Tipo de cultivar</th>
-									<th>Riego</th>
-									<th></th>
-								  </tr>
-								</thead>
-								<tbody>
-								</tbody>
-							</table>	
-						</div>			
-					</div>		
-				</div>
 				
 				<div class="row margenTop">									
 					<input class="btn btn-success" type="button" style="width:50%;margin:0px auto; display:block;" onclick="btnGraficaMargenBruto()" name="margenBruto" value="Graficar margen bruto">
@@ -298,9 +264,6 @@
 		console.log("read");
 		//console.log(read_cookie());
 		loadImg();
-		cargarTSuelos();
-		cargarEscenarios();
-
 	</script>
 </body>
 </html>

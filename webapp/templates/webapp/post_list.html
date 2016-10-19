@@ -16,7 +16,6 @@
 	<!--Simulacion-->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/showGraphics.js' %}"></script>
 	
 	<!--Pasar estos si se usan local-->
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
@@ -34,9 +33,6 @@
 	var estaciones = [];
 	var escenarios = [];
 	var escenariosCookie = [];
-
-	//Se hardcodean los riegos
-	var riegos = [{valor:"1",etiqueta:"Automático"}, {valor:"0",etiqueta:"No"}]
 	
 	function cargarEstaciones(){
 		{% for estacion in estaciones %}
@@ -59,22 +55,22 @@
 		hastaAnio.value = estaciones[selectEstacion.selectedIndex].hasta;			
 	};
 	
+	function cargarDetallesCultivos(){			
 
-	function cargarDetallesCultivos(){
 		{% for cultivo in cultivos %}
 			var cultivo = {
 				nombre: "{{cultivo.nombre}}",
-				etiqueta: "{{cultivo.value}}",
 				suelos: 
 					[
+						
 						{% for suelo in cultivo.suelos.all %}
 							{
 								nombre: "{{suelo.nombre}}",
 								etiqueta: "{{suelo.etiqueta}}",
 								valor: "{{suelo.valor}}"
 							},
-						{% endfor %}
-					],
+						{% endfor %}						
+					],						
 				tipo_cultivares: 
 					[
 						{% for tipo_cultivar in cultivo.tipo_cultivares.all %}
@@ -177,35 +173,35 @@
 		}
 
 		var i = 0;
-		celdas[i].innerHTML = "<input type='text' name='estMeteorologica' value='" + escenarios[count-1].estMeteorologica + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='estMeteorologica' value='" + escenarios[count-1].estacion + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='fInicioSim' value='" + escenarios[count-1].fInicioSim + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='fInicioSim' value='" + escenarios[count-1].desdeAnioSimulacion + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='fFinSim' value='" + escenarios[count-1].fFinSim + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='fFinSim' value='" + escenarios[count-1].hastaAnioSimulacion + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='cultivo' value='" + escenarios[count-1].cultivo + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='cultivo' value='" + escenarios[count-1].cultivo.nombreCultivo + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='cultivoTSuelo' value='" + escenarios[count-1].cultivoTSuelo + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='cultivoTSuelo' value='" + escenarios[count-1].cultivo.detalle.suelo + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='cultivoTCultivar' value='" + escenarios[count-1].cultivoTCultivar + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='cultivoTCultivar' value='" + escenarios[count-1].cultivo.detalle.tCultivar + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='cultivoNHumedad' value='" + escenarios[count-1].cultivoNHumedad + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='cultivoNHumedad' value='" + escenarios[count-1].cultivo.detalle.nHumedadd + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='cultivoNO3' value='" + escenarios[count-1].cultivoNO3 + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='cultivoNO3' value='" + escenarios[count-1].cultivo.detalle.no3 + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='cultivoFSiembra' value='" + escenarios[count-1].cultivoFSiembra + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='cultivoFSiembra' value='" + escenarios[count-1].cultivo.detalle.fSiembra + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='fertilizacionSiembraDias' value='" + escenarios[count-1].fertilizacionSiembraDias + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacionSiembraDias' value='" + escenarios[count-1].fertilizacionSiembra.diasSiembra + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='fertilizacionSiembraCantidad' value='" + escenarios[count-1].fertilizacionSiembraCantidad + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacionSiembraCantidad' value='" + escenarios[count-1].fertilizacionSiembra.cantidad + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='fertilizacion1Dias' value='" + escenarios[count-1].fertilizacion1Dias + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacion1Dias' value='" + escenarios[count-1].fertilizaciones[0].diasSiembra + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='fertilizacion1Cantidad' value='" + escenarios[count-1].fertilizacion1Cantidad + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacion1Cantidad' value='" + escenarios[count-1].fertilizaciones[0].cantidad + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='fertilizacion2Dias' value='" + escenarios[count-1].fertilizacion2Dias + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacion2Dias' value='" + escenarios[count-1].fertilizaciones[1].diasSiembra + "'>";//escenarios[count-1].nombre;
 		i++;
-		celdas[i].innerHTML = "<input type='text' name='fertilizacion2Cantidad' value='" + escenarios[count-1].fertilizacion2Cantidad + "'>";//escenarios[count-1].nombre;
+		celdas[i].innerHTML = "<input type='text' name='fertilizacion2Cantidad' value='" + escenarios[count-1].fertilizaciones[1].cantidad + "'>";//escenarios[count-1].nombre;
 		i++;
 		celdas[i].innerHTML = "<input type='text' name='riego' value='" + escenarios[count-1].riego + "'>";//escenarios[count-1].nombre;
 		i++;
@@ -220,7 +216,6 @@
 			for (var i=0;i< document.getElementsByName("cultivo").length; i++){
 				if ( document.getElementsByName("cultivo")[i].checked ) {
 					var ncultivo = (document.getElementsByName("cultivo")[i].value);
-					//console.log(document.getElementsByName("cultivo")[i]);
 				}
 			};	
 			for (var i=0;i< document.getElementsByName("riego").length; i++){
@@ -228,35 +223,13 @@
 					var nriego = (document.getElementsByName("riego")[i].value);
 				}
 			};		
-
-			var escenario_push = {				
-				nombre: document.getElementsByName("nombreEscenario")[0].value,				
-				estMeteorologica: document.getElementById("selectEstacion").value,
-				fInicioSim: document.getElementById("desdeAnioSimulacion").value,
-				fFinSim: document.getElementById("hastaAnioSimulacion").value,
-				cultivo: ncultivo,
-				cultivoTSuelo: document.getElementById("cmbDetalleSuelo").value,
-				cultivoTCultivar: document.getElementById("cmbDetalleCultivar").value,
-				cultivoNHumedad: document.getElementById("cmbDetalleH20").value,
-				cultivoNO3: document.getElementById("cmbDetalleNO3").value,
-				cultivoFSiembra: document.getElementsByName("fechaSiembra")[0].value,
-				fertilizacionSiembraDias: document.getElementsByName("diasDespuesSiembra")[0].value,
-				fertilizacionSiembraCantidad: document.getElementsByName("cantidadFertilizante")[0].value,
-				fertilizacion1Dias: document.getElementsByName("diasDespuesSiembra")[1].value,
-				fertilizacion1Cantidad: document.getElementsByName("cantidadFertilizante")[1].value,
-				fertilizacion2Dias: document.getElementsByName("diasDespuesSiembra")[2].value,
-				fertilizacion2Cantidad: document.getElementsByName("cantidadFertilizante")[2].value,
-				riego: nriego	
-			};
-
 			var escenarioActual = {
-				nombre: document.getElementsByName("nombreEscenario")[0].value,				
+				nombre: document.getElementsByName("nombreEscenario")[0].value,
 				estacion: document.getElementById("selectEstacion").value,
 				desdeAnioSimulacion: document.getElementById("desdeAnioSimulacion").value,
 				hastaAnioSimulacion: document.getElementById("hastaAnioSimulacion").value,
 				cultivo: {
 					nombreCultivo: ncultivo,
-					//etiquetaCultivo: 
 					detalle: {
 						suelo: document.getElementById("cmbDetalleSuelo").value,
 						tCultivar: document.getElementById("cmbDetalleCultivar").value,
@@ -282,72 +255,76 @@
 				riego: nriego				
 			};
 			$("#msgErrores" ).html(" ");			
-			escenarios.push(escenario_push);
-			agregarEscenarioPanel();				
+			escenarios.push(escenarioActual);
+			agregarEscenarioPanel();
+			agregarEscenarioNav();			
 			result = true;
-			document.getElementById("navEscenarios").className = "";
-			agregarEscenarioTabla(escenarioActual);
 		}	
 		else{
 			$('body,html').animate({scrollTop : 0}, 500);
 			result = false;
 		}
-		return result;		
-	};
-
-	function etiquetaNombreCultivo(cultivo, cultivos){		
-		for (var l = 0;l<cultivos.length;l++){
-			if (cultivo===cultivos[l].etiqueta){
-				return cultivos[l].nombre;
-			}
-		}
-	};
-
-	function etiquetaTipoCultivar(tipoCultivar, cultivos){			
-		for (var l = 0;l<cultivos.length;l++){
-			for (var tc = 0;tc<cultivos[l].tipo_cultivares.length;tc++){
-				if(tipoCultivar === cultivos[l].tipo_cultivares[tc].valor){
-					return cultivos[l].tipo_cultivares[tc].etiqueta
-				}
-			}			
-		}
-	};
-
-	function etiquetaRiego(riego, cultivos){
-		console.log(cultivos);
-		for (var r=0;r<riegos.length;r++){
-			if (riego === riegos[r].valor){
-				return riegos[r].etiqueta;
-			}
-		}
-	};
-
-	function agregarEscenarioTabla(escenarioActual){
-		console.log(escenarioActual);
-		var table = document.getElementById("tEscenarios");	
-		var row = table.insertRow(escenarios.length);
-
-		// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-		var cell1 = row.insertCell(0);
-		var cell2 = row.insertCell(1);
-		var cell3 = row.insertCell(2);
-		var cell4 = row.insertCell(3);
-		var cell5 = row.insertCell(4);
+		return result;
 		
-
-		// Add some text to the new cells:
-		cell1.innerHTML = escenarioActual.nombre;
-		cell2.innerHTML = etiquetaNombreCultivo(escenarioActual.cultivo.nombreCultivo, cultivos);
-		cell3.innerHTML = etiquetaTipoCultivar(escenarioActual.cultivo.detalle.tCultivar, cultivos);
-		cell4.innerHTML = etiquetaRiego(escenarioActual.riego, cultivos);//etiquetaRiego(escenarios[i].riego);		
-		cell5.innerHTML = "<button type=\"button\" class='btn btn-primary' onclick='setearCookie("+(escenarios.length-1).toString()+")'>Modificar</button>";
 	};
 	
 	function btnAgregarEscenario(){
 		if(agregarEscenario()){
 			$('#myModal').modal('show');	
 		}
-	};	
+	};
+	
+	function agregarEscenarioNav(){
+	
+		var divE = document.getElementById('navEscenarios');
+		var errores = "";
+		var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0;
+		var anioHastaNoVacio=parseInt($('#hastaAnioSimulacion').val().length) != 0;
+		var checkFertilizaSiembra =($('input[name=fertilizacion]:checked').attr('value')==='1');
+		var checkFertilizaOtras1 =($('input[name=fertilizacionO]:checked').attr('value')==='1');
+		var checkFertilizaOtras2 = ($('input[name=fertilizacionO]:checked').attr('value')==='2');
+		var nombreEscenario = $('#inNombreEscenario').val(); 
+		var cultivo="";
+		var ciclo = document.getElementById("cmbDetalleCultivar").value;
+		var cicloMostrar=ciclo;
+		var riego ="";
+		
+		//control de errores   s
+		
+		//muestro div de escenarios
+		divE.style.display = 'block';
+		
+		//fin - control de errores
+		if($('input[name="riego"]:checked', '#rbRiego').val() ==='1'){
+			riego = "Riego automático."
+		}else{riego = "No riego."}
+		
+		if($('input[name="cultivo"]:checked', '#rdCultivo').val() ==='MZ'){
+			cultivo = "Maiz"
+			if(ciclo ==="UY0370"){cicloMostrar="Ciclo medio";}
+			else{
+				if(ciclo ==="UY0371"){cicloMostrar="Ciclo corto";}
+				else{ if(ciclo ==="UY0372"){ cicloMostrar="Ciclo largo";} else{cicloMostrar="";}}
+			}
+			
+		}else{
+			cultivo = "Soja";
+			if(ciclo ==="UY0141"){cicloMostrar="GM 4";}
+			else{
+				if(ciclo ==="UY0151"){cicloMostrar="GM 5";}
+				else{ if(ciclo ==="UY0161"){ cicloMostrar="GM 6";} else{cicloMostrar="";}}
+			}	
+		}
+		
+		$("#accordion").append(
+		"<div class=" + '"' +"panel panel-default col-xs-3" + '"' + "> " +
+			"<div class=" + '"' + "panel-heading panelEscenarios" +'"' + ">" + 
+			"<button class="+ '"'+"panel-title botonEscenario form-control"+'"'+"data-toggle="+'"'+"collapse"+'"'+"data-parent="+'"'+"#accordion" +'"'+"href="+'"'+"#collapse" +nombreEscenario +'"' +">Escenario : " + nombreEscenario +"</button>"+
+			"<div id=" + '"' + "collapse"+ nombreEscenario + '"' + "class=" +'"' + "panel-collapse collapse in" +'"' +">"+
+				"<div class=" + '"' + "panel-body" + '"' +">"+ cultivo + "<br>" + cicloMostrar  + "<br>" + riego +	"<div>" + "<div>"+
+			"<div>"+
+		"<div>");
+	};
 	
 	function cerrar(){ 
 		$("#carga").animate({"opacity":"0"},1000,function(){$("#carga").css("display","none");}); 
@@ -381,13 +358,9 @@
 	
 	
 	function cargarEscenarioCookie(nEscenario){
-		console.log("cokkieeeeeeeeeeeeeeeeeeeeeeeeeeee");
 		var co = JSON.parse(getCookie('escenarios'));
-		console.log(co);
 		var escenariosCookie = co[nEscenario];
-		console.log(escenariosCookie);
 		var numeroEscenario = getCookie('numeroEscenario');
-		console.log(numeroEscenario);
 		
 		//Estacion meteorologica
 		var selectEstacion = document.getElementById("selectEstacion");
@@ -500,9 +473,7 @@
 	
 </script>
 
-<div class="container">	
-
-	{% include 'header.html' %}			
+<div class="container">		
 
 	<div id= "msgErrores" class=""></div>
 	
@@ -724,33 +695,11 @@
 			<p class="text-center"> Recomendación: escenario no tenga m&aacute;s de 8 caracteres</p>
 		</div>		
 	</div>
-	
-	<div class="ocultar" id="navEscenarios">
-		<div class="row">
-			<h4> Escenarios agregados </h4>
+	<div class="row ocultar" id="navEscenarios"> 
+		<h3> Escenarios agregados</h3>			 
+		<div class="panel-group panelEscenarios row" id="accordion">
 		</div>
-		<div class="row" id='escenario'>
-			<div class="table-responsive">
-				<table id="tEscenarios" class="table table-striped">
-					<thead class="tabla_header">
-					  <tr>
-						<th>Escenario</th>
-						<th>Cultivo</th>
-						<th>Tipo de cultivar</th>
-						<th>Riego</th>
-						<th></th>
-					  </tr>
-					</thead>
-					<tbody>
-					</tbody>
-				</table>	
-			</div>			
-		</div>		
-	</div>
-
-
-
-
+	</div>	
 	<form id="ejecutarDSSAT" action="btnDSSAT">	
 		<div class="row ocultar">
 			<div class="panel panel-default">
