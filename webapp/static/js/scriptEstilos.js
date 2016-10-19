@@ -233,12 +233,6 @@ function vaciarForm(){
 	
 }
 
-function read_cookie() {
-		var result = document.cookie.match(new RegExp('escenariosMB' + '=([^;]+)'));
-		result && (result = JSON.parse(result[1]));
-		escenarios = result;
-};
-
 
 
 
