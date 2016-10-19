@@ -9,6 +9,7 @@ function  borrarNombreEscenario (){
 	$('#inNombreEscenario').val('');
 	$('#desdeAnioSimulacion').attr('readonly', true);
 	$('#hastaAnioSimulacion').attr('readonly', true);
+	$('body,html').animate({scrollTop : 0}, 500);
 }
 
 $(function() {
@@ -182,8 +183,6 @@ function validaCamposVacios(){
 }
  
 $(document).ready(function(){ 
-	
-
 	$("#carga").click(function(){cerrar();}); 
 });
  
@@ -212,6 +211,7 @@ function vaciarForm(){
 	$('#cantidadFertilizanteAp2I').val('');
 	$('#diasDespuesSiembraI').val('');
 	$('#cantidadFertilizanteI').val('');
+	$('body,html').animate({scrollTop : 0}, 500);
 }
 
 

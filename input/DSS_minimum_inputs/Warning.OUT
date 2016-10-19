@@ -2,13 +2,13 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 14:59:19
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 15:06:25
                                                                                 
-*RUN   1        : UYMZ                      MZCER046 UYMZ0925    1              
- MODEL          : MZCER046 - Maize                                              
- EXPERIMENT     : UYMZ0925 SN late to create DSS                                
+*RUN   1        : UYSB                      CRGRO046 UYSB0926    1              
+ MODEL          : CRGRO046 - Soybean                                            
+ EXPERIMENT     : UYSB0926 SN late to create DSS                                
  DATA PATH      :                                                               
- TREATMENT  1   : UYMZ                      MZCER046                            
+ TREATMENT  1   : UYSB                      CRGRO046                            
   
 
  SOILDYN  YEAR DOY = 2000 290
@@ -21,48 +21,12 @@
 
  SOLORG  YEAR DOY = 2000 290
  The initialized C:N ratio of the soil organic                                 
- matter (humus) in layer   1 is unlikely:      9.7                             
+ matter (humus) in layer   9 is unlikely:      8.9                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
  SOLORG  YEAR DOY = 2000 290
  The initialized C:N ratio of the soil organic                                 
- matter (humus) in layer   2 is unlikely:      9.7                             
- A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
- Please check your SOIL.SOL file.                                              
-
- SOLORG  YEAR DOY = 2000 290
- The initialized C:N ratio of the soil organic                                 
- matter (humus) in layer   3 is unlikely:      9.7                             
- A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
- Please check your SOIL.SOL file.                                              
-
- SOLORG  YEAR DOY = 2000 290
- The initialized C:N ratio of the soil organic                                 
- matter (humus) in layer   6 is unlikely:      8.0                             
- A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
- Please check your SOIL.SOL file.                                              
-
- SOLORG  YEAR DOY = 2000 290
- The initialized C:N ratio of the soil organic                                 
- matter (humus) in layer   7 is unlikely:      8.0                             
- A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
- Please check your SOIL.SOL file.                                              
-
- SOLORG  YEAR DOY = 2000 290
- The initialized C:N ratio of the soil organic                                 
- matter (humus) in layer   8 is unlikely:      8.0                             
- A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
- Please check your SOIL.SOL file.                                              
-
- SOLORG  YEAR DOY = 2000 290
- The initialized C:N ratio of the soil organic                                 
- matter (humus) in layer   9 is unlikely:      6.6                             
- A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
- Please check your SOIL.SOL file.                                              
-
- SOLORG  YEAR DOY = 2000 290
- The initialized C:N ratio of the soil organic                                 
- matter (humus) in layer  10 is unlikely:      3.7                             
+ matter (humus) in layer  10 is unlikely:      5.0                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
