@@ -622,6 +622,7 @@ def margenBruto(request):
 	count = len(nombreEscenarios)
 	tienePrecio = (len(precioGranoEscenarios)!=0)
 	resultPlotMB = []
+	returnPrecios = [];
 	
 	if (tienePrecio):
 		for i in range(count):
@@ -634,7 +635,7 @@ def margenBruto(request):
 			nyears.append(aniosEscenarios[i])
 			
 		max_nyears=int(max(nyears))
-
+		returnPrecios = [costN_list, costI_list, costG_list, price_list];
 		#create an empty matrix
 		GMargin_data = np.empty((max_nyears,count))
 		GMargin_data[:] = np.NAN
@@ -690,4 +691,8 @@ def margenBruto(request):
 		print (listWhiskersMenorMB)
 		resultPlotMB = [listMedianaMB,listWhiskersMenorMB]		
 	
-	return render(request, 'webapp/margen_bruto.html', {'dir': dirEscenario.replace("\\","/"),'nombreEscenarios': nombreEscenarios,'aniosEscenarios':aniosEscenarios,'resultPlot':resultPlotMB})
+	#Se pasan etiquetas de cultivos y riego
+	cultivos = Cultivo.objects.all()
+	riegos = Riego.objects.all()
+
+	return render(request, 'webapp/margen_bruto.html', {'dir': dirEscenario.replace("\\","/"),'nombreEscenarios': nombreEscenarios,'aniosEscenarios':aniosEscenarios,'resultPlot':resultPlotMB,'cultivos':cultivos, 'returnPrecios':returnPrecios})

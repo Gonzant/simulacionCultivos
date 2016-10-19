@@ -208,6 +208,8 @@ function vaciarForm(){
 	$('#cantidadFertilizanteI').val('');
 }
 
+<<<<<<< HEAD
+=======
 function btnAgregarEscenario(){
 	if(agregarEscenario()){
 		$('#myModal').modal('show');	
@@ -222,6 +224,8 @@ function ejecutarSimulacion(){
 		$('#modalCargando').modal('show');			
 	}				
 };
+
+>>>>>>> origin/master
 
 $(document).ready(function() {
 	// alert("document cargo - show graphic - ready");

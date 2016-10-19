@@ -22,7 +22,9 @@ function etiquetaCultivo(c){
 	}
 };
 
-function etiquetaSuelo(s){			
+function etiquetaSuelo(s){	
+	console.log('suelos');
+	console.log(suelos);		
 	for (var l = 0;l<suelos.length;l++){
 		if (s===suelos[l].valor){
 			return suelos[l].etiqueta;
@@ -60,7 +62,7 @@ function cargarEscenarios(){
 		cell3.innerHTML = etiquetaSuelo(escenarios[i].cultivoTCultivar);
 		cell4.innerHTML = etiquetaRiego(escenarios[i].riego);
 		console.log(escenarios[i]);
-		cell5.innerHTML = "<button class='btn btn-primary' onclick='setearCookie("+i+")'>Modificar</button>";			
+		cell5.innerHTML = "<button type=\"button\" class='btn btn-primary' onclick='setearCookie("+i+")'>Modificar</button>";			
 	}
 
 	if (escenarios.length<5){
@@ -73,7 +75,7 @@ function cargarEscenarios(){
 		cell1.innerHTML = "";
 		cell2.innerHTML = "";
 		cell3.innerHTML = "";
-		cell4.innerHTML = "";				
+		cell4.innerHTML = "";
 		cell5.innerHTML = "<button class='btn btn-primary' onclick='agregarNuevoEscenario()'>Agregar escenario</button>";	
 		
 	}
@@ -84,11 +86,12 @@ function agregarNuevoEscenario(){
 };
 
 function setearCookie(esc){
+	console.log("esc");
 	console.log(esc);	
 	//document.cookie = escenarios[esc];						
 	var cookie = ['escenarios', '=', JSON.stringify(escenarios),'; path=/;'].join('');					
 	document.cookie = cookie;
-	window.location = "./?modificar="+ esc;
+	window.location = "./?modificar="+ esc;	
 };			
 
 function read_cookie() {
@@ -101,7 +104,7 @@ function calcularMargenBruto(){
 	var dir = document.getElementsByName('dirEscenario')[0].value;
 	var danios = document.getElementsByName('aEscenario');
 	console.log(dir);
-	var cookieEscenarios = ['escenariosMB', '=', JSON.stringify(escenarios),'; path=/;'].join('');					
+	var cookieEscenarios = ['escenarios', '=', JSON.stringify(escenarios),'; path=/;'].join('');					
 	document.cookie = cookieEscenarios;			
 	var nombres = "";
 	var anios = "";

@@ -1,15 +1,10 @@
 *PLANT N BALANCE
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 *DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:42:41
-=======
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 17, 2016; 11:33:03
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
                                                                                 
-*RUN   1        : UYSB                      CRGRO046 UYSB0875    1              
+*RUN   1        : UYSB                      CRGRO046 UYSB0923    1              
  MODEL          : CRGRO046 - Soybean                                            
-<<<<<<< HEAD
  EXPERIMENT     : UYSB0923 SN late to create DSS                                
 =======
 *DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:08:31
@@ -18,22 +13,14 @@
  MODEL          : CRGRO046 - Soybean                                            
  EXPERIMENT     : UYSB0908 SN late to create DSS                                
 >>>>>>> origin/master
-=======
- EXPERIMENT     : UYSB0875 SN late to create DSS                                
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
                                                                                 
  CROP           : Soybean          CULTIVAR : GM 4 URUGUAY     ECOTYPE :INDETE  
 <<<<<<< HEAD
-<<<<<<< HEAD
  STARTING DATE  : OCT 17 1990                                                   
  PLANTING DATE  : OCT 20 1990        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
-=======
- STARTING DATE  : OCT 15 1990                                                   
- PLANTING DATE  : OCT 18 1990        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
  WEATHER        : UYTA   1990                                                   
 =======
  STARTING DATE  : APR 29 2000                                                   
@@ -85,7 +72,6 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
    PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
    ---------------  -------- kg[N]/ha -------  -------
 <<<<<<< HEAD
-<<<<<<< HEAD
    Leaf N              1.09    21.41    22.50
    Stem N              7.61     3.61    11.22
    Shell N            20.46    33.12    53.57
@@ -106,23 +92,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
    N leakage                            20.01
    TOTAL N                                      135.30
 >>>>>>> origin/master
-=======
-   Leaf N              1.15    23.03    24.18
-   Stem N              8.07     3.91    11.98
-   Shell N            21.18    35.97    57.16
-   Seed N            192.52     0.00   192.52
-   Root N              5.95     6.05    12.00
-   Nodule N            2.39     3.04     5.43
-   Total N           231.26    72.01   303.27
-   N leakage                            27.60
-   TOTAL N                                      330.86
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
 
 
    N INPUTS TO SYSTEM                kg[N]/ha
    ------------------                --------
    Seed N At Planting                    0.68
-<<<<<<< HEAD
 <<<<<<< HEAD
    N2 Fixed                            141.60
    N Uptake from Soil                  171.99
@@ -132,26 +106,16 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
    N Uptake from Soil                  134.33
    TOTAL N                                      135.33
 >>>>>>> origin/master
-=======
-   N2 Fixed                            155.56
-   N Uptake from Soil                  174.67
-   TOTAL N                                      330.90
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
 
    * Lost due to senescence, freeze, pest or disease damage.
 
 *******************************************************************************
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 *DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:42:41
-=======
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 17, 2016; 11:33:03
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
                                                                                 
-*RUN   2        : UYSB                      CRGRO046 UYSB0875    1              
+*RUN   2        : UYSB                      CRGRO046 UYSB0923    1              
  MODEL          : CRGRO046 - Soybean                                            
-<<<<<<< HEAD
  EXPERIMENT     : UYSB0923 SN late to create DSS                                
 =======
 *DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:08:31
@@ -160,22 +124,14 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
  MODEL          : CRGRO046 - Soybean                                            
  EXPERIMENT     : UYSB0908 SN late to create DSS                                
 >>>>>>> origin/master
-=======
- EXPERIMENT     : UYSB0875 SN late to create DSS                                
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
                                                                                 
  CROP           : Soybean          CULTIVAR : GM 4 URUGUAY     ECOTYPE :INDETE  
 <<<<<<< HEAD
-<<<<<<< HEAD
  STARTING DATE  : OCT 17 1991                                                   
  PLANTING DATE  : OCT 20 1991        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
-=======
- STARTING DATE  : OCT 15 1991                                                   
- PLANTING DATE  : OCT 18 1991        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
  WEATHER        : UYTA9101                                                      
 =======
  STARTING DATE  : APR 30 2001                                                   
@@ -227,7 +183,6 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
    PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
    ---------------  -------- kg[N]/ha -------  -------
 <<<<<<< HEAD
-<<<<<<< HEAD
    Leaf N              0.98    20.36    21.34
    Stem N              6.70     3.49    10.19
    Shell N            18.01    30.62    48.64
@@ -248,23 +203,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
    N leakage                            21.58
    TOTAL N                                      111.83
 >>>>>>> origin/master
-=======
-   Leaf N              0.92    19.49    20.42
-   Stem N              6.39     3.32     9.71
-   Shell N            17.82    31.56    49.38
-   Seed N            194.09     0.00   194.09
-   Root N              4.91     5.66    10.57
-   Nodule N            1.99     3.85     5.84
-   Total N           226.11    63.88   289.99
-   N leakage                            20.02
-   TOTAL N                                      310.01
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
 
 
    N INPUTS TO SYSTEM                kg[N]/ha
    ------------------                --------
    Seed N At Planting                    0.68
-<<<<<<< HEAD
 <<<<<<< HEAD
    N2 Fixed                            138.59
    N Uptake from Soil                  174.59
@@ -274,26 +217,16 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
    N Uptake from Soil                  110.91
    TOTAL N                                      111.84
 >>>>>>> origin/master
-=======
-   N2 Fixed                            138.85
-   N Uptake from Soil                  170.52
-   TOTAL N                                      310.05
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
 
    * Lost due to senescence, freeze, pest or disease damage.
 
 *******************************************************************************
 
 <<<<<<< HEAD
-<<<<<<< HEAD
 *DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:42:41
-=======
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 17, 2016; 11:33:03
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
                                                                                 
-*RUN   3        : UYSB                      CRGRO046 UYSB0875    1              
+*RUN   3        : UYSB                      CRGRO046 UYSB0923    1              
  MODEL          : CRGRO046 - Soybean                                            
-<<<<<<< HEAD
  EXPERIMENT     : UYSB0923 SN late to create DSS                                
 =======
 *DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:08:31
@@ -302,22 +235,14 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
  MODEL          : CRGRO046 - Soybean                                            
  EXPERIMENT     : UYSB0908 SN late to create DSS                                
 >>>>>>> origin/master
-=======
- EXPERIMENT     : UYSB0875 SN late to create DSS                                
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
                                                                                 
  CROP           : Soybean          CULTIVAR : GM 4 URUGUAY     ECOTYPE :INDETE  
 <<<<<<< HEAD
-<<<<<<< HEAD
  STARTING DATE  : OCT 16 1992                                                   
  PLANTING DATE  : OCT 19 1992        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
-=======
- STARTING DATE  : OCT 14 1992                                                   
- PLANTING DATE  : OCT 17 1992        PLANTS/m2 :  7.0     ROW SPACING :  15.cm  
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
  WEATHER        : UYTA9201                                                      
 =======
  STARTING DATE  : APR 30 2002                                                   
@@ -369,7 +294,6 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
    PLANT COMPONENT  HARVEST     LOST*   TOTAL  BALANCE
    ---------------  -------- kg[N]/ha -------  -------
 <<<<<<< HEAD
-<<<<<<< HEAD
    Leaf N              1.04    20.65    21.69
    Stem N              6.30     3.55     9.85
    Shell N            18.88    23.45    42.33
@@ -390,23 +314,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
    N leakage                             0.39
    TOTAL N                                        2.10
 >>>>>>> origin/master
-=======
-   Leaf N              1.06    20.42    21.48
-   Stem N              6.20     3.51     9.71
-   Shell N            19.78    24.45    44.24
-   Seed N            221.20     0.00   221.20
-   Root N              5.34     6.69    12.03
-   Nodule N            2.22     3.54     5.76
-   Total N           255.81    58.61   314.42
-   N leakage                            16.65
-   TOTAL N                                      331.07
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
 
 
    N INPUTS TO SYSTEM                kg[N]/ha
    ------------------                --------
    Seed N At Planting                    0.68
-<<<<<<< HEAD
 <<<<<<< HEAD
    N2 Fixed                            153.28
    N Uptake from Soil                  178.56
@@ -1048,11 +960,6 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.25         FERT. FACTOR : 1.00
    N Uptake from Soil                  133.18
    TOTAL N                                      135.72
 >>>>>>> origin/master
-=======
-   N2 Fixed                            155.98
-   N Uptake from Soil                  174.43
-   TOTAL N                                      331.08
->>>>>>> parent of c855040... Se agrega modificar escenarios en pantalla inicial y margen bruto, se conserva los valores en MB
 
    * Lost due to senescence, freeze, pest or disease damage.
 
