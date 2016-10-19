@@ -101,7 +101,7 @@ function calcularMargenBruto(){
 	var dir = document.getElementsByName('dirEscenario')[0].value;
 	var danios = document.getElementsByName('aEscenario');
 	console.log(dir);
-	var cookieEscenarios = ['escenariosMB', '=', JSON.stringify(escenarios),'; path=/;'].join('');					
+	var cookieEscenarios = ['escenarios', '=', JSON.stringify(escenarios),'; path=/;'].join('');					
 	document.cookie = cookieEscenarios;			
 	var nombres = "";
 	var anios = "";
