@@ -13,26 +13,27 @@ function  borrarNombreEscenario (){
 
 $(function() {
 	$('#myModal').modal('hide');	
+	
 	$('#datetimepicker4').datetimepicker({
 		pickTime: false,
 		todayHighlight: true,
 		autoclose: true,
+		language: 'pt-UY'
     });	
-	$('#datetimepicker4').datetimepicker('setDate', new Date());
+	$('#datetimepicker4').on('changeDate', function(ev){                 
+		$('#datetimepicker4').datetimepicker('hide');
+	});
+	//$('#datetimepicker4').datetimepicker('setDate', new Date());
 });
-
-//FERTILIZACION
 
 
 //FERTILIZACION
 
 function OnChangeRadioFertilizacion (radio) {
-	
-  var el = document.getElementById('fertilizacionSiembra');
-  
+
+  var el = document.getElementById('fertilizacionSiembra');  
   var diasSiembra = document.getElementById('diasDespuesSiembraI');
-  var cantS = document.getElementById('cantidadFertilizanteI');
-  
+  var cantS = document.getElementById('cantidadFertilizanteI');  
   
   if(radio.value === '0'){
 	el.style.display = 'none'; 
@@ -42,15 +43,6 @@ function OnChangeRadioFertilizacion (radio) {
 	
 	cantS.removeAttribute("required");
 	cantS.value = "";
-	//quito estilos a dias despues siembra
-	/*document.getElementById("diasDespuesSiembraD").className = "form-group";
-	document.getElementById("errordiasDespuesSiembra").innerHTML = ' ';
-	document.getElementById("diasDespuesSiembraS").className = " ";
-	
-	//quito estilos de cantidad
-	document.getElementById("cantidadFertilizanteD").className = "form-group";
-	document.getElementById("errorCantidadFertilizante").innerHTML = ' ';
-	document.getElementById("cantidadFertilizanteS").className = " ";*/
   }
   else{
 	document.getElementById("diasDespuesSiembra").className = " ";
@@ -84,23 +76,7 @@ function OnChangeRadioFertilizacionOtras (radio) {
 		
 	diasSiembra2.removeAttribute("required");
 	cantS2.removeAttribute("required");
-	
-	//quito estilos a dias despues siembra
-	/*document.getElementById("diasDespuesSiembraAp1D").className = "form-group";
-	document.getElementById("errordiasDespuesSiembraAp1").innerHTML = ' ';
-	document.getElementById("diasDespuesSiembraAp1S").className = " ";
-	document.getElementById("diasDespuesSiembraAp2D").className = "form-group";
-	document.getElementById("errordiasDespuesSiembraAp2").innerHTML = ' ';
-	document.getElementById("diasDespuesSiembraAp2S").className = " ";
-	
-	//quito estilos de cantidad
-	document.getElementById("cantidadFertilizanteAp1D").className = "form-group";
-	document.getElementById("errorCantidadFertilizanteAp1").innerHTML = ' ';
-	document.getElementById("cantidadFertilizanteAp1S").className = " ";
-	document.getElementById("cantidadFertilizanteAp2D").className = "form-group";
-	document.getElementById("errorCantidadFertilizanteAp2").innerHTML = ' ';
-	document.getElementById("cantidadFertilizanteAp2S").className = " ";*/
-  
+	  
   }else{
 	if(radio.value === '1'){
 		el.style.display = 'inline'; 
@@ -200,6 +176,8 @@ function validaCamposVacios(){
 }
  
 $(document).ready(function(){ 
+	
+
 	$("#carga").click(function(){cerrar();}); 
 });
  
@@ -228,12 +206,32 @@ function vaciarForm(){
 	$('#cantidadFertilizanteAp2I').val('');
 	$('#diasDespuesSiembraI').val('');
 	$('#cantidadFertilizanteI').val('');
-	$("#noFertiliza").prop("checked", "checked");
-	$("#noFertilizaO").prop("checked", "checked");
-	
 }
 
+<<<<<<< HEAD
+=======
+function btnAgregarEscenario(){
+	if(agregarEscenario()){
+		$('#myModal').modal('show');	
+	}
+};
 
+function ejecutarSimulacion(){
+	
+	if (agregarEscenario()){		
+		cerrar();			
+		document.getElementById('ejecutarDSSAT').submit();	
+		$('#modalCargando').modal('show');			
+	}				
+};
+
+>>>>>>> origin/master
+
+$(document).ready(function() {
+	// alert("document cargo - show graphic - ready");
+	 $('#modalCargando').modal('hide');
+});
+		
 
 
 

@@ -88,31 +88,43 @@
 					suelos.push(suelo);			
 				{% endfor %}			
 			{% endfor %}			
-		};					
-		
+		};	
+
+		function calcularMargenBruto(){
+			var dir = document.getElementsByName('dirEscenario')[0].value;
+			var danios = document.getElementsByName('aEscenario');
+			console.log(dir);
+			var cookieEscenarios = ['escenariosMB', '=', JSON.stringify(escenarios),'; domain=', "127.0.0.1", '; path=/;'].join('');					
+			document.cookie = cookieEscenarios;			
+			var nombres = "";
+			var anios = "";
+			var noms  = "nombreEscenario=";						
+			for (var n=0;n<escenarios.length;n++){
+				if (n!==0){
+					nombres = nombres + "&";
+					anios = anios +"&";
+				};
+				nombres = nombres + noms + escenarios[n].nombre;
+				anios = anios + "aEscenario=" + danios[n].value;
+			};
+			window.location.href = "http://127.0.0.1:8000/webapp/margenBruto?dirEscenario=" + dir + "&" + nombres + "&" + anios;	
+		};
 	</script>
 	
 	<script type="text/javascript" src="{% static 'js/showGraphics.js' %}"> </script>	
 
-	
 </head>
 <body>
 	<div class="container">	
 
-	<!--
-	<div title="Click para Cerrar" id="carga" style="cursor:pointer;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;box-shadow:inset yellow 0px 0px 14px;background-image:url(http://www.puntroma.com/img/ico_cargando.gif);background-position:center;background-size:100%;background-color:#111111;width:300px;color:#fff;text-align:center;height:100px;padding:52px 12px 12px 12px;position:fixed;top:30%;left:40%;z-index:6;">TU TEXTO AQUI</div> 
-	<!--Codigo de carga por adan-2994.es.tl--> 
+	{% include 'header.html' %}	
 
-		{% include 'header.html' %}				
-	
-		
 		<div class="paddingBottom">
 			<div class="row paddingBottom">
 				<div class="col-sm-6">
 					<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/boxplot.png" alt="Rendimientos esperados (Boxplot)">
 				</div>
 				<div class="col-sm-6" id = "datosBoxplot">	
-					<!--<h4>Box Plot o Cajas de Tukey</h4>-->
 					<p>Este tipo de gráficos permite visualizar rápidamente los valores medios y la variabilidad esperada para un escenario planteado.</p>			
 				</div>
 			</div>	
@@ -121,7 +133,6 @@
 					<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/curvaPExcedencia.png" alt="Rendimientos esperados (Curva de probabilidad de exedencia)">
 				</div>
 				<div class="col-sm-6" id = "datosCurvaExedencia">	
-					<!--<h4>Curva de excedencia</h4>-->
 					<p>Este gráfico permite estimar la probabilidad de superar un determinado valor de rendimiento para diferentes escenarios.</p>			
 				</div>
 			</div>

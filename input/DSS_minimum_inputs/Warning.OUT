@@ -2,36 +2,184 @@
 
 ******************************************************************************
 
+<<<<<<< HEAD
 *DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:42:41
                                                                                 
 *RUN   1        : UYSB                      CRGRO046 UYSB0923    1              
  MODEL          : CRGRO046 - Soybean                                            
  EXPERIMENT     : UYSB0923 SN late to create DSS                                
+=======
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:08:31
+                                                                                
+*RUN   1        : UYSB                      CRGRO046 UYSB0908    1              
+ MODEL          : CRGRO046 - Soybean                                            
+ EXPERIMENT     : UYSB0908 SN late to create DSS                                
+>>>>>>> origin/master
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
 
+<<<<<<< HEAD
  SOILDYN  YEAR DOY = 1990 290
  Surface runoff curve number has been changed from   1.0 to  25.0.             
 
  SOILDYN  YEAR DOY = 1990 290
+=======
+ SOILDYN  YEAR DOY = 2000 120
+ Surface runoff curve number has been changed from   1.0 to  25.0.             
+
+ SOILDYN  YEAR DOY = 2000 120
+>>>>>>> origin/master
  The pH of one or more soil layers at initialization                           
  was outside the range pH=1-10, which is unlikely.                             
  It was set by DSSAT to pH=7.                                                  
 
+<<<<<<< HEAD
  IPSOIL  YEAR DOY = 1990 290
  File does not exist:                                                          
  C:\DSSAT46\StandardData\RESCH046.SDA                                          
  Default residue characteristics will be used.                                 
 
  SOLORG  YEAR DOY = 1990 290
+=======
+ SOLORG  YEAR DOY = 2000 120
+>>>>>>> origin/master
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer   9 is unlikely:      8.9                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
+<<<<<<< HEAD
 
  SOLORG  YEAR DOY = 1990 290
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer  10 is unlikely:      5.0                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
+=======
+
+ SOLORG  YEAR DOY = 2000 120
+ The initialized C:N ratio of the soil organic                                 
+ matter (humus) in layer  10 is unlikely:      5.0                             
+ A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
+ Please check your SOIL.SOL file.                                              
+
+******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:08:31
+                                                                                
+*RUN   3        : UYSB                      CRGRO046 UYSB0908    1              
+ MODEL          : CRGRO046 - Soybean                                            
+ EXPERIMENT     : UYSB0908 SN late to create DSS                                
+ DATA PATH      :                                                               
+ TREATMENT  1   : UYSB                      CRGRO046                            
+  
+
+ FREEZE  YEAR DOY = 2002 175
+ Freeze occurred at   52 days after planting.                                  
+
+ FREEZE  YEAR DOY = 2002 176
+ Freeze occurred at   53 days after planting.                                  
+
+ CRPGRO  YEAR DOY = 2002 176
+ Plant died due to extreme stress at  53 days after planting.                  
+ (DAY : 2002 176; TURFAC :  1.00; AGEFAC :  1.03  )                            
+
+******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:08:31
+                                                                                
+*RUN   4        : UYSB                      CRGRO046 UYSB0908    1              
+ MODEL          : CRGRO046 - Soybean                                            
+ EXPERIMENT     : UYSB0908 SN late to create DSS                                
+ DATA PATH      :                                                               
+ TREATMENT  1   : UYSB                      CRGRO046                            
+  
+
+ FREEZE  YEAR DOY = 2003 193
+ Freeze occurred at   70 days after planting.                                  
+
+ FREEZE  YEAR DOY = 2003 238
+ Freeze occurred at  115 days after planting.                                  
+
+ CRPGRO  YEAR DOY = 2003 238
+ Plant died due to extreme stress at 115 days after planting.                  
+ (DAY : 2003 238; TURFAC :  1.00; AGEFAC :  1.03  )                            
+
+******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:08:31
+                                                                                
+*RUN   5        : UYSB                      CRGRO046 UYSB0908    1              
+ MODEL          : CRGRO046 - Soybean                                            
+ EXPERIMENT     : UYSB0908 SN late to create DSS                                
+ DATA PATH      :                                                               
+ TREATMENT  1   : UYSB                      CRGRO046                            
+  
+
+ FREEZE  YEAR DOY = 2004 194
+ Freeze occurred at   71 days after planting.                                  
+
+ FREEZE  YEAR DOY = 2004 199
+ Freeze occurred at   76 days after planting.                                  
+
+ CRPGRO  YEAR DOY = 2004 199
+ Plant died due to extreme stress at  76 days after planting.                  
+ (DAY : 2004 199; TURFAC :  1.00; AGEFAC :  1.03  )                            
+
+******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:08:31
+                                                                                
+*RUN   7        : UYSB                      CRGRO046 UYSB0908    1              
+ MODEL          : CRGRO046 - Soybean                                            
+ EXPERIMENT     : UYSB0908 SN late to create DSS                                
+ DATA PATH      :                                                               
+ TREATMENT  1   : UYSB                      CRGRO046                            
+  
+
+ FREEZE  YEAR DOY = 2006 143
+ Freeze occurred at   20 days after planting.                                  
+
+ FREEZE  YEAR DOY = 2006 212
+ Freeze occurred at   89 days after planting.                                  
+
+ CRPGRO  YEAR DOY = 2006 212
+ Plant died due to extreme stress at  89 days after planting.                  
+ (DAY : 2006 212; TURFAC :  1.00; AGEFAC :  1.03  )                            
+
+******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:08:31
+                                                                                
+*RUN   8        : UYSB                      CRGRO046 UYSB0908    1              
+ MODEL          : CRGRO046 - Soybean                                            
+ EXPERIMENT     : UYSB0908 SN late to create DSS                                
+ DATA PATH      :                                                               
+ TREATMENT  1   : UYSB                      CRGRO046                            
+  
+
+ FREEZE  YEAR DOY = 2007 192
+ Freeze occurred at   69 days after planting.                                  
+
+ CRPGRO  YEAR DOY = 2007 192
+ Plant died due to extreme stress at  69 days after planting.                  
+ (DAY : 2007 192; TURFAC :  1.00; AGEFAC :  1.03  )                            
+
+******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 11:08:31
+                                                                                
+*RUN  10        : UYSB                      CRGRO046 UYSB0908    1              
+ MODEL          : CRGRO046 - Soybean                                            
+ EXPERIMENT     : UYSB0908 SN late to create DSS                                
+ DATA PATH      :                                                               
+ TREATMENT  1   : UYSB                      CRGRO046                            
+  
+
+ FREEZE  YEAR DOY = 2009 206
+ Freeze occurred at   83 days after planting.                                  
+
+ CRPGRO  YEAR DOY = 2009 206
+ Plant died due to extreme stress at  83 days after planting.                  
+ (DAY : 2009 206; TURFAC :  1.00; AGEFAC :  1.03  )                            
+>>>>>>> origin/master

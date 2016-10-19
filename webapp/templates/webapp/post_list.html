@@ -22,7 +22,7 @@
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="{% static 'lib/bootstrap-datetimepicker-0.0.11/css/bootstrap-datetimepicker.min.css' %}">	
 	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.min.js' %}"> </script>	
-	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-BR.js' %}">  </script>
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-UY.js' %}">  </script>
 	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>	
 	
 </head>	
@@ -59,6 +59,7 @@
 		hastaAnio.value = estaciones[selectEstacion.selectedIndex].hasta;			
 	};
 	
+
 	function cargarDetallesCultivos(){
 		{% for cultivo in cultivos %}
 			var cultivo = {
@@ -103,7 +104,8 @@
 								valor:"{{no3.valor}}"
 							},
 						{% endfor %}
-					]				
+					], 
+				fSiembra: document.getElementsByName("fechaSiembra")[0].value
 			}			
 			cultivos.push(cultivo);
 		{% endfor %}		
@@ -211,6 +213,8 @@
 	};
 	
 	function agregarEscenario(){
+		var cultivo = document.getElementById('rdCult');	
+		var escenario = new Object();	
 		var result = true;
 		if(validaCamposVacios()===true){ //estan los dato ingresados correctamente
 			for (var i=0;i< document.getElementsByName("cultivo").length; i++){
@@ -349,15 +353,6 @@
 		$("#carga").animate({"opacity":"0"},1000,function(){$("#carga").css("display","none");}); 
 	} 
 	
-	function ejecutarSimulacion(){
-		
-		if (agregarEscenario()){		
-			cerrar();			
-			document.getElementById('ejecutarDSSAT').submit();	
-			$('#modalCargando').modal('show');			
-		}				
-	};
-	
 	function checkSoja(){
 		document.getElementById("nombreCultivo").checked = true;
 		cargarComboBoxDetalle(document.getElementById("nombreCultivo"));		
@@ -383,6 +378,7 @@
 			}			
 		};
 	};
+	
 	
 	function cargarEscenarioCookie(nEscenario){
 		console.log("cokkieeeeeeeeeeeeeeeeeeeeeeeeeeee");
@@ -505,7 +501,7 @@
 </script>
 
 <div class="container">	
-	
+
 	{% include 'header.html' %}			
 
 	<div id= "msgErrores" class=""></div>
@@ -521,7 +517,7 @@
 		<div class="row">
 			<h3> Clima </h3>		
 		</div>
-		<div class="row" id='estacionMeteorologica'>
+		<div class="row" id='estacionMeteorologica' >
 			<div id='comboEstacionMeteorologica'>
 				<div class="col-xs-4">
 					<label for="selectEstacion"> Estación Meteorológica: </label>
@@ -531,7 +527,7 @@
 						{% for estacion in estaciones %}
 							<option value="{{ estacion.valor }}">{{ estacion.etiqueta }}</option>							
 						{% endfor %}			  
-					</select>					
+					</select>			
 				
 			</div>
 			<div id='aniosEstacionMeteorologica'>			
@@ -551,18 +547,18 @@
 		</div>		
 		
 		<div class="row">
-			<h4>Periodo de Simulaci&oacute;n : </h4>
+			<h4>Periodo considerado para la simulaci&oacute;n : </h4>
 		</div>			
 		<div id="periodoAnioSimulacion">
 			<div class = "row" id="anioDesdeS"> 
 				<label for="desdeAnioSimulacion" class="col-xs-4">A&ntilde;o inicial:</label>
-				<input type="number" class="col-xs-8 alturaInput" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" required>
+				<input type="number" class="col-xs-8 alturaInput" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" min = "1950" required>
 				<span  id= "desdeAnioSimulacionS" aria-hidden="true"></span>
 				<p id="errorAnioDesde" class = "control-label has-error" class="col-xs-6"></p>
 			</div> 
 			<div class = "row" id="anioHastaS"> 
 				<label for="hastaAnioSimulacion" class="col-xs-4">A&ntilde;o final:</label>
-				<input type="number" class="col-xs-8 alturaInput" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" required>
+				<input type="number" class="col-xs-8 alturaInput" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" min = "1950" required>
 				<span  id= "hastaAnioSimulacionS" aria-hidden="true"></span>
 				<p id="errorAnioHasta" class = "control-label has-error" class="col-xs-6"></p>	
 			</div>	
@@ -581,7 +577,7 @@
 			
 		<div id = "detalleCultivo">
 			<div class="row">
-				<h4> Detalles de cultivo</h4>
+				<h4> Detalles del cultivo  y suelos: </h4>
 			</div>
 			<div id="tipoSuelo" class="row"> 
 				<label for="cmbDetalleSuelo" class="col-xs-4">Tipo de suelo: </label>
@@ -611,7 +607,7 @@
 					<i data-time-icon="icon-time" data-date-icon="icon-calendar" > </i>
 					</span>
 				</div>
-			</div>	
+			</div>				
 		</div>		
 	</div>	
 	<div class="paddingBottom">
@@ -645,14 +641,7 @@
 					</div>
 				</div>	
 			</div>
-			<!--<div id='fertilizacionTipo'>
-				Tipo Fertilización: 
-				<select id="cmbFertilizacionTipo" class= "form-control">	</select>
-			</div>-->
-			<!--<div id='fertilizacionAplicacion'>	
-				Aplicación Fertilización: 
-				<select id="cmbFertilizacionAplicacion" class= "form-control">	</select>
-			</div>-->
+		
 		</div>				
 		<!--Otras Fertilizaciones -->
 		<div id='fertilizacionOtras'>	
@@ -721,12 +710,7 @@
 			<div class="row" id="rbRiego">				
 				<label class="radio-inline"><input type="radio" name="riego" class = "radio-inline" value="1" checked="checked">Automático cuando se requiera</label>
 				<label class="radio-inline"><input type="radio" name="riego" class = "radio-inline" value="0" >No Riego</label>
-			</div>				
-			<!--
-			<div id='detalleRiego'>
-				Método de riego: <select  name ="metodoRiego" id="cmbDetalleRiego" class= "form-control">	</select>
-			</div>
-			-->
+			</div>		
 		</div>
 		
 	</div>	
@@ -833,9 +817,7 @@
 				 <img src="/static/img/cargando.gif" alt="cargando" class="img-responsive">
 			  </div>			  
 			</div>
-			<!-- /.modal-content -->
 		  </div>
-		  <!-- /.modal-dialog -->
 		</div>
 	</form>
 
@@ -846,12 +828,8 @@
 	cargarEstaciones();
 	changeEstacion();
 	cargarDetallesCultivos();
-	//escucharAgregarEscenario();
 	checkSoja();
 	esCargarEscenario();
-	//cargarRiego();
-	//cargarTipoFertilizantes();
-	//cargarAplicacionFertilizantes();
 </script>	
 </body>
 </html>
