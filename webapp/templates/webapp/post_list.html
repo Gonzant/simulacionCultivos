@@ -60,8 +60,7 @@
 			var cultivo = {
 				nombre: "{{cultivo.nombre}}",
 				suelos: 
-					[
-						
+					[						
 						{% for suelo in cultivo.suelos.all %}
 							{
 								nombre: "{{suelo.nombre}}",
@@ -99,7 +98,8 @@
 								valor:"{{no3.valor}}"
 							},
 						{% endfor %}
-					]				
+					], 
+				fSiembra: document.getElementsByName("fechaSiembra")[0].value
 			}			
 			cultivos.push(cultivo);
 		{% endfor %}		
@@ -207,6 +207,8 @@
 	};
 	
 	function agregarEscenario(){
+		var cultivo = document.getElementById('rdCult');	
+		var escenario = new Object();	
 		var result = true;
 		if(validaCamposVacios()===true){ //estan los dato ingresados correctamente
 			for (var i=0;i< document.getElementsByName("cultivo").length; i++){
@@ -320,7 +322,6 @@
 		$("#carga").animate({"opacity":"0"},1000,function(){$("#carga").css("display","none");}); 
 	} 
 	
-		
 	function checkSoja(){
 		document.getElementById("nombreCultivo").checked = true;
 		cargarComboBoxDetalle(document.getElementById("nombreCultivo"));		
@@ -346,6 +347,7 @@
 			}			
 		};
 	};
+	
 	
 	function cargarEscenarioCookie(nEscenario){
 		var co = JSON.parse(getCookie('escenarios'));
@@ -464,11 +466,7 @@
 </script>
 
 <div class="container">	
-	<!--<div id="imgLOAD" style="text-align:center;">
-		<b>Cargando...</b>
-		<img src="/static/img/loading.gif" />
-	</div>-->
-	
+
 	{% include 'header.html' %}			
 
 	<div id= "msgErrores" class=""></div>
@@ -484,7 +482,7 @@
 		<div class="row">
 			<h3> Clima </h3>		
 		</div>
-		<div class="row" id='estacionMeteorologica'>
+		<div class="row" id='estacionMeteorologica' >
 			<div id='comboEstacionMeteorologica'>
 				<div class="col-xs-4">
 					<label for="selectEstacion"> Estación Meteorológica: </label>
@@ -494,7 +492,7 @@
 						{% for estacion in estaciones %}
 							<option value="{{ estacion.valor }}">{{ estacion.etiqueta }}</option>							
 						{% endfor %}			  
-					</select>					
+					</select>			
 				
 			</div>
 			<div id='aniosEstacionMeteorologica'>			

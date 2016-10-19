@@ -18,7 +18,7 @@ $(function() {
 		todayHighlight: true,
 		autoclose: true,
     });	
-	$('#datetimepicker4').datetimepicker('setDate', new Date());
+	//$('#datetimepicker4').datetimepicker('setDate', new Date());
 });
 
 
@@ -32,7 +32,6 @@ function getFormattedDate(date) {
 //FERTILIZACION
 
 function OnChangeRadioFertilizacion (radio) {
-	
 	
   var el = document.getElementById('fertilizacionSiembra');  
   var diasSiembra = document.getElementById('diasDespuesSiembraI');
@@ -179,8 +178,6 @@ function validaCamposVacios(){
 }
  
 $(document).ready(function(){ 
-	
-
 	$("#carga").click(function(){cerrar();}); 
 });
  
@@ -202,7 +199,7 @@ function validaPeriodoSimulacion(){
 function vaciarForm(){
 	$('#desdeAnioSimulacion').attr('readonly', true);
 	$('#hastaAnioSimulacion').attr('readonly', true);
-	$('#inNombreEscenario').val(''); 
+	$('#inNombreEscenario').text(''); 
 	$('#diasDespuesSiembraAp1I').val('');
 	$('#cantidadFertilizanteAp1I').val('');
 	$('#diasDespuesSiembraAp2I').val('');
