@@ -14,6 +14,8 @@ function  borrarNombreEscenario (){
 $(function() {
 	$('#myModal').modal('hide');	
 	
+	
+	//DATETIMEPICKER
 	$('#datetimepicker4').datetimepicker({
 		pickTime: false,
 		todayHighlight: true,
@@ -23,7 +25,11 @@ $(function() {
 	$('#datetimepicker4').on('changeDate', function(ev){                 
 		$('#datetimepicker4').datetimepicker('hide');
 	});
-	//$('#datetimepicker4').datetimepicker('setDate', new Date());
+	
+	if(window.location.href === "http://127.0.0.1:8000/webapp/"){
+		$('#datetimepicker4').datetimepicker('setDate', new Date());
+	}
+	
 });
 
 
