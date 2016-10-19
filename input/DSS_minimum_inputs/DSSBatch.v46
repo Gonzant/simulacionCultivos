@@ -8,8 +8,4 @@ $BATCH(SEASONAL)
 ! Debug        : C:\DSSAT46\DSCSM046.EXE " N DSSBatch.v46"
 !
 @FILEX                                                                                        TRTNO     RP     SQ     OP     CO
-<<<<<<< HEAD
-UYSB0923.SNX                                                                                      1      1      0      1      0
-=======
-UYSB0908.SNX                                                                                      1      1      0      1      0
->>>>>>> origin/master
+UYSB0881.SNX                                                                                      1      1      0      1      0
