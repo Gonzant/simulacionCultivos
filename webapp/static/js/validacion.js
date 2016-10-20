@@ -62,7 +62,7 @@
 	return datosOk;
 }
 */
-
+/*
 function diasDespuesSiembraIValido(){
 	var diasValido= (parseInt($('#diasDespuesSiembraI').val()) < 0) || parseInt(($('#diasDespuesSiembraI').val())) >150;
 	return diasValido; 
@@ -199,4 +199,4 @@ $(function() { //valida cantidad
 
 
 
-
+*/

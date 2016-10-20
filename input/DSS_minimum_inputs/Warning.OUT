@@ -2,11 +2,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 20, 2016; 10:11:17
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 20, 2016; 14:49:51
                                                                                 
-*RUN   1        : UYSB                      CRGRO046 UYSB0932    1              
+*RUN   1        : UYSB                      CRGRO046 UYSB0938    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB0932 SN late to create DSS                                
+ EXPERIMENT     : UYSB0938 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   

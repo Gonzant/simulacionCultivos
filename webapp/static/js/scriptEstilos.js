@@ -112,11 +112,24 @@ function OnChangeRadioFertilizacionOtras (radio) {
 	
 function validaCamposVacios(){
 	
-	validacionPeriodoSimulacionVacio();
+	var errores="<strong> Verifique los campos con errores  </strong>" 
+	var datosOk = true;
+	var nombreEscenarioNoVacio = $('#inNombreEscenario').val().length !=0; 
 
-	var errores="<strong> Verifique los siguientes campos: </strong>" 
-	var datosOk, periodoOk, cultivoOk, nombreOk=true, fertiSiembraOk=true, fertiSiembra1Ok=true, fertiSiembra2Ok=true;
-	
+	var div ="<div></div>";
+	if(validacionPeriodoSimulacion() === false || (nombreEscenarioNoVacio === false) || validacionFertilizacionOtrasAplicaciones() === false || validacionFertilizacionASiembra()===false){
+//algo esta mal
+		datosOk = false;
+		var div= "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
+		//document.getElementById("msgErrores").className = "alert alert-warning";
+		$("#msgErrores" ).html(div);
+		$('body,html').animate({scrollTop : 0}, 500);
+	}
+	else{
+		datosOk = true;
+	}
+
+/*
 	var anioDesdeNoVacio= validaPeriodoSimulacion()===true && parseInt($('#desdeAnioSimulacion').val().length) != 0; 
 	var anioHastaNoVacio= validaPeriodoSimulacion()===true && parseInt($('#hastaAnioSimulacion').val().length) != 0;
 	var cultivoSeleccionado = ($('input[name=cultivo]:checked').attr('value')==='SB') || ($('input[name=cultivo]:checked').attr('value')==='MZ');
@@ -140,9 +153,6 @@ function validaCamposVacios(){
 		cultivoOk=false;
 	}
 	if(fertilizaSeleccionado){//fertiliza Siembra seleccionado
-		validacionFertilizacionASiembraVacio();
-		validacionFertilizacionOtrasAplicacionesVacio();
-
 		diasS = parseInt($('#diasDespuesSiembraI').val().length) != 0;
 		cantidadS=parseInt($('#cantidadFertilizanteI').val().length) != 0;
 		if((parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteI').val()) >= 0) && parseInt(($('#cantidadFertilizanteI').val())) <= 100==false)){
@@ -183,7 +193,7 @@ function validaCamposVacios(){
 		//datosOk, periodoOk, cultivoOk, nombreOk, fertiSiembraOk, fertiSiembra1Ok, fertiSiembra2Ok;
 		datosOk = true; 
 	}
-		
+		*/
 	return datosOk;
 }
  

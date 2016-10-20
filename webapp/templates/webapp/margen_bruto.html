@@ -22,7 +22,7 @@
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'lib/bootstrap-datetimepicker-0.0.11/css/bootstrap-datetimepicker.min.css' %}">	
 	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.min.js' %}"> </script>	
-	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-BR.js' %}">  </script>
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-UY.js' %}">  </script>
 	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>
 	<script>  
 
@@ -262,7 +262,7 @@
 				</div>
 				<div>
 					<div class="row">
-						<h4> Escenarios agregados </h4>
+						<h4> Escenarios</h4>
 					</div>
 					<div class="row" id='escenario'>
 						<div class="table-responsive">
@@ -297,7 +297,6 @@
 
 		escenarios = read_cookie();	
 		console.log("read");
-		//console.log(read_cookie());
 		loadImg();
 		cargarTSuelos();
 		cargarEscenarios();
