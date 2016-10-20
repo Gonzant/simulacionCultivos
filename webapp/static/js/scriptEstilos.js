@@ -9,6 +9,7 @@ function  borrarNombreEscenario (){
 	$('#inNombreEscenario').val('');
 	$('#desdeAnioSimulacion').attr('readonly', true);
 	$('#hastaAnioSimulacion').attr('readonly', true);
+	$('body,html').animate({scrollTop : 0}, 500);
 }
 
 $(function() {
@@ -111,9 +112,24 @@ function OnChangeRadioFertilizacionOtras (radio) {
 	
 function validaCamposVacios(){
 	
-	var errores="<strong> Verifique los siguientes campos: </strong>" 
-	var datosOk, periodoOk, cultivoOk, nombreOk=true, fertiSiembraOk=true, fertiSiembra1Ok=true, fertiSiembra2Ok=true;
-	
+	var errores="<strong> Verifique los campos con errores  </strong>" 
+	var datosOk = true;
+	var nombreEscenarioNoVacio = $('#inNombreEscenario').val().length !=0; 
+
+	var div ="<div></div>";
+	if(validacionPeriodoSimulacion() === false || (nombreEscenarioNoVacio === false) || validacionFertilizacionOtrasAplicaciones() === false || validacionFertilizacionASiembra()===false){
+//algo esta mal
+		datosOk = false;
+		var div= "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
+		//document.getElementById("msgErrores").className = "alert alert-warning";
+		$("#msgErrores" ).html(div);
+		$('body,html').animate({scrollTop : 0}, 500);
+	}
+	else{
+		datosOk = true;
+	}
+
+/*
 	var anioDesdeNoVacio= validaPeriodoSimulacion()===true && parseInt($('#desdeAnioSimulacion').val().length) != 0; 
 	var anioHastaNoVacio= validaPeriodoSimulacion()===true && parseInt($('#hastaAnioSimulacion').val().length) != 0;
 	var cultivoSeleccionado = ($('input[name=cultivo]:checked').attr('value')==='SB') || ($('input[name=cultivo]:checked').attr('value')==='MZ');
@@ -177,13 +193,11 @@ function validaCamposVacios(){
 		//datosOk, periodoOk, cultivoOk, nombreOk, fertiSiembraOk, fertiSiembra1Ok, fertiSiembra2Ok;
 		datosOk = true; 
 	}
-		
+		*/
 	return datosOk;
 }
  
 $(document).ready(function(){ 
-	
-
 	$("#carga").click(function(){cerrar();}); 
 });
  
@@ -212,6 +226,7 @@ function vaciarForm(){
 	$('#cantidadFertilizanteAp2I').val('');
 	$('#diasDespuesSiembraI').val('');
 	$('#cantidadFertilizanteI').val('');
+	$('body,html').animate({scrollTop : 0}, 500);
 }
 
 

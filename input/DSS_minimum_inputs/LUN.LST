@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 *DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 20, 2016; 14:52:23
+=======
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 20, 2016; 14:49:51
+>>>>>>> origin/master
 
  Unit  Filename
   101  OPCLR
@@ -18,3 +22,20 @@
    38  OUTPC
   104  OUTS
    65  SEVAL
+<<<<<<< HEAD
+=======
+  105  FILECO2
+   52  OUTWTH
+   47  OUTT
+   32  OUTET
+   13  FILESS
+   79  SoilNoBal.OUT
+   76  SolNBalSum.OUT
+   78  SoilNiBal.OUT
+   43  SoilNi.OUT
+   55  Mulch.OUT
+   83  SWBAL
+   48  OUTWAT
+    8  FILEA
+   71  PNBAL
+>>>>>>> origin/master
