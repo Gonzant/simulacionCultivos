@@ -1,4 +1,4 @@
-function validaCamposVacios(){
+/*function validaCamposVacios(){
 	var errores="<strong> Verifique los siguientes campos: </strong>" 
 	var datosOk=false;
 	var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0;
@@ -54,14 +54,14 @@ function validaCamposVacios(){
 		<div class="alert alert-warning">
 		  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>		  
 	</div>
-		*/
+		
 		//document.getElementById("msgErrores").className = "alert alert-warning";
 		$("#msgErrores" ).html(div);
 		$('body,html').animate({scrollTop : 0}, 500);
 	}
 	return datosOk;
 }
-
+*/
 
 function diasDespuesSiembraIValido(){
 	var diasValido= (parseInt($('#diasDespuesSiembraI').val()) < 0) || parseInt(($('#diasDespuesSiembraI').val())) >150;

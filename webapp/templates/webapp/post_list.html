@@ -598,7 +598,6 @@
 				<label for="desdeAnioSimulacion" class="col-xs-4">A&ntilde;o inicial:</label>
 				<input type="number" class="col-xs-8 alturaInput" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" min = "1950" required>
 			</div> 
-
 			<div class = "row form-group has-error" id="anioHastaS"> 
 				<label class="control-label" for="inputError" id ="anioHastaLE" style = "margin-left: 35%"> </label>
 				<label for="hastaAnioSimulacion" class="col-xs-4">A&ntilde;o final:</label>
@@ -667,19 +666,17 @@
 			</div>	
 			<div id= "fertilizacionSiembra">
 				<div id= "diasDespuesSiembra">				
-					<div class="row" id="diasDespuesSiembraD"> 
-						<label class ="col-xs-4" for="diasDespuesSiembraI"> D&iacute;as despues de Siembra:</label>
-						<input class = "col-xs-8 alturaInput" type="number" min ="0" name="diasDespuesSiembra" id= "diasDespuesSiembraI">
-						<span  id= "diasDespuesSiembraS" aria-hidden="true" class=""></span>
-						<p id="errordiasDespuesSiembra" class = "control-label has-error"></p>	
-					</div>	
+					<div class = "row form-group has-error" id="diasDespuesSiembraD"> 
+						<label class="control-label" for="inputError" id ="diasDespuesSiembraLE" style = "margin-left: 35%"> </label>
+						<label for="diasDespuesSiembraI" class="col-xs-4">D&iacute;as despues de Siembra:</label>
+						<input type="number" class="col-xs-8 alturaInput"  name="diasDespuesSiembra" id= "diasDespuesSiembraI" min = "0">
+					</div> 
 					<div id= "cantidadFertilizante">
-						<div class="row" id="cantidadFertilizanteD"> 
-							<label class ="col-xs-4"  for="cantidadFertilizanteI"> Cantidad (N, Kg/Ha):</label>
-							<input class ="col-xs-8 alturaInput"  type="number" min ="0" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteI">
-							<span  id= "cantidadFertilizanteS" aria-hidden="true" class=""></span>
-							<p id="errorCantidadFertilizante" class = "control-label has-error"></p>	
-						</div>	
+						<div class = "row form-group has-error" id="cantidadFertilizanteD"> 
+							<label class="control-label" for="inputError" id ="cantidadFertilizanteLE" style = "margin-left: 35%"> </label>
+							<label for="cantidadFertilizanteI" class="col-xs-4">Cantidad (N, Kg/Ha):</label>
+							<input type="number" class="col-xs-8 alturaInput"  name="cantidadFertilizante" id= "cantidadFertilizanteI" min = "0">
+						</div> 	
 					</div>
 				</div>	
 			</div>
@@ -707,39 +704,36 @@
 					<h4> Primera aplicación: </h4>			
 				</div>	
 				<div id= "fertilizacionOtrasAplicaciones1">
-					<div class="row" id="diasDespuesSiembraAp1D"> 
-						<label class="col-xs-4" for="diasDespuesSiembraAp1I"> D&iacute;as despues de Siembra:</label>
-						<input class="col-xs-8 alturaInput" type="number" min ="0" class="form-control" name="diasDespuesSiembra" id= "diasDespuesSiembraAp1I">
-						<span  id= "diasDespuesSiembraAp1S" aria-hidden="true" class=""></span>
-						<p id="errordiasDespuesSiembraAp1" class = "control-label has-error"></p>	
+					<div class = "row form-group has-error" id="diasDespuesSiembraAp1D"> 
+						<label class="control-label" for="inputError" id ="diasDespuesSiembraAp1LE" style = "margin-left: 35%"> </label>
+						<label for="diasDespuesSiembraAp1I" class="col-xs-4">D&iacute;as despues de Siembra:</label>
+						<input type="number" class="col-xs-8 alturaInput"  name="diasDespuesSiembra" id= "diasDespuesSiembraAp1I" min = "0">
 					</div>	
-					<div id= "cantidadFertilizanteAp1">
-						<div class="row" id="cantidadFertilizanteAp1D"> 
-							<label class="col-xs-4" for="cantidadFertilizanteAp1I"> Cantidad (N, Kg/Ha):</label>
-							<input class="col-xs-8 alturaInput" min ="0" type="number" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteAp1I">
-							<span  id= "cantidadFertilizanteAp1S" aria-hidden="true" class=""></span>
-							<p id="errorCantidadFertilizanteAp1" class = "control-label has-error"></p>	
-						</div>	
-					</div>
+					
+					<div class = "row form-group has-error" id="cantidadFertilizanteAp1D"> 
+						<label class="control-label" for="inputError" id ="cantidadFertilizanteAp1LE" style = "margin-left: 35%"> </label>
+						<label for="cantidadFertilizanteAp1I" class="col-xs-4">Cantidad (N, Kg/Ha):</label>
+						<input type="number" class="col-xs-8 alturaInput"  name="cantidadFertilizanteAp1I" id= "cantidadFertilizanteAp1I" min = "0">
+					</div>	
+					
 				</div>
 				<div id= "fertilizacionOtrasAplicaciones2">
 					<div class="row">	
 						<h4> Segunda aplicación: </h4>			
 					</div>	
-					<div class="row" id="diasDespuesSiembraAp2D"> 
-						<label class="col-xs-4" for="diasDespuesSiembraAp2I"> D&iacute;as despues de Siembra:</label>
-						<input class="col-xs-8 alturaInput" type="number" min ="0" class="form-control" name="diasDespuesSiembra" id= "diasDespuesSiembraAp2I">
-						<span  id= "diasDespuesSiembraAp2S" aria-hidden="true" class=""></span>
-						<p id="errordiasDespuesSiembraAp2" class = "control-label has-error"></p>	
+					<div class = "row form-group has-error" id="diasDespuesSiembraAp2D"> 
+						<label class="control-label" for="inputError" id ="diasDespuesSiembraAp2LE" style = "margin-left: 35%"> </label>
+						<label for="diasDespuesSiembraAp2I" class="col-xs-4">D&iacute;as despues de Siembra:</label>
+						<input type="number" class="col-xs-8 alturaInput" name="diasDespuesSiembra" id= "diasDespuesSiembraAp2I" min="0">
 					</div>	
-					<div id="cantidadFertilizanteAp2">
-						<div class="row" id="cantidadFertilizanteAp2D"> 
-							<label class="col-xs-4" for="cantidadFertilizanteAp2I"> Cantidad (N, Kg/Ha):</label>
-							<input class="col-xs-8 alturaInput" type="number" min ="0" class="form-control" name="cantidadFertilizante" id= "cantidadFertilizanteAp2I">
-							<span  id= "cantidadFertilizanteAp2S" aria-hidden="true" class=""></span>
-							<p id="errorCantidadFertilizanteAp2" class = "control-label has-error"></p>	
-						</div>	
-					</div>
+					
+					
+						<div class = "row form-group has-error" id="cantidadFertilizanteAp2D"> 
+							<label class="control-label" for="inputError" id ="cantidadFertilizanteAp2LE" style = "margin-left: 35%"> </label>
+							<label for="cantidadFertilizanteAp2I" class="col-xs-4">Cantidad (N, Kg/Ha):</label>
+							<input type="number" class="col-xs-8 alturaInput"  name="cantidadFertilizanteAp2I" id= "cantidadFertilizanteAp2I" min = "0">
+						</div>
+					
 				</div>
 			</div>
 		</div>		

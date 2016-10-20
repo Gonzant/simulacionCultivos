@@ -112,6 +112,8 @@ function OnChangeRadioFertilizacionOtras (radio) {
 	
 function validaCamposVacios(){
 	
+	validacionPeriodoSimulacionVacio();
+
 	var errores="<strong> Verifique los siguientes campos: </strong>" 
 	var datosOk, periodoOk, cultivoOk, nombreOk=true, fertiSiembraOk=true, fertiSiembra1Ok=true, fertiSiembra2Ok=true;
 	
@@ -138,6 +140,9 @@ function validaCamposVacios(){
 		cultivoOk=false;
 	}
 	if(fertilizaSeleccionado){//fertiliza Siembra seleccionado
+		validacionFertilizacionASiembraVacio();
+		validacionFertilizacionOtrasAplicacionesVacio();
+
 		diasS = parseInt($('#diasDespuesSiembraI').val().length) != 0;
 		cantidadS=parseInt($('#cantidadFertilizanteI').val().length) != 0;
 		if((parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteI').val()) >= 0) && parseInt(($('#cantidadFertilizanteI').val())) <= 100==false)){
