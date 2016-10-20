@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/showGraphics.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/validaciones.js' %}"></script>
 	
 	
 	<!--Pasar estos si se usan local-->
@@ -66,8 +67,7 @@
 				nombre: "{{cultivo.nombre}}",
 				etiqueta: "{{cultivo.value}}",
 				suelos: 
-					[
-						
+					[						
 						{% for suelo in cultivo.suelos.all %}
 							{
 								nombre: "{{suelo.nombre}}",
@@ -299,7 +299,6 @@
 		}
 	};
 	
-	
 	function etiquetaNombreCultivo(cultivo, cultivos){		
 		for (var l = 0;l<cultivos.length;l++){
 			if (cultivo===cultivos[l].etiqueta){
@@ -337,9 +336,7 @@
 		var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
 		var cell4 = row.insertCell(3);
-		var cell5 = row.insertCell(4);
-
-		
+		var cell5 = row.insertCell(4);		
 
 		// Add some text to the new cells:
 		cell1.innerHTML = escenarioActual.nombre;
@@ -348,6 +345,7 @@
 		cell4.innerHTML = etiquetaRiego(escenarioActual.riego, cultivos);//etiquetaRiego(escenarios[i].riego);		
 		cell5.innerHTML = "<button type=\"button\" class='btn btn-primary' onclick='setearCookie("+(escenarios.length-1).toString()+")'>Modificar</button>";
 	};
+	
 	function agregarEscenarioNav(){
 	
 		var divE = document.getElementById('navEscenarios');
@@ -429,8 +427,7 @@
 			}			
 		};
 	};
-	
-	
+		
 	function cargarEscenarioCookie(nEscenario){
 		var co = JSON.parse(getCookie('escenarios'));
 		var escenariosCookie = co[nEscenario];
@@ -596,18 +593,17 @@
 			<h4>Periodo considerado para la simulaci&oacute;n : </h4>
 		</div>			
 		<div id="periodoAnioSimulacion">
-			<div class = "row" id="anioDesdeS"> 
+			<div class = "row form-group has-error" id="anioDesdeS"> 
+				<label class="control-label" for="inputError" id ="anioDesdeLE" style = "margin-left: 35%"> </label>
 				<label for="desdeAnioSimulacion" class="col-xs-4">A&ntilde;o inicial:</label>
 				<input type="number" class="col-xs-8 alturaInput" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" min = "1950" required>
-				<span  id= "desdeAnioSimulacionS" aria-hidden="true"></span>
-				<p id="errorAnioDesde" class = "control-label has-error" class="col-xs-6"></p>
 			</div> 
-			<div class = "row" id="anioHastaS"> 
+
+			<div class = "row form-group has-error" id="anioHastaS"> 
+				<label class="control-label" for="inputError" id ="anioHastaLE" style = "margin-left: 35%"> </label>
 				<label for="hastaAnioSimulacion" class="col-xs-4">A&ntilde;o final:</label>
-				<input type="number" class="col-xs-8 alturaInput" name="hastaAnioSimulacion"id= "hastaAnioSimulacion" min = "1950" required>
-				<span  id= "hastaAnioSimulacionS" aria-hidden="true"></span>
-				<p id="errorAnioHasta" class = "control-label has-error" class="col-xs-6"></p>	
-			</div>	
+				<input type="number" class="col-xs-8 alturaInput" name="hastaAnioSimulacion" id= "hastaAnioSimulacion" min = "1950" required>
+			</div> 
 		</div>
 	</div>
 	

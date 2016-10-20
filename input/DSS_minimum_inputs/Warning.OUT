@@ -2,30 +2,30 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 19, 2016; 15:06:25
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 20, 2016; 10:11:17
                                                                                 
-*RUN   1        : UYSB                      CRGRO046 UYSB0926    1              
+*RUN   1        : UYSB                      CRGRO046 UYSB0932    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB0926 SN late to create DSS                                
+ EXPERIMENT     : UYSB0932 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
 
- SOILDYN  YEAR DOY = 2000 290
+ SOILDYN  YEAR DOY = 2000 291
  Surface runoff curve number has been changed from   1.0 to  25.0.             
 
- SOILDYN  YEAR DOY = 2000 290
+ SOILDYN  YEAR DOY = 2000 291
  The pH of one or more soil layers at initialization                           
  was outside the range pH=1-10, which is unlikely.                             
  It was set by DSSAT to pH=7.                                                  
 
- SOLORG  YEAR DOY = 2000 290
+ SOLORG  YEAR DOY = 2000 291
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer   9 is unlikely:      8.9                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
- SOLORG  YEAR DOY = 2000 290
+ SOLORG  YEAR DOY = 2000 291
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer  10 is unlikely:      5.0                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
