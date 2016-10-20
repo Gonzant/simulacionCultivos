@@ -60,7 +60,7 @@ function cargarEscenarios(){
 		cell3.innerHTML = etiquetaSuelo(escenarios[i].cultivoTCultivar);
 		cell4.innerHTML = etiquetaRiego(escenarios[i].riego);
 		console.log(escenarios[i]);
-		cell5.innerHTML = "<button class='btn btn-primary' onclick='setearCookie("+i+")'>Modificar</button>";			
+		cell5.innerHTML = "<button class='btn btn-primary' type='button' onclick='setearCookie("+i+")'>Modificar</button>";			
 	}
 
 	if (escenarios.length<5){
@@ -74,7 +74,7 @@ function cargarEscenarios(){
 		cell2.innerHTML = "";
 		cell3.innerHTML = "";
 		cell4.innerHTML = "";				
-		cell5.innerHTML = "<button class='btn btn-primary' onclick='agregarNuevoEscenario()'>Agregar escenario</button>";	
+		cell5.innerHTML = "<button class='btn btn-primary' type='button' onclick='agregarNuevoEscenario()'>Agregar escenario</button>";	
 		
 	}
 };
