@@ -1,8 +1,11 @@
 ﻿{% load staticfiles %}
-<html>
+<html lang="es">
 	
 <head>
-	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+
+
     <title>Modelo de Simulación de Cultivos </title>
 	
 	<!--JQuery-->	
@@ -571,11 +574,11 @@
 					<label for="selectEstacion"> Estación Meteorológica: </label>
 				</div>
 				
-					<select class="col-xs-4" name="estacion" id="selectEstacion" onchange="changeEstacion()">
-						{% for estacion in estaciones %}
-							<option value="{{ estacion.valor }}">{{ estacion.etiqueta }}</option>							
-						{% endfor %}			  
-					</select>			
+				<select class="col-xs-4" name="estacion" id="selectEstacion" onchange="changeEstacion()">
+					{% for estacion in estaciones %}
+						<option value="{{ estacion.valor }}">{{ estacion.etiqueta }}</option>							
+					{% endfor %}
+				</select>			
 				
 			</div>
 			<div id='aniosEstacionMeteorologica'>			

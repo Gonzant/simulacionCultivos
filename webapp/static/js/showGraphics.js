@@ -1,16 +1,7 @@
 function cargarParrafos(){										
-	for (i = 0; i < escenarios.length; i++) { 						
-		var para = document.createElement("P");
-		var paraCE = document.createElement("P");
-
-		var textoCE = "Para el escenario " + escenarios[i].nombre + " hay una probabilidad de 50% de obtener rindes por encima de "+escenarios[i].mediana+"Kg/ha. Por otro lado, 3 de cada 4 años se obtienen rindes por encima de "+escenarios[i].base+"Kg/ha, la probabilidad es de 75%, y una vez cada 4 años rindes por encima de "+escenarios[i].mayor + "Kg/ha (25%).";
-		var texto = "El gráfico muestra que en el escenario " + escenarios[i].nombre + " hay un 50% de chances de que el rendimiento esté entre " + escenarios[i].whiskMenor +" y "+ escenarios[i].whiskMayor +" Kg/ha (límites de la “Caja”). Por otro lado la chance de obtener "+escenarios[i].mediana+" Kg/ha o más es de 50%, es decir se puede esperar que en la mitad de los años el rendimiento sea por lo menos "+escenarios[i].mediana+" Kg/ha.  La probabilidad de obtener " + escenarios[i].whiskMenor +" Kg/ha o menos es de 25%, es decir una vez cada 4 años se pueden esperar rendimientos menores a "+escenarios[i].whiskMenor+" Kg/ha. Lo mismo sucede con rendimientos superiores a " +escenarios[i].whiskMayor+" Kg/ha.";								
-		var t = document.createTextNode(texto);  
-		var tCE = document.createTextNode(textoCE);       				
-		para.appendChild(t);  
-		paraCE.appendChild(tCE);				
-		document.getElementById("datosBoxplot").appendChild(para); 
-		document.getElementById("datosCurvaExedencia").appendChild(paraCE);				
+	for (i = 0; i < escenarios.length; i++) { 							
+		document.getElementById("datosBoxplot").innerHTML = "<p>El gráfico muestra que en el escenario <u>" + escenarios[i].nombre + "</u> hay un 50% de chances de que el rendimiento esté entre " + escenarios[i].whiskMenor +" y "+ escenarios[i].whiskMayor +" Kg/ha (límites de la “Caja”). Por otro lado la chance de obtener "+escenarios[i].mediana+" Kg/ha o más es de 50%, es decir se puede esperar que en la mitad de los años el rendimiento sea por lo menos "+escenarios[i].mediana+" Kg/ha.  La probabilidad de obtener " + escenarios[i].whiskMenor +" Kg/ha o menos es de 25%, es decir una vez cada 4 años se pueden esperar rendimientos menores a "+escenarios[i].whiskMenor+" Kg/ha. Lo mismo sucede con rendimientos superiores a " +escenarios[i].whiskMayor+" Kg/ha.</p>";
+		document.getElementById("datosCurvaExedencia").innerHTML= "<p>Para el escenario <u>" + escenarios[i].nombre + "</u> hay una probabilidad de 50% de obtener rindes por encima de "+escenarios[i].mediana+"Kg/ha. Por otro lado, 3 de cada 4 años se obtienen rindes por encima de "+escenarios[i].base+"Kg/ha, la probabilidad es de 75%, y una vez cada 4 años rindes por encima de "+escenarios[i].mayor + "Kg/ha (25%).</p>";
 	}					
 };
 

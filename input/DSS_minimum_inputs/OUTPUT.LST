@@ -1,8 +1,6 @@
 *Output file list
 
 @FILENAME          DESCRIPTION
-<<<<<<< HEAD
-=======
 ET.OUT             Daily soil-plant-atmosphere output file           
 PlantC.OUT         Daily plant carbon output file                    
 PlantGro.OUT       Daily plant growth output file                    
@@ -20,6 +18,5 @@ SoilNiBal.OUT      Seasonal inorganic soil N balance
 SoilNoBal.OUT      Seasonal organic soil N balance                   
 SoilWatBal.OUT     Seasonal soil water balance                       
 Summary.OUT        Seasonal summary output file                      
->>>>>>> origin/master
 INFO.OUT           Information output file                           
 WARNING.OUT        Warning messages                                  

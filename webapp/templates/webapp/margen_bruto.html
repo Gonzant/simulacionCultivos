@@ -96,16 +96,12 @@
 				var datosNum = {{resultPlot}};
 				console.log(datosNum);
 				
-				var dtexto = document.getElementById('datosMargenBoxplot');
-				console.log(escenarios.length);
+				var dtexto ="";				
 				for (var i = 0; i<escenarios.length;i++){
-					var parra = document.createElement("P");
-					var texto = "Con el escenario "+ escenarios[i].nombre+" la probabilidad de obtener un margen bruto de "+datosNum[0][i]+" U$S/ha o más, es de 50%, o sea se puede esperar que en la mitad de los años el margen bruto sea por lo menos "+datosNum[0][i]+" U$S/ha. Por otra parte la probabilidad de obtener un margen bruto por debajo de "+datosNum[1][i]+" U$S/ha es de 25%, una vez cada 4 años. ";
-					var t = document.createTextNode(texto);
-					parra.appendChild(t);
-					dtexto.appendChild(parra);
+					
+					var dtexto =dtexto + "<p>Con el escenario <u>"+ escenarios[i].nombre+"</u> la probabilidad de obtener un margen bruto de "+datosNum[0][i]+" U$S/ha o más, es de 50%, o sea se puede esperar que en la mitad de los años el margen bruto sea por lo menos "+datosNum[0][i]+" U$S/ha. Por otra parte la probabilidad de obtener un margen bruto por debajo de "+datosNum[1][i]+" U$S/ha es de 25%, una vez cada 4 años. </p>";	
 				};		
-
+				document.getElementById('datosMargenBoxplot').innerHTML = dtexto;
 				cargarPreciosIngresados();		
 			};
 			
