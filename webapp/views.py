@@ -200,13 +200,13 @@ def run_dssat(dir, dirInputDSS, listaArchivos):
 		if os.name == 'nt':
 			exe = 'DSCSM046_W.EXE'
 		else: 
-			exe = 'DSCSM046.EXE'
+			exe = './DSCSM046.EXE'
 		args = exe + " B DSSBatch.v46"
 		#Run executable with argument		
 		try:
 			subprocess.call(args, cwd= os.path.join(settings.BASE_DIR, "input", "DSS_minimum_inputs"), shell=True)		
 			#creo la carpeta del escenario dentro de los escenarios del usuario
-			carpetaContador = a[4:9]
+			carpetaContador = a[4:8]
 			home_escenario = os.path.join(dir, carpetaContador)
 			os.makedirs(home_escenario)
 			for entry in entries:
@@ -349,7 +349,7 @@ def graficasYield(directorioEscenario, anios, nombreEscenarios ):
 	return ([listMean,listMediana,listWhiskersMenor,listWhiskersMayor,listBase,listMayor])
 
 
-# Vistas
+# Controlador
 def post_list(request):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')	
 	estaciones = EstacionMeteorologica.objects.all()
@@ -437,7 +437,7 @@ def btnDSSAT(request):
 
 			# Mod 10000 para que vuelva  a 0 luego de 9999
 			print('contador')		
-			contador = str(int(contador) % 10000)
+			contador = completarCeros(str(int(contador) % 10000))
 			
 			archivoSNX = 'UY' + cultivo + contador + '.SNX'
 			listaArchivos.append(archivoSNX)

@@ -232,7 +232,7 @@ function vaciarForm(){
 
 function btnAgregarEscenario(){
 	if(agregarEscenario()){
-		$('#myModal').modal('show');	
+		$('#myModal').modal('show');		
 	}
 };
 

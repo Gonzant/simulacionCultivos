@@ -17,7 +17,7 @@
 	<script src="{% static 'lib/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
 	
 	<!--Simulacion-->
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" media="all" href="{% static 'css/style.css' %}">
 	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/showGraphics.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/validaciones.js' %}"></script>
@@ -52,7 +52,7 @@
 				desde: "{{ estacion.desde }}",
 				hasta: "{{ estacion.hasta }}"
 			}
-			estaciones.push(estacion);			
+			estaciones.push(estacion);
 		{% endfor %}
 	};
 	
@@ -298,8 +298,10 @@
 	
 	function btnAgregarEscenario(){
 		if(agregarEscenario()){
-			$('#myModal').modal('show');	
+			$('#myModal').modal('show');
+			document.getElementById("inicial").innerHTML = "<p>Ingrese el nuevo escenario. </p>";	
 		}
+
 	};
 	
 	function etiquetaNombreCultivo(cultivo, cultivos){		
@@ -422,11 +424,11 @@
 				console.log("entraesceasdajsdnanskhbdan");
 				//Chequear lo que hace vaciarForm
 				vaciarForm();
-				divInicial.innerHTML = "<p>Ingrese el nuevo escenario. (Texto a validar JS)</p>";
+				divInicial.innerHTML = "<p>Ingrese el nuevo escenario. </p>";
 			}else{
 				console.log("entra escook");
 				cargarEscenarioCookie(nEscenarioCookie);			
-				divInicial.innerHTML = "<p>Modifique las variables que considere del escenario "+document.getElementById("inNombreEscenario").value+".</p>"	;
+				divInicial.innerHTML = "<p>Modifique las variables que considere del escenario <u>"+document.getElementById("inNombreEscenario").value+"</u>.</p>"	;
 			}			
 		};
 	};
