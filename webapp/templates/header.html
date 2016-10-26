@@ -1,28 +1,75 @@
 <div class="page-header row">		
-	<div class="col-xs-2"> 
-		<a title="LogoSnia" href="http://snia.gub.uy/" target="_blank"><img src="/static/img/logoSNIA.png" alt="LogoSnia" class="img-responsive"></a>
-	</div>		
-	<div class="col-xs-8 text-center">
-		<a href = './' target="_blank">
-			<div id='headTitulo'> Simulador de Cultivo </div>
-			<h2>adlasnkd</h2>
-		</a> 
-	</div>			
-	<div class="col-xs-2">
-		<ul class="nav">
-			<li><a style="color: #848688; font-size: 16px;" href="http://snia.gub.uy/contacto-5/contacto-72?,,mnu-e-55-3-mnu-" target="_blank"><span class="glyphicon glyphicon-envelope"></span>Contacto</a></li>
-		</ul>
+	<div class="col-xs-3 vcenter" > 
+		<a title="LogoSnia" href="http://snia.gub.uy/" target="_blank"><img id="soloLogo" src="/static/img/logo.png" alt="LogoSnia"><img id="logoImagen" src="/static/img/logoSNIA.png" alt="LogoSnia"></a>
+	</div><!--    	
+ --><div class="col-xs-6 text-center vcenter">	
+		<div id='headTitulo'>
+			<a href = './' target="_blank"> Simulador de Cultivo </a> 
+		</div>					
+	</div><!--			
+ --><div class="col-xs-3 text-center vcenter" >				
+		<a id="contacto" style="color: #848688; font-size: 16px;" href="http://snia.gub.uy/contacto-5/contacto-72?,,mnu-e-55-3-mnu-" target="_blank"><span class="glyphicon glyphicon-envelope"></span><span id="contactoTexto">Contacto</span></a>				
 	</div>			   
 </div>
 
 <style>
+	.vcenter{
+		display: inline-block;
+   		vertical-align: middle;
+  	  	float: none;
+	}
+
+	.headerHeight a {
+		margin : 0 auto
+	}
+
+	#contacto:hover{
+		padding:5px;
+	    background-color: #ebebeb;
+		text-decoration:none;
+	}
+	
 	#headTitulo{
 		color: #848688;
 		font-size: 31.5px;		
 		font-family: inherit;
 	    font-weight: bold;
-    	line-height: 40px;
-    	text-rendering: optimizelegibility;
+    	line-height: 120%;
+    	text-rendering: optimizelegibility;    	
+	}
+	#headTitulo a {
+		color:#848688;
+    	text-decoration:none;
+	}
+
+	#soloLogo{
+		display:none;		
+	}
+
+	#contactoTexto{
+		margin-left: 5px;
+		margin-bottom: 3px;	
+	}
+
+	@media only screen and (max-width: 980px) {		
+		#soloLogo{
+			display:block;
+		}
+
+		#logoImagen{
+			display:none;
+		}
+
+
+	}
+
+	@media only screen and (max-width: 600px) {
+		#headTitulo{			
+			font-size: 22px;			
+		}
+		#contactoTexto{
+			display: none;
+		}
 	}
 
     @media only screen and (max-width: 420px) {

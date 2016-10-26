@@ -93,15 +93,16 @@ function OnChangeRadioFertilizacionOtras (radio) {
 		diasSiembra2.value = "";
 		cantS2.value = "";
 		
+		// HAGO ALGUNOS COMPENTARIOS PORQUE EXPLOTA
 		//quito estilos a dias despues siembra
 		document.getElementById("diasDespuesSiembraAp2D").className = "form-group";
-		document.getElementById("errordiasDespuesSiembraAp2").innerHTML = ' ';
-		document.getElementById("diasDespuesSiembraAp2S").className = " ";
+		//document.getElementById("errordiasDespuesSiembraAp2").innerHTML = ' ';
+		//document.getElementById("diasDespuesSiembraAp2S").className = " ";
 		
 		//quito estilos de cantidad
 		document.getElementById("cantidadFertilizanteAp2D").className = "form-group";
-		document.getElementById("errorCantidadFertilizanteAp2").innerHTML = ' ';
-		document.getElementById("cantidadFertilizanteAp2S").className = " ";
+		//document.getElementById("errorCantidadFertilizanteAp2").innerHTML = ' ';
+		//document.getElementById("cantidadFertilizanteAp2S").className = " ";
 		
 	} else{	
 		el.style.display =  'inline'; 

@@ -199,10 +199,10 @@ def run_dssat(dir, dirInputDSS, listaArchivos):
 		
 		if os.name == 'nt':
 			exe = 'DSCSM046_W.EXE'
-		else: 
+		else:
 			exe = './DSCSM046.EXE'
 		args = exe + " B DSSBatch.v46"
-		#Run executable with argument		
+		#Run executable with argument
 		try:
 			subprocess.call(args, cwd= os.path.join(settings.BASE_DIR, "input", "DSS_minimum_inputs"), shell=True)		
 			#creo la carpeta del escenario dentro de los escenarios del usuario

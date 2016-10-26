@@ -572,11 +572,11 @@
 		</div>
 		<div class="row" id='estacionMeteorologica' >
 			<div id='comboEstacionMeteorologica'>
-				<div class="col-xs-4">
+				<div class="col-md-4 col-sm-6 col-xs-6">
 					<label for="selectEstacion"> Estación Meteorológica: </label>
 				</div>
 				
-				<select class="col-xs-4" name="estacion" id="selectEstacion" onchange="changeEstacion()">
+				<select class="col-md-4 col-sm-6 col-xs-6" name="estacion" id="selectEstacion" onchange="changeEstacion()">
 					{% for estacion in estaciones %}
 						<option value="{{ estacion.valor }}">{{ estacion.etiqueta }}</option>							
 					{% endfor %}
@@ -584,16 +584,16 @@
 				
 			</div>
 			<div id='aniosEstacionMeteorologica'>			
-				<div class="col-xs-1">
+				<div class="col-md-1 col-sm-3 col-xs-3">
 					<label for="desdeAnio">Desde:</label>
-				</div>
-				<div class="col-xs-1">
+				</div><!--
+			 --><div class="col-md-1 col-sm-3 col-xs-3">
 					<input type="text" name="desdeAnio" value="" id= "desdeAnio" readonly="readonly" style="border:none; width:50px; background:transparent">
-				</div>						
-				<div class="col-xs-1">
+				</div><!--						
+			 --><div class="col-md-1 col-sm-3 col-xs-3">
 					<label for="hastaAnio">Hasta: </label>
-				</div>
-				<div class="col-xs-1">
+				</div><!--
+			 --><div class="col-md-1 col-sm-3 col-xs-3">
 					<input type="text" name="hastaAnio" value="" id= "hastaAnio" readonly="readonly" style="border:none; width:50px; background:transparent">
 				</div>			
 			</div>
@@ -825,10 +825,10 @@
 		</div>	
 		<div class="row margenTop">
 			<div class="col-xs-6">
-				<input type='button' name="DSSAT" value="Simular" class="btn btn-success" style="width:50%; margin:0px auto; display:block;" onclick="ejecutarSimulacion()">
+				<input type='button' name="DSSAT" value="Simular" class="btn btn-success" style="margin:0px auto; display:block;" onclick="ejecutarSimulacion()">
 			</div>	
 			<div class="col-xs-6">
-				<input type="button" id="agregarIdEscenario" value ="Agregar nuevo Escenario" name="agregarEscenario" class="btn btn-success" style="width:50%; margin:0px auto; display:block;" onclick="btnAgregarEscenario()">
+				<input type="button" id="agregarIdEscenario" value ="Agregar nuevo Escenario" name="agregarEscenario" class="btn btn-success" style="margin:0px auto; display:block;" onclick="btnAgregarEscenario()">
 			</div>
 		</div>		
 	   <div class="modal fade" id="myModal" style="-webkit-box-shadow: 0 3px 7px transparent; background: transparent; border: 1px solid transparent;">
@@ -872,5 +872,24 @@
 	checkSoja();
 	esCargarEscenario();
 </script>	
+
+<style>					
+	input[type="button"]{
+		font-size: calc(0.6em + 0.6vw);
+  		line-height: calc(1.2em + 1vw);
+	}
+
+	@media only screen and (max-width: 420px) {
+		#comboEstacionMeteorologica{			
+			height: 50px;			
+		}
+	}
+
+	@media only screen and (max-width: 420px) {
+		#comboEstacionMeteorologica{			
+			height: 50px;			
+		}
+	}	
+</style>
 </body>
 </html>
