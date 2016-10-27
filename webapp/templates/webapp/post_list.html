@@ -297,6 +297,7 @@
 	};
 	
 	function btnAgregarEscenario(){
+		
 		if(agregarEscenario()){
 			$('#myModal').modal('show');
 			document.getElementById("inicial").innerHTML = "<p>Ingrese el nuevo escenario. </p>";	
@@ -679,13 +680,13 @@
 					<div class = "row form-group has-error" id="diasDespuesSiembraD"> 
 						<label class="control-label" for="inputError" id ="diasDespuesSiembraLE" style = "margin-left: 35%"> </label>
 						<label for="diasDespuesSiembraI" class="col-xs-4">D&iacute;as despues de Siembra:</label>
-						<input type="number" class="col-xs-8 alturaInput"  name="diasDespuesSiembra" id= "diasDespuesSiembraI" min = "0">
+						<input type="number" maxlength="3" class="col-xs-8 alturaInput"  name="diasDespuesSiembra" id= "diasDespuesSiembraI" min = "0">
 					</div> 
 					<div id= "cantidadFertilizante">
 						<div class = "row form-group has-error" id="cantidadFertilizanteD"> 
 							<label class="control-label" for="inputError" id ="cantidadFertilizanteLE" style = "margin-left: 35%"> </label>
 							<label for="cantidadFertilizanteI" class="col-xs-4">Cantidad (N, Kg/Ha):</label>
-							<input type="number" class="col-xs-8 alturaInput"  name="cantidadFertilizante" id= "cantidadFertilizanteI" min = "0">
+							<input type="number" class="col-xs-8 alturaInput" maxlength="3" name="cantidadFertilizante" id= "cantidadFertilizanteI" min = "0">
 						</div> 	
 					</div>
 				</div>	
@@ -736,8 +737,7 @@
 						<label for="diasDespuesSiembraAp2I" class="col-xs-4">D&iacute;as despues de Siembra:</label>
 						<input type="number" class="col-xs-8 alturaInput" name="diasDespuesSiembra" id= "diasDespuesSiembraAp2I" min="0">
 					</div>	
-					
-					
+									
 						<div class = "row form-group has-error" id="cantidadFertilizanteAp2D"> 
 							<label class="control-label" for="inputError" id ="cantidadFertilizanteAp2LE" style = "margin-left: 35%"> </label>
 							<label for="cantidadFertilizanteAp2I" class="col-xs-4">Cantidad (N, Kg/Ha):</label>
@@ -764,11 +764,14 @@
 		<div class="row">
 			<h3> Escenario </h3>
 		</div>
-		<div class="row" id='escenario'>
+		
+		<div class = "row form-group has-error" id='escenario'> 
+			<label class="control-label" for="inputError" id ="nombreEscenarioLE" style = "margin-left: 35%"> </label>
 			<label for="nombreEscenario" class="col-xs-4"> <b> Nombre Escenario: </b> </label>
-			<input type="text" name="nombreEscenario" class="col-xs-8 alturaInput" id= "inNombreEscenario">
+			<input type="text" onkeypress="return validaNombreEscenario(event)" name="nombreEscenario" class="col-xs-8 alturaInput" id= "inNombreEscenario" pattern="[a-zA-Z0-9]+">
 			<p class="text-center"> Recomendación: escenario no tenga m&aacute;s de 8 caracteres</p>
-		</div>		
+		</div>
+
 	</div>
 	<div class="ocultar" id="navEscenarios">
 		<div class="row">

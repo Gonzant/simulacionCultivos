@@ -1,3 +1,5 @@
+
+
 function validacionFertilizacionASiembra (){
 	var diasSiembra1, cantFert1; 
 	var fertilizaSeleccionado = ($('input[name=fertilizacion]:checked').attr('value')==='1');
@@ -44,7 +46,7 @@ $(document).ready(function(){
     
     $("#desdeAnioSimulacion").change(function(){
 		if(parseInt($('#desdeAnioSimulacion').val().length) != 0 ){ // no es vacio
-			if(parseInt($('#desdeAnioSimulacion').val()) < parseInt($('#desdeAnio').val()) || (parseInt(($('#desdeAnioSimulacion').val())) > parseInt($('#hastaAnio').val()))){
+			if(parseInt($('#desdeAnioSimulacion').val()[0]) === 0 || parseInt($('#desdeAnioSimulacion').val()) < parseInt($('#desdeAnio').val()) || (parseInt(($('#desdeAnioSimulacion').val())) > parseInt($('#hastaAnio').val()))){
 				// no se encuentra en el rango
 				$('#desdeAnioSimulacion').css({'borderColor': "#a94442"});
 				$('#anioDesdeLE').text("El año se debe encontrar dentro del periodo disponible");
@@ -62,7 +64,7 @@ $(document).ready(function(){
 
     $("#hastaAnioSimulacion").change(function(){
 		if(parseInt($('#hastaAnioSimulacion').val().length) != 0 ){ // no es vacio
-			if(parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnio').val()) || (parseInt(($('#hastaAnioSimulacion').val())) > parseInt($('#hastaAnio').val()))){
+			if(parseInt($('#hastaAnioSimulacion').val()[0]) === 0 || parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnio').val()) || (parseInt(($('#hastaAnioSimulacion').val())) > parseInt($('#hastaAnio').val()))){
 				// no se encuentra en el rango
 				$('#hastaAnioSimulacion').css({'borderColor': "#a94442"});
 				$('#anioHastaLE').text("El año se debe encontrar dentro del periodo disponible");
@@ -88,9 +90,11 @@ $(document).ready(function(){
 //FERTILIZACION A LA SIEMBRA	
 	$("#diasDespuesSiembraI").change(function(){
 		if(parseInt($('#diasDespuesSiembraI').val().length) != 0 ){ // no es vacio
-			if (parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val())<=150){ //es correcto
-				$('#diasDespuesSiembraI').css({'borderColor': "#ccc"});
-				$('#diasDespuesSiembraLE').text(" ");
+			if (parseInt($('#diasDespuesSiembraI').val().length) <= 3 && parseInt($('#diasDespuesSiembraI').val().length) >= 1){
+				if(parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val())<=150){ //es correcto
+					$('#diasDespuesSiembraI').css({'borderColor': "#ccc"});
+					$('#diasDespuesSiembraLE').text(" ");
+				}
 			}
 			else{ //dato incorrecto
 				$('#diasDespuesSiembraI').css({'borderColor': "#a94442"});
@@ -102,9 +106,11 @@ $(document).ready(function(){
 
 	$("#cantidadFertilizanteI").change(function(){
 		if(parseInt($('#cantidadFertilizanteI').val().length) != 0 ){ // no es vacio
-			if (parseInt($('#cantidadFertilizanteI').val()) >= 0 && parseInt($('#cantidadFertilizanteI').val())<=100){ //es correcto
-				$('#cantidadFertilizanteI').css({'borderColor': "#ccc"});
-				$('#cantidadFertilizanteLE').text(" ");
+			if (parseInt($('#cantidadFertilizanteI').val().length) <= 3 && parseInt($('#cantidadFertilizanteI').val().length) >= 1){
+				if (parseInt($('#cantidadFertilizanteI').val()) >= 0 && parseInt($('#cantidadFertilizanteI').val())<=100){ //es correcto
+					$('#cantidadFertilizanteI').css({'borderColor': "#ccc"});
+					$('#cantidadFertilizanteLE').text(" ");
+				}
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteI').css({'borderColor': "#a94442"});
@@ -118,9 +124,11 @@ $(document).ready(function(){
 
 	$("#diasDespuesSiembraAp1I").change(function(){
 		if(parseInt($('#diasDespuesSiembraAp1I').val().length) != 0 ){ // no es vacio
-			if (parseInt($('#diasDespuesSiembraAp1I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp1I').val())<=150){ //es correcto
-				$('#diasDespuesSiembraAp1I').css({'borderColor': "#ccc"});
-				$('#diasDespuesSiembraAp1LE').text(" ");
+			if (parseInt($('#diasDespuesSiembraAp1I').val().length) <= 3 && parseInt($('#diasDespuesSiembraAp1I').val().length) >= 1){
+				if (parseInt($('#diasDespuesSiembraAp1I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp1I').val())<=150){ //es correcto
+					$('#diasDespuesSiembraAp1I').css({'borderColor': "#ccc"});
+					$('#diasDespuesSiembraAp1LE').text(" ");
+				}
 			}
 			else{ //dato incorrecto
 				$('#diasDespuesSiembraAp1I').css({'borderColor': "#a94442"});
@@ -131,9 +139,11 @@ $(document).ready(function(){
 
 	$("#diasDespuesSiembraAp2I").change(function(){
 		if(parseInt($('#diasDespuesSiembraAp2I').val().length) != 0 ){ // no es vacio
-			if (parseInt($('#diasDespuesSiembraAp2I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp2I').val())<=150){ //es correcto
-				$('#diasDespuesSiembraAp2I').css({'borderColor': "#ccc"});
-				$('#diasDespuesSiembraAp2LE').text(" ");
+			if (parseInt($('#diasDespuesSiembraAp2I').val().length) <= 3 && parseInt($('#diasDespuesSiembraAp2I').val().length) >= 1){
+				if (parseInt($('#diasDespuesSiembraAp2I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp2I').val())<=150){ //es correcto
+					$('#diasDespuesSiembraAp2I').css({'borderColor': "#ccc"});
+					$('#diasDespuesSiembraAp2LE').text(" ");
+				}
 			}
 			else{ //dato incorrecto
 				$('#diasDespuesSiembraAp2I').css({'borderColor': "#a94442"});
@@ -144,9 +154,11 @@ $(document).ready(function(){
 
 	$("#cantidadFertilizanteAp1I").change(function(){
 		if(parseInt($('#cantidadFertilizanteAp1I').val().length) != 0 ){ // no es vacio
-			if (parseInt($('#cantidadFertilizanteAp1I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp1I').val())<=100){ //es correcto
-				$('#cantidadFertilizanteAp1I').css({'borderColor': "#ccc"});
-				$('#cantidadFertilizanteAp1LE').text(" ");
+			if (parseInt($('#cantidadFertilizanteAp1I').val().length) <= 3 && parseInt($('#cantidadFertilizanteAp1I').val().length) >= 1){
+				if (parseInt($('#cantidadFertilizanteAp1I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp1I').val())<=100){ //es correcto
+					$('#cantidadFertilizanteAp1I').css({'borderColor': "#ccc"});
+					$('#cantidadFertilizanteAp1LE').text(" ");
+				}
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteAp1I').css({'borderColor': "#a94442"});
@@ -157,9 +169,11 @@ $(document).ready(function(){
 	});
 	$("#cantidadFertilizanteAp2I").change(function(){
 		if(parseInt($('#cantidadFertilizanteAp2I').val().length) != 0 ){ // no es vacio
-			if (parseInt($('#cantidadFertilizanteAp2I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp2I').val())<=100){ //es correcto
-				$('#cantidadFertilizanteAp2I').css({'borderColor': "#ccc"});
-				$('#cantidadFertilizanteAp2LE').text(" ");
+			if (parseInt($('#cantidadFertilizanteAp2I').val().length) <= 3 && parseInt($('#cantidadFertilizanteAp2I').val().length) >= 1){
+				if (parseInt($('#cantidadFertilizanteAp2I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp2I').val())<=100){ //es correcto
+					$('#cantidadFertilizanteAp2I').css({'borderColor': "#ccc"});
+					$('#cantidadFertilizanteAp2LE').text(" ");
+				}
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteAp2I').css({'borderColor': "#a94442"});
@@ -167,6 +181,7 @@ $(document).ready(function(){
 			}
 		}
 	});
+
 });
 
 
@@ -301,8 +316,25 @@ function validacionPeriodoSimulacion (){
 
 }
 
-function validaNombreEscenario (){
 
+//NOMBRE ESCENARIO 
+function validaNombreEscenario (e){
+
+    tecla = (document.all) ? e.keyCode : e.which; // 2
+    if (tecla==8) return true; // 3
+    patron =/[0-9A-Za-zñÑ\s]/; // 4
+    te = String.fromCharCode(tecla); // 5
+    
+    if(patron.test(te) === false){
+
+    	$('#inNombreEscenario').css({'borderColor': "#a94442"});
+		$('#nombreEscenarioLE').text("Este campo solo puede contener letras y números");
+    }
+    else{
+    	$('#inNombreEscenario').css({'borderColor': "#ccc"});
+    	$('#nombreEscenarioLE').text(" ");
+    }
+    return patron.test(te); // 6
 
 }
 

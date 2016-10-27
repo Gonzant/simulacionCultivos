@@ -112,10 +112,10 @@
 			var errores= "<strong> <u>Verifique los siguientes campos:</u> </strong>";
 			var cantEscenarios = escenarios.length;
 			var erroresMostrar = " "; 
-			var precioGrano = parseInt($('#precioGranoEscenario').val());
-			var precioFert = parseInt($('#precioFertilizanteEscenario').val());
-			var precioRiego = parseInt($('#costeRiegoEscenario').val());
-			var gastosG = parseInt($('#gastosGeneralesEscenario').val());
+			var precioGrano = parseFloat($('#precioGranoEscenario').val());
+			var precioFert = parseFloat($('#precioFertilizanteEscenario').val());
+			var precioRiego = parseFloat($('#costeRiegoEscenario').val());
+			var gastosG = parseFloat($('#gastosGeneralesEscenario').val());
 				
 				//alert(cantEscenarios);
 				
@@ -247,10 +247,10 @@
 					    {% for nEscenario in nombreEscenarios %}
 					    	<tr>
 						        <td><input type="text" name="nombreEscenario" class="alturaInput" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}" style="width:100%"></td>
-						        <td><input type="number" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%"></td>
-						        <td><input type="number" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%"></td>
-						        <td><input type="number" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="alturaInput" style="width:100%"></td>					        
-						        <td><input type="number" min="0" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%"></td>
+						        <td><input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%"></td>
+						        <td><input type="text" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%"></td>
+						        <td><input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="alturaInput" style="width:100%"></td>					        
+						        <td><input type="text" min="0" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%"></td>
 						    </tr>
 					    {% endfor %}
 					    </tbody>
