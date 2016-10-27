@@ -316,7 +316,6 @@ function validacionPeriodoSimulacion (){
 
 }
 
-
 //NOMBRE ESCENARIO 
 function validaNombreEscenario (e){
 

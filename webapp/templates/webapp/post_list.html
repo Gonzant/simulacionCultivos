@@ -283,8 +283,7 @@
 			};
 			$("#msgErrores" ).html(" ");			
 			escenarios.push(escenario_push);
-			agregarEscenarioPanel();
-			//agregarEscenarioNav();			
+			agregarEscenarioPanel();			
 			result = true;
 			document.getElementById("navEscenarios").className = "";
 			agregarEscenarioTabla(escenarioActual);
@@ -673,13 +672,13 @@
 			</div>
 			<div class = "row" id="rbFertilizacion">					
 				<label class="radio-inline"><input id="fertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="1" onchange="OnChangeRadioFertilizacion (this)" checked="checked">Fertiliza</label>
-				<label class="radio-inline"><input id="noFertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="0" onchange="OnChangeRadioFertilizacion (this)">No Fertiliza</label>
+				<label class="radio-inline"><input id="noFertiliza" type="radio" name="fertilizacion" class = "radio-inline" value="0" onchange="OnChangeRadioFertilizacion (this)">No fertiliza</label>
 			</div>	
 			<div id= "fertilizacionSiembra">
 				<div id= "diasDespuesSiembra">				
 					<div class = "row form-group has-error" id="diasDespuesSiembraD"> 
 						<label class="control-label" for="inputError" id ="diasDespuesSiembraLE" style = "margin-left: 35%"> </label>
-						<label for="diasDespuesSiembraI" class="col-xs-4">D&iacute;as despues de Siembra:</label>
+						<label for="diasDespuesSiembraI" class="col-xs-4">D&iacute;as despues de siembra:</label>
 						<input type="number" maxlength="3" class="col-xs-8 alturaInput"  name="diasDespuesSiembra" id= "diasDespuesSiembraI" min = "0">
 					</div> 
 					<div id= "cantidadFertilizante">
@@ -717,7 +716,7 @@
 				<div id= "fertilizacionOtrasAplicaciones1">
 					<div class = "row form-group has-error" id="diasDespuesSiembraAp1D"> 
 						<label class="control-label" for="inputError" id ="diasDespuesSiembraAp1LE" style = "margin-left: 35%"> </label>
-						<label for="diasDespuesSiembraAp1I" class="col-xs-4">D&iacute;as despues de Siembra:</label>
+						<label for="diasDespuesSiembraAp1I" class="col-xs-4">D&iacute;as despues de siembra:</label>
 						<input type="number" class="col-xs-8 alturaInput"  name="diasDespuesSiembra" id= "diasDespuesSiembraAp1I" min = "0">
 					</div>	
 					
@@ -734,7 +733,7 @@
 					</div>	
 					<div class = "row form-group has-error" id="diasDespuesSiembraAp2D"> 
 						<label class="control-label" for="inputError" id ="diasDespuesSiembraAp2LE" style = "margin-left: 35%"> </label>
-						<label for="diasDespuesSiembraAp2I" class="col-xs-4">D&iacute;as despues de Siembra:</label>
+						<label for="diasDespuesSiembraAp2I" class="col-xs-4">D&iacute;as despues de siembra:</label>
 						<input type="number" class="col-xs-8 alturaInput" name="diasDespuesSiembra" id= "diasDespuesSiembraAp2I" min="0">
 					</div>	
 									

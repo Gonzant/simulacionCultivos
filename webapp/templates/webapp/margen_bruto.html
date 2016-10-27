@@ -16,13 +16,11 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/showGraphics.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/validacionesMB.js' %}"></script>
 	
 	
 	<!--Pasar estos si se usan local-->
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'lib/bootstrap-datetimepicker-0.0.11/css/bootstrap-datetimepicker.min.css' %}">	
-	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.min.js' %}"> </script>	
-	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-UY.js' %}">  </script>
 	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>
 	<script>  
 
@@ -107,70 +105,34 @@
 			
 			//<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/margenBruto.png" alt="Margen bruto">			
 		};
+		
 		function validacionesMB(){
-			var pg = false, pf=false, cr=false, oc=false;  
-			var errores= "<strong> <u>Verifique los siguientes campos:</u> </strong>";
-			var cantEscenarios = escenarios.length;
-			var erroresMostrar = " "; 
-			var precioGrano = parseFloat($('#precioGranoEscenario').val());
-			var precioFert = parseFloat($('#precioFertilizanteEscenario').val());
-			var precioRiego = parseFloat($('#costeRiegoEscenario').val());
-			var gastosG = parseFloat($('#gastosGeneralesEscenario').val());
-				
-				//alert(cantEscenarios);
-				
-			for (var i =0; i<cantEscenarios; i++){
-				//alert(cantEscenarios);
-				if(($('#precioGranoEscenario').val().length === 0) || precioGrano < 0 || (precioGrano > 1000)){ //incorrecto precio grano
-					erroresMostrar = erroresMostrar + "<p> Precio del grano"+"</p>";
-					pg= false;
-				}
-				else{ 
-					pg = true;
-				}
-				
-				if(($('#precioFertilizanteEscenario').val().length === 0) || precioFert < 1 || precioFert > 3){ //incorrecto precio fertilizante
-					erroresMostrar = erroresMostrar + "<p> Precio del fertilizante </p>";
-					pf= false;
-				}
-				else{
-					pf = true;
-				}
-				
-				if(($('#costeRiegoEscenario').val().length === 0) || precioRiego < 1 || precioRiego > 3){ //incorrecto precio riego
-					erroresMostrar = erroresMostrar + "<p> Precio del riego </p>";
-					cr= false;
-				}
-				else{
-					cr = true;
-				}
-				
-				if(($('#gastosGeneralesEscenario').val().length === 0) || gastosG < 300 || gastosG > 1000){//incorrecto otros costos
-					erroresMostrar = erroresMostrar + "<p> Otros costos </p>";
-					oc= false;
-				}
-				else{
-					oc = true;
-				}
-				
-				if(erroresMostrar!=" "){
-					 erroresMostrar = errores + " <b><p> Escenario: " + escenarios[i].nombre + "<p></b>" + erroresMostrar;
-					var div= "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + erroresMostrar + "</div>";
-					//document.getElementById("msgErrores").className = "alert alert-warning";
-					$("#msgErroresMB" ).html(div);
-					$('body,html').animate({scrollTop : 0}, 500);
-				}
-				if(pg && pf && cr && oc){
-					datosOk = true; 
-				}
-				else{
-					datosOk=false; 
-				}		
+			var errores= "<strong> Verifique los campos con errores en los escenarios: </strong>";
+			var pg = true, pf=true, cr=true, oc=true, datosOK; 
 			
-			}		
+			for (var i=0; i < escenarios.length; i++){
+				pg = validaPrecioGrano();
+				pf = validaPrecioFertilizante();
+				cr = validaCostoRiego();
+				oc = validaCostosGenerales();
+
+				if(pg === false || pf === false || cr === false || oc === false){
+					errores = errores + escenarios[i].nombre   + " , ";
+				}
+			}
+
+			if(errores != "<strong> <u>Verifique los campos con errores en los escenarios: </u> </strong>"){
+				var div= "<div style = \"padding: 8px 35px 8px 14px; color: #a94442; margin-bottom: 20px;border-color: #ebccd1;\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
+				$("#msgErroresMB" ).html(div);
+				$('body,html').animate({scrollTop : 0}, 500);
+				datosOk = false;
+			}
+			else{
+				datosOk = true; 				
+			}
 			
-			return datosOk; 
 		}		
+
 		function btnGraficaMargenBruto(){
 			
 			if(validacionesMB()){
@@ -247,10 +209,27 @@
 					    {% for nEscenario in nombreEscenarios %}
 					    	<tr>
 						        <td><input type="text" name="nombreEscenario" class="alturaInput" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}" style="width:100%"></td>
-						        <td><input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%"></td>
-						        <td><input type="text" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%"></td>
-						        <td><input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="alturaInput" style="width:100%"></td>					        
-						        <td><input type="text" min="0" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%"></td>
+     
+						        <td><div class = "form-group has-error" id='precioGranoEscenarioDiv'> 
+							        <input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%" onchange="validaPrecioGrano(this)">
+							        <label class="control-label" for="inputError" id ="precioGranoEscenarioLE" style="width:100%"></label>
+						        </div></td>
+
+								<td><div class = "form-group has-error" id='precioFertilizanteEscenarioDiv'> 
+							       <input type="text" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%">
+							        <label class="control-label" for="inputError" id ="precioFertilizanteEscenarioLE" style="width:100%"></label>
+						        </div></td>
+
+								<td><div class = "form-group has-error" id='costeRiegoEscenarioDiv'> 
+							      <input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="alturaInput" style="width:100%">
+							        <label class="control-label" for="inputError" id ="costeRiegoEscenarioLE" style="width:100%"></label>
+						        </div></td>
+						       
+						       <td><div class = "form-group has-error" id='gastosGeneralesEscenarioDiv'> 
+							      <input type="text" min="0" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%">
+							        <label class="control-label" for="inputError" id ="gastosGeneralesEscenarioLE" style="width:100%"></label>
+						        </div></td>						        				        
+						   
 						    </tr>
 					    {% endfor %}
 					    </tbody>

@@ -1,3 +1,4 @@
+
 //Boton agregar escenario
 function agregarEscenario(boton){
 	var cultivo = document.getElementById('rdCult');	
@@ -121,7 +122,7 @@ function validaCamposVacios(){
 	if(validacionPeriodoSimulacion() === false || (nombreEscenarioNoVacio === false) || validacionFertilizacionOtrasAplicaciones() === false || validacionFertilizacionASiembra()===false){
 //algo esta mal
 		datosOk = false;
-		var div= "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
+		var div= "<div style = \"padding: 8px 35px 8px 14px; color: #a94442; margin-bottom: 20px;border-color: #ebccd1;\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
 		//document.getElementById("msgErrores").className = "alert alert-warning";
 		$("#msgErrores" ).html(div);
 		$('body,html').animate({scrollTop : 0}, 500);
@@ -130,71 +131,6 @@ function validaCamposVacios(){
 		datosOk = true;
 	}
 
-/*
-	var anioDesdeNoVacio= validaPeriodoSimulacion()===true && parseInt($('#desdeAnioSimulacion').val().length) != 0; 
-	var anioHastaNoVacio= validaPeriodoSimulacion()===true && parseInt($('#hastaAnioSimulacion').val().length) != 0;
-	var cultivoSeleccionado = ($('input[name=cultivo]:checked').attr('value')==='SB') || ($('input[name=cultivo]:checked').attr('value')==='MZ');
-	var fertilizaSeleccionado = ($('input[name=fertilizacion]:checked').attr('value')==='1');
-	var diasS, diasS1, diasS2, cantidadS, cantidadS1, cantidadS2;
-	var fertiliza1Seleccionado = ($('input[name=fertilizacionO]:checked').attr('value')==='1');
-	var fertiliza2Seleccionado = ($('input[name=fertilizacionO]:checked').attr('value')==='2');
-	var nombreEscenarioNoVacio = $('#inNombreEscenario').val().length !=0; 
-	diasS1 = parseInt($('#diasDespuesSiembraAp1I').val().length) != 0;
-	diasS2 =parseInt($('#diasDespuesSiembraAp2I').val().length) != 0;
-	if(anioDesdeNoVacio && anioHastaNoVacio){ 		
-		periodoOk=true;		
-	}else{		
-		errores = errores + "<p>Periodo de simulacion</p>";		
-		periodoOk=false;
-	}
-	if(cultivoSeleccionado){ 		
-		cultivoOk=true;		
-	}else{		
-		errores = errores + "<p>Debe seleccionar un cultivo<p>";		
-		cultivoOk=false;
-	}
-	if(fertilizaSeleccionado){//fertiliza Siembra seleccionado
-		diasS = parseInt($('#diasDespuesSiembraI').val().length) != 0;
-		cantidadS=parseInt($('#cantidadFertilizanteI').val().length) != 0;
-		if((parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteI').val()) >= 0) && parseInt(($('#cantidadFertilizanteI').val())) <= 100==false)){
-			errores = errores + "<p> Fertilizacion a la siembra</p>";
-			fertiSiembraOk=false;
-		}else{
-			fertiSiembraOk= true;
-		}
-	}
-	if(fertiliza1Seleccionado){//fertiliza 1 ap seleccionado
-		if((parseInt($('#diasDespuesSiembraAp1I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp1I').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteAp1I').val()) >= 0) && parseInt(($('#cantidadFertilizanteAp1I').val())) <= 100==false)){
-			errores = errores + "<p> Otras fertilizaciones (1 aplicacion)</p>";
-			fertiSiembra1Ok=false;
-		}else{
-			fertiSiembra1Ok= true;
-		}
-	}
-	
-	if(fertiliza2Seleccionado){//fertiliza 2 ap seleccionado
-		if((parseInt($('#diasDespuesSiembraAp2I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp2I').val()) <=150) === false || ((parseInt($('#cantidadFertilizanteAp2I').val()) >= 0) && parseInt(($('#cantidadFertilizanteAp2I').val())) <= 100==false)){
-			errores = errores + "<p> Otras fertilizaciones (2 aplicaciones)</p>";
-			fertiSiembra2Ok=false;
-		}else{
-			fertiSiembra2Ok= true;
-		}
-	}
-	if(nombreEscenarioNoVacio ===false){
-		errores = errores + "<p> Nombre del escenario </p>";
-		nombreOk=false;
-	}
-	if(errores!="<strong> Verifique los siguientes campos: </strong>"){
-		var div= "<div class=\"alert alert-warning\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
-		//document.getElementById("msgErrores").className = "alert alert-warning";
-		$("#msgErrores" ).html(div);
-		$('body,html').animate({scrollTop : 0}, 500);
-	}
-	if(nombreOk && fertiSiembra2Ok && fertiSiembra1Ok && periodoOk && cultivoOk && fertiSiembraOk){
-		//datosOk, periodoOk, cultivoOk, nombreOk, fertiSiembraOk, fertiSiembra1Ok, fertiSiembra2Ok;
-		datosOk = true; 
-	}
-		*/
 	return datosOk;
 }
  
