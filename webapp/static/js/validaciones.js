@@ -5,7 +5,7 @@ function validacionFertilizacionASiembra (){
 	var fertilizaSeleccionado = ($('input[name=fertilizacion]:checked').attr('value')==='1');
 	if(fertilizaSeleccionado){
 		if(parseInt($('#diasDespuesSiembraI').val().length) != 0 ){ // no es vacio
-			if (parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val())<=150){ //es correcto
+			if (parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val())<150){ //es correcto
 				$('#diasDespuesSiembraI').css({'borderColor': "#ccc"});
 				$('#diasDespuesSiembraLE').text(" ");
 				diasSiembra1 = true;
@@ -95,6 +95,10 @@ $(document).ready(function(){
 					$('#diasDespuesSiembraI').css({'borderColor': "#ccc"});
 					$('#diasDespuesSiembraLE').text(" ");
 				}
+				else{
+					$('#diasDespuesSiembraI').css({'borderColor': "#a94442"});
+					$('#diasDespuesSiembraLE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores/iguales a 150.");
+				}
 			}
 			else{ //dato incorrecto
 				$('#diasDespuesSiembraI').css({'borderColor': "#a94442"});
@@ -110,6 +114,10 @@ $(document).ready(function(){
 				if (parseInt($('#cantidadFertilizanteI').val()) >= 0 && parseInt($('#cantidadFertilizanteI').val())<=100){ //es correcto
 					$('#cantidadFertilizanteI').css({'borderColor': "#ccc"});
 					$('#cantidadFertilizanteLE').text(" ");
+				}
+				else{
+					$('#cantidadFertilizanteI').css({'borderColor': "#a94442"});
+					$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
 				}
 			}
 			else{ //dato incorrecto
@@ -129,6 +137,10 @@ $(document).ready(function(){
 					$('#diasDespuesSiembraAp1I').css({'borderColor': "#ccc"});
 					$('#diasDespuesSiembraAp1LE').text(" ");
 				}
+				else{
+					$('#diasDespuesSiembraAp1I').css({'borderColor': "#a94442"});
+					$('#diasDespuesSiembraAp1LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores a 150.");					
+				}
 			}
 			else{ //dato incorrecto
 				$('#diasDespuesSiembraAp1I').css({'borderColor': "#a94442"});
@@ -144,10 +156,14 @@ $(document).ready(function(){
 					$('#diasDespuesSiembraAp2I').css({'borderColor': "#ccc"});
 					$('#diasDespuesSiembraAp2LE').text(" ");
 				}
+				else{
+					$('#diasDespuesSiembraAp2I').css({'borderColor': "#a94442"});
+					$('#diasDespuesSiembraAp2LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores/iguales a 150.");
+				}
 			}
 			else{ //dato incorrecto
 				$('#diasDespuesSiembraAp2I').css({'borderColor': "#a94442"});
-				$('#diasDespuesSiembraAp2LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores a 150.");
+				$('#diasDespuesSiembraAp2LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores/iguales a 150.");
 			}
 		}
 	});
@@ -158,6 +174,10 @@ $(document).ready(function(){
 				if (parseInt($('#cantidadFertilizanteAp1I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp1I').val())<=100){ //es correcto
 					$('#cantidadFertilizanteAp1I').css({'borderColor': "#ccc"});
 					$('#cantidadFertilizanteAp1LE').text(" ");
+				}
+				else{
+					$('#cantidadFertilizanteAp1I').css({'borderColor': "#a94442"});
+					$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
 				}
 			}
 			else{ //dato incorrecto
@@ -173,6 +193,10 @@ $(document).ready(function(){
 				if (parseInt($('#cantidadFertilizanteAp2I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp2I').val())<=100){ //es correcto
 					$('#cantidadFertilizanteAp2I').css({'borderColor': "#ccc"});
 					$('#cantidadFertilizanteAp2LE').text(" ");
+				}
+				else{
+					$('#cantidadFertilizanteAp2I').css({'borderColor': "#a94442"});
+					$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
 				}
 			}
 			else{ //dato incorrecto
@@ -321,7 +345,7 @@ function validaNombreEscenario (e){
 
     tecla = (document.all) ? e.keyCode : e.which; // 2
     if (tecla==8) return true; // 3
-    patron =/[0-9A-Za-zñÑ\s]/; // 4
+    patron =/[0-9A-Za-zñÑáÁéÉíÍóÓúÚ \s]/; // 4
     te = String.fromCharCode(tecla); // 5
     
     if(patron.test(te) === false){
