@@ -119,8 +119,18 @@ function validaCamposVacios(){
 	var nombreEscenarioNoVacio = $('#inNombreEscenario').val().length !=0; 
 
 	var div ="<div></div>";
+
+
+	//alert(" validacionPeriodoSimulacion() === false " + validacionPeriodoSimulacion());
+
+//	alert("(nombreEscenarioNoVacio === false)   " + (nombreEscenarioNoVacio === false));
+
+//	alert("validacionFertilizacionOtrasAplicaciones() === false  " + validacionFertilizacionOtrasAplicaciones() === false);
+
+//	alert("validacionFertilizacionASiembra()===false " + validacionFertilizacionASiembra()===false);
+
 	if(validacionPeriodoSimulacion() === false || (nombreEscenarioNoVacio === false) || validacionFertilizacionOtrasAplicaciones() === false || validacionFertilizacionASiembra()===false){
-//algo esta mal
+		//algo esta mal
 		datosOk = false;
 		var div= "<div style = \"padding: 8px 35px 8px 14px; color: #a94442; margin-bottom: 20px;border-color: #ebccd1;\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
 		//document.getElementById("msgErrores").className = "alert alert-warning";

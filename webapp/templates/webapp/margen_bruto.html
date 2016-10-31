@@ -22,9 +22,16 @@
 	<!--Pasar estos si se usan local-->
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
 	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>
+
+
+	<!--Pasar estos si se usan local-->
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'lib/bootstrap-datetimepicker-0.0.11/css/bootstrap-datetimepicker.min.css' %}">	
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.min.js' %}"> </script>	
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-UY.js' %}">  </script>
+	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>	
+
+
 	<script>  
-
-
 		var escenarios = [];
 		var cultivos = [];	
 		var suelos = [];
@@ -108,21 +115,23 @@
 		
 		function validacionesMB(){
 			var errores= "<strong> Verifique los campos con errores en los escenarios: </strong>";
-			var pg = true, pf=true, cr=true, oc=true, datosOK; 
-			
+			var datosOK; 
+			var divPG = "", divPF= "", divCR= "", divOC= "";
+			var pgs = validaPrecioGrano();
+			var pfs = validaPrecioFertilizante(); 
+			var crs = validaCostoRiego();
+			var ocs = validaCostosGenerales();
+
 			for (var i=0; i < escenarios.length; i++){
-				pg = validaPrecioGrano();
-				pf = validaPrecioFertilizante();
-				cr = validaCostoRiego();
-				oc = validaCostosGenerales();
-
-				if(pg === false || pf === false || cr === false || oc === false){
-					errores = errores + escenarios[i].nombre   + " , ";
+				if (pgs[i] === false || pfs[i] === false || crs[i]===false || ocs[i] ===false){
+					errores = errores + escenarios[i].nombre + "   ";
 				}
+									
 			}
-
+			
 			if(errores != "<strong> <u>Verifique los campos con errores en los escenarios: </u> </strong>"){
-				var div= "<div style = \"padding: 8px 35px 8px 14px; color: #a94442; margin-bottom: 20px;border-color: #ebccd1;\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
+
+				var div= "<div style = \"padding: 8px 35px 8px 14px; color: #a94442; margin-bottom: 20px;border-color: #ebccd1;\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\"></a>" + errores + "</div>";
 				$("#msgErroresMB" ).html(div);
 				$('body,html').animate({scrollTop : 0}, 500);
 				datosOk = false;
@@ -211,23 +220,23 @@
 						        <td><input type="text" name="nombreEscenario" class="alturaInput" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}" style="width:100%"></td>
      
 						        <td><div class = "form-group has-error" id='precioGranoEscenarioDiv'> 
-							        <input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%" onchange="validaPrecioGrano(this)">
-							        <label class="control-label" for="inputError" id ="precioGranoEscenarioLE" style="width:100%"></label>
+							        <input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%" >
+							        <label class="control-label" for="inputError" name="precioGranoEscenarioLE" id ="precioGranoEscenarioLE" style="width:100%"></label>
 						        </div></td>
 
 								<td><div class = "form-group has-error" id='precioFertilizanteEscenarioDiv'> 
 							       <input type="text" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%">
-							        <label class="control-label" for="inputError" id ="precioFertilizanteEscenarioLE" style="width:100%"></label>
+							        <label class="control-label" for="inputError" name ="precioFertilizanteEscenarioLE" id ="precioFertilizanteEscenarioLE" style="width:100%"></label>
 						        </div></td>
 
 								<td><div class = "form-group has-error" id='costeRiegoEscenarioDiv'> 
 							      <input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="alturaInput" style="width:100%">
-							        <label class="control-label" for="inputError" id ="costeRiegoEscenarioLE" style="width:100%"></label>
+							        <label class="control-label" for="inputError" id ="costeRiegoEscenarioLE" name ="costeRiegoEscenarioLE" style="width:100%"></label>
 						        </div></td>
 						       
 						       <td><div class = "form-group has-error" id='gastosGeneralesEscenarioDiv'> 
 							      <input type="text" min="0" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%">
-							        <label class="control-label" for="inputError" id ="gastosGeneralesEscenarioLE" style="width:100%"></label>
+							        <label class="control-label" for="inputError" id ="gastosGeneralesEscenarioLE" name ="gastosGeneralesEscenarioLE" style="width:100%"></label>
 						        </div></td>						        				        
 						   
 						    </tr>

@@ -1,18 +1,17 @@
 
-
 function validacionFertilizacionASiembra (){
 	var diasSiembra1, cantFert1; 
 	var fertilizaSeleccionado = ($('input[name=fertilizacion]:checked').attr('value')==='1');
 	if(fertilizaSeleccionado){
 		if(parseInt($('#diasDespuesSiembraI').val().length) != 0 ){ // no es vacio
-			if (parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val())<150){ //es correcto
+			if (parseInt($('#diasDespuesSiembraI').val()) >= 0 && parseInt($('#diasDespuesSiembraI').val())<=150){ //es correcto
 				$('#diasDespuesSiembraI').css({'borderColor': "#ccc"});
 				$('#diasDespuesSiembraLE').text(" ");
 				diasSiembra1 = true;
 			}
 			else{ //dato incorrecto
 				$('#diasDespuesSiembraI').css({'borderColor': "#a94442"});
-				$('#diasDespuesSiembraLE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores a 150.");
+				$('#diasDespuesSiembraLE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores/iguales a 150.");
 				diasSiembra1 = false;
 			}
 		}else{//es vacio
@@ -28,7 +27,7 @@ function validacionFertilizacionASiembra (){
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteI').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
+				$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				cantFert1 = false;
 			}
 		}else{//es vacio
@@ -102,7 +101,7 @@ $(document).ready(function(){
 			}
 			else{ //dato incorrecto
 				$('#diasDespuesSiembraI').css({'borderColor': "#a94442"});
-				$('#diasDespuesSiembraLE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores a 150.");
+				$('#diasDespuesSiembraLE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores/iguales a 150.");
 			}
 		}
 
@@ -117,12 +116,12 @@ $(document).ready(function(){
 				}
 				else{
 					$('#cantidadFertilizanteI').css({'borderColor': "#a94442"});
-					$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
+					$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				}
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteI').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
+				$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 			}
 		}
 
@@ -139,12 +138,12 @@ $(document).ready(function(){
 				}
 				else{
 					$('#diasDespuesSiembraAp1I').css({'borderColor': "#a94442"});
-					$('#diasDespuesSiembraAp1LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores a 150.");					
+					$('#diasDespuesSiembraAp1LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores/iguales a 150.");					
 				}
 			}
 			else{ //dato incorrecto
 				$('#diasDespuesSiembraAp1I').css({'borderColor': "#a94442"});
-				$('#diasDespuesSiembraAp1LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores a 150.");
+				$('#diasDespuesSiembraAp1LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores/iguales a 150.");
 			}
 		}
 	});
@@ -177,12 +176,12 @@ $(document).ready(function(){
 				}
 				else{
 					$('#cantidadFertilizanteAp1I').css({'borderColor': "#a94442"});
-					$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
+					$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				}
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteAp1I').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
+				$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 			}
 		}
 
@@ -196,12 +195,12 @@ $(document).ready(function(){
 				}
 				else{
 					$('#cantidadFertilizanteAp2I').css({'borderColor': "#a94442"});
-					$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
+					$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				}
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteAp2I').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
+				$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 			}
 		}
 	});
@@ -224,7 +223,7 @@ function validacionFertilizacionOtrasAplicaciones (){
 			}
 			else{ //dato incorrecto
 				$('#diasDespuesSiembraAp1I').css({'borderColor': "#a94442"});
-				$('#diasDespuesSiembraAp1LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores a 150.");
+				$('#diasDespuesSiembraAp1LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores/iguales a 150.");
 				diasSiembra1 = false;
 			}
 		}else{//es vacio
@@ -240,7 +239,7 @@ function validacionFertilizacionOtrasAplicaciones (){
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteAp1I').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
+				$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				cantFert1 = false;
 			}	
 		}else{//es vacio
@@ -260,7 +259,7 @@ function validacionFertilizacionOtrasAplicaciones (){
 			}
 			else{ //dato incorrecto
 				$('#diasDespuesSiembraAp2I').css({'borderColor': "#a94442"});
-				$('#diasDespuesSiembraAp2LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores a 150.");
+				$('#diasDespuesSiembraAp2LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores/iguales a 150.");
 				diasSiembra2 = false;
 			}
 		}else{//es vacio
@@ -277,7 +276,7 @@ function validacionFertilizacionOtrasAplicaciones (){
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteAp2I').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor a 100.");
+				$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				cantFert2 = false;
 			}
 		}else{//es vacio
@@ -337,7 +336,7 @@ function validacionPeriodoSimulacion (){
 				}				
 			}			
 	}
-
+	return aniodesde && aniohasta;
 }
 
 //NOMBRE ESCENARIO 
