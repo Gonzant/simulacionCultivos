@@ -123,10 +123,13 @@
 			var ocs = validaCostosGenerales();
 
 			for (var i=0; i < escenarios.length; i++){
-				if (pgs[i] === false || pfs[i] === false || crs[i]===false || ocs[i] ===false){
-					errores = errores + escenarios[i].nombre + "   ";
+				//alert ("pgs[i] " + pgs[i] + "pfs[i]  " + pfs[i]  + "crs[i] " + crs[i] + "ocs[i] " +ocs[i] ); 
+				if (pgs[i] === true && pfs[i] === true && crs[i]===true && ocs[i] ===true){
+						//todos los datos ingresados correctamente
 				}
-									
+				else{
+					errores = errores + escenarios[i].nombre + "   ";					
+				}									
 			}
 			
 			if(errores != "<strong> <u>Verifique los campos con errores en los escenarios: </u> </strong>"){
@@ -220,22 +223,22 @@
 						        <td><input type="text" name="nombreEscenario" class="alturaInput" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}" style="width:100%"></td>
      
 						        <td><div class = "form-group has-error" id='precioGranoEscenarioDiv'> 
-							        <input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%" >
+							        <input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%" onchange="validaPrecioGrano()">
 							        <label class="control-label" for="inputError" name="precioGranoEscenarioLE" id ="precioGranoEscenarioLE" style="width:100%"></label>
 						        </div></td>
 
 								<td><div class = "form-group has-error" id='precioFertilizanteEscenarioDiv'> 
-							       <input type="text" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%">
+							       <input type="text" name="precioFertilizanteEscenario" onchange="validaPrecioFertilizante()" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%">
 							        <label class="control-label" for="inputError" name ="precioFertilizanteEscenarioLE" id ="precioFertilizanteEscenarioLE" style="width:100%"></label>
 						        </div></td>
 
 								<td><div class = "form-group has-error" id='costeRiegoEscenarioDiv'> 
-							      <input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="alturaInput" style="width:100%">
+							      <input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="alturaInput" style="width:100%" onchange="validaCostoRiego()">
 							        <label class="control-label" for="inputError" id ="costeRiegoEscenarioLE" name ="costeRiegoEscenarioLE" style="width:100%"></label>
 						        </div></td>
 						       
 						       <td><div class = "form-group has-error" id='gastosGeneralesEscenarioDiv'> 
-							      <input type="text" min="0" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%">
+							      <input type="text" min="0" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%" onchange="validaCostosGenerales()">
 							        <label class="control-label" for="inputError" id ="gastosGeneralesEscenarioLE" name ="gastosGeneralesEscenarioLE" style="width:100%"></label>
 						        </div></td>						        				        
 						   
