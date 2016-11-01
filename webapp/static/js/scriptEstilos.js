@@ -5,7 +5,6 @@ function agregarEscenario(boton){
 	var escenario = new Object();	
 }
 
-//DATETIMEPICKER
 function  borrarNombreEscenario (){	
 	$('#inNombreEscenario').val('');
 	$('#desdeAnioSimulacion').attr('readonly', true);
@@ -15,8 +14,7 @@ function  borrarNombreEscenario (){
 
 $(function() {
 	$('#myModal').modal('hide');	
-	
-	
+		
 	//DATETIMEPICKER
 	$('#datetimepicker4').datetimepicker({
 		pickTime: false,
@@ -97,13 +95,9 @@ function OnChangeRadioFertilizacionOtras (radio) {
 		// HAGO ALGUNOS COMPENTARIOS PORQUE EXPLOTA
 		//quito estilos a dias despues siembra
 		document.getElementById("diasDespuesSiembraAp2D").className = "form-group";
-		//document.getElementById("errordiasDespuesSiembraAp2").innerHTML = ' ';
-		//document.getElementById("diasDespuesSiembraAp2S").className = " ";
 		
 		//quito estilos de cantidad
 		document.getElementById("cantidadFertilizanteAp2D").className = "form-group";
-		//document.getElementById("errorCantidadFertilizanteAp2").innerHTML = ' ';
-		//document.getElementById("cantidadFertilizanteAp2S").className = " ";
 		
 	} else{	
 		el.style.display =  'inline'; 
@@ -112,37 +106,7 @@ function OnChangeRadioFertilizacionOtras (radio) {
   }	
 }
 	
-function validaCamposVacios(){
-	
-	var errores="<strong> Verifique los campos con errores  </strong>" 
-	var datosOk = true;
-	var nombreEscenarioNoVacio = $('#inNombreEscenario').val().length !=0; 
 
-	var div ="<div></div>";
-
-
-	//alert(" validacionPeriodoSimulacion() === false " + validacionPeriodoSimulacion());
-
-//	alert("(nombreEscenarioNoVacio === false)   " + (nombreEscenarioNoVacio === false));
-
-//	alert("validacionFertilizacionOtrasAplicaciones() === false  " + validacionFertilizacionOtrasAplicaciones() === false);
-
-//	alert("validacionFertilizacionASiembra()===false " + validacionFertilizacionASiembra()===false);
-
-	if(validacionPeriodoSimulacion() === false || (nombreEscenarioNoVacio === false) || validacionFertilizacionOtrasAplicaciones() === false || validacionFertilizacionASiembra()===false){
-		//algo esta mal
-		datosOk = false;
-		var div= "<div style = \"padding: 8px 35px 8px 14px; color: #a94442; margin-bottom: 20px;border-color: #ebccd1;\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>" + errores + "</div>";
-		//document.getElementById("msgErrores").className = "alert alert-warning";
-		$("#msgErrores" ).html(div);
-		$('body,html').animate({scrollTop : 0}, 500);
-	}
-	else{
-		datosOk = true;
-	}
-
-	return datosOk;
-}
  
 $(document).ready(function(){ 
 	$("#carga").click(function(){cerrar();}); 
@@ -193,8 +157,7 @@ function ejecutarSimulacion(){
 };
 
 $(document).ready(function() {
-	// alert("document cargo - show graphic - ready");
-	 $('#modalCargando').modal('hide');
+	$('#modalCargando').modal('hide');
 });
 		
 

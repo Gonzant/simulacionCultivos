@@ -6,12 +6,16 @@
 	
 	<!--JQuery-->	
 	<script src="{% static 'lib/jquery-3.1.0/jquery-3.1.0.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>	
 	
 	<!--Boostrap-->
 	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap-theme.min.css' %}">	
 	<script src="{% static 'lib/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
-	
+	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'lib/bootstrap-datetimepicker-0.0.11/css/bootstrap-datetimepicker.min.css' %}">	
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.min.js' %}"> </script>	
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-UY.js' %}">  </script>
+
 	<!--Simulacion-->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
@@ -21,14 +25,6 @@
 	
 	<!--Pasar estos si se usan local-->
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>
-
-
-	<!--Pasar estos si se usan local-->
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'lib/bootstrap-datetimepicker-0.0.11/css/bootstrap-datetimepicker.min.css' %}">	
-	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.min.js' %}"> </script>	
-	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-UY.js' %}">  </script>
-	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>	
 
 
 	<script>  
@@ -113,39 +109,11 @@
 			//<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/margenBruto.png" alt="Margen bruto">			
 		};
 		
-		function validacionesMB(){
-			var errores= "<strong> Verifique los campos con errores en los escenarios: </strong>";
-			var datosOK; 
-			var divPG = "", divPF= "", divCR= "", divOC= "";
-			var pgs = validaPrecioGrano();
-			var pfs = validaPrecioFertilizante(); 
-			var crs = validaCostoRiego();
-			var ocs = validaCostosGenerales();
-
-			for (var i=0; i < escenarios.length; i++){
-				if (pgs[i] === false || pfs[i] === false || crs[i]===false || ocs[i] ===false){
-					errores = errores + escenarios[i].nombre + "   ";
-				}
-									
-			}
-			
-			if(errores != "<strong> <u>Verifique los campos con errores en los escenarios: </u> </strong>"){
-
-				var div= "<div style = \"padding: 8px 35px 8px 14px; color: #a94442; margin-bottom: 20px;border-color: #ebccd1;\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\"></a>" + errores + "</div>";
-				$("#msgErroresMB" ).html(div);
-				$('body,html').animate({scrollTop : 0}, 500);
-				datosOk = false;
-			}
-			else{
-				datosOk = true; 				
-			}
-			
-		}		
-
 		function btnGraficaMargenBruto(){
 			
 			if(validacionesMB()){
-				document.getElementById('graficarMB').submit();			
+				document.getElementById('graficarMB').submit();	
+				$('#modalCargandoMB').modal('show');
 			}
 		}
 	
@@ -165,9 +133,12 @@
 					suelos.push(suelo);			
 				{% endfor %}			
 			{% endfor %}		
-			console.log(suelos)	;
-			console.log('terminaaaaaaaaaaaaaaaaaa________suelos')	;
 		};
+
+
+
+
+
 		
 	</script>
 </head>
@@ -220,22 +191,22 @@
 						        <td><input type="text" name="nombreEscenario" class="alturaInput" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}" style="width:100%"></td>
      
 						        <td><div class = "form-group has-error" id='precioGranoEscenarioDiv'> 
-							        <input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%" >
+							        <input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%" onchange="validaPrecioGrano()" onKeyPress="return caracteresEspeciales(event)">
 							        <label class="control-label" for="inputError" name="precioGranoEscenarioLE" id ="precioGranoEscenarioLE" style="width:100%"></label>
 						        </div></td>
 
 								<td><div class = "form-group has-error" id='precioFertilizanteEscenarioDiv'> 
-							       <input type="text" name="precioFertilizanteEscenario" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%">
+							       <input type="text" name="precioFertilizanteEscenario" onchange="validaPrecioFertilizante()" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%" onKeyPress="return caracteresEspeciales(event)">
 							        <label class="control-label" for="inputError" name ="precioFertilizanteEscenarioLE" id ="precioFertilizanteEscenarioLE" style="width:100%"></label>
 						        </div></td>
 
 								<td><div class = "form-group has-error" id='costeRiegoEscenarioDiv'> 
-							      <input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" class="alturaInput" style="width:100%">
+							      <input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" onKeyPress="return caracteresEspeciales(event)" class="alturaInput" style="width:100%" onchange="validaCostoRiego()">
 							        <label class="control-label" for="inputError" id ="costeRiegoEscenarioLE" name ="costeRiegoEscenarioLE" style="width:100%"></label>
 						        </div></td>
 						       
 						       <td><div class = "form-group has-error" id='gastosGeneralesEscenarioDiv'> 
-							      <input type="text" min="0" name="gastosGeneralesEscenario" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%">
+							      <input type="text" min="0" name="gastosGeneralesEscenario" onKeyPress="return caracteresEspeciales(event)" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%" onchange="validaCostosGenerales()">
 							        <label class="control-label" for="inputError" id ="gastosGeneralesEscenarioLE" name ="gastosGeneralesEscenarioLE" style="width:100%"></label>
 						        </div></td>						        				        
 						   
@@ -267,11 +238,23 @@
 					</div>		
 				</div>
 				
-				<div class="row margenTop">									
+			<div class="row margenTop">									
 					<input class="btn btn-success" type="button" style="width:50%;margin:0px auto; display:block;" onclick="btnGraficaMargenBruto()" name="margenBruto" value="Graficar margen bruto">
 				</div>
 				<!--<button class='btn btn-primary' onclick=''>Agregar escenario</button>-->
 			</div>
+
+		<div class="modal fade" id="modalCargandoMB" style="-webkit-box-shadow: 0 3px 5px transparent; background: transparent; border: 1px solid 	transparent;">
+		  <div class="modal-dialog  modal-sm">
+			<div class="modal-content" align="center">			  
+			  <div class="modal-body" id="modal-body" align="center">
+				 <img src="/static/img/cargando.gif" alt="cargando" class="img-responsive">
+			  </div>			  
+			</div>
+		  </div>
+		</div>
+
+
 		</form>	
 
 		{% include 'footer.html' %}						

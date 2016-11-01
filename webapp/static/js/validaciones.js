@@ -210,6 +210,7 @@ $(document).ready(function(){
 
 function validacionFertilizacionOtrasAplicaciones (){
 	var diasSiembra1=true, cantFert1=true, diasSiembra2=true, cantFert2=true; 
+
 	var fertiliza1Seleccionado = ($('input[name=fertilizacionO]:checked').attr('value')==='1');
 	var fertiliza2Seleccionado = ($('input[name=fertilizacionO]:checked').attr('value')==='2');
 
@@ -250,6 +251,7 @@ function validacionFertilizacionOtrasAplicaciones (){
 	}
 
 	if(fertiliza2Seleccionado){
+
 	// 2 aplicaciones
 		if(parseInt($('#diasDespuesSiembraAp2I').val().length) != 0 ){ // no es vacio
 			if (parseInt($('#diasDespuesSiembraAp2I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp2I').val())<=150){ //es correcto
@@ -279,7 +281,7 @@ function validacionFertilizacionOtrasAplicaciones (){
 				$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				cantFert2 = false;
 			}
-		}else{//es vacio
+		}else{//es vacioc
 			$('#cantidadFertilizanteAp2I').css({'borderColor': "#a94442"});
 			$('#cantidadFertilizanteAp2LE').text("Este campo no puede ser vacio");
 			cantFert2 = false;
