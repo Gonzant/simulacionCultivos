@@ -2,67 +2,75 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 31, 2016; 11:12:05
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 31, 2016; 15:20:41
                                                                                 
-*RUN   1        : UYMZ                      MZCER046 UYMZ1023    1              
+*RUN   1        : UYMZ                      MZCER046 UYMZ1025    1              
  MODEL          : MZCER046 - Maize                                              
- EXPERIMENT     : UYMZ1023 SN late to create DSS                                
+ EXPERIMENT     : UYMZ1025 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYMZ                      MZCER046                            
   
 
- SOILDYN  YEAR DOY = 1987 302
+ SOILDYN  YEAR DOY = 1990 302
  Surface runoff curve number has been changed from   1.0 to  25.0.             
 
- SOILDYN  YEAR DOY = 1987 302
+ SOILDYN  YEAR DOY = 1990 302
  The pH of one or more soil layers at initialization                           
  was outside the range pH=1-10, which is unlikely.                             
  It was set by DSSAT to pH=7.                                                  
 
- SOLORG  YEAR DOY = 1987 302
+ IPSOIL  YEAR DOY = 1990 302
+ File does not exist:                                                          
+ C:\DSSAT46\StandardData\RESCH046.SDA                                          
+ Default residue characteristics will be used.                                 
+
+ SOLORG  YEAR DOY = 1990 302
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer   1 is unlikely:      9.7                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
- SOLORG  YEAR DOY = 1987 302
+ SOLORG  YEAR DOY = 1990 302
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer   2 is unlikely:      9.7                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
- SOLORG  YEAR DOY = 1987 302
+ SOLORG  YEAR DOY = 1990 302
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer   3 is unlikely:      9.7                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
- SOLORG  YEAR DOY = 1987 302
+ SOLORG  YEAR DOY = 1990 302
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer   6 is unlikely:      8.0                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
- SOLORG  YEAR DOY = 1987 302
+ SOLORG  YEAR DOY = 1990 302
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer   7 is unlikely:      8.0                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
- SOLORG  YEAR DOY = 1987 302
+ SOLORG  YEAR DOY = 1990 302
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer   8 is unlikely:      8.0                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
- SOLORG  YEAR DOY = 1987 302
+ SOLORG  YEAR DOY = 1990 302
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer   9 is unlikely:      6.6                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
 
- SOLORG  YEAR DOY = 1987 302
+ SOLORG  YEAR DOY = 1990 302
  The initialized C:N ratio of the soil organic                                 
  matter (humus) in layer  10 is unlikely:      3.7                             
  A C:N ratio of 10.0 will be used to calculate initial soil organic N.         
  Please check your SOIL.SOL file.                                              
+
+ MZ_GRO  YEAR DOY = 1991  49
+   Crop mature on JD  49 due to slowed grain filling                           

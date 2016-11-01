@@ -1,4 +1,4 @@
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 31, 2016; 11:12:05
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 31, 2016; 15:20:41
 
  Unit  Filename
   101  OPCLR
@@ -21,7 +21,6 @@
    52  OUTWTH
    47  OUTT
    32  OUTET
-   13  FILESS
    79  SoilNoBal.OUT
    76  SolNBalSum.OUT
    78  SoilNiBal.OUT
