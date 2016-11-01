@@ -118,13 +118,6 @@ function validaCamposVacios(){
 
 	var div ="<div></div>";
 
-	alert("validacionPeriodoSimulacion   " +validacionPeriodoSimulacion() );
-	alert("nombreEscenarioNoVacio  " + nombreEscenarioNoVacio);
-
-
-	alert("validacionFertilizacionOtrasAplicaciones  " + validacionFertilizacionOtrasAplicaciones());
-	alert("validacionFertilizacionASiembra  " + validacionFertilizacionASiembra());
-
 	if(validacionPeriodoSimulacion() === false || (nombreEscenarioNoVacio === false) || validacionFertilizacionOtrasAplicaciones() === false || validacionFertilizacionASiembra()===false){
 		//algo esta mal
 		datosOk = false;
