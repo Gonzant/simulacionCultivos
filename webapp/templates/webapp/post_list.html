@@ -421,6 +421,11 @@
 
 		validacionFertilizacionASiembra();
 
+		if(nombreEscenarioNoVacio === false){
+
+			$('#inNombreEscenario').css({'borderColor': "#a94442"});
+			$('#nombreEscenarioLE').text("Este campo no puede ser vacio");
+		}
 
 		if(validacionPeriodoSimulacion() === false || (nombreEscenarioNoVacio === false) || validacionFertilizacionOtrasAplicaciones() === false || validacionFertilizacionASiembra()===false){
 			//algo esta mal
@@ -436,7 +441,7 @@
 		return datosOk;
 	}
 
-	
+
 	function checkSoja(){
 		document.getElementById("nombreCultivo").checked = true;
 		cargarComboBoxDetalle(document.getElementById("nombreCultivo"));		
