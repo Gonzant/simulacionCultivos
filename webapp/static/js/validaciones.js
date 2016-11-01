@@ -210,6 +210,7 @@ $(document).ready(function(){
 
 function validacionFertilizacionOtrasAplicaciones (){
 	var diasSiembra1=true, cantFert1=true, diasSiembra2=true, cantFert2=true; 
+
 	var fertiliza1Seleccionado = ($('input[name=fertilizacionO]:checked').attr('value')==='1');
 	var fertiliza2Seleccionado = ($('input[name=fertilizacionO]:checked').attr('value')==='2');
 
@@ -227,60 +228,61 @@ function validacionFertilizacionOtrasAplicaciones (){
 				diasSiembra1 = false;
 			}
 		}else{//es vacio
-			$('#diasDespuesSiembraAp1I').css({'borderolor': "#a94442"});
+			$('#diasDespuesSiembraAp1I').css({'borderColor': "#a94442"});
 			$('#diasDespuesSiembraAp1LE').text("Este campo no puede ser vacio");
 			diasSiembra1 = false;
 		}
 		if(parseInt($('#cantidadFertilizanteAp1I').val().length) != 0 ){ // no es vacio
 			if (parseInt($('#cantidadFertilizanteAp1I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp1I').val())<=100){ //es correcto
-				$('#cantidadFertilizanteAp1I').css({'border-color': "#ccc"});
+				$('#cantidadFertilizanteAp1I').css({'borderColor': "#ccc"});
 				$('#cantidadFertilizanteAp1LE').text(" ");
 				cantFert1 = true;
 			}
 			else{ //dato incorrecto
-				$('#cantidadFertilizanteAp1I').css({'border-color': "#a94442"});
+				$('#cantidadFertilizanteAp1I').css({'borderColor': "#a94442"});
 				$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				cantFert1 = false;
 			}	
 		}else{//es vacio
-			$('#cantidadFertilizanteAp1I').css({'border-color': "#a94442"});
+			$('#cantidadFertilizanteAp1I').css({'borderColor': "#a94442"});
 			$('#cantidadFertilizanteAp1LE').text("Este campo no puede ser vacio");
 			cantFert1 = false;
 		}
 	}
 
 	if(fertiliza2Seleccionado){
+
 	// 2 aplicaciones
 		if(parseInt($('#diasDespuesSiembraAp2I').val().length) != 0 ){ // no es vacio
 			if (parseInt($('#diasDespuesSiembraAp2I').val()) >= 0 && parseInt($('#diasDespuesSiembraAp2I').val())<=150){ //es correcto
-				$('#diasDespuesSiembraAp2I').css({'border-color': "#ccc"});
+				$('#diasDespuesSiembraAp2I').css({'borderColor': "#ccc"});
 				$('#diasDespuesSiembraAp2LE').text(" ");
 				diasSiembra2 = true;
 			}
 			else{ //dato incorrecto
-				$('#diasDespuesSiembraAp2I').css({'border-color': "#a94442"});
+				$('#diasDespuesSiembraAp2I').css({'borderColor': "#a94442"});
 				$('#diasDespuesSiembraAp2LE').text("Los días despues de siembra deben ser mayores/iguales a 0 y menores/iguales a 150.");
 				diasSiembra2 = false;
 			}
 		}else{//es vacio
-			$('#diasDespuesSiembraAp2I').css({'border-color': "#a94442"});
+			$('#diasDespuesSiembraAp2I').css({'borderColor': "#a94442"});
 			$('#diasDespuesSiembraAp2LE').text("Este campo no puede ser vacio");
 			diasSiembra2 = false;
 		}
 
 		if(parseInt($('#cantidadFertilizanteAp2I').val().length) != 0 ){ // no es vacio
 			if (parseInt($('#cantidadFertilizanteAp2I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp2I').val())<=100){ //es correcto
-				$('#cantidadFertilizanteAp2I').css({'border-color': "#ccc"});
+				$('#cantidadFertilizanteAp2I').css({'borderColor': "#ccc"});
 				$('#cantidadFertilizanteAp2LE').text(" ");
 				cantFert2 = true;
 			}
 			else{ //dato incorrecto
-				$('#cantidadFertilizanteAp2I').css({'border-color': "#a94442"});
+				$('#cantidadFertilizanteAp2I').css({'borderColor': "#a94442"});
 				$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				cantFert2 = false;
 			}
-		}else{//es vacio
-			$('#cantidadFertilizanteAp2I').css({'border-color': "#a94442"});
+		}else{//es vacioc
+			$('#cantidadFertilizanteAp2I').css({'borderColor': "#a94442"});
 			$('#cantidadFertilizanteAp2LE').text("Este campo no puede ser vacio");
 			cantFert2 = false;
 		}
@@ -303,7 +305,7 @@ function validacionPeriodoSimulacion (){
 			aniodesde = false;
 		}
 		else{ //es correcto
-			$('#desdeAnioSimulacion').css({'border-color': "#ccc"});
+			$('#desdeAnioSimulacion').css({'borderColor': "#ccc"});
 			$('#anioDesdeLE').text(" ");
 			aniodesde = true;
 		}	
