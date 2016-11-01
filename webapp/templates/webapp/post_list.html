@@ -10,12 +10,16 @@
 	
 	<!--JQuery-->	
 	<script src="{% static 'lib/jquery-3.1.0/jquery-3.1.0.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>	
 	
 	<!--Boostrap-->
 	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap-theme.min.css' %}">	
 	<script src="{% static 'lib/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
-	
+	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'lib/bootstrap-datetimepicker-0.0.11/css/bootstrap-datetimepicker.min.css' %}">	
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.min.js' %}"> </script>	
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-UY.js' %}">  </script>
+
 	<!--Simulacion-->
 	<link rel="stylesheet" media="all" href="{% static 'css/style.css' %}">
 	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
@@ -25,11 +29,7 @@
 	
 	<!--Pasar estos si se usan local-->
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'lib/bootstrap-datetimepicker-0.0.11/css/bootstrap-datetimepicker.min.css' %}">	
-	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.min.js' %}"> </script>	
-	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-UY.js' %}">  </script>
-	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>	
-	
+    
 </head>	
 <body>	
 
@@ -837,8 +837,6 @@
 		  <div class="modal-dialog  modal-sm">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-				<!--<h4 class="modal-title" id="modal-title">Título del modal</h4>-->
 			  </div>
 			  <div class="modal-body" id="modal-body">
 				 <p>¿Desea conservar los datos ingresados para el próximo escenario? </p>
@@ -848,9 +846,7 @@
 				<button type="button" id="btnSiGuardaDatos" class="btn btn-primary" onclick="borrarNombreEscenario();" data-dismiss="modal">Si</button>
 			  </div>
 			</div>
-			<!-- /.modal-content -->
 		  </div>
-		  <!-- /.modal-dialog -->
 		</div>
 		
 		<div class="modal fade" id="modalCargando" style="-webkit-box-shadow: 0 3px 5px transparent; background: transparent; border: 1px solid transparent;">
