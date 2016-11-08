@@ -6,8 +6,7 @@ function validaPrecioGrano (){
 	for (var i=0; i < cantEscenarios; i=i+1){
 		
 		var precioGrano = (document.getElementsByName("precioGranoEscenario")[i].value);		
-
-		if(parseInt(precioGrano.length) != 0 ){ // no es vacio
+    	if(parseInt(precioGrano.length) != 0 ){ // no es vacio
 			if(parseFloat(precioGrano) < 0 || parseFloat(precioGrano) > 1000){// no se encuentra en el rango
 					document.getElementsByName("precioGranoEscenario")[i].setAttribute('style', 'border-color: #a94442');
 					document.getElementsByName("precioGranoEscenarioLE")[i].innerHTML = 'El precio del grano se debe encontrar entre 0 y 1000';
