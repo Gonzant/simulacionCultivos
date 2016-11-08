@@ -427,11 +427,18 @@
 			$('#fechaSiembra').css({'borderColor': "#a94442"});
 			$('#fechaSiembraLE').text("Este campo no puede ser vacio");
 		}
+		else{
+			$('#fechaSiembra').css({'borderColor': "#ccc"});
+			$('#fechaSiembraLE').text(" ");
+		}
 
 		if(nombreEscenarioNoVacio === false){
-
 			$('#inNombreEscenario').css({'borderColor': "#a94442"});
 			$('#nombreEscenarioLE').text("Este campo no puede ser vacio");
+		}
+		else{
+			$('#inNombreEscenario').css({'borderColor': "#ccc"});
+			$('#nombreEscenarioLE').text(" ");
 		}
 
 		if(validacionPeriodoSimulacion() === false || fechaSNoVacio === false || (nombreEscenarioNoVacio === false) || validacionFertilizacionOtrasAplicaciones() === false || validacionFertilizacionASiembra()===false){	//algo esta mal
