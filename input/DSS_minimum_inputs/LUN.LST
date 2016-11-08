@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      OCT 31, 2016; 15:20:41
-=======
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 01, 2016; 12:29:54
->>>>>>> origin/master
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 08, 2016; 12:57:00
 
  Unit  Filename
   101  OPCLR
@@ -19,7 +15,6 @@
    10  FILEC
    39  OUTG
    40  OUTPN
-   38  OUTPC
   104  OUTS
    65  SEVAL
   105  FILECO2
@@ -34,4 +29,3 @@
    83  SWBAL
    48  OUTWAT
     8  FILEA
-   71  PNBAL

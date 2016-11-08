@@ -20,14 +20,14 @@ function validacionFertilizacionASiembra (){
 			diasSiembra1 = false;
 		}
 		if(parseInt($('#cantidadFertilizanteI').val().length) != 0 ){ // no es vacio
-			if (parseInt($('#cantidadFertilizanteI').val()) > 0 && parseInt($('#cantidadFertilizanteI').val())<=100){ //es correcto
+			if (parseInt($('#cantidadFertilizanteI').val()) >= 0 && parseInt($('#cantidadFertilizanteI').val())<=100){ //es correcto
 				$('#cantidadFertilizanteI').css({'borderColor': "#ccc"});
 				$('#cantidadFertilizanteLE').text(" ");
 				cantFert1 = true;
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteI').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor a 0 y menor/igual a 100.");
+				$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				cantFert1 = false;
 			}
 		}else{//es vacio
@@ -110,18 +110,18 @@ $(document).ready(function(){
 	$("#cantidadFertilizanteI").change(function(){
 		if(parseInt($('#cantidadFertilizanteI').val().length) != 0 ){ // no es vacio
 			if (parseInt($('#cantidadFertilizanteI').val().length) <= 3 && parseInt($('#cantidadFertilizanteI').val().length) >= 1){
-				if (parseInt($('#cantidadFertilizanteI').val()) > 0 && parseInt($('#cantidadFertilizanteI').val())<=100){ //es correcto
+				if (parseInt($('#cantidadFertilizanteI').val()) >= 0 && parseInt($('#cantidadFertilizanteI').val())<=100){ //es correcto
 					$('#cantidadFertilizanteI').css({'borderColor': "#ccc"});
 					$('#cantidadFertilizanteLE').text(" ");
 				}
 				else{
 					$('#cantidadFertilizanteI').css({'borderColor': "#a94442"});
-					$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor a 0 y menor/igual a 100.");
+					$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				}
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteI').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor a 0 y menor/igual a 100.");
+				$('#cantidadFertilizanteLE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 			}
 		}
 
@@ -170,18 +170,18 @@ $(document).ready(function(){
 	$("#cantidadFertilizanteAp1I").change(function(){
 		if(parseInt($('#cantidadFertilizanteAp1I').val().length) != 0 ){ // no es vacio
 			if (parseInt($('#cantidadFertilizanteAp1I').val().length) <= 3 && parseInt($('#cantidadFertilizanteAp1I').val().length) >= 1){
-				if (parseInt($('#cantidadFertilizanteAp1I').val()) > 0 && parseInt($('#cantidadFertilizanteAp1I').val())<=100){ //es correcto
+				if (parseInt($('#cantidadFertilizanteAp1I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp1I').val())<=100){ //es correcto
 					$('#cantidadFertilizanteAp1I').css({'borderColor': "#ccc"});
 					$('#cantidadFertilizanteAp1LE').text(" ");
 				}
 				else{
 					$('#cantidadFertilizanteAp1I').css({'borderColor': "#a94442"});
-					$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor/igual a 100.");
+					$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				}
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteAp1I').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor/igual a 100.");
+				$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 			}
 		}
 
@@ -189,18 +189,18 @@ $(document).ready(function(){
 	$("#cantidadFertilizanteAp2I").change(function(){
 		if(parseInt($('#cantidadFertilizanteAp2I').val().length) != 0 ){ // no es vacio
 			if (parseInt($('#cantidadFertilizanteAp2I').val().length) <= 3 && parseInt($('#cantidadFertilizanteAp2I').val().length) >= 1){
-				if (parseInt($('#cantidadFertilizanteAp2I').val()) > 0 && parseInt($('#cantidadFertilizanteAp2I').val())<=100){ //es correcto
+				if (parseInt($('#cantidadFertilizanteAp2I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp2I').val())<=100){ //es correcto
 					$('#cantidadFertilizanteAp2I').css({'borderColor': "#ccc"});
 					$('#cantidadFertilizanteAp2LE').text(" ");
 				}
 				else{
 					$('#cantidadFertilizanteAp2I').css({'borderColor': "#a94442"});
-					$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor/igual a 100.");
+					$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				}
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteAp2I').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor/igual a 100.");
+				$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 			}
 		}
 	});
@@ -233,14 +233,14 @@ function validacionFertilizacionOtrasAplicaciones (){
 			diasSiembra1 = false;
 		}
 		if(parseInt($('#cantidadFertilizanteAp1I').val().length) != 0 ){ // no es vacio
-			if (parseInt($('#cantidadFertilizanteAp1I').val()) > 0 && parseInt($('#cantidadFertilizanteAp1I').val())<=100){ //es correcto
+			if (parseInt($('#cantidadFertilizanteAp1I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp1I').val())<=100){ //es correcto
 				$('#cantidadFertilizanteAp1I').css({'borderColor': "#ccc"});
 				$('#cantidadFertilizanteAp1LE').text(" ");
 				cantFert1 = true;
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteAp1I').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor/igual a 100.");
+				$('#cantidadFertilizanteAp1LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				cantFert1 = false;
 			}	
 		}else{//es vacio
@@ -271,14 +271,14 @@ function validacionFertilizacionOtrasAplicaciones (){
 		}
 
 		if(parseInt($('#cantidadFertilizanteAp2I').val().length) != 0 ){ // no es vacio
-			if (parseInt($('#cantidadFertilizanteAp2I').val()) > 0 && parseInt($('#cantidadFertilizanteAp2I').val())<=100){ //es correcto
+			if (parseInt($('#cantidadFertilizanteAp2I').val()) >= 0 && parseInt($('#cantidadFertilizanteAp2I').val())<=100){ //es correcto
 				$('#cantidadFertilizanteAp2I').css({'borderColor': "#ccc"});
 				$('#cantidadFertilizanteAp2LE').text(" ");
 				cantFert2 = true;
 			}
 			else{ //dato incorrecto
 				$('#cantidadFertilizanteAp2I').css({'borderColor': "#a94442"});
-				$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor a 0 y menor/igual a 100.");
+				$('#cantidadFertilizanteAp2LE').text("La cantidad de fertilizante debe ser mayor/igual a 0 y menor/igual a 100.");
 				cantFert2 = false;
 			}
 		}else{//es vacioc
@@ -362,22 +362,3 @@ function validaNombreEscenario (e){
 
 }
 
-function cantidadPuntosString (texto){
-	var contador = 0;
-	for (var i = 0;  i < texto.length; i++) {
-		if (texto[i] === '.'){
-			contador ++;
-		}
-	}
-	return contador;
-}
-
-function cantidadComasString (texto){
-	var contador = 0;
-	for (var i = 0;  i < texto.length; i++) {
-		if (texto[i] === ','){
-			contador ++;
-		}
-	}
-	return contador;
-}

@@ -1,14 +1,33 @@
 function validaPrecioGrano (){
 	
 	var cantEscenarios = document.getElementsByName("precioGranoEscenario").length;
-	//alert (cantEscenarios);	
 	var retorno = []; 
 	for (var i=0; i < cantEscenarios; i=i+1){
 		
-		var precioGrano = (document.getElementsByName("precioGranoEscenario")[i].value);		
+		var precioGrano = (document.getElementsByName("precioGranoEscenario")[i].value);	
 
 		if(parseInt(precioGrano.length) != 0 ){ // no es vacio
-			if(parseFloat(precioGrano) < 0 || parseFloat(precioGrano) > 1000){// no se encuentra en el rango
+
+			var cantP = cantidadPuntosString (precioGrano);
+			var cantC = cantidadComasString(precioGrano);
+
+			if(cantP > 1 || cantC > 1){
+				document.getElementsByName("precioGranoEscenario")[i].setAttribute('style', 'border-color: #a94442');
+				document.getElementsByName("precioGranoEscenarioLE")[i].innerHTML = 'El precio del grano se debe encontrar entre 0 y 1000';
+				retorno [i] = false;
+			}
+			else{
+				if(cantC === 1){
+					var precio = "";
+					for (var j=0; j < precioGrano.length; j=j+1){
+						if(precioGrano[j]===',')
+							precio = precio + '.';
+						else
+							precio = precio + precioGrano[j]
+					}
+					document.getElementsByName("precioGranoEscenario")[i].value = precio;
+				}				
+				if(parseFloat(precioGrano) < 0 || parseFloat(precioGrano) > 1000){// no se encuentra en el rango
 					document.getElementsByName("precioGranoEscenario")[i].setAttribute('style', 'border-color: #a94442');
 					document.getElementsByName("precioGranoEscenarioLE")[i].innerHTML = 'El precio del grano se debe encontrar entre 0 y 1000';
 					retorno [i] = false;
@@ -17,13 +36,13 @@ function validaPrecioGrano (){
 					document.getElementsByName("precioGranoEscenario")[i].setAttribute('style', 'border-color: #ccc');
 					document.getElementsByName("precioGranoEscenarioLE")[i].innerHTML= ' ';
 					retorno[i]= true; 
-				}	
+				}
+			}				
 		}else{//es vacio	  		
 				document.getElementsByName("precioGranoEscenario")[i].setAttribute('style', 'border-color: #a94442');
 				document.getElementsByName("precioGranoEscenarioLE")[i].innerHTML ='Este campo no puede ser vacio';
 				retorno [i] = false;
 		}
-
 	}
 	return retorno; 
 }
@@ -37,17 +56,37 @@ function validaPrecioFertilizante (){
 		var precioFert = document.getElementsByName("precioFertilizanteEscenario")[i].value;		
 
 		if(parseInt(precioFert.length) != 0 ){ // no es vacio
-			retorno [i] = false;
-			if(parseFloat(precioFert) < 0 || parseFloat(precioFert) > 4){// no se encuentra en el rango
-				document.getElementsByName("precioFertilizanteEscenario")[i].setAttribute('style', 'border-color: #a94442');
-				document.getElementsByName("precioFertilizanteEscenarioLE")[i].innerHTML = "El precio del fertilizante se debe encontrar entre 0 y 4";
-				retorno [i]= false;
-			}
-			else{ //es correcto
-				document.getElementsByName("precioFertilizanteEscenario")[i].setAttribute('style', 'border-color: #ccc');
-				document.getElementsByName("precioFertilizanteEscenarioLE")[i].innerHTML =  " ";
-				retorno [i]= true; 
-			}	
+			
+			var cantP = cantidadPuntosString (precioFert);
+			var cantC = cantidadComasString(precioFert);
+
+			if(cantP > 1 || cantC > 1){
+					document.getElementsByName("precioFertilizanteEscenario")[i].setAttribute('style', 'border-color: #a94442');
+					document.getElementsByName("precioFertilizanteEscenarioLE")[i].innerHTML = "El precio del fertilizante se debe encontrar entre 0 y 4";
+					retorno [i] = false;
+			}else{
+				if(cantC === 1){
+					var precio = "";
+					for (var j=0; j < precioFert.length; j=j+1){
+						if(precioFert[j]===',')
+							precio = precio + '.';
+						else
+							precio = precio + precioFert[j]
+					}
+					document.getElementsByName("precioFertilizanteEscenario")[i].value = precio;
+				}	
+
+				if(parseFloat(precioFert) < 0 || parseFloat(precioFert) > 4){// no se encuentra en el rango
+					document.getElementsByName("precioFertilizanteEscenario")[i].setAttribute('style', 'border-color: #a94442');
+					document.getElementsByName("precioFertilizanteEscenarioLE")[i].innerHTML = "El precio del fertilizante se debe encontrar entre 0 y 4";
+					retorno [i]= false;
+				}
+				else{ //es correcto
+					document.getElementsByName("precioFertilizanteEscenario")[i].setAttribute('style', 'border-color: #ccc');
+					document.getElementsByName("precioFertilizanteEscenarioLE")[i].innerHTML =  " ";
+					retorno [i]= true; 
+				}	
+			}			
 		}else{//es vacio	  		
 			document.getElementsByName("precioFertilizanteEscenario")[i].setAttribute('style', 'border-color: #a94442');
 			document.getElementsByName("precioFertilizanteEscenarioLE")[i].innerHTML = 'Este campo no puede ser vacio';
@@ -64,17 +103,38 @@ function validaCostoRiego (){
 	var retorno = [];  
 	for (var i=0; i < cantEscenarios; i=i+1){	
 		var costoRiegoEsc = (document.getElementsByName("costeRiegoEscenario")[i].value);	
+		
 		if(parseInt(costoRiegoEsc.length) != 0 ){ // no es vacio
-			if(parseFloat(costoRiegoEsc) < 0 || parseFloat(costoRiegoEsc) > 4){ 	// no se encuentra en el rango
-				document.getElementsByName("costeRiegoEscenario")[i].setAttribute('style', 'border-color: #a94442');
-				document.getElementsByName("costeRiegoEscenarioLE")[i].innerHTML = 'El costo del riego se debe encontrar entre 0 y 4';
-				retorno [i]= false;
-			}
-			else{ //es correcto
-				document.getElementsByName("costeRiegoEscenario")[i].setAttribute('style', 'border-color: #ccc');
-				document.getElementsByName("costeRiegoEscenarioLE")[i].innerHTML =' ';
-				retorno [i]=  true; 
-			}	
+			var cantP = cantidadPuntosString (costoRiegoEsc);	
+			var cantC = cantidadComasString(costoRiegoEsc);	
+
+			if(cantP > 1 || cantC > 1){
+					document.getElementsByName("costeRiegoEscenario")[i].setAttribute('style', 'border-color: #a94442');
+					document.getElementsByName("costeRiegoEscenarioLE")[i].innerHTML = 'El costo del riego se debe encontrar entre 0 y 4';
+					retorno [i] = false;
+			}else{
+				if(cantC === 1){
+					var precio = "";
+					for (var j=0; j < costoRiegoEsc.length; j=j+1){
+						if(costoRiegoEsc[j]===',')
+							precio = precio + '.';
+						else
+							precio = precio + costoRiegoEsc[j]
+					}
+					document.getElementsByName("costeRiegoEscenario")[i].value = precio;
+				}	
+				if(parseFloat(costoRiegoEsc) < 0 || parseFloat(costoRiegoEsc) > 4){ 	// no se encuentra en el rango
+					document.getElementsByName("costeRiegoEscenario")[i].setAttribute('style', 'border-color: #a94442');
+					document.getElementsByName("costeRiegoEscenarioLE")[i].innerHTML = 'El costo del riego se debe encontrar entre 0 y 4';
+					retorno [i]= false;
+				}
+				else{ //es correcto
+					document.getElementsByName("costeRiegoEscenario")[i].setAttribute('style', 'border-color: #ccc');
+					document.getElementsByName("costeRiegoEscenarioLE")[i].innerHTML =' ';
+					retorno [i]=  true; 
+				}	
+
+		}
 		}else{//es vacio	  		
 				document.getElementsByName("costeRiegoEscenario")[i].setAttribute('style', 'border-color: #a94442');
 				document.getElementsByName("costeRiegoEscenarioLE")[i].innerHTML = 'Este campo no puede ser vacio';
@@ -94,8 +154,27 @@ function validaCostosGenerales (){
 		var costosGen = (document.getElementsByName("gastosGeneralesEscenario")[i].value);		
 
 		if(parseInt(costosGen.length) != 0 ){ // no es vacio
-				if(parseFloat(costosGen) < 300 || parseFloat(costosGen) > 1000){
-				// no se encuentra en el rango
+
+			var cantP = cantidadPuntosString (costosGen);	
+			var cantC = cantidadComasString(costosGen);	
+
+			if(cantP > 1 || cantC > 1){
+					document.getElementsByName("gastosGeneralesEscenario")[i].setAttribute('style', 'border-color: #a94442');
+					document.getElementsByName("gastosGeneralesEscenarioLE")[i].innerHTML = 'Otros costos de producción se deben encontrar entre 300 y 1000';
+					retorno [i] = false;
+			}else{
+				if(cantC === 1){
+					var precio = "";
+					for (var j=0; j < costosGen.length; j=j+1){
+						if(costosGen[j]===',')
+							precio = precio + '.';
+						else
+							precio = precio + costosGen[j]
+					}
+					document.getElementsByName("gastosGeneralesEscenario")[i].value = precio;
+				}	
+
+				if(parseFloat(costosGen) < 300 || parseFloat(costosGen) > 1000){// no se encuentra en el rango
 					document.getElementsByName("gastosGeneralesEscenario")[i].setAttribute('style', 'border-color: #a94442');
 					document.getElementsByName("gastosGeneralesEscenarioLE")[i].innerHTML = 'Otros costos de producción se deben encontrar entre 300 y 1000';
 					retorno[i] = false;
@@ -104,23 +183,22 @@ function validaCostosGenerales (){
 					document.getElementsByName("gastosGeneralesEscenario")[i].setAttribute('style', 'border-color: #ccc');
 					document.getElementsByName("gastosGeneralesEscenarioLE")[i].innerHTML= ' ';
 					retorno [i]= true; 
-				}	
+				}
+			}	
 		}else{//es vacio	  		
-				document.getElementsByName("gastosGeneralesEscenario")[i].setAttribute('style', 'border-color: #a94442');
-				document.getElementsByName("gastosGeneralesEscenarioLE")[i].innerHTML ='Este campo no puede ser vacio';
-				retorno [i]= false;
+			document.getElementsByName("gastosGeneralesEscenario")[i].setAttribute('style', 'border-color: #a94442');
+			document.getElementsByName("gastosGeneralesEscenarioLE")[i].innerHTML ='Este campo no puede ser vacio';
+			retorno [i]= false;
 		}
-
 	}
 	return retorno; 	
-
 }
 
 
 function caracteresEspeciales(e) {
 	/* 	*/
     tecla=(document.all) ? e.keyCode : e.which;
-    if ((tecla < 48  || tecla > 57) && tecla != 46) {
+    if ((tecla < 48  || tecla > 57) && tecla != 46 && tecla != 44) {
         return false;
     }
 }
@@ -161,3 +239,23 @@ function validacionesMB(){
 $(document).ready(function() {
 	$('#modalCargandoMB').modal('hide');
 });
+
+function cantidadPuntosString (texto){
+	var contador = 0;
+	for (var i = 0;  i < texto.length; i++) {
+		if (texto[i] === '.'){
+			contador ++;
+		}
+	}
+	return contador;
+}
+
+function cantidadComasString (texto){
+	var contador = 0;
+	for (var i = 0;  i < texto.length; i++) {
+		if (texto[i] === ','){
+			contador ++;
+		}
+	}
+	return contador;
+}
