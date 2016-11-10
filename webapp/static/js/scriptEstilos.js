@@ -29,6 +29,12 @@ $(function() {
 	if(window.location.search === ""){
 		$('#datetimepicker4').datetimepicker('setDate', new Date());
 	}
+        var combo = $("#cmbDetalleSuelo");
+        // Aplicacion del orden alfabetico
+        combo.html($("#cmbDetalleSuelo option", $(this)).sort(function(a, b) {
+            return a.text === b.text ? 0 : a.text < b.text ? -1 : 1
+        }));
+        
 	
 });
 
