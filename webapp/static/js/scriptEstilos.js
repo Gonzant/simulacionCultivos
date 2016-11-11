@@ -9,6 +9,7 @@ function  borrarNombreEscenario (){
 	$('#inNombreEscenario').val('');
 	$('#desdeAnioSimulacion').attr('readonly', true);
 	$('#hastaAnioSimulacion').attr('readonly', true);
+        $('#selectEstacion').attr('disabled', true);
 	$('body,html').animate({scrollTop : 0}, 500);
 }
 
@@ -136,6 +137,7 @@ function validaPeriodoSimulacion(){
 function vaciarForm(){
 	$('#desdeAnioSimulacion').attr('readonly', true);
 	$('#hastaAnioSimulacion').attr('readonly', true);
+         $('#selectEstacion').attr('disabled', true);
 	$('#inNombreEscenario').val(''); 
 	$('#diasDespuesSiembraAp1I').val('');
 	$('#cantidadFertilizanteAp1I').val('');
