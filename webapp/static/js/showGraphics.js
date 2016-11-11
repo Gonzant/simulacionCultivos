@@ -1,7 +1,7 @@
 function cargarParrafos(){										
 	for (i = 0; i < escenarios.length; i++) { 	
 		var div1 = document.createElement('div');
-		div1.innerHTML = "<p>El gráfico muestra que en el escenario <u>" + escenarios[i].nombre + "</u> hay un 50% de chances de que el rendimiento esté entre " + escenarios[i].whiskMenor +" y "+ escenarios[i].whiskMayor +" Kg/ha (límites de la “Caja”). Por otro lado la chance de obtener "+escenarios[i].mediana+" Kg/ha o más es de 50%, es decir se puede esperar que en la mitad de los años el rendimiento sea por lo menos "+escenarios[i].mediana+" Kg/ha.  La probabilidad de obtener " + escenarios[i].whiskMenor +" Kg/ha o menos es de 25%, es decir una vez cada 4 años se pueden esperar rendimientos menores a "+escenarios[i].whiskMenor+" Kg/ha. Lo mismo sucede con rendimientos superiores a " +escenarios[i].whiskMayor+" Kg/ha.</p>";						
+		div1.innerHTML = "<p>El gráfico muestra que en el escenario <u>" + escenarios[i].nombre + "</u> hay un 50% de chances de que el rendimiento esté entre " + escenarios[i].whiskMenor +" y "+ escenarios[i].whiskMayor +" Kg/ha (límites de la “Caja�?). Por otro lado la chance de obtener "+escenarios[i].mediana+" Kg/ha o más es de 50%, es decir se puede esperar que en la mitad de los años el rendimiento sea por lo menos "+escenarios[i].mediana+" Kg/ha.  La probabilidad de obtener " + escenarios[i].whiskMenor +" Kg/ha o menos es de 25%, es decir una vez cada 4 años se pueden esperar rendimientos menores a "+escenarios[i].whiskMenor+" Kg/ha. Lo mismo sucede con rendimientos superiores a " +escenarios[i].whiskMayor+" Kg/ha.</p>";						
 		document.getElementById("datosBoxplot").appendChild(div1);
 		
 		var div2 = document.createElement('div');
@@ -72,7 +72,6 @@ function cargarEscenarios(){
 		cell3.innerHTML = "";
 		cell4.innerHTML = "";				
 		cell5.innerHTML = "<button class='btn btn-primary' type='button' onclick='agregarNuevoEscenario()'>Agregar escenario</button>";	
-		
 	}
 };
 
@@ -85,6 +84,7 @@ function setearCookie(esc){
 	//document.cookie = escenarios[esc];						
 	var cookie = ['escenarios', '=', JSON.stringify(escenarios),'; path=/;'].join('');					
 	document.cookie = cookie;
+       // $('#selectEstacion').attr('disabled', true);
 	window.location = "./?modificar="+ esc;
 };			
 

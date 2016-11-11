@@ -198,7 +198,7 @@ function validaCostosGenerales (){
 function caracteresEspeciales(e) {
 	/* 	*/
     tecla=(document.all) ? e.keyCode : e.which;
-    if ((tecla < 48  || tecla > 57) && tecla != 46 && tecla != 44 && tecla!=37 && tecla !=39 && tecla != 08) {
+    if ((tecla < 48  || tecla > 57) && tecla != 46 && tecla != 44 && tecla!=37 && tecla !=39 && tecla<00 && tecla > 31) {
         return false;
     }
 }

@@ -158,7 +158,8 @@ function btnAgregarEscenario(){
 function ejecutarSimulacion(){
 	
 	if (agregarEscenario()){		
-		cerrar();			
+		cerrar();
+                $('#selectEstacion').attr('disabled', true);
 		document.getElementById('ejecutarDSSAT').submit();	
 		$('#modalCargando').modal('show');			
 	}				
