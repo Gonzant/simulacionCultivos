@@ -1,9 +1,9 @@
 *MODEL INPUT FILE            B     1     1     1   999     0
 *FILES              
 MODEL          CRGRO046
-FILEX          UYSB1068.SNX                                                                                 
-FILEA          UYSB1068.SNA                                                                                 
-FILET          UYSB1068.SNT                                                                                 
+FILEX          UYSB1077.SNX                                                                                 
+FILEA          UYSB1077.SNA                                                                                 
+FILET          UYSB1077.SNT                                                                                 
 SPECIES        SBGRO046.SPE                                                                                 
 ECOTYPE        SBGRO046.ECO                                                                                 
 CULTIVAR       SBGRO046.CUL                                                                                 
@@ -24,7 +24,7 @@ OUTPUT         OVERVIEW
                 100.     1   20.
                      0 2000289  100.    0.
 *EXP.DETAILS        
-  1UYSB1068 SN late to create DSS                                          
+  1UYSB1077 SN late to create DSS                                          
 *TREATMENTS         
   1 1 1 0 UYSB                     
 *CULTIVARS          

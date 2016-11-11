@@ -30,6 +30,9 @@ $(function() {
 	if(window.location.search === ""){
 		$('#datetimepicker4').datetimepicker('setDate', new Date());
 	}
+        else{
+            $('#selectEstacion').attr('disabled', true);            
+        }
         var combo = $("#cmbDetalleSuelo");
         // Aplicacion del orden alfabetico
         combo.html($("#cmbDetalleSuelo option", $(this)).sort(function(a, b) {
@@ -157,9 +160,10 @@ function btnAgregarEscenario(){
 
 function ejecutarSimulacion(){
 	
-	if (agregarEscenario()){		
+	if (agregarEscenario()){
+            $('#selectEstacion').attr('disabled', true);
 		cerrar();
-                $('#selectEstacion').attr('disabled', true);
+                
 		document.getElementById('ejecutarDSSAT').submit();	
 		$('#modalCargando').modal('show');			
 	}				
