@@ -1,21 +1,21 @@
 *MODEL INPUT FILE            B     1     1     1   999     0
 *FILES              
 MODEL          CRGRO046
-FILEX          UYSB1080.SNX                                                                                 
-FILEA          UYSB1080.SNA                                                                                 
-FILET          UYSB1080.SNT                                                                                 
+FILEX          UYSB1082.SNX                                                                                 
+FILEA          UYSB1082.SNA                                                                                 
+FILET          UYSB1082.SNT                                                                                 
 SPECIES        SBGRO046.SPE                                                                                 
 ECOTYPE        SBGRO046.ECO                                                                                 
 CULTIVAR       SBGRO046.CUL                                                                                 
 PESTS          SBGRO046.PST C:\DSSAT46\PEST\                                                                
 SOILS          UY.SOL                                                                                       
-WEATHER        UYTA0001.WTH                                                                                 
+WEATHER        UYTA8801.WTH                                                                                 
 OUTPUT         OVERVIEW
 *SIMULATION CONTROL 
-                  11     1     S 2000313  2150 15102000                 
+                  26     1     S 1988316  2150 15102000                 
                    Y     Y     Y     N     N     N     N     N     M
                    M     M     E     R     S     C     R     1     G     S     2     D
-                   R     A     N     N     M
+                   R     A     D     N     M
                    N     Y     Y     1     Y     N     Y     Y     N     N     Y     N     N
 !AUTOMATIC MANAGEM  
                1966289 1966289   40.  100.   30.   40.   10.
@@ -24,16 +24,16 @@ OUTPUT         OVERVIEW
                 100.     1   20.
                      0 2000289  100.    0.
 *EXP.DETAILS        
-  1UYSB1080 SN late to create DSS                                          
+  1UYSB1082 SN late to create DSS                                          
 *TREATMENTS         
   1 1 1 0 UYSB                     
 *CULTIVARS          
    SB UY0141 GM 4 URUGUAY    
 *FIELDS             
-   UYTA     UYTA0001   0.0  -99.   -99  -99. 100.0   -99 LS     -99. UYSS1H0806
+   UYTA     UYTA8801   0.0  -99.   -99  -99. 100.0   -99 LS     -99. UYSS1H0806
          -99.00000       -99.00000    -99.00               1.0  100.   1.0 -99.0           0
 *INITIAL CONDITIONS 
-   SB    2000315     0     0  1.00  1.00   0.0     0  0.00  0.00  100.    0.
+   SB    1988318     0     0  1.00  1.00   0.0     0  0.00  0.00  100.    0.
       5. 0.053  1.50  5.00
      15. 0.053  1.50  5.00
      30. 0.053  1.50  5.00
@@ -47,10 +47,11 @@ OUTPUT         OVERVIEW
     235. 0.213  1.50   0.0
     280. 0.177  1.50   0.0
 *PLANTING DETAILS   
-   2000316     -99   7.0   7.0     S     R   15.  -99.   2.5  -99.  -99. -99.0 -99.0 -99.0
+   1988319     -99   7.0   7.0     S     R   15.  -99.   2.5  -99.  -99. -99.0 -99.0 -99.0
 *IRRIGATION         
    1.000    0.    0.    0. GS000 IR001   0.0
 *FERTILIZERS        
+        12 FE001 AP001    5.   12.  -99.  -99.  -99.  -99.   -99
 *RESIDUES           
 *CHEMICALS          
 *TILLAGE            
