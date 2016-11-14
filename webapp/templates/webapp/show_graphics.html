@@ -15,6 +15,7 @@
 	<!--Simulacion-->
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/showGraphics.js' %}"> </script>
 	
 	
 	<!--Pasar estos si se usan local-->	
@@ -90,9 +91,8 @@
 				{% endfor %}			
 			{% endfor %}			
 		};	
-	</script>
-	
-	<script type="text/javascript" src="{% static 'js/showGraphics.js' %}"> </script>	
+	</script>	
+		
 
 </head>
 <body>
@@ -120,10 +120,10 @@
 		</div>
 		
 		<div>
-			<div class="row">
-				<h4> Escenarios agregados </h4>
-			</div>
-			<div class="row" id='escenario'>
+                    <div class="row">
+                            <h4> Escenarios agregados </h4>
+                    </div>
+                    <div class="row" id='escenario'>
 				<div class="table-responsive">
 					<table id="tEscenarios" class="table table-striped">
 						<thead class="tabla_header">

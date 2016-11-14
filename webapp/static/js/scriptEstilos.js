@@ -9,6 +9,7 @@ function  borrarNombreEscenario (){
 	$('#inNombreEscenario').val('');
 	$('#desdeAnioSimulacion').attr('readonly', true);
 	$('#hastaAnioSimulacion').attr('readonly', true);
+        $('#selectEstacion').attr('disabled', true);
 	$('body,html').animate({scrollTop : 0}, 500);
 }
 
@@ -29,6 +30,15 @@ $(function() {
 	if(window.location.search === ""){
 		$('#datetimepicker4').datetimepicker('setDate', new Date());
 	}
+        else{
+            $('#selectEstacion').attr('disabled', true);            
+        }
+        var combo = $("#cmbDetalleSuelo");
+        // Aplicacion del orden alfabetico
+        combo.html($("#cmbDetalleSuelo option", $(this)).sort(function(a, b) {
+            return a.text === b.text ? 0 : a.text < b.text ? -1 : 1
+        }));
+        
 	
 });
 
@@ -115,7 +125,7 @@ $(document).ready(function(){
 function validaPeriodoSimulacion(){
 	//retorna true si el periodo es valido
 	var retorno = false; 
-	if(parseInt($('#desdeAnioSimulacion').val().length) != 0  || (parseInt($('#hastaAnioSimulacion').val().length) != 0)){
+	if(parseInt($('#desdeAnioSimulacion').val().length) !== 0  || (parseInt($('#hastaAnioSimulacion').val().length) !== 0)){
 		if((parseInt($('#desdeAnioSimulacion').val()) < parseInt($('#desdeAnio').val())) || (parseInt(($('#desdeAnioSimulacion').val())) > parseInt($('#hastaAnio').val())) || (parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnio').val())) || (parseInt($('#hastaAnioSimulacion').val()) > parseInt($('#hastaAnio').val())) || (parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnioSimulacion').val()))){
 				retorno = false;
 		} else{							
@@ -130,6 +140,7 @@ function validaPeriodoSimulacion(){
 function vaciarForm(){
 	$('#desdeAnioSimulacion').attr('readonly', true);
 	$('#hastaAnioSimulacion').attr('readonly', true);
+         $('#selectEstacion').attr('disabled', true);
 	$('#inNombreEscenario').val(''); 
 	$('#diasDespuesSiembraAp1I').val('');
 	$('#cantidadFertilizanteAp1I').val('');
@@ -149,8 +160,10 @@ function btnAgregarEscenario(){
 
 function ejecutarSimulacion(){
 	
-	if (agregarEscenario()){		
-		cerrar();			
+	if (agregarEscenario()){
+            $('#selectEstacion').attr('disabled', true);
+		cerrar();
+                
 		document.getElementById('ejecutarDSSAT').submit();	
 		$('#modalCargando').modal('show');			
 	}				

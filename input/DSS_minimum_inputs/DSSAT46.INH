@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 *EXP.DETAILS: UYSB1056SN late to create DSS                                          
 
 *FILES
 @N  EXP.DATA    AFILE        ADIR
   1 EXP         UYSB1056.SNA                                                                                 
+=======
+*EXP.DETAILS: UYSB1082SN late to create DSS                                          
+
+*FILES
+@N  EXP.DATA    AFILE        ADIR
+  1 EXP         UYSB1082.SNA                                                                                 
+>>>>>>> origin/master
 @N  SPECIES     SPFILE       SPDIR
   1 SPE         SBGRO046.SPE                                                                                 
 @N  ECOTYPE     EFILE        EDIR
@@ -12,17 +20,25 @@
 @N  SOIL        SFILE        SDIR
   1 SOIL        UY.SOL                                                                                       
 @N  WEATHER     WFILE        WDIR
-  1 WEATH       UYTA9001.WTH                                                                                 
+  1 WEATH       UYTA8801.WTH                                                                                 
 
 *SIMULATION CONTROL
 @N  GENERAL     NYERS NREPS START   SDATE RSEED SNAME.................... MODEL...
+<<<<<<< HEAD
   1 GE              3     1     S 1990316  2150 15102000                  CRGRO046
+=======
+  1 GE             26     1     S 1988316  2150 15102000                  CRGRO046
+>>>>>>> origin/master
 @N  OPTIONS     WATER NITRO SYMBI PHOSP POTAS DISES  CHEM  TILL   CO2
   1 OP              Y     Y     Y     N     N     N     N     N     M
 @N  METHODS     WTHER INCON LIGHT EVAPO INFIL PHOTO HYDRO NSWIT SOMDY MESEV MESOL METMP
   1 ME              M     M     E     R     S     C     R     1     G     S     2     D
 @N  MANAGEMENT  PLANT IRRIG FERTI RESID HARVS
+<<<<<<< HEAD
   1 MA              R     A     N     N     M
+=======
+  1 MA              R     A     D     N     M
+>>>>>>> origin/master
 @N  OUTPUTS     FNAME OVVEW SUMRY FROPT GROUT CAOUT WAOUT NIOUT MIOUT DIOUT  LONG CHOUT OPOUT
   1 OU              N     Y     Y     1     Y     N     Y     Y     N     N     Y     N     N
 
@@ -40,7 +56,7 @@
 
 *TREATMENTS
 @N   R O C TNAME....................  CU  FL  SA  IC  MP  MI  MF  MR  MC  MT  ME  MH  SM
-  1  1 1 0 UYSB                        1   1   0   1   1   0   0   0   0   0   0   0   1
+  1  1 1 0 UYSB                        1   1   0   1   1   0   1   0   0   0   0   0   1
 
 *CULTIVARS
 @C  CR INGENO CNAME
@@ -48,28 +64,38 @@
 
 *FIELDS
 @L  ID_FIELD WSTA....  FLSA  FLOB  FLDT  FLDD  FLDS  FLST SLTX   SLDP ID_SOIL
-  1 UYTA     UYTA9001   0.0  -99.   -99  -99.  100.   -99 -99    -99. UYSS0N2002
+  1 UYTA     UYTA8801   0.0  -99.   -99  -99.  100.   -99 LS     -99. UYSS1H0806
 @L             XCRD            YCRD      ELEV              AREA  SLEN  FLWR  SLAS PRMGT
   1       -99.00000       -99.00000    -99.00               1.0  100.   1.0 -99.0           0
 
 *INITIAL CONDITIONS
 @C  PCR     ICDAT  ICRT  ICND  ICRN  ICRE  ICWD ICRES ICREN ICREP ICRIP ICRID
+<<<<<<< HEAD
   1 SB    1990318     0     0  1.00  1.00   0.0     0  0.00  0.00  100.    0.
+=======
+  1 SB    1988318     0     0  1.00  1.00   0.0     0  0.00  0.00  100.    0.
+>>>>>>> origin/master
 @C   ICBL  SH2O  SNH4  SNO3
-  1    5. 0.282   1.5   5.0
-  1   15. 0.282   1.5   5.0
-  1   30. 0.282   1.5   5.0
-  1   41. 0.262   1.5   4.6
-  1   53. 0.262   1.5   4.6
-  1   63. 0.287   1.5   0.0
-  1   74. 0.287   1.5   0.0
-  1   84. 0.287   1.5   0.0
-  1  110. 0.275   1.5   0.0
-  1  125. 0.312   1.5   0.0
+  1    5. 0.053   1.5   5.0
+  1   15. 0.053   1.5   5.0
+  1   30. 0.053   1.5   5.0
+  1   60. 0.069   1.5   0.2
+  1   90. 0.069   1.5   0.2
+  1  110. 0.148   1.5   0.0
+  1  123. 0.249   1.5   0.0
+  1  150. 0.286   1.5   0.0
+  1  167. 0.248   1.5   0.0
+  1  185. 0.248   1.5   0.0
+  1  235. 0.213   1.5   0.0
+  1  280. 0.177   1.5   0.0
 
 *PLANTING DETAILS
 @P    PDATE   EDATE  PPOP  PPOE  PLME  PLDS  PLRS  PLRD  PLDP  PLWT  PAGE  PENV  PLPH  SPRL
+<<<<<<< HEAD
   1 1990319     -99   7.0   7.0     S     R   15.  -99.   2.5  -99.  -99. -99.0 -99.0 -99.0
+=======
+  1 1988319     -99   7.0   7.0     S     R   15.  -99.   2.5  -99.  -99. -99.0 -99.0 -99.0
+>>>>>>> origin/master
 
 *IRRIGATION
 @I   IEFF  IDEP  ITHR  IEPT  IOFF  IAME  IAMT
@@ -78,6 +104,7 @@
 
 *FERTILIZERS
 @F    FDATE  FMCD  FACD  FDEP  FAMN  FAMP  FAMK  FAMC  FAMO  FOCD
+  1      12 FE001 AP001    5.   12.  -99.  -99.  -99.  -99.   -99
 
 *RESIDUES
 @R    RDATE  RCOD  RAMT  RESN  RESP  RESK  RINP  RDEP  RMET

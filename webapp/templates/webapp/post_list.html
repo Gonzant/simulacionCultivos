@@ -448,10 +448,6 @@
 			$("#msgErrores" ).html(div);
 			$('body,html').animate({scrollTop : 0}, 500);
 		}
-
-
-
-
 		else{datosOk = true;}
 		return datosOk;
 	}
@@ -611,7 +607,7 @@
 	
 	<div class="row" id ="inicial">	
 		<p>Una buena planificación de la producción de cultivos anuales requiere la consideración de posibles escenarios. </p>
-		<p>La herramienta UY-SAT, utiliza un enfoque de “Sistemas de Información y Soporte para la Toma de Decisiones” y los modelos utilizados son incluidos en el paquete DSSAT (Decision Support System for Agrotechnology Transfer). La metodología fue desarrollada por el IRI (International Research Institute for Climate and Society / Columbia University) y la implementación por el SNIA (Sistema Nacional de Información Agropecuaria).
+		<p>La herramienta UY-SAT, utiliza un enfoque de &#34;Sistemas de Información y Soporte para la Toma de Decisiones&#34; y los modelos utilizados son incluidos en el paquete DSSAT (Decision Support System for Agrotechnology Transfer). La metodología fue desarrollada por el IRI (International Research Institute for Climate and Society / Columbia University) y la implementación por el SNIA (Sistema Nacional de Información Agropecuaria).
 		La finalidad de esta herramienta es ser un soporte para la toma de decisiones del productor o técnico asesor, que facilite la definición de estrategias productivas óptimas, el estudio de riesgos de adopción de tecnologías, evaluación de efectos a largo plazo, considerando tanto factores en forma individual como la interacción de varios factores.</p>
 		<p>A continuación deberá ingresar una serie de variables necesarias para llevar a cabo la simulación.</p>
 
@@ -626,7 +622,7 @@
 					<label for="selectEstacion"> Estación Meteorológica: </label>
 				</div>
 				
-				<select class="col-md-4 col-sm-6 col-xs-6" name="estacion" id="selectEstacion" onchange="changeEstacion()">
+                            <select class="col-md-4 col-sm-6 col-xs-6" name="estacion" id="selectEstacion" onchange="changeEstacion()">
 					{% for estacion in estaciones %}
 						<option value="{{ estacion.valor }}">{{ estacion.etiqueta }}</option>							
 					{% endfor %}
@@ -656,7 +652,7 @@
 			<div class = "row form-group has-error" id="anioDesdeS"> 
 				<label class="control-label" for="inputError" id ="anioDesdeLE" style = "margin-left: 35%"> </label>
 				<label for="desdeAnioSimulacion" class="col-xs-4">A&ntilde;o inicial:</label>
-				<input type="number" class="col-xs-8 alturaInput" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" min = "1950">
+				<input type="number" class="col-xs-8 alturaInput" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" min = "1950" >
 			</div> 
 			<div class = "row form-group has-error" id="anioHastaS"> 
 				<label class="control-label" for="inputError" id ="anioHastaLE" style = "margin-left: 35%"> </label>
