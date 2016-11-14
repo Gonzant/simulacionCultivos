@@ -122,5 +122,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Se agrega las carpetas que tienen las imagenes de los escenarios
-MEDIA_ROOT = 'output/'
+
+if os.name == 'nt':
+	MEDIA_ROOT = 'output/'
+else:
+	MEDIA_ROOT = '/var/www/html/simulacionCultivos/output'
+	
 MEDIA_URL = '/output/'
