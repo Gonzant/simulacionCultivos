@@ -1,10 +1,10 @@
 *PLANT C OUTPUT FILE
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   1        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   1        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
@@ -140,11 +140,11 @@
  2001 078   132   128   6492  0.5122  0.3138  0.0000  0.0000  2.3104 0.00000  4.079  5.332 22.968 21.199  6.4609 20.2706 30.8485
  2001 079   133   129   6461  0.4064  0.2887  0.0000  0.0000  2.2052 0.00000  3.884  5.056 22.881 20.724  6.4609 20.2706 30.8485
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   2        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   2        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
@@ -281,11 +281,11 @@
  2002 080   133   129   6979  1.1421  0.2615  0.0000  0.0000  2.1072 0.00000  3.702  4.215 23.137 18.789  6.4241 19.7080 31.6411
  2002 081   134   130   6945  1.0629  0.2675  0.0000  0.0000  2.6972 0.00000  3.518  3.974 25.782 21.965  6.4241 19.7080 31.6411
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   3        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   3        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
@@ -416,11 +416,11 @@
  2003 074   127   123   5893  0.4733  0.3444  0.0000  0.0000  1.7474 0.00000  4.835  7.270 20.963 19.368  6.4881 19.6249 31.3245
  2003 075   128   124   5864  0.9173  0.3362  0.0000  0.0000  1.9960 0.00000  4.606  6.923 23.585 20.751  6.4881 19.6249 31.3245
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   4        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   4        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
@@ -558,11 +558,11 @@
  2004 081   134   130   7120  0.9859  0.3252  0.0000  0.0000  2.0682 0.00000  4.635  6.069 24.373 18.648  6.3744 19.4041 32.2559
  2004 082   135   131   7091  0.8354  0.3004  0.0000  0.0000  1.9811 0.00000  4.432  5.782 24.209 18.171  6.3744 19.4041 32.2559
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   5        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   5        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
@@ -699,11 +699,11 @@
  2005 079   133   129   7644  1.2067  0.3937  0.0000  0.0000  2.7405 0.00000  4.072  5.585 25.895 21.227  6.3640 19.9789 31.7461
  2005 080   134   130   7605  0.6165  0.3463  0.0000  0.0000  2.2074 0.00000  3.886  5.309 21.527 19.264  6.3640 19.9789 31.7461
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   6        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   6        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
@@ -837,11 +837,11 @@
  2006 077   130   126   7522  0.9152  0.4143  0.0000  0.0000  2.8425 0.00000  4.331  6.164 23.972 21.990  6.3436 20.1587 31.6940
  2006 078   131   127   7484  0.6861  0.3846  0.0000  0.0000  2.7956 0.00000  4.118  5.847 24.803 21.831  6.3436 20.1587 31.6940
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   7        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   7        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
@@ -973,11 +973,11 @@
  2007 075   128   124   6342  0.8185  0.3141  0.0000  0.0000  2.4273 0.00000  4.455  5.845 24.569 21.699  6.3502 19.9344 31.8766
  2007 076   129   125   6314  0.2616  0.2519  0.0000  0.0000  1.5009 0.00000  4.268  5.580 18.056 16.675  6.3502 19.9344 31.8766
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   8        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   8        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
@@ -1112,11 +1112,11 @@
  2008 078   131   127   7202  1.0434  0.3650  0.0000  0.0000  2.9916 0.00000  4.270  5.804 28.439 22.777  6.3938 20.0610 31.4780
  2008 079   132   128   7167  0.8595  0.3460  0.0000  0.0000  3.1586 0.00000  4.055  5.495 29.328 23.669  6.3938 20.0610 31.4780
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   9        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   9        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
@@ -1250,11 +1250,11 @@
  2009 076   130   126   7782  0.4444  0.3149  0.0000  0.0000  1.9965 0.00000  4.290  5.003 20.310 18.185  6.3982 19.2246 32.2869
  2009 077   131   127   7747  0.4259  0.3156  0.0000  0.0000  2.4468 0.00000  4.088  4.743 23.358 20.491  6.3982 19.2246 32.2869
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN  10        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN  10        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
@@ -1388,11 +1388,11 @@
  2010 077   130   126   6079  0.3996  0.4186  0.0000  0.0000  2.0325 0.00000  5.225  8.038 22.437 21.021  6.4199 19.9508 31.4250
  2010 078   131   127   6048  0.3682  0.3962  0.0000  0.0000  2.1026 0.00000  4.974  7.657 24.520 21.370  6.4199 19.9508 31.4250
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN  11        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN  11        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   

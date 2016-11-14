@@ -622,7 +622,7 @@
 					<label for="selectEstacion"> Estación Meteorológica: </label>
 				</div>
 				
-				<select class="col-md-4 col-sm-6 col-xs-6" name="estacion" id="selectEstacion" onchange="changeEstacion()">
+                            <select class="col-md-4 col-sm-6 col-xs-6" name="estacion" id="selectEstacion" onchange="changeEstacion()">
 					{% for estacion in estaciones %}
 						<option value="{{ estacion.valor }}">{{ estacion.etiqueta }}</option>							
 					{% endfor %}
@@ -652,7 +652,7 @@
 			<div class = "row form-group has-error" id="anioDesdeS"> 
 				<label class="control-label" for="inputError" id ="anioDesdeLE" style = "margin-left: 35%"> </label>
 				<label for="desdeAnioSimulacion" class="col-xs-4">A&ntilde;o inicial:</label>
-				<input type="number" class="col-xs-8 alturaInput" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" min = "1950">
+				<input type="number" class="col-xs-8 alturaInput" name="desdeAnioSimulacion" id= "desdeAnioSimulacion" min = "1950" >
 			</div> 
 			<div class = "row form-group has-error" id="anioHastaS"> 
 				<label class="control-label" for="inputError" id ="anioHastaLE" style = "margin-left: 35%"> </label>

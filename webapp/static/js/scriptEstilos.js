@@ -125,7 +125,7 @@ $(document).ready(function(){
 function validaPeriodoSimulacion(){
 	//retorna true si el periodo es valido
 	var retorno = false; 
-	if(parseInt($('#desdeAnioSimulacion').val().length) != 0  || (parseInt($('#hastaAnioSimulacion').val().length) != 0)){
+	if(parseInt($('#desdeAnioSimulacion').val().length) !== 0  || (parseInt($('#hastaAnioSimulacion').val().length) !== 0)){
 		if((parseInt($('#desdeAnioSimulacion').val()) < parseInt($('#desdeAnio').val())) || (parseInt(($('#desdeAnioSimulacion').val())) > parseInt($('#hastaAnio').val())) || (parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnio').val())) || (parseInt($('#hastaAnioSimulacion').val()) > parseInt($('#hastaAnio').val())) || (parseInt($('#hastaAnioSimulacion').val()) < parseInt($('#desdeAnioSimulacion').val()))){
 				retorno = false;
 		} else{							

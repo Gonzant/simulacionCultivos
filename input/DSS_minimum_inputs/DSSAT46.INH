@@ -1,8 +1,8 @@
-*EXP.DETAILS: UYSB1077SN late to create DSS                                          
+*EXP.DETAILS: UYSB1080SN late to create DSS                                          
 
 *FILES
 @N  EXP.DATA    AFILE        ADIR
-  1 EXP         UYSB1077.SNA                                                                                 
+  1 EXP         UYSB1080.SNA                                                                                 
 @N  SPECIES     SPFILE       SPDIR
   1 SPE         SBGRO046.SPE                                                                                 
 @N  ECOTYPE     EFILE        EDIR

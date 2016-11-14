@@ -1,10 +1,10 @@
 *PLANT N BALANCE
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   1        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   1        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
@@ -81,11 +81,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   2        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   2        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
@@ -162,11 +162,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   3        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   3        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
@@ -243,11 +243,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   4        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   4        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
@@ -324,11 +324,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   5        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   5        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
@@ -405,11 +405,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   6        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   6        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
@@ -486,11 +486,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   7        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   7        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
@@ -567,11 +567,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   8        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   8        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
@@ -648,11 +648,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN   9        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN   9        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
@@ -729,11 +729,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN  10        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN  10        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
@@ -810,11 +810,11 @@ RUNOFF CURVE # : 0.75      DRAINAGE RATE     : 0.50         FERT. FACTOR : 1.00
 
 *******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:27:14
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      NOV 11, 2016; 12:43:15
                                                                                 
-*RUN  11        : UYSB                      CRGRO046 UYSB1077    1              
+*RUN  11        : UYSB                      CRGRO046 UYSB1080    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1077 SN late to create DSS                                
+ EXPERIMENT     : UYSB1080 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
                                                                                 
