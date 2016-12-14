@@ -1,0 +1,258 @@
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modelo de Simulación de Cultivos </title>
+	
+	<!--JQuery-->	
+	<script src="{% static 'lib/jquery-3.1.0/jquery-3.1.0.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>	
+	
+	<!--Boostrap-->
+	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap-theme.min.css' %}">	
+	<script src="{% static 'lib/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="{% static 'lib/bootstrap-datetimepicker-0.0.11/css/bootstrap-datetimepicker.min.css' %}">	
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.min.js' %}"> </script>	
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-UY.js' %}">  </script>
+
+	<!--Simulacion-->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/showGraphics.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/validacionesMB.js' %}"></script>
+	
+	
+	<!--Pasar estos si se usan local-->
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
+
+	<script>  
+		var escenarios = [];
+		var cultivos = [];	
+		var suelos = [];
+		var precios =[];
+
+		function cargarPreciosIngresados(){
+			var cont = 0
+			{% for precio in returnPrecios %}		
+				var c = [];
+				{% for p in precio%}				
+					c.push({{p}});				
+				{% endfor %}	
+				precios.push(c)		
+				cont = cont +1;
+			{% endfor %}			
+			var preciosGranoEscenarios = document.getElementsByName('precioGranoEscenario');
+			var precioFertilizanteEscenario = document.getElementsByName('precioFertilizanteEscenario');
+			var costeRiegoEscenario = document.getElementsByName('costeRiegoEscenario');
+			var gastosGeneralesEscenario = document.getElementsByName('gastosGeneralesEscenario');
+
+
+
+			for (var x=0;x<precios.length;x=x+1){
+				for(var y=0;y<precios[x].length;y=y+1){
+					switch(x) {
+					    case 3:
+					        preciosGranoEscenarios[y].value=precios[x][y];
+					        break;
+					    case 0:
+					        precioFertilizanteEscenario[y].value=precios[x][y];	
+					        break;					
+					    case 1:
+					        costeRiegoEscenario[y].value=precios[x][y];	
+					        break;					
+					    case 2:
+					        gastosGeneralesEscenario[y].value=precios[x][y];	
+					        break;					
+					}
+				}
+			}
+		};
+
+		function loadImg(){
+			get = window.location.search.replace("?", "");
+			getListParametros = get.split("&");
+
+			var tienePrecio = false;
+			for (i=0;i<getListParametros.length;i++){
+				if (getListParametros[i].split("=")[0]==='precioGranoEscenario'){
+					tienePrecio = true;
+				}
+			};
+			if (tienePrecio){
+				var dimagen = document.getElementById('imagenMB');
+				var eimg = document.createElement("img");
+				eimg.setAttribute("src", "{{MEDIA_ROOT}}/{{dir}}/margenBruto.png");						
+				eimg.setAttribute("alt", "Margen bruto");
+				eimg.setAttribute("class", "img-responsive center-block");
+				//dimagen.write("<img class='img-responsive center-block' src='{{MEDIA_ROOT}}/{{dir}}/margenBruto.png' alt='Margen bruto'>");				
+				dimagen.appendChild(eimg); 
+				
+				var datosNum = {{resultPlot}};
+				
+				var dtexto ="";				
+				for (var i = 0; i<escenarios.length;i++){
+					
+					var dtexto =dtexto + "<p>Con el escenario <u>"+ escenarios[i].nombre+"</u> la probabilidad de obtener un margen bruto de "+datosNum[0][i]+" U$S/ha o más, es de 50%, o sea se puede esperar que en la mitad de los años el margen bruto sea por lo menos "+datosNum[0][i]+" U$S/ha. Por otra parte la probabilidad de obtener un margen bruto por debajo de "+datosNum[1][i]+" U$S/ha es de 25%, una vez cada 4 años. </p>";	
+				};		
+				document.getElementById('datosMargenBoxplot').innerHTML = dtexto;
+				cargarPreciosIngresados();		
+			};
+			
+			//<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/margenBruto.png" alt="Margen bruto">			
+		};
+		
+		function btnGraficaMargenBruto(){
+			
+			if(validacionesMB()){
+				document.getElementById('graficarMB').submit();	
+				$('#modalCargandoMB').modal('show');
+			}
+		}
+	
+		function cargarTSuelos(){
+			{% for cultivo in cultivos %}
+				var c = {
+					nombre: "{{ cultivo.nombre }}",					
+					valor:"{{ cultivo.value }}"
+				};
+				cultivos.push(c);
+				{% for s in cultivo.tipo_cultivares.all %}
+					var suelo = {
+						nombre: "{{ s.nombre }}",
+						valor: "{{ s.valor }}",
+						etiqueta: "{{ s.etiqueta }}",					
+					}
+					suelos.push(suelo);			
+				{% endfor %}			
+			{% endfor %}		
+		};
+		
+	</script>
+</head>
+<body>
+	<div class="container">
+
+		{% include 'header.html' %}		
+		
+		<div id= "msgErroresMB" class=""></div>
+		
+		<div class="row paddingBottom">	
+			<p>La herramienta permite analizar también los Márgenes Brutos esperados para diferentes escenarios.  El Margen Bruto se calcula como la diferencia entre los ingresos por venta del producto y los costos de producción por ha.  Dado que los escenarios permiten variar la cantidad de fertilizante nitrogenado, y también permiten evaluar el uso de riego, esas dos variables se consideran aparte del resto de los costos de producción.  De esta manera, los “Otros Costos de Producción” en la herramienta incluyen todos los costos de producción excepto los de fertilizante nitrogenado y riego. </p>
+		</div>
+				
+		<div class="row paddingBottom">
+			<div id="imagenMB" class="col-sm-6">	</div>
+			<div class="col-sm-6" id = "datosMargenBoxplot"></div>
+		</div>			
+		
+		<form id = "graficarMB" action="margenBruto">
+			<input type="text" value="{{dir}}" name="dirEscenario" style="display:none">
+			
+			{% for anioE in aniosEscenarios %}
+			<div id='aniosEscenario' style="display:none">
+				<label for="aEscenario"> <b> Cantidad a&ntilde;os escenarios: </b> </label>
+				<input type="text" name="aEscenario" class="form-control" id= "inAnioEscenario" value="{{ anioE }}" style="display:none">
+			</div>
+			{% endfor %}
+			
+			<div>				
+				<div class="row">				
+					<h4>Escenarios</h4>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead class="tabla_header">
+					      <tr>
+					        <th>Nombre escenario:</th>
+					        <th>Precio del grano (U$S/ton):</th>
+					        <th>Precio del fertilizante (U$S/kg N):</th>
+					        <th>Costo del riego (U$S/mm):</th>
+					        <th>Otros costos de producción (U$S/ha):</th>				        
+					      </tr>
+					    </thead>
+					    <tbody>
+					    {% for nEscenario in nombreEscenarios %}
+					    	<tr>
+						        <td><input type="text" name="nombreEscenario" class="alturaInput" readonly="readonly" id= "inNombreEscenario" value="{{ nEscenario }}" style="width:100%"></td>
+     
+						        <td><div class = "form-group has-error" id='precioGranoEscenarioDiv'> 
+							        <input type="text" name="precioGranoEscenario" id= "precioGranoEscenario" class="alturaInput" style="width:100%" onchange="validaPrecioGrano()" onKeyPress="return caracteresEspeciales(event)">
+							        <label class="control-label" for="inputError" name="precioGranoEscenarioLE" id ="precioGranoEscenarioLE" style="width:100%"></label>
+						        </div></td>
+
+								<td><div class = "form-group has-error" id='precioFertilizanteEscenarioDiv'> 
+							       <input type="text" name="precioFertilizanteEscenario" onchange="validaPrecioFertilizante()" id= "precioFertilizanteEscenario" class="alturaInput" style="width:100%" onKeyPress="return caracteresEspeciales(event)">
+							        <label class="control-label" for="inputError" name ="precioFertilizanteEscenarioLE" id ="precioFertilizanteEscenarioLE" style="width:100%"></label>
+						        </div></td>
+
+								<td><div class = "form-group has-error" id='costeRiegoEscenarioDiv'> 
+							      <input type="text" name="costeRiegoEscenario" id= "costeRiegoEscenario" onKeyPress="return caracteresEspeciales(event)" class="alturaInput" style="width:100%" onchange="validaCostoRiego()">
+							        <label class="control-label" for="inputError" id ="costeRiegoEscenarioLE" name ="costeRiegoEscenarioLE" style="width:100%"></label>
+						        </div></td>
+						       
+						       <td><div class = "form-group has-error" id='gastosGeneralesEscenarioDiv'> 
+							      <input type="text" min="0" name="gastosGeneralesEscenario" onKeyPress="return caracteresEspeciales(event)" id= "gastosGeneralesEscenario" class="alturaInput" style="width:100%" onchange="validaCostosGenerales()">
+							        <label class="control-label" for="inputError" id ="gastosGeneralesEscenarioLE" name ="gastosGeneralesEscenarioLE" style="width:100%"></label>
+						        </div></td>						        				        
+						   
+						    </tr>
+					    {% endfor %}
+					    </tbody>
+					</table>
+				</div>
+				<div>
+					<div class="row">
+						<h4> Escenarios</h4>
+					</div>
+					<div class="row" id='escenario'>
+						<div class="table-responsive">
+							<table id="tEscenarios" class="table table-striped">
+								<thead class="tabla_header">
+								  <tr>
+									<th>Escenario</th>
+									<th>Cultivo</th>
+									<th>Tipo de cultivar</th>
+									<th>Riego</th>
+									<th></th>
+								  </tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>	
+						</div>			
+					</div>		
+				</div>
+				
+			<div class="row margenTop">									
+					<input class="btn btn-success" type="button" style="margin:0px auto; display:block;" onclick="btnGraficaMargenBruto()" name="margenBruto" value="Graficar margen bruto">
+				</div>
+				<!--<button class='btn btn-primary' onclick=''>Agregar escenario</button>-->
+			</div>
+
+		<div class="modal fade" id="modalCargandoMB" style="-webkit-box-shadow: 0 3px 5px transparent; background: transparent; border: 1px solid 	transparent;">
+		  <div class="modal-dialog  modal-sm">
+			<div class="modal-content" align="center">			  
+			  <div class="modal-body" id="modal-body" align="center">
+				 <img src="/static/img/cargando.gif" alt="cargando" class="img-responsive">
+			  </div>			  
+			</div>
+		  </div>
+		</div>
+
+
+		</form>	
+
+		{% include 'footer.html' %}						
+	</div>	
+	
+	<script>
+
+		escenarios = read_cookie();	
+		loadImg();
+		cargarTSuelos();
+		cargarEscenarios();
+	</script>
+</body>
+</html>

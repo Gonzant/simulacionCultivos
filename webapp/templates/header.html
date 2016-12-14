@@ -1,0 +1,82 @@
+<div class="page-header row">		
+	<div class="col-xs-3 vcenter" > 
+		<a title="LogoSnia" href="http://snia.gub.uy/" target="_blank"><img id="soloLogo" src="/static/img/logo.png" alt="LogoSnia"><img id="logoImagen" src="/static/img/logoSNIA.png" alt="LogoSnia"></a>
+	</div><!--    	
+        --><div class="col-xs-6 text-center vcenter" style="color:#848688 ">	
+		<div id='headTitulo'>
+                    <a href = './'> UY-SAT </a> <br>
+                   
+		</div>	
+            <h5>Simulador de Cultivo</h5>
+	</div><!--			
+ --><div class="col-xs-3 text-center vcenter" >				
+		<a id="contacto" style="color: #848688; font-size: 16px;" href="http://snia.gub.uy/contacto-5/contacto-72?,,mnu-e-55-3-mnu-" target="_blank"><span class="glyphicon glyphicon-envelope"></span><span id="contactoTexto">Contacto</span></a>				
+	</div>			   
+</div>
+
+<style>
+	.vcenter{
+		display: inline-block;
+   		vertical-align: middle;
+  	  	float: none;
+	}
+
+	.headerHeight a {
+		margin : 0 auto
+	}
+
+	#contacto:hover{
+		padding:5px;
+	    background-color: #ebebeb;
+		text-decoration:none;
+	}
+	
+	#headTitulo{
+		color: #848688;
+		font-size: 31.5px;		
+		font-family: inherit;
+	    font-weight: bold;
+    	line-height: 120%;
+    	text-rendering: optimizelegibility;    	
+	}
+	#headTitulo a {
+		color:#848688;
+    	text-decoration:none;
+	}
+
+	#soloLogo{
+		display:none;		
+	}
+
+	#contactoTexto{
+		margin-left: 5px;
+		margin-bottom: 3px;	
+	}
+
+	@media only screen and (max-width: 980px) {		
+		#soloLogo{
+			display:block;
+		}
+
+		#logoImagen{
+			display:none;
+		}
+
+
+	}
+
+	@media only screen and (max-width: 600px) {
+		#headTitulo{			
+			font-size: 22px;			
+		}
+		#contactoTexto{
+			display: none;
+		}
+	}
+
+    @media only screen and (max-width: 420px) {
+		#headTitulo{			
+			font-size: 18px;			
+		}
+	}
+</style>

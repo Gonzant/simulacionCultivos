@@ -1,0 +1,27 @@
+*WARNING DETAIL FILE
+
+******************************************************************************
+
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      DEC 14, 2016; 12:37:38
+                                                                                
+*RUN   1        : UYSB                      CRGRO046 UYSB1074    1              
+ MODEL          : CRGRO046 - Soybean                                            
+ EXPERIMENT     : UYSB1074 SN late to create DSS                                
+ DATA PATH      :                                                               
+ TREATMENT  1   : UYSB                      CRGRO046                            
+  
+
+ IPSOIL  YEAR DOY =    0   0
+ Error in soil file on line    602                                             
+ Model will continue to search for a valid soil profile.                       
+
+ IPSOIL  YEAR DOY =    0   0
+ Error in soil file on line    615                                             
+ Model will continue to search for a valid soil profile.                       
+
+ IPSOIL  YEAR DOY =    0   0
+ Saturated hydraulic conductivity equal to zero for one or more soil layers.   
+ Data will be treated as missing.                                              
+
+ SOILDYN  YEAR DOY = 1990 346
+ Surface runoff curve number has been changed from   1.0 to  25.0.             

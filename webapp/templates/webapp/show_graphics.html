@@ -1,0 +1,172 @@
+{% load staticfiles %}
+<html>
+<head>	
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modelo de Simulación de Cultivos </title>
+	
+	<!--JQuery-->	
+	<script src="{% static 'lib/jquery-3.1.0/jquery-3.1.0.min.js' %}"></script>
+	
+	<!--Boostrap-->
+	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'lib/bootstrap-3.3.7/css/bootstrap-theme.min.css' %}">	
+	<script src="{% static 'lib/bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+	
+	<!--Simulacion-->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script type="text/javascript" src="{% static 'js/scriptEstilos.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/showGraphics.js' %}"> </script>
+	
+	
+	<!--Pasar estos si se usan local-->	
+	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'lib/bootstrap-datetimepicker-0.0.11/css/bootstrap-datetimepicker.min.css' %}">	
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.min.js' %}"> </script>
+	<script type="text/javascript" src="{% static 'lib/bootstrap-datetimepicker-0.0.11/js/bootstrap-datetimepicker.pt-UY.js' %}">  </script>
+	<script type="text/javascript" src="{% static 'lib/jquery-validation-1.15.0/jquery.validate.min.js' %}">  </script>	
+	
+
+	<script>
+		
+		var escenarios = [];						
+		var suelos = [];
+		var riegos = [];
+		var cultivos = [];
+		//listMean,listMediana,listWhiskerxsenor,listWhiskerxsayor,listBase,listMayor
+		
+		function cargarDatos(){			
+			count = 0;
+			datosNumericos = {{ resultPlot }};							
+			
+			get = window.location.search.replace("?", "");
+			getListParametros = get.split("&");
+			
+			{% for nomE in nombreEscenarios %}
+
+				escenario = {
+					nombre: "{{ nomE }}",
+					promedio: datosNumericos[0][count],
+					mediana: datosNumericos[1][count],
+					whiskMenor: datosNumericos[2][count],
+					whiskMayor: datosNumericos[3][count],
+					base: datosNumericos[4][count], 
+					mayor: datosNumericos[5][count],
+					estMeteorologica: getListParametros[count*17+0].split("=")[1],
+					fInicioSim: getListParametros[count*17+1].split("=")[1],
+					fFinSim: getListParametros[count*17+2].split("=")[1],
+					cultivo: getListParametros[count*17+3].split("=")[1],
+					cultivoTSuelo: getListParametros[count*17+4].split("=")[1],
+					cultivoTCultivar: getListParametros[count*17+5].split("=")[1],
+					cultivoNHumedad: getListParametros[count*17+6].split("=")[1],
+					cultivoNO3: getListParametros[count*17+7].split("=")[1],
+					cultivoFSiembra: getListParametros[count*17+8].split("=")[1],
+					fertilizacionSiembraDias: getListParametros[count*17+9].split("=")[1],
+					fertilizacionSiembraCantidad: getListParametros[count*17+10].split("=")[1],
+					fertilizacion1Dias: getListParametros[count*17+11].split("=")[1],
+					fertilizacion1Cantidad: getListParametros[count*17+12].split("=")[1],
+					fertilizacion2Dias: getListParametros[count*17+13].split("=")[1],
+					fertilizacion2Cantidad: getListParametros[count*17+14].split("=")[1],
+					riego: getListParametros[count*17+15].split("=")[1]					
+				};		
+				escenarios.push(escenario);
+				count = count + 1;
+			{% endfor %}
+		};					
+								
+		function cargarTSuelos(){
+			{% for cultivo in cultivos %}
+				var c = {
+					nombre: "{{ cultivo.nombre }}",					
+					valor:"{{ cultivo.value }}"
+				};
+				cultivos.push(c);
+				{% for s in cultivo.tipo_cultivares.all %}
+					var suelo = {
+						nombre: "{{ s.nombre }}",
+						valor: "{{ s.valor }}",
+						etiqueta: "{{ s.etiqueta }}",					
+					}
+					suelos.push(suelo);			
+				{% endfor %}			
+			{% endfor %}			
+		};	
+	</script>	
+		
+
+</head>
+<body>
+	<div class="container">	
+
+	{% include 'header.html' %}	
+
+		<div class="paddingBottom">
+			<div class="row paddingBottom">
+				<div class="col-sm-6">
+					<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/boxplot.png" alt="Rendimientos esperados (Boxplot)">
+				</div>
+				<div class="col-sm-6" id = "datosBoxplot">	
+					<p>Este tipo de gráficos permite visualizar rápidamente los valores medios y la variabilidad esperada para un escenario planteado.</p>			
+				</div>
+			</div>	
+			<div class="row paddingBottom">
+				<div class="col-sm-6">
+					<img class="img-responsive center-block" src="{{MEDIA_ROOT}}/{{dir}}/curvaPExcedencia.png" alt="Rendimientos esperados (Curva de probabilidad de exedencia)">
+				</div>
+				<div class="col-sm-6" id = "datosCurvaExedencia">	
+					<p>Este gráfico permite estimar la probabilidad de superar un determinado valor de rendimiento para diferentes escenarios.</p>			
+				</div>
+			</div>
+		</div>
+		
+		<div>
+                    <div class="row">
+                            <h4> Escenarios agregados </h4>
+                    </div>
+                    <div class="row" id='escenario'>
+				<div class="table-responsive">
+					<table id="tEscenarios" class="table table-striped">
+						<thead class="tabla_header">
+						  <tr>
+							<th>Escenario</th>
+							<th>Cultivo</th>
+							<th>Tipo de cultivar</th>
+							<th>Riego</th>
+							<th></th>
+						  </tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>	
+				</div>			
+			</div>		
+		</div>
+		
+		<!--Parametros para pasar -->
+		{% for anioE in aniosEscenarios %}
+			<div id='aniosEscenario' style="display:none">
+				<label for="aEscenario"> <b> Cantidad a&ntilde;os escenarios: </b> </label>
+				<input type="text" name="aEscenario" class="form-control" id= "inAnioEscenario" value="{{ anioE }}" style="display:none">
+			</div>
+		{% endfor %}
+		<input type="text" value="{{dir}}" name="dirEscenario" style="display:none">		
+		
+
+		<div class="row">				
+			<input class="btn btn-success" type= "button" style="margin:0px auto; display:block;" onclick='calcularMargenBruto()' name="margenBruto" value="Calcular margen bruto">
+		</div>
+		
+		<div class="row margenTop">				
+		</div>		
+		
+		{% include 'footer.html' %}	
+
+	</div>
+	<script>
+		cargarTSuelos();	
+		cargarDatos();
+		cargarParrafos();		
+		cargarEscenarios();		
+			
+	</script>
+</body>
+</html>
