@@ -39,9 +39,40 @@
 	var estaciones = [];
 	var escenarios = [];
 	var escenariosCookie = [];
+	var tipoSuelosFiltro1s = [];
+	var tipoSuelosFiltro2s = [];
+	var codTipoSuelo;
+
 	//Se hardcodean los riegos
 	var riegos = [{valor:"1",etiqueta:"Automático"}, {valor:"0",etiqueta:"No"}]
-	
+
+	var cmbDF1, cmbDF2;
+	var suelosFiltrados = [];
+
+
+	$(function() {
+		var cmbDF1 = document.getElementById("cmbDetalleSueloF1").value;
+		var cmbDF2 = document.getElementById("cmbDetalleSueloF2").value;
+		var suelosFiltrados = [];
+
+	for(i = 0; i < cultivos[valor].suelos.length; i++) {
+			var str = cultivos[valor].suelos[i].etiqueta;
+			if (str.search(cmbDF1) === 0){ //contiene 
+				var option = new Object();
+				option.text = cultivos[valor].suelos[i].etiqueta;
+				option.value = cultivos[valor].suelos[i].valor;
+				suelosFiltrados.push(option);
+			}			
+			
+		}
+		for(i = 0; i < suelosFiltrados.length; i++) {
+			var s = suelosFiltrados[i].text;
+			if (s.search(cmbDF2) >= 0){ 
+				codTipoSuelo = suelosFiltrados[i].value;
+			}
+		}
+});
+
 	
 	function cargarEstaciones(){
 		{% for estacion in estaciones %}
@@ -53,6 +84,26 @@
 				hasta: "{{ estacion.hasta }}"
 			}
 			estaciones.push(estacion);
+		{% endfor %}
+	};
+
+	function cargarTipoSuelosFiltro1(){
+		{% for tipoSuelosFiltro1 in tipoSuelosFiltro1s %}
+			var tipoSuelosFiltro1 = {
+				nombre: "{{ tipoSuelosFiltro1.nombre }}",
+				etiqueta: "{{ tipoSuelosFiltro1.etiqueta }}"
+			}			
+			tipoSuelosFiltro1s.push(tipoSuelosFiltro1);
+		{% endfor %}
+	};
+
+	function cargarTipoSuelosFiltro2(){
+		{% for tipoSuelosFiltro2 in tipoSuelosFiltro2s %}
+			var tipoSuelosFiltro2 = {
+				nombre: "{{ tipoSuelosFiltro2.nombre }}",
+				etiqueta: "{{ tipoSuelosFiltro2.etiqueta }}"
+			}			
+			tipoSuelosFiltro2s.push(tipoSuelosFiltro2);
 		{% endfor %}
 	};
 	
@@ -119,7 +170,7 @@
 		var div = document.getElementById('detalleCultivo');	
 		
 		var no3Div = document.getElementById('NO3inicial');
-		document.getElementById('cmbDetalleSuelo').options.length = 0;
+		//document.getElementById('cmbDetalleSuelo').options.length = 0;
 		document.getElementById('cmbDetalleCultivar').options.length = 0;
 		document.getElementById('cmbDetalleH20').options.length = 0;
 		document.getElementById('cmbDetalleNO3').options.length = 0;
@@ -133,13 +184,28 @@
 			no3Div.style.display = (no3Div.style.display == 'none') ? 'block' : 'none'; 
 		}
 			
-		var cmbDetalleSuelo = document.getElementById("cmbDetalleSuelo");					
+		var cmbDetalleSueloF1 = document.getElementById("cmbDetalleSueloF1");					
+		for(i = 0; i < tipoSuelosFiltro1s.length; i++) {
+			var option = document.createElement('option');
+			option.text = tipoSuelosFiltro1s[i].etiqueta;
+			cmbDetalleSueloF1.add(option);
+		}
+
+		var cmbDetalleSueloF2 = document.getElementById("cmbDetalleSueloF2");					
+		for(i = 0; i < tipoSuelosFiltro2s.length; i++) {
+			var option = document.createElement('option');
+			option.text = tipoSuelosFiltro2s[i].etiqueta;
+			cmbDetalleSueloF2.add(option);
+		}
+			
+		/*var cmbDetalleSuelo = document.getElementById("cmbDetalleSuelo");					
 		for(i = 0; i < cultivos[valor].suelos.length; i++) {
 			var option = document.createElement('option');
 			option.text = cultivos[valor].suelos[i].etiqueta;
 			option.value = cultivos[valor].suelos[i].valor;
 			cmbDetalleSuelo.add(option);
-		}
+		}*/
+
 		
 		var cmbDetalleCultivar = document.getElementById("cmbDetalleCultivar");					
 		
@@ -220,6 +286,28 @@
 		var cultivo = document.getElementById('rdCult');	
 		var escenario = new Object();	
 		var result = true;
+		
+		for(i = 0; i < cultivos[valor].suelos.length; i++) {
+			var str = cultivos[valor].suelos[i].etiqueta;
+			if (str.search(cmbDF1) === 0){ //contiene 
+				var option = new Object();
+				option.text = cultivos[valor].suelos[i].etiqueta;
+				option.value = cultivos[valor].suelos[i].valor;
+				suelosFiltrados.push(option);
+			}			
+			
+		}
+		for(i = 0; i < suelosFiltrados.length; i++) {
+			var s = suelosFiltrados[i].text;
+			if (s.search(cmbDF2) >= 0){ 
+				codTipoSuelo = suelosFiltrados[i].value;
+			}
+		}	
+		
+
+		//var cmbDetalleSuelo = document.getElementById("cmbDetalleSuelo");					
+		
+
 		if(validaCamposVacios()===true){ //estan los dato ingresados correctamente
 			for (var i=0;i< document.getElementsByName("cultivo").length; i++){
 				if ( document.getElementsByName("cultivo")[i].checked ) {
@@ -237,7 +325,7 @@
 				fInicioSim: document.getElementById("desdeAnioSimulacion").value,
 				fFinSim: document.getElementById("hastaAnioSimulacion").value,
 				cultivo: ncultivo,
-				cultivoTSuelo: document.getElementById("cmbDetalleSuelo").value,
+				cultivoTSuelo: codTipoSuelo, //document.getElementById("cmbDetalleSuelo").value,
 				cultivoTCultivar: document.getElementById("cmbDetalleCultivar").value,
 				cultivoNHumedad: document.getElementById("cmbDetalleH20").value,
 				cultivoNO3: document.getElementById("cmbDetalleNO3").value,
@@ -258,7 +346,7 @@
 				cultivo: {
 					nombreCultivo: ncultivo,
 					detalle: {
-						suelo: document.getElementById("cmbDetalleSuelo").value,
+						suelo: codTipoSuelo, //document.getElementById("cmbDetalleSuelo").value,
 						tCultivar: document.getElementById("cmbDetalleCultivar").value,
 						nHumedadd: document.getElementById("cmbDetalleH20").value,
 						no3: document.getElementById("cmbDetalleNO3").value,
@@ -347,58 +435,6 @@
 		cell3.innerHTML = etiquetaTipoCultivar(escenarioActual.cultivo.detalle.tCultivar, cultivos);
 		cell4.innerHTML = etiquetaRiego(escenarioActual.riego, cultivos);//etiquetaRiego(escenarios[i].riego);		
 		cell5.innerHTML = "<button type=\"button\" class='btn btn-primary' onclick='setearCookie("+(escenarios.length-1).toString()+")'>Modificar</button>";
-	};
-	
-	function agregarEscenarioNav(){
-	
-		var divE = document.getElementById('navEscenarios');
-		var errores = "";
-		var anioDesdeNoVacio=parseInt($('#desdeAnioSimulacion').val().length) != 0;
-		var anioHastaNoVacio=parseInt($('#hastaAnioSimulacion').val().length) != 0;
-		var checkFertilizaSiembra =($('input[name=fertilizacion]:checked').attr('value')==='1');
-		var checkFertilizaOtras1 =($('input[name=fertilizacionO]:checked').attr('value')==='1');
-		var checkFertilizaOtras2 = ($('input[name=fertilizacionO]:checked').attr('value')==='2');
-		var nombreEscenario = $('#inNombreEscenario').val(); 
-		var cultivo="";
-		var ciclo = document.getElementById("cmbDetalleCultivar").value;
-		var cicloMostrar=ciclo;
-		var riego ="";
-		
-		//control de errores   s
-		
-		//muestro div de escenarios
-		divE.style.display = 'block';
-		
-		//fin - control de errores
-		if($('input[name="riego"]:checked', '#rbRiego').val() ==='1'){
-			riego = "Riego automático."
-		}else{riego = "No riego."}
-		
-		if($('input[name="cultivo"]:checked', '#rdCultivo').val() ==='MZ'){
-			cultivo = "Maiz"
-			if(ciclo ==="UY0370"){cicloMostrar="Ciclo medio";}
-			else{
-				if(ciclo ==="UY0371"){cicloMostrar="Ciclo corto";}
-				else{ if(ciclo ==="UY0372"){ cicloMostrar="Ciclo largo";} else{cicloMostrar="";}}
-			}
-			
-		}else{
-			cultivo = "Soja";
-			if(ciclo ==="UY0141"){cicloMostrar="GM 4";}
-			else{
-				if(ciclo ==="UY0151"){cicloMostrar="GM 5";}
-				else{ if(ciclo ==="UY0161"){ cicloMostrar="GM 6";} else{cicloMostrar="";}}
-			}	
-		}
-		
-		$("#accordion").append(
-		"<div class=" + '"' +"panel panel-default col-xs-3" + '"' + "> " +
-			"<div class=" + '"' + "panel-heading panelEscenarios" +'"' + ">" + 
-			"<button class="+ '"'+"panel-title botonEscenario form-control"+'"'+"data-toggle="+'"'+"collapse"+'"'+"data-parent="+'"'+"#accordion" +'"'+"href="+'"'+"#collapse" +nombreEscenario +'"' +">Escenario : " + nombreEscenario +"</button>"+
-			"<div id=" + '"' + "collapse"+ nombreEscenario + '"' + "class=" +'"' + "panel-collapse collapse in" +'"' +">"+
-				"<div class=" + '"' + "panel-body" + '"' +">"+ cultivo + "<br>" + cicloMostrar  + "<br>" + riego +	"<div>" + "<div>"+
-			"<div>"+
-		"<div>");
 	};
 	
 	function cerrar(){ 
@@ -495,7 +531,7 @@
 		cargarComboBoxDetalle(nombreCultivo[cul]);
 		
 		//Detalles cultivos
-		var detalleSuelo = document.getElementById("cmbDetalleSuelo");
+		var detalleSuelo = codTipoSuelo;
 		
 		setSelectedValue(detalleSuelo, escenariosCookie.cultivoTSuelo);		
 		setSelectedValue(document.getElementById("cmbDetalleCultivar"), escenariosCookie.cultivoTCultivar);
@@ -614,8 +650,7 @@
 				<div class="col-md-4 col-sm-6 col-xs-6">
 					<label for="selectEstacion"> Estación Meteorológica: </label>
 				</div>
-				
-                            <select class="col-md-4 col-sm-6 col-xs-6" name="estacion" id="selectEstacion" onchange="changeEstacion()">
+				    <select class="col-md-4 col-sm-6 col-xs-6" name="estacion" id="selectEstacion" onchange="changeEstacion()">
 					{% for estacion in estaciones %}
 						<option value="{{ estacion.valor }}">{{ estacion.etiqueta }}</option>							
 					{% endfor %}
@@ -669,10 +704,21 @@
 			<div class="row">
 				<h4> Detalles del cultivo  y suelos: </h4>
 			</div>
-			<div id="tipoSuelo" class="row"> 
+			<div class="row">
+				<h5> Tipo de suelo: </h5>
+			</div>
+			<div id="tipoSueloF1" class="row"> 
+				<label for="cmbDetalleSueloF1" class="col-xs-4"> 1° filtro: </label>
+				<select name="tipoSueloF1" id="cmbDetalleSueloF1" class="col-xs-8"> </select>
+			</div>
+			<div id="tipoSueloF2" class="row"> 
+				<label for="cmbDetalleSueloF2" class="col-xs-4">2° filtro </label>
+				<select name="tipoSueloF2" id="cmbDetalleSueloF2" class="col-xs-8"> </select>
+			</div>
+			<!--<div id="tipoSuelo" class="row"> 
 				<label for="cmbDetalleSuelo" class="col-xs-4">Tipo de suelo: </label>
 				<select name="tipoSuelo" id="cmbDetalleSuelo" class="col-xs-8"> </select>
-			</div>
+			</div>-->
 
 			<div id="tipoCultivar" class="row"> 
 				<label for="cmbDetalleCultivar" class="col-xs-4">Tipo de cultivar:</label>
@@ -906,6 +952,8 @@
 <script>		
 	cargarEstaciones();
 	changeEstacion();
+	cargarTipoSuelosFiltro1();
+	cargarTipoSuelosFiltro2();		
 	cargarDetallesCultivos();
 	checkSoja();
 	esCargarEscenario();

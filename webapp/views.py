@@ -2,7 +2,7 @@ from django.shortcuts import render, render_to_response, redirect
 from django.utils import timezone
 from django.conf import settings
 from .models import Post, EstacionMeteorologica, Cultivo, Riego, Fertilizante, AplicacionF
-from .models import Administrativo_procesamiento, Administrativo_contador
+from .models import Administrativo_procesamiento, Administrativo_contador, Tipo_suelo_f1, Tipo_suelo_f2
 import os
 import sys
 import subprocess
@@ -148,7 +148,7 @@ def validacion(opcion , req):
 			if not (check_text(req.GET.getlist("cultivo")[v]) and check_lenght(req.GET.getlist("cultivo")[v],2)):
 				retVal = False
 			print(retVal)
-			if not (check_text_number(req.GET.getlist("cultivoTSuelo")[v]) and check_lenght(req.GET.getlist("cultivoTSuelo")[v],10)):
+			if not (check_text_number(req.GET.getlist("cultivoTSuelo")[v])): #and check_lenght(req.GET.getlist("cultivoTSuelo")[v],10))
 				retVal = False
 			print(retVal)
 			if not (check_text_number(req.GET.getlist("cultivoTCultivar")[v]) and check_lenght(req.GET.getlist("cultivoTCultivar")[v],6)):
@@ -361,7 +361,9 @@ def post_list(request):
 	riegos = Riego.objects.all()
 	fertilizantes = Fertilizante.objects.all()
 	aplicaciones = AplicacionF.objects.all()
-	return render(request, 'webapp/post_list.html', {'posts': posts, 'estaciones': estaciones, 'cultivos':cultivos, 'riegos':riegos, 'fertilizantes':fertilizantes, 'aplicaciones':aplicaciones})
+	tipoSuelosFiltro1s = Tipo_suelo_f1.objects.all()
+	tipoSuelosFiltro2s = Tipo_suelo_f2.objects.all()
+	return render(request, 'webapp/post_list.html', {'posts': posts, 'estaciones': estaciones, 'cultivos':cultivos, 'riegos':riegos, 'fertilizantes':fertilizantes, 'aplicaciones':aplicaciones, 'tipoSuelosFiltro1s': tipoSuelosFiltro1s, 'tipoSuelosFiltro2s': tipoSuelosFiltro2s})
 	
 def btnDSSAT(request):	
 	home_input = os.path.join(settings.BASE_DIR, "input", "DSS_minimum_inputs")

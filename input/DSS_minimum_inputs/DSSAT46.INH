@@ -1,24 +1,24 @@
-*EXP.DETAILS: UYSB1074SN late to create DSS                                          
+*EXP.DETAILS: UYMZ1131SN late to create DSS                                          
 
 *FILES
 @N  EXP.DATA    AFILE        ADIR
-  1 EXP         UYSB1074.SNA                                                                                 
+  1 EXP         UYMZ1131.SNA                                                                                 
 @N  SPECIES     SPFILE       SPDIR
-  1 SPE         SBGRO046.SPE                                                                                 
+  1 SPE         MZCER046.SPE                                                                                 
 @N  ECOTYPE     EFILE        EDIR
-  1 ECO         SBGRO046.ECO                                                                                 
+  1 ECO         MZCER046.ECO                                                                                 
 @N  CULTIVAR    CFILE        CDIR
-  1 CUL         SBGRO046.CUL                                                                                 
+  1 CUL         MZCER046.CUL                                                                                 
 @N  SOIL        SFILE        SDIR
   1 SOIL        UY.SOL                                                                                       
 @N  WEATHER     WFILE        WDIR
-  1 WEATH       UYTA9001.WTH                                                                                 
+  1 WEATH       UYTA0001.WTH                                                                                 
 
 *SIMULATION CONTROL
 @N  GENERAL     NYERS NREPS START   SDATE RSEED SNAME.................... MODEL...
-  1 GE             21     1     S 1990346  2150 15102000                  CRGRO046
+  1 GE             11     1     S 2000001  2150 15102000                  MZCER046
 @N  OPTIONS     WATER NITRO SYMBI PHOSP POTAS DISES  CHEM  TILL   CO2
-  1 OP              Y     Y     Y     N     N     N     N     N     M
+  1 OP              Y     Y     N     N     N     N     N     N     M
 @N  METHODS     WTHER INCON LIGHT EVAPO INFIL PHOTO HYDRO NSWIT SOMDY MESEV MESOL METMP
   1 ME              M     M     E     R     S     C     R     1     G     S     2     D
 @N  MANAGEMENT  PLANT IRRIG FERTI RESID HARVS
@@ -40,33 +40,35 @@
 
 *TREATMENTS
 @N   R O C TNAME....................  CU  FL  SA  IC  MP  MI  MF  MR  MC  MT  ME  MH  SM
-  1  1 1 0 UYSB                        1   1   0   1   1   0   0   0   0   0   0   0   1
+  1  1 1 0 UYMZ                        1   1   0   1   1   0   0   0   0   0   0   0   1
 
 *CULTIVARS
 @C  CR INGENO CNAME
-  1 SB UY0141 GM 4 URUGUAY    
+  1 MZ UY0372 CLARGO UY       
 
 *FIELDS
 @L  ID_FIELD WSTA....  FLSA  FLOB  FLDT  FLDD  FLDS  FLST SLTX   SLDP ID_SOIL
-  1 UYTA     UYTA9001   0.0  -99.   -99  -99.  100.   -99 CL     -99. UYSN1J6O17
+  1 UYTA     UYTA0001   0.0  -99.   -99  -99.  100.   -99 yLoam  -99. UYSN4M24L2
 @L             XCRD            YCRD      ELEV              AREA  SLEN  FLWR  SLAS PRMGT
   1       -99.00000       -99.00000    -99.00               1.0  100.   1.0 -99.0           0
 
 *INITIAL CONDITIONS
 @C  PCR     ICDAT  ICRT  ICND  ICRN  ICRE  ICWD ICRES ICREN ICREP ICRIP ICRID
-  1 SB    1990348     0     0  1.00  1.00   0.0     0  0.00  0.00  100.    0.
+  1 MZ    2000003     0     0  1.00  1.00   0.0     0  0.00  0.00  100.    0.
 @C   ICBL  SH2O  SNH4  SNO3
-  1    5. 0.219   1.5   5.0
-  1   15. 0.219   1.5   5.0
-  1   18. 0.219   1.5   5.0
-  1   32. 0.222   1.5   5.0
-  1   42. 0.342   1.5   0.0
-  1   56. 0.307   1.5   0.0
-  1   70. 0.307   1.5   0.0
+  1    5. 0.167   1.5  15.0
+  1   15. 0.167   1.5  15.0
+  1   22. 0.167   1.5  15.0
+  1   37. 0.236   1.5  15.0
+  1   51. 0.236   1.5  15.0
+  1   66. 0.236   1.5  15.0
+  1   76. 0.306   1.5   0.0
+  1   86. 0.306   1.5   0.0
+  1  100. 0.284   1.5   0.0
 
 *PLANTING DETAILS
 @P    PDATE   EDATE  PPOP  PPOE  PLME  PLDS  PLRS  PLRD  PLDP  PLWT  PAGE  PENV  PLPH  SPRL
-  1 1990349     -99   7.0   7.0     S     R   15.  -99.   2.5  -99.  -99. -99.0 -99.0 -99.0
+  1 2000004     -99   7.0   7.0     S     R   15.  -99.   2.5  -99.  -99. -99.0 -99.0 -99.0
 
 *IRRIGATION
 @I   IEFF  IDEP  ITHR  IEPT  IOFF  IAME  IAMT

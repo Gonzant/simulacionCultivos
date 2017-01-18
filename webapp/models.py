@@ -95,3 +95,15 @@ class Administrativo_contador(models.Model):
 	usado = models.IntegerField()
 	def __str__(self):
 		return str(self.contador)
+            
+class Tipo_suelo_f1(models.Model):	
+	nombre = models.CharField(max_length=1000)
+	etiqueta = models.CharField(max_length=1000)
+	def __str__(self):
+		return self.nombre
+            
+class Tipo_suelo_f2(models.Model):	
+	nombre = models.CharField(max_length=100)
+	etiqueta = models.CharField(max_length=100)
+	def __str__(self):
+		return self.nombre

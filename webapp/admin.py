@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Post, EstacionMeteorologica, Cultivo, Suelo, TipoCultivar, InicialH20, InicialNO3, Riego, Fertilizante, AplicacionF
-from .models import Administrativo_procesamiento, Administrativo_contador
+from .models import Administrativo_procesamiento, Administrativo_contador, Tipo_suelo_f1, Tipo_suelo_f2
 
 admin.site.register(Post)
 admin.site.register(EstacionMeteorologica)
@@ -14,3 +14,5 @@ admin.site.register(Fertilizante)
 admin.site.register(AplicacionF)
 admin.site.register(Administrativo_procesamiento)
 admin.site.register(Administrativo_contador)
+admin.site.register(Tipo_suelo_f1)
+admin.site.register(Tipo_suelo_f2)
