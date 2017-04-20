@@ -555,7 +555,12 @@ def btnDSSAT(request):
 			fw.write(temp_str)
 
 			#Get soil info from *.SOL
-			soil_depth, wp, fc, nlayer = get_soil_IC(ID_SOIL)  
+			soil_depth, wp, fc, nlayer = get_soil_IC(ID_SOIL)
+			print("ACA LOS VALORES DEL UY:SOL")  
+			print(soil_depth) 
+			print(wp) 
+			print(fc) 
+			print(nlayer)  
 			temp_str=fr.readline()
 			print("nlayer", nlayer)		
 			print("i_NO3",i_NO3)

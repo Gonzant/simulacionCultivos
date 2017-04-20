@@ -55,7 +55,7 @@
 		var cmbDF2 = document.getElementById("cmbDetalleSueloF2").value;
 		var suelosFiltrados = [];
 
-	for(i = 0; i < cultivos[valor].suelos.length; i++) {
+		for(i = 0; i < cultivos[valor].suelos.length; i++) {
 			var str = cultivos[valor].suelos[i].etiqueta;
 			if (str.search(cmbDF1) === 0){ //contiene 
 				var option = new Object();
@@ -70,8 +70,8 @@
 			if (s.search(cmbDF2) >= 0){ 
 				codTipoSuelo = suelosFiltrados[i].value;
 			}
-		}
-});
+		}		
+	});
 
 	
 	function cargarEstaciones(){
@@ -87,7 +87,7 @@
 		{% endfor %}
 	};
 
-	function cargarTipoSuelosFiltro1(){
+	function cargarTipoSuelosFiltro1(){		
 		{% for tipoSuelosFiltro1 in tipoSuelosFiltro1s %}
 			var tipoSuelosFiltro1 = {
 				nombre: "{{ tipoSuelosFiltro1.nombre }}",
@@ -95,6 +95,13 @@
 			}			
 			tipoSuelosFiltro1s.push(tipoSuelosFiltro1);
 		{% endfor %}
+		// Se cargan los filtros de los suelos
+		var cmbDetalleSueloF1 = document.getElementById("cmbDetalleSueloF1");					
+		for(i = 0; i < tipoSuelosFiltro1s.length; i++) {
+			var option = document.createElement('option');
+			option.text = tipoSuelosFiltro1s[i].etiqueta;
+			cmbDetalleSueloF1.add(option);
+		}		
 	};
 
 	function cargarTipoSuelosFiltro2(){
@@ -105,6 +112,12 @@
 			}			
 			tipoSuelosFiltro2s.push(tipoSuelosFiltro2);
 		{% endfor %}
+		var cmbDetalleSueloF2 = document.getElementById("cmbDetalleSueloF2");					
+		for(i = 0; i < tipoSuelosFiltro2s.length; i++) {
+			var option = document.createElement('option');
+			option.text = tipoSuelosFiltro2s[i].etiqueta;
+			cmbDetalleSueloF2.add(option);
+		}
 	};
 	
 	function changeEstacion() {
@@ -182,21 +195,7 @@
 		if(radio.value === 'SB'){
 			valor = 0;
 			no3Div.style.display = (no3Div.style.display == 'none') ? 'block' : 'none'; 
-		}
-			
-		var cmbDetalleSueloF1 = document.getElementById("cmbDetalleSueloF1");					
-		for(i = 0; i < tipoSuelosFiltro1s.length; i++) {
-			var option = document.createElement('option');
-			option.text = tipoSuelosFiltro1s[i].etiqueta;
-			cmbDetalleSueloF1.add(option);
-		}
-
-		var cmbDetalleSueloF2 = document.getElementById("cmbDetalleSueloF2");					
-		for(i = 0; i < tipoSuelosFiltro2s.length; i++) {
-			var option = document.createElement('option');
-			option.text = tipoSuelosFiltro2s[i].etiqueta;
-			cmbDetalleSueloF2.add(option);
-		}
+		}				
 			
 		/*var cmbDetalleSuelo = document.getElementById("cmbDetalleSuelo");					
 		for(i = 0; i < cultivos[valor].suelos.length; i++) {
@@ -207,8 +206,8 @@
 		}*/
 
 		
-		var cmbDetalleCultivar = document.getElementById("cmbDetalleCultivar");					
-		
+		var cmbDetalleCultivar = document.getElementById("cmbDetalleCultivar");							
+
 		for(i = 0; i < cultivos[valor].tipo_cultivares.length; i++) {
 			var option = document.createElement('option');
 			option.text = cultivos[valor].tipo_cultivares[i].etiqueta;
@@ -241,7 +240,7 @@
 		var row = table.insertRow(count);	
 		var celdas = [];
 		
-		for (i=0; i<17; i++){
+		for (i=0; i<19; i++){
 			var cell = row.insertCell(i);
 			celdas.push(cell);
 		}
@@ -257,6 +256,14 @@
 		i++;
 		celdas[i].innerHTML = "<input type='text' name='cultivoTSuelo' value='" + escenarios[count-1].cultivoTSuelo + "'>";//escenarios[count-1].nombre;
 		i++;
+
+
+		celdas[i].innerHTML = "<input type='text' name='cultivoSSuelo' value='" + escenarios[count-1].cultivoSSuelo + "'>";//escenarios[count-1].nombre;
+		i++;
+		celdas[i].innerHTML = "<input type='text' name='cultivoProfundidad' value='" + escenarios[count-1].cultivoProfundidad + "'>";//escenarios[count-1].nombre;
+		i++;
+
+
 		celdas[i].innerHTML = "<input type='text' name='cultivoTCultivar' value='" + escenarios[count-1].cultivoTCultivar + "'>";//escenarios[count-1].nombre;
 		i++;
 		celdas[i].innerHTML = "<input type='text' name='cultivoNHumedad' value='" + escenarios[count-1].cultivoNHumedad + "'>";//escenarios[count-1].nombre;
@@ -285,26 +292,29 @@
 	function agregarEscenario(){
 		var cultivo = document.getElementById('rdCult');	
 		var escenario = new Object();	
-		var result = true;
+		var result = true;		
 		
+		var cmbDF1 = document.getElementById("cmbDetalleSueloF1").value;
+		var cmbDF2 = document.getElementById("cmbDetalleSueloF2").value;
+		var suelosFiltrados = [];
+
 		for(i = 0; i < cultivos[valor].suelos.length; i++) {
-			var str = cultivos[valor].suelos[i].etiqueta;
-			if (str.search(cmbDF1) === 0){ //contiene 
+			var str = cultivos[valor].suelos[i].etiqueta;			
+			if (str.indexOf(cmbDF1) >= 0){ //contiene 
 				var option = new Object();
 				option.text = cultivos[valor].suelos[i].etiqueta;
 				option.value = cultivos[valor].suelos[i].valor;
 				suelosFiltrados.push(option);
-			}			
-			
+			}						
 		}
+
+		
 		for(i = 0; i < suelosFiltrados.length; i++) {
 			var s = suelosFiltrados[i].text;
-			if (s.search(cmbDF2) >= 0){ 
+			if (s.indexOf(cmbDF2) >= 0){ 
 				codTipoSuelo = suelosFiltrados[i].value;
 			}
-		}	
-		
-
+		}					
 		//var cmbDetalleSuelo = document.getElementById("cmbDetalleSuelo");					
 		
 
@@ -326,6 +336,8 @@
 				fFinSim: document.getElementById("hastaAnioSimulacion").value,
 				cultivo: ncultivo,
 				cultivoTSuelo: codTipoSuelo, //document.getElementById("cmbDetalleSuelo").value,
+				cultivoSSuelo: document.getElementById("cmbDetalleSueloF1").selectedIndex, 
+				cultivoProfundidad: document.getElementById("cmbDetalleSueloF2").selectedIndex, 
 				cultivoTCultivar: document.getElementById("cmbDetalleCultivar").value,
 				cultivoNHumedad: document.getElementById("cmbDetalleH20").value,
 				cultivoNO3: document.getElementById("cmbDetalleNO3").value,
@@ -347,6 +359,8 @@
 					nombreCultivo: ncultivo,
 					detalle: {
 						suelo: codTipoSuelo, //document.getElementById("cmbDetalleSuelo").value,
+						sueloString: document.getElementById("cmbDetalleSueloF1").value,
+						sueloDegradado: document.getElementById("cmbDetalleSueloF2").value,
 						tCultivar: document.getElementById("cmbDetalleCultivar").value,
 						nHumedadd: document.getElementById("cmbDetalleH20").value,
 						no3: document.getElementById("cmbDetalleNO3").value,
@@ -434,12 +448,12 @@
 		cell2.innerHTML = etiquetaNombreCultivo(escenarioActual.cultivo.nombreCultivo, cultivos);
 		cell3.innerHTML = etiquetaTipoCultivar(escenarioActual.cultivo.detalle.tCultivar, cultivos);
 		cell4.innerHTML = etiquetaRiego(escenarioActual.riego, cultivos);//etiquetaRiego(escenarios[i].riego);		
-		cell5.innerHTML = "<button type=\"button\" class='btn btn-primary' onclick='setearCookie("+(escenarios.length-1).toString()+")'>Modificar</button>";
+		cell5.innerHTML = "";//<button type=\"button\" class='btn btn-primary' name='modificar' onclick='setearCookie("+(escenarios.length-1).toString()+")'>Modificar</button>";
 	};
 	
 	function cerrar(){ 
 		$("#carga").animate({"opacity":"0"},1000,function(){$("#carga").css("display","none");}); 
-	} 
+	};
 	
 	function validaCamposVacios(){
 		
@@ -484,7 +498,7 @@
 		}
 		else{datosOk = true;}
 		return datosOk;
-	}
+	};
 
 
 	function checkSoja(){
@@ -506,35 +520,43 @@
 			}else{
 				cargarEscenarioCookie(nEscenarioCookie);			
 				divInicial.innerHTML = "<p>Modifique las variables que considere del escenario <u>"+document.getElementById("inNombreEscenario").value+"</u>.</p>"	;
-			}			
+			};
+			/*var botones = document.getElementsByName('modificar');
+			for (var b=0;b<botones.length;b++){
+				botones[b].disabled = true;
+			}*/
+			
+
 		};
 	};
 		
-	function cargarEscenarioCookie(nEscenario){
-		var co = JSON.parse(getCookie('escenarios'));
-		var escenariosCookie = co[nEscenario];
-		var numeroEscenario = getCookie('numeroEscenario');
-		
+	function cargarEscenarioCookie(nEscenario){		
+		var co = JSON.parse(getCookie('escenarios'));		
+		var escenariosCookie = co[nEscenario];		
+		var numeroEscenario = getCookie('numeroEscenario');		
 		//Estacion meteorologica
-		var selectEstacion = document.getElementById("selectEstacion");
-		setSelectedValue(selectEstacion, escenariosCookie.estMeteorologica);
+		var selectEstacion = document.getElementById("selectEstacion");		
+		setSelectedValue(selectEstacion, escenariosCookie.estMeteorologica);		
 		changeEstacion();
+		
 		//Periodo simulacion
 		var desdeAnioSimulacion = document.getElementById("desdeAnioSimulacion").value = escenariosCookie.fInicioSim;
 		document.getElementById("desdeAnioSimulacion").setAttribute("readonly", true);
+		
 		var hastaAnioSimulacion = document.getElementById("hastaAnioSimulacion").value = escenariosCookie.fFinSim;
 		document.getElementById("hastaAnioSimulacion").setAttribute("readonly", true);
 		
 		//Cultivo
 		var nombreCultivo = document.getElementsByName("cultivo");
 		cul = setRadioButton(nombreCultivo, escenariosCookie.cultivo);
-		cargarComboBoxDetalle(nombreCultivo[cul]);
-		
+		cargarComboBoxDetalle(nombreCultivo[cul]);		
 		//Detalles cultivos
-		var detalleSuelo = codTipoSuelo;
-		
-		setSelectedValue(detalleSuelo, escenariosCookie.cultivoTSuelo);		
-		setSelectedValue(document.getElementById("cmbDetalleCultivar"), escenariosCookie.cultivoTCultivar);
+		var detalleSuelo = codTipoSuelo;		
+		//Busco el suelo
+		document.getElementById("cmbDetalleSueloF1").selectedIndex = escenariosCookie.cultivoSSuelo;	
+		//Busco el degradado
+		document.getElementById("cmbDetalleSueloF2").selectedIndex = escenariosCookie.cultivoProfundidad;			
+		setSelectedValue(document.getElementById("cmbDetalleCultivar"), escenariosCookie.cultivoTCultivar);		
 		setSelectedValue(document.getElementById("cmbDetalleH20"), escenariosCookie.cultivoNHumedad);
 		setSelectedValue(document.getElementById("cmbDetalleNO3"), escenariosCookie.cultivoNO3);
 
@@ -591,22 +613,22 @@
 				cargarEscenarioCookie(j);				
 				agregarEscenario();				
 			}
-		};		
+		};
 	};
 	
 	function getCookie(c_name) {
-    if (document.cookie.length > 0) {
-        c_start = document.cookie.indexOf(c_name + "=");
-        if (c_start != -1) {
-            c_start = c_start + c_name.length + 1;
-            c_end = document.cookie.indexOf(";", c_start);
-            if (c_end == -1) {
-                c_end = document.cookie.length;
-            }
-            return unescape(document.cookie.substring(c_start, c_end));
-        }
-    }
-    return "";
+	    if (document.cookie.length > 0) {
+	        c_start = document.cookie.indexOf(c_name + "=");
+	        if (c_start != -1) {
+	            c_start = c_start + c_name.length + 1;
+	            c_end = document.cookie.indexOf(";", c_start);
+	            if (c_end == -1) {
+	                c_end = document.cookie.length;
+	            }
+	            return unescape(document.cookie.substring(c_start, c_end));
+	        }
+	    }
+	    return "";
 	};
 
 	function setSelectedValue(selectObj, valueToSet) {
@@ -894,6 +916,8 @@
 								<th>FFinSim</th>								
 								<th>Cultivo</th>
 								<th>CultivoTSuelo</th>
+								<th>CultivoSSuelo</th>
+								<th>CultivoProfundidad</th>
 								<th>CultivoTCultivar</th>
 								<th>CultivoNHumedad</th>
 								<th>CultivoNO3</th>
@@ -919,30 +943,30 @@
 				<input type="button" id="agregarIdEscenario" value ="Agregar nuevo Escenario" name="agregarEscenario" class="btn btn-success" style="margin:0px auto; display:block;" onclick="btnAgregarEscenario()">
 			</div>
 		</div>		
-	   <div class="modal fade" id="myModal" style="-webkit-box-shadow: 0 3px 7px transparent; background: transparent; border: 1px solid transparent;">
-		  <div class="modal-dialog  modal-sm">
-			<div class="modal-content">
-			  <div class="modal-header">
-			  </div>
-			  <div class="modal-body" id="modal-body">
-				 <p>¿Desea conservar los datos ingresados para el próximo escenario? </p>
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" id="btnNoGuardaDatos" class="btn btn-default" onclick="vaciarForm();" data-dismiss="modal">No</button>
-				<button type="button" id="btnSiGuardaDatos" class="btn btn-primary" onclick="borrarNombreEscenario();" data-dismiss="modal">Si</button>
-			  </div>
+		<div class="modal fade" id="myModal" style="-webkit-box-shadow: 0 3px 7px transparent; background: transparent; border: 1px solid transparent;">
+			<div class="modal-dialog  modal-sm">
+				<div class="modal-content">
+				    <div class="modal-header">
+				    </div>
+				    <div class="modal-body" id="modal-body">
+					    <p>¿Desea conservar los datos ingresados para el próximo escenario? </p>
+				    </div>
+				    <div class="modal-footer">
+					    <button type="button" id="btnNoGuardaDatos" class="btn btn-default" onclick="vaciarForm();" data-dismiss="modal">No</button>
+					    <button type="button" id="btnSiGuardaDatos" class="btn btn-primary" onclick="borrarNombreEscenario();" data-dismiss="modal">Si</button>
+				    </div>
+				</div>
 			</div>
-		  </div>
 		</div>
 		
 		<div class="modal fade" id="modalCargando" style="-webkit-box-shadow: 0 3px 5px transparent; background: transparent; border: 1px solid transparent;">
-		  <div class="modal-dialog  modal-sm">
-			<div class="modal-content" align="center">			  
-			  <div class="modal-body" id="modal-body" align="center">
-				 <img src="/static/img/cargando.gif" alt="cargando" class="img-responsive">
-			  </div>			  
-			</div>
-		  </div>
+		    <div class="modal-dialog  modal-sm">
+			    <div class="modal-content" align="center">			  
+			        <div class="modal-body" id="modal-body" align="center">
+				        <img src="/static/img/cargando.gif" alt="cargando" class="img-responsive">
+			        </div>			  
+			    </div>
+		    </div>
 		</div>
 	</form>
 

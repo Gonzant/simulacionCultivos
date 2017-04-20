@@ -138,9 +138,18 @@ function validaPeriodoSimulacion(){
 } 
  
 function vaciarForm(){
+
 	$('#desdeAnioSimulacion').attr('readonly', true);
 	$('#hastaAnioSimulacion').attr('readonly', true);
-         $('#selectEstacion').attr('disabled', true);
+ 	$('#selectEstacion').attr('disabled', true);
+ 	document.getElementsByName('cultivo')[0].checked = true; 	
+ 	checkSoja();
+ 	$("#cmbDetalleSueloF1").val($("#cmbDetalleSueloF1 option:first").val());
+ 	$("#cmbDetalleSueloF2").val($("#cmbDetalleSueloF2 option:first").val());
+ 	$("#cmbDetalleCultivar").val($("#cmbDetalleCultivar option:first").val());
+ 	$("#cmbDetalleH20").val($("#cmbDetalleH20 option:first").val());
+ 	$("#cmbDetalleNO3").val($("#cmbDetalleNO3 option:first").val());
+ 	$("#cmbDetalleCultivar").val($("#cmbDetalleCultivar option:first").val());
 	$('#inNombreEscenario').val(''); 
 	$('#diasDespuesSiembraAp1I').val('');
 	$('#cantidadFertilizanteAp1I').val('');
@@ -148,6 +157,13 @@ function vaciarForm(){
 	$('#cantidadFertilizanteAp2I').val('');
 	$('#diasDespuesSiembraI').val('');
 	$('#cantidadFertilizanteI').val('');
+
+	$('#datetimepicker4').datetimepicker('setDate', new Date());
+	document.getElementsByName('fertilizacion')[0].checked = true;
+	OnChangeRadioFertilizacion (this);
+	document.getElementsByName('fertilizacionO')[1].checked = true;
+	OnChangeRadioFertilizacionOtras (this);
+	document.getElementsByName('riego')[0].checked = true;
 	$('body,html').animate({scrollTop : 0}, 500);
 }
 
