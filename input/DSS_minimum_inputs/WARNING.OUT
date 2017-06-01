@@ -2,11 +2,11 @@
 
 ******************************************************************************
 
-*DSSAT Cropping System Model Ver. 4.6.1.000 -release      APR 20, 2017; 11:17:54
+*DSSAT Cropping System Model Ver. 4.6.1.000 -release      JUN 01, 2017; 12:00:49
                                                                                 
-*RUN   1        : UYSB                      CRGRO046 UYSB1239    1              
+*RUN   1        : UYSB                      CRGRO046 UYSB1240    1              
  MODEL          : CRGRO046 - Soybean                                            
- EXPERIMENT     : UYSB1239 SN late to create DSS                                
+ EXPERIMENT     : UYSB1240 SN late to create DSS                                
  DATA PATH      :                                                               
  TREATMENT  1   : UYSB                      CRGRO046                            
   
@@ -15,17 +15,17 @@
  Saturated hydraulic conductivity equal to zero for one or more soil layers.   
  Data will be treated as missing.                                              
 
- SOILDYN  YEAR DOY = 1990 107
+ SOILDYN  YEAR DOY = 1990 149
  Surface runoff curve number has been changed from   1.0 to  25.0.             
 
- IPSOIL  YEAR DOY = 1990 107
+ IPSOIL  YEAR DOY = 1990 149
  File does not exist:                                                          
  C:\DSSAT46\StandardData\RESCH046.SDA                                          
  Default residue characteristics will be used.                                 
 
  FREEZE  YEAR DOY = 1990 203
- Freeze occurred at   93 days after planting.                                  
+ Freeze occurred at   51 days after planting.                                  
 
  CRPGRO  YEAR DOY = 1990 203
- Plant died due to extreme stress at  93 days after planting.                  
+ Plant died due to extreme stress at  51 days after planting.                  
  (DAY : 1990 203; TURFAC :  1.00; AGEFAC :  1.03  )                            

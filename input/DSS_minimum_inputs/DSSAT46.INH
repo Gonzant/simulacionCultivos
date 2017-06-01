@@ -1,8 +1,8 @@
-*EXP.DETAILS: UYSB1239SN late to create DSS                                          
+*EXP.DETAILS: UYSB1240SN late to create DSS                                          
 
 *FILES
 @N  EXP.DATA    AFILE        ADIR
-  1 EXP         UYSB1239.SNA                                                                                 
+  1 EXP         UYSB1240.SNA                                                                                 
 @N  SPECIES     SPFILE       SPDIR
   1 SPE         SBGRO046.SPE                                                                                 
 @N  ECOTYPE     EFILE        EDIR
@@ -16,13 +16,13 @@
 
 *SIMULATION CONTROL
 @N  GENERAL     NYERS NREPS START   SDATE RSEED SNAME.................... MODEL...
-  1 GE              3     1     S 1990107  2150 15102000                  CRGRO046
+  1 GE              3     1     S 1990149  2150 15102000                  CRGRO046
 @N  OPTIONS     WATER NITRO SYMBI PHOSP POTAS DISES  CHEM  TILL   CO2
   1 OP              Y     Y     Y     N     N     N     N     N     M
 @N  METHODS     WTHER INCON LIGHT EVAPO INFIL PHOTO HYDRO NSWIT SOMDY MESEV MESOL METMP
   1 ME              M     M     E     R     S     C     R     1     G     S     2     D
 @N  MANAGEMENT  PLANT IRRIG FERTI RESID HARVS
-  1 MA              R     N     N     N     M
+  1 MA              R     A     N     N     M
 @N  OUTPUTS     FNAME OVVEW SUMRY FROPT GROUT CAOUT WAOUT NIOUT MIOUT DIOUT  LONG CHOUT OPOUT
   1 OU              N     Y     Y     1     Y     N     Y     Y     N     N     Y     N     N
 
@@ -54,7 +54,7 @@
 
 *INITIAL CONDITIONS
 @C  PCR     ICDAT  ICRT  ICND  ICRN  ICRE  ICWD ICRES ICREN ICREP ICRIP ICRID
-  1 SB    1990109     0     0  1.00  1.00   0.0     0  0.00  0.00  100.    0.
+  1 SB    1990151     0     0  1.00  1.00   0.0     0  0.00  0.00  100.    0.
 @C   ICBL  SH2O  SNH4  SNO3
   1    5. 0.219   1.5   5.0
   1   15. 0.219   1.5   5.0
@@ -66,7 +66,7 @@
 
 *PLANTING DETAILS
 @P    PDATE   EDATE  PPOP  PPOE  PLME  PLDS  PLRS  PLRD  PLDP  PLWT  PAGE  PENV  PLPH  SPRL
-  1 1990110     -99   7.0   7.0     S     R   15.  -99.   2.5  -99.  -99. -99.0 -99.0 -99.0
+  1 1990152     -99   7.0   7.0     S     R   15.  -99.   2.5  -99.  -99. -99.0 -99.0 -99.0
 
 *IRRIGATION
 @I   IEFF  IDEP  ITHR  IEPT  IOFF  IAME  IAMT
