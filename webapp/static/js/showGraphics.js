@@ -5,7 +5,7 @@ function cargarParrafos(){
 		document.getElementById("datosBoxplot").appendChild(div1);
 		
 		var div2 = document.createElement('div');
-		div2.innerHTML = "<p>Para el escenario <u>" + escenarios[i].nombre + "</u> hay una probabilidad de 50% de obtener rindes por encima de "+escenarios[i].mediana+"Kg/ha. Por otro lado, 3 de cada 4 años se obtienen rindes por encima de "+escenarios[i].base+"Kg/ha, la probabilidad es de 75%, y una vez cada 4 años rindes por encima de "+escenarios[i].mayor + "Kg/ha (25%).</p>";
+		div2.innerHTML = "<p>Para el escenario <u>" + escenarios[i].nombre + "</u> hay una probabilidad de 50% de obtener rindes por encima de "+escenarios[i].mediana+"Kg/ha. Por otro lado, 3 de cada 4 años se obtienen rindes por encima de "+escenarios[i].whiskMenor+"Kg/ha, la probabilidad es de 75%, y una vez cada 4 años rindes por encima de "+escenarios[i].whiskMayor + "Kg/ha (25%).</p>";
 		
 		document.getElementById("datosCurvaExedencia").appendChild(div2);
 	}					
